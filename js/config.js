@@ -40,7 +40,7 @@ const CONFIG = {
   checkoutLinks: {
     // Subscription tiers (recurring)
     supporter:   "https://buy.stripe.com/7sY28s8ZH0ex0qJ7iT7Vm00",
-    contributor: "",
+    contributor: "https://buy.stripe.com/3cI7sM6Rzgdv1uN32D7Vm01",
     partner:     "",
     founder:     "",
     showSponsor: "",
