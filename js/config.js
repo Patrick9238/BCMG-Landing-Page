@@ -46,7 +46,7 @@ const CONFIG = {
     showSponsor: "https://buy.stripe.com/dRm14o6Rzgdvddv8mX7Vm04",
     // Merch (one-time Stripe Payment Links) — each hat has its own Buy button
     hatFixOrlando:  "https://buy.stripe.com/7sY00k5Nv0ex8Xfbz97Vm05",
-    hatWelcomeShow: ""
+    hatWelcomeShow: "https://buy.stripe.com/bJe14oa3L9P7ddvdHh7Vm06"
   },
 
   /* Social / external links (footer). Leave blank to hide. */
