@@ -41,7 +41,7 @@ const CONFIG = {
     // Subscription tiers (recurring)
     supporter:   "https://buy.stripe.com/7sY28s8ZH0ex0qJ7iT7Vm00",
     contributor: "https://buy.stripe.com/3cI7sM6Rzgdv1uN32D7Vm01",
-    partner:     "",
+    partner:     "https://buy.stripe.com/28E5kEa3Lf9rgpHcDd7Vm02",
     founder:     "",
     showSponsor: "",
     // Merch (one-time) — used by the cart's checkout button
