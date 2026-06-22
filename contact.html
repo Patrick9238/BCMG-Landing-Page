@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — The Patrick Carr Show</title>
+  <meta name="description" content="Get in touch with The Patrick Carr Show. Send your story, ask about a tier, or get your business involved.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img class="logo" src="assets/logo.svg" alt="The Patrick Carr Show logo">
+        <span class="brand-text">The Patrick Carr Show<small>Powered by Blue Collar Media Group</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tiers">Get Involved</a>
+        <a href="merch.html">Merch</a>
+        <a href="businesses.html">Approved Businesses</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a class="btn btn-gold nav-cta" href="index.html#tiers">Join The Show</a>
+        <button class="cart-btn" data-open-cart aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact <span class="accent">Us</span></h1>
+      <p>Got a story? Want to get involved or get your business on the Show? Reach out — we read everything.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Let's Talk</h3>
+          <p>Whether you're a viewer with a story or a business ready to grow, we want to hear from you.
+             Fill out the form and it comes straight to our team.</p>
+
+          <div class="info-row">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div><div class="lbl">Email</div><div class="val"><a id="info-email" href="#"></a></div></div>
+          </div>
+          <div class="info-row">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg></div>
+            <div><div class="lbl">Based In</div><div class="val">Central Florida</div></div>
+          </div>
+          <div class="info-row">
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+            <div><div class="lbl">Watch</div><div class="val"><a id="info-yt" href="#" target="_blank" rel="noopener">The Patrick Carr Show on YouTube</a></div></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-success" id="form-success">Thanks — your message is on its way. We'll be in touch soon.</div>
+          <form id="contact-form" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="you@email.com">
+            </div>
+            <div class="field">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
+            </div>
+            <div class="field">
+              <label for="interest">What's this about?</label>
+              <select id="interest" name="interest">
+                <option>I have a story to share</option>
+                <option>Becoming a Supporter / Contributor</option>
+                <option>Partner / Founder / Show Sponsor tier</option>
+                <option>Getting my business on the Show</option>
+                <option>Merchandise question</option>
+                <option>Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required placeholder="Tell us what's on your mind..."></textarea>
+            </div>
+            <button class="btn btn-gold btn-lg btn-block" type="submit">Send Message</button>
+            <p class="form-note">Your message is sent straight to our team's inbox.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" style="margin-bottom:14px">
+            <img class="logo" src="assets/logo.svg" alt="logo">
+            <span class="brand-text">The Patrick Carr Show</span>
+          </a>
+          <p>Real conversations, real businesses, real results — powered by Blue Collar Media Group.</p>
+          <div class="socials" id="socials"></div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#tiers">Get Involved</a>
+            <a href="merch.html">Merchandise</a>
+            <a href="businesses.html">Approved Businesses</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4>Get In Touch</h4>
+          <div class="footer-links">
+            <a id="footer-email" href="#">Email Us</a>
+            <a href="contact.html">Send Your Story</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> The Patrick Carr Show · Blue Collar Media Group. All rights reserved.</span>
+        <span>thepatrickcarrshow.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="drawer-overlay"></div>
+  <aside class="drawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h3>Your Cart</h3>
+      <button class="drawer-close" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-items" id="cart-items"></div>
+    <div class="drawer-foot">
+      <div class="drawer-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+      <button class="btn btn-gold btn-block" id="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fe = document.getElementById("footer-email");
+      const ie = document.getElementById("info-email");
+      if (fe) fe.href = "mailto:" + CONFIG.notifyEmail;
+      if (ie) { ie.href = "mailto:" + CONFIG.notifyEmail; ie.textContent = CONFIG.notifyEmail; }
+      const iy = document.getElementById("info-yt");
+      if (iy) iy.href = CONFIG.youtube.channelUrl;
+
+      const s = document.getElementById("socials");
+      if (s) {
+        const map = { youtube:"YT", instagram:"IG", facebook:"FB", tiktok:"TT", x:"X" };
+        s.innerHTML = Object.entries(CONFIG.social).filter(([k,v]) => v)
+          .map(([k,v]) => `<a href="${v}" target="_blank" rel="noopener" title="${k}">${map[k]||k}</a>`).join("");
+      }
+
+      // Contact form: for now, composes an email to the notify address.
+      // Later, point this at a GoHighLevel form/webhook for full CRM capture.
+      const form = document.getElementById("contact-form");
+      form?.addEventListener("submit", e => {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        const d = new FormData(form);
+        const subject = `New message from ${d.get("name")} — ${d.get("interest")}`;
+        const body =
+          `Name: ${d.get("name")}\n` +
+          `Email: ${d.get("email")}\n` +
+          `Phone: ${d.get("phone") || "—"}\n` +
+          `Interest: ${d.get("interest")}\n\n` +
+          `${d.get("message")}`;
+        window.location.href =
+          `mailto:${CONFIG.notifyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        document.getElementById("form-success").classList.add("show");
+        form.reset();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="300" viewBox="0 0 480 300">
+  <rect width="480" height="300" fill="#1f242e"/>
+  <g transform="translate(240 130)" fill="none" stroke="#3a4250" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-46" y="-30" width="92" height="64" rx="6"/>
+    <circle cx="0" cy="2" r="16"/>
+    <path d="M-30 -30v-10h20v10"/>
+  </g>
+  <text x="240" y="220" font-family="Oswald, sans-serif" font-size="16" fill="#9aa4b2" text-anchor="middle" letter-spacing="2">BUSINESS PHOTO — REPLACE</text>
+</svg>

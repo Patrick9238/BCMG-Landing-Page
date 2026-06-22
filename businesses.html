@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Approved Businesses — The Patrick Carr Show</title>
+  <meta name="description" content="Businesses The Patrick Carr Show stands behind. Explore the map, find a Show-approved business near you in Florida.">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Leaflet (open-source map, no API key) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <img class="logo" src="assets/logo.svg" alt="The Patrick Carr Show logo">
+        <span class="brand-text">The Patrick Carr Show<small>Powered by Blue Collar Media Group</small></span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tiers">Get Involved</a>
+        <a href="merch.html">Merch</a>
+        <a href="businesses.html" class="active">Approved Businesses</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-gold nav-cta" href="index.html#tiers">Join The Show</a>
+        <button class="cart-btn" data-open-cart aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="cart-count">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Businesses We <span class="accent">Support</span></h1>
+      <p>These are the businesses the Show stands behind. Explore the map, zoom into your area, and tap a pin
+         to see photos, details, and a personal word from Patrick. Florida first — more on the way.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="container">
+      <div class="map-layout">
+        <div id="map"></div>
+      </div>
+      <p class="biz-hint">Tap a pin on the map, or pick a business below to fly straight to it.</p>
+      <div class="biz-list" id="biz-list"><!-- business cards render here --></div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="container">
+      <div class="cta-band">
+        <h2>Want To Become A Show-Approved Business?</h2>
+        <p>Approved businesses come from our Partner tier and up. Get the badge, the support, and a team behind your brand.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="btn btn-gold btn-lg" href="index.html#tiers">See The Tiers</a>
+          <a class="btn btn-ghost btn-lg" href="contact.html">Talk To Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" style="margin-bottom:14px">
+            <img class="logo" src="assets/logo.svg" alt="logo">
+            <span class="brand-text">The Patrick Carr Show</span>
+          </a>
+          <p>Real conversations, real businesses, real results — powered by Blue Collar Media Group.</p>
+          <div class="socials" id="socials"></div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#tiers">Get Involved</a>
+            <a href="merch.html">Merchandise</a>
+            <a href="businesses.html">Approved Businesses</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4>Get In Touch</h4>
+          <div class="footer-links">
+            <a id="footer-email" href="#">Email Us</a>
+            <a href="contact.html">Send Your Story</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> The Patrick Carr Show · Blue Collar Media Group. All rights reserved.</span>
+        <span>thepatrickcarrshow.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="drawer-overlay"></div>
+  <aside class="drawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h3>Your Cart</h3>
+      <button class="drawer-close" aria-label="Close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-items" id="cart-items"></div>
+    <div class="drawer-foot">
+      <div class="drawer-total"><span>Total</span><span id="cart-total">$0.00</span></div>
+      <button class="btn btn-gold btn-block" id="checkout-btn">Checkout</button>
+    </div>
+  </aside>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/businesses.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fe = document.getElementById("footer-email");
+      if (fe) fe.href = "mailto:" + CONFIG.notifyEmail;
+      const s = document.getElementById("socials");
+      if (s) {
+        const map = { youtube:"YT", instagram:"IG", facebook:"FB", tiktok:"TT", x:"X" };
+        s.innerHTML = Object.entries(CONFIG.social).filter(([k,v]) => v)
+          .map(([k,v]) => `<a href="${v}" target="_blank" rel="noopener" title="${k}">${map[k]||k}</a>`).join("");
+      }
+    });
+  </script>
+</body>
+</html>
