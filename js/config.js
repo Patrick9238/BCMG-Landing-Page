@@ -44,8 +44,9 @@ const CONFIG = {
     partner:     "https://buy.stripe.com/28E5kEa3Lf9rgpHcDd7Vm02",
     founder:     "https://buy.stripe.com/28E8wQ0tb2mF6P75aL7Vm03",
     showSponsor: "https://buy.stripe.com/dRm14o6Rzgdvddv8mX7Vm04",
-    // Merch (one-time) — used by the cart's checkout button
-    cartCheckout: ""
+    // Merch (one-time Stripe Payment Links) — each hat has its own Buy button
+    hatFixOrlando:  "",
+    hatWelcomeShow: ""
   },
 
   /* Social / external links (footer). Leave blank to hide. */
