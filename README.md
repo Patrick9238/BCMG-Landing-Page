@@ -28,12 +28,12 @@ it's organized as simple lists with comments showing how to add more.
 
 ## Showing your latest YouTube video
 
-1. Get your **Channel ID** at <https://www.youtube.com/account_advanced>.
-2. Put it in `CONFIG.youtube.channelId` in `js/config.js`.
-3. Done — your newest upload now always plays automatically on the home page.
+**Already configured.** The home page is wired to the channel **@ThePatrickCarr**
+(`channelId: "UCQVALUBg3MEO2b__twd1KRQ"`), so your **newest upload plays automatically** —
+nothing to do.
 
-(Prefer to feature one specific video? Leave `channelId` blank and set `videoId` to the
-video's ID — the part after `youtu.be/` or `watch?v=`.)
+Prefer to feature one specific video instead? In `js/config.js`, clear `channelId` and set
+`videoId` to the video's ID (the part after `youtu.be/` or `watch?v=`).
 
 ## Taking payments (recommended: Stripe)
 
@@ -71,13 +71,19 @@ Open `js/data.js` and edit the `BUSINESSES` list. For each business set:
 one or more `images`, an `info` line, and your personal `writeup`.
 The map uses Leaflet + free OpenStreetMap tiles — **no API key or billing required**.
 
-## Replacing the placeholder images
+## Brand assets & rules
 
-Swap the files in `/assets` with your real photos (keep the same filenames, or update the paths
-in `js/data.js`):
-- `hat-fix-orlando.svg` / `hat-welcome-show.svg` → product photos
-- `business-placeholder.svg` → business photos
-- `logo.svg` → your real logo
+The real logo and photos are already integrated (see `assets/img/` and `CLAUDE.md`):
+- **Logo** — the neon-sign logo (`assets/img/logo-neon.png`) is in the header, footer, and favicon.
+  **It must not be altered** — keep it exactly as the neon sign it is.
+- **Photos of Patrick** must always stay **ultra-realistic** — small enhancements only
+  (crop/color/exposure/background cleanup), never AI edits that distort his face or body.
+- **Blue Collar Media Group** logo appears in the footer, linking to bluecollarmediagroup.com.
+- **Socials** (YouTube + Instagram) are wired site-wide from `js/config.js`.
+
+Still using placeholders (swap when you have real images — keep the filenames or update `js/data.js`):
+- `assets/hat-fix-orlando.svg` / `assets/hat-welcome-show.svg` → product photos
+- `assets/business-placeholder.svg` → business photos
 
 ## Running it locally
 

@@ -26,9 +26,9 @@ const CONFIG = {
      and put the video's ID in videoId instead.
      (A YouTube URL like https://youtu.be/AbC123  -> videoId is "AbC123") */
   youtube: {
-    channelId: "",                 // e.g. "UCxxxxxxxxxxxxxxxxxxxxxx"
-    videoId: "dQw4w9WgXcQ",        // placeholder — swap for your video
-    channelUrl: "https://www.youtube.com/"  // "Subscribe" / "See all" link
+    channelId: "UCQVALUBg3MEO2b__twd1KRQ",   // @ThePatrickCarr — newest upload auto-plays
+    videoId: "",                              // optional: pin one specific video instead
+    channelUrl: "https://www.youtube.com/@ThePatrickCarr"
   },
 
   /* ---- Payments / Checkout ----
@@ -50,8 +50,8 @@ const CONFIG = {
 
   /* Social / external links (footer). Leave blank to hide. */
   social: {
-    youtube:   "https://www.youtube.com/",
-    instagram: "",
+    youtube:   "https://www.youtube.com/@ThePatrickCarr",
+    instagram: "https://www.instagram.com/patrick_r_carr/",
     facebook:  "",
     tiktok:    "",
     x:         ""

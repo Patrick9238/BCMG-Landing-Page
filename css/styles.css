@@ -76,7 +76,7 @@ img { max-width: 100%; display: block; }
 }
 .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand .logo { height: 40px; width: auto; }
+.brand .logo { height: 52px; width: auto; display: block; }
 .brand .brand-text { font-family: "Oswald", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 1.12rem; }
 .brand .brand-text small { display: block; font-size: .58rem; letter-spacing: 2px; color: var(--muted); font-weight: 500; }
 
@@ -176,11 +176,30 @@ section.block { padding: 78px 0; }
 
 .tiers-note { text-align: center; color: var(--muted); margin-top: 26px; font-size: .95rem; }
 
+/* ---------- Meet the host ---------- */
+.host-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 46px; align-items: center; }
+.host-photo { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);
+  background: radial-gradient(120% 120% at 50% 0%, rgba(47,123,240,.25), #0a0d12 70%); box-shadow: var(--shadow); }
+.host-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.host-copy h2 { font-size: clamp(2rem, 3.6vw, 3rem); margin-bottom: 8px; }
+.host-copy .role { color: var(--gold); font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: .9rem; margin-bottom: 16px; }
+.host-copy p { color: var(--muted); font-size: 1.05rem; margin-bottom: 16px; }
+.host-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+
 /* ---------- CTA band ---------- */
 .cta-band { background: linear-gradient(120deg, var(--blue-dark), var(--blue)); border-radius: 18px;
   padding: 46px; text-align: center; box-shadow: var(--shadow); }
 .cta-band h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin-bottom: 12px; }
 .cta-band p { color: rgba(255,255,255,.9); font-size: 1.1rem; margin-bottom: 24px; }
+
+/* CTA band with figure on the right */
+.cta-band--img { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; text-align: left;
+  align-items: end; padding-bottom: 0; overflow: hidden; }
+.cta-band--img .cta-copy { padding: 8px 0 46px; }
+.cta-band--img .cta-copy h2, .cta-band--img .cta-copy p { text-align: left; }
+.cta-band--img .hero-actions { justify-content: flex-start; }
+.cta-figure { align-self: end; max-height: 340px; width: auto; justify-self: end;
+  filter: drop-shadow(0 18px 30px rgba(0,0,0,.4)); }
 
 /* ---------- Merch ---------- */
 .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
@@ -281,7 +300,13 @@ form textarea { min-height: 130px; resize: vertical; }
 .footer-links { display: grid; gap: 8px; }
 .footer-links a { color: var(--muted); font-size: .92rem; }
 .footer-links a:hover { color: #fff; }
-.socials { display: flex; gap: 10px; margin-top: 14px; }
+.powered-by { display: inline-flex; align-items: center; gap: 10px; margin-top: 16px;
+  padding: 8px 14px 8px 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+.powered-by img { height: 30px; width: auto; }
+.powered-by span { font-size: .8rem; color: var(--muted); line-height: 1.2; }
+.powered-by span b { color: #fff; display: block; font-weight: 600; }
+.socials { display: flex; gap: 10px; margin-top: 16px; }
+.socials a svg { width: 18px; height: 18px; }
 .socials a { width: 38px; height: 38px; border-radius: 9px; background: var(--surface); border: 1px solid var(--border);
   display: grid; place-items: center; color: var(--muted); }
 .socials a:hover { color: #fff; border-color: var(--blue); }
@@ -303,6 +328,12 @@ form textarea { min-height: 130px; resize: vertical; }
   .hero-grid { grid-template-columns: 1fr; }
   .about-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+  .host-grid { grid-template-columns: 1fr; gap: 28px; }
+  .cta-band--img { grid-template-columns: 1fr; text-align: center; }
+  .cta-band--img .cta-copy { padding-bottom: 0; }
+  .cta-band--img .cta-copy h2, .cta-band--img .cta-copy p { text-align: center; }
+  .cta-band--img .hero-actions { justify-content: center; }
+  .cta-figure { justify-self: center; max-height: 300px; margin-top: 18px; }
   .nav-links { position: fixed; top: 70px; right: 0; left: 0; flex-direction: column; align-items: stretch;
     background: var(--bg-2); border-bottom: 1px solid var(--border); padding: 14px 22px; gap: 4px;
     transform: translateY(-130%); transition: transform .25s ease; z-index: 50; }
