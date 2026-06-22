@@ -43,7 +43,7 @@ const CONFIG = {
     contributor: "https://buy.stripe.com/3cI7sM6Rzgdv1uN32D7Vm01",
     partner:     "https://buy.stripe.com/28E5kEa3Lf9rgpHcDd7Vm02",
     founder:     "",
-    showSponsor: "",
+    showSponsor: "https://buy.stripe.com/dRm14o6Rzgdvddv8mX7Vm04",
     // Merch (one-time) — used by the cart's checkout button
     cartCheckout: ""
   },
