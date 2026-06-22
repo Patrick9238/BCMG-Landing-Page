@@ -39,7 +39,7 @@ const CONFIG = {
      Each tier and product below references one of these keys. */
   checkoutLinks: {
     // Subscription tiers (recurring)
-    supporter:   "",   // e.g. "https://buy.stripe.com/xxxx"
+    supporter:   "https://buy.stripe.com/7sY28s8ZH0ex0qJ7iT7Vm00",
     contributor: "",
     partner:     "",
     founder:     "",
