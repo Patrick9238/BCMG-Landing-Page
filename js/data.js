@@ -103,7 +103,7 @@ const PRODUCTS = [
     id: "hat-fix-orlando",
     name: "Fix Orlando Hat",
     price: 29.99,
-    image: "assets/hat-fix-orlando.svg",
+    image: "assets/hat-fix-orlando.jpg",
     description: "Structured embroidered hat. Wear the mission — Fix Orlando.",
     linkKey: "hatFixOrlando"
   },
@@ -111,7 +111,7 @@ const PRODUCTS = [
     id: "hat-welcome-to-the-show",
     name: "Welcome To The Show Hat",
     price: 29.99,
-    image: "assets/hat-welcome-show.svg",
+    image: "assets/hat-welcome-show.jpg",
     description: "Our signature lid. Welcome To The Show — now rep it everywhere.",
     linkKey: "hatWelcomeShow"
   }
