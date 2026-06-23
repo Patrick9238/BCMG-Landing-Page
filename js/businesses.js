@@ -56,15 +56,25 @@ function initBusinesses() {
   // Re-enable scroll zoom only after a click (better page scrolling UX)
   map.on("click", () => map.scrollWheelZoom.enable());
 
-  // Build the list below the map and link cards to pins
+  // Build the featured cards below the map and link them to pins
   const list = document.getElementById("biz-list");
   if (list) {
-    list.innerHTML = BUSINESSES.map((b, i) => `
-      <div class="biz-card" data-biz="${i}">
+    const featured = BUSINESSES.map((b, i) => ({ b, i })).filter(x => x.b.featured);
+    list.innerHTML = featured.map(({ b, i }) => `
+      <div class="biz-card featured" data-biz="${i}">
+        ${b.logo ? `<div class="biz-logo"><img src="${b.logo}" alt="${b.name} logo" loading="lazy"></div>` : ""}
         <div class="cat">${b.category}</div>
         <h3>${b.name}</h3>
         <div class="city">${b.city}</div>
-      </div>`).join("");
+      </div>`).join("")
+      + `<a class="biz-card biz-card-cta" href="index.html#tiers">
+           <div class="biz-logo cta">
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+           </div>
+           <div class="cat">Featured Spot Open</div>
+           <h3>Your Business Here</h3>
+           <div class="city">Become a Show-approved business →</div>
+         </a>`;
 
     list.querySelectorAll("[data-biz]").forEach(card => {
       card.addEventListener("click", () => {

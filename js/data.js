@@ -135,8 +135,22 @@ const BUSINESSES = [
     lat: 28.5509,
     lng: -81.4595,
     googleUrl: "https://share.google/JeihpsKtrajS23PmI",
+    logo: "assets/logo-corsa.png",
+    featured: true,
     info: "Full-service auto repair, collision, custom wraps, wheels, and tuning in Central Florida.",
     writeup: "Kenan is a personal friend and this shop can handle it all. From wraps to wheels. Thank you Corsa. — Patrick"
+  },
+  {
+    name: "Logos Promote",
+    category: "Apparel & Print",
+    city: "Orlando, FL",
+    lat: 28.5042,
+    lng: -81.4175,
+    googleUrl: "https://share.google/eQmwA3m3Y4tnfxGg6",
+    logo: "assets/logo-logos-promote.png",
+    featured: true,
+    info: "Custom screen printing, embroidery, promotional products, signage, and wraps in Orlando.",
+    writeup: "Every shirt and hat for the show goes through Logos Promote… we wouldn't use anyone else. — Patrick"
   }
   /* Add more businesses by copying the block above. */
 ];
