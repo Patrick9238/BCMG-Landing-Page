@@ -151,6 +151,28 @@ const BUSINESSES = [
     featured: true,
     info: "Custom screen printing, embroidery, promotional products, signage, and wraps in Orlando.",
     writeup: "Every shirt and hat for the show goes through Logos Promote… we wouldn't use anyone else. — Patrick"
+  },
+  {
+    name: "LunaFit",
+    category: "Fitness",
+    city: "Altamonte Springs, FL",
+    lat: 28.6464,
+    lng: -81.4158,
+    googleUrl: "https://share.google/eU14WzpeRPme1HfgP",
+    logo: "assets/logo-lunafit.png",
+    featured: true,
+    info: "Full-service gym — personal training, group classes, fresh meals, and supplements.",
+    writeup: "The best gym environment in Orlando! Great people, meals, supplements. Everything you need. — Patrick"
+  },
+  {
+    name: "Blue Collar Media Group",
+    category: "Media & Marketing",
+    city: "Altamonte Springs, FL",
+    lat: 28.6470,
+    lng: -81.4150,
+    googleUrl: "https://share.google/Ok9mOLtrUeKAwuSHe",
+    info: "Video, marketing, and lead generation built for contractors and home-service companies.",
+    writeup: "The #1 media company for contractors in the country. — Patrick"
   }
   /* Add more businesses by copying the block above. */
 ];
