@@ -153,7 +153,7 @@ function initViewsCounter() {
       if (shown > target) shown = target;
       el.textContent = fmt(shown);
     }
-  }, 1000);
+  }, 600);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -56,7 +56,7 @@ const CONFIG = {
   viewsCounter: {
     enabled: true,
     baseline: 4500000,                  // starting total shown
-    anchorISO: "2026-06-23T20:45:00Z",  // when the baseline was set
+    anchorISO: "2026-06-23T12:00:00Z",  // when the baseline was set (keep in the past so it's always climbing)
     perDay: 120000,                     // AVERAGE new views/day (bump this up over time)
     swingPerDay: 33000,                 // rate ramps up/down by this (~87k–153k/day)
     periodHours: 6,                     // length of one ramp-up/ramp-down cycle
