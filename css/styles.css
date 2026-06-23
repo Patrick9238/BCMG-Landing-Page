@@ -100,7 +100,7 @@ img { max-width: 100%; display: block; }
 .nav-toggle { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 8px; }
 
 /* ---------- Hero ---------- */
-.views-bar { padding: 14px 0 6px; }
+.views-bar { padding: 18px 0 0; }
 .views-box { display: flex; flex-direction: column; align-items: center; gap: 10px;
   border: 1px solid rgba(255,181,36,.42); border-radius: 14px; padding: 14px 18px;
   background: linear-gradient(180deg, rgba(255,181,36,.10), rgba(255,181,36,.02));
@@ -116,7 +116,7 @@ img { max-width: 100%; display: block; }
 .views-icons .vi-ig { color: #E1306C; }
 .views-icons .vi-fb { color: #1877F2; }
 .views-icons .vi-tt { color: #fff; }
-.hero { position: relative; overflow: hidden; padding: 70px 0 60px;
+.hero { position: relative; overflow: hidden; padding: 30px 0 60px;
   background:
     radial-gradient(1100px 500px at 80% -10%, rgba(47,123,240,.16), transparent 60%),
     radial-gradient(900px 500px at 0% 110%, rgba(255,181,36,.08), transparent 55%),
