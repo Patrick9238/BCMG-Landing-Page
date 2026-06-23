@@ -275,21 +275,30 @@ section.block { padding: 78px 0; }
 
 /* ---------- Businesses / Map ---------- */
 .map-layout { display: grid; grid-template-columns: 1fr; gap: 0; }
-#map { width: 100%; height: 560px; border-radius: var(--radius); border: 1px solid var(--border); z-index: 1; }
+#map { width: 100%; height: 560px; border-radius: var(--radius); border: 1px solid rgba(47,123,240,.55); z-index: 1;
+  box-shadow: 0 0 0 1px rgba(47,123,240,.35), 0 0 34px rgba(47,123,240,.5), 0 0 80px rgba(47,123,240,.3); }
 .biz-hint { color: var(--muted); text-align: center; margin-top: 16px; font-size: .95rem; }
-.leaflet-popup-content-wrapper { background: var(--surface); color: var(--text); border-radius: 12px; }
-.leaflet-popup-tip { background: var(--surface); }
-.biz-popup { width: 240px; }
-.biz-popup img { width: 100%; height: 130px; object-fit: cover; border-radius: 8px; margin-bottom: 10px; background: var(--surface-2); }
-.biz-popup h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.05rem; margin-bottom: 2px; color: #fff; }
-.biz-popup .cat { color: var(--blue); font-size: .8rem; font-weight: 600; margin-bottom: 8px; }
-.biz-popup p { font-size: .85rem; color: var(--muted); margin-bottom: 8px; }
+
+/* Light, Google-style popups */
+.leaflet-popup-content-wrapper { background: #fff; color: #1a1d23; border-radius: 14px; padding: 0; overflow: hidden;
+  box-shadow: 0 14px 36px rgba(0,0,0,.45); }
+.leaflet-popup-content { margin: 0; }
+.leaflet-popup-tip { background: #fff; }
+.leaflet-popup-close-button { color: #fff !important; top: 6px !important; right: 8px !important; z-index: 3;
+  font-size: 22px; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.biz-popup { width: 250px; }
+.biz-popup .pimg { width: 100%; height: 142px; object-fit: cover; display: block; background: #eef1f5; }
+.biz-popup .pimg.logo-tile { object-fit: contain; padding: 18px; background: #0d0f14; }
+.biz-popup .pbody { padding: 13px 15px 15px; }
+.biz-popup h4 { font-family: "Oswald", sans-serif; text-transform: uppercase; font-size: 1.12rem; margin-bottom: 2px; color: #14171c; }
+.biz-popup .cat { color: var(--blue); font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 8px; }
+.biz-popup p { font-size: .85rem; color: #4a5260; margin-bottom: 10px; }
 .biz-popup .gmap-link { display: inline-flex; align-items: center; gap: 6px; margin: 2px 0 10px;
   background: var(--blue); color: #fff; text-decoration: none; font-weight: 600; font-size: .82rem;
   padding: 7px 12px; border-radius: 8px; transition: background .2s; }
 .biz-popup .gmap-link:hover { background: var(--blue-dark); }
 .biz-popup .gmap-link svg { width: 15px; height: 15px; }
-.biz-popup .quote { border-left: 3px solid var(--gold); padding-left: 10px; font-style: italic; color: #d7dde6; font-size: .84rem; }
+.biz-popup .quote { border-left: 3px solid var(--gold); padding-left: 10px; font-style: italic; color: #3a4150; font-size: .84rem; }
 
 .biz-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; margin-top: 34px; }
 .biz-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; cursor: pointer; text-align: center;

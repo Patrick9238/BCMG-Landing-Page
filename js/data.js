@@ -136,6 +136,7 @@ const BUSINESSES = [
     lng: -81.4595,
     googleUrl: "https://share.google/JeihpsKtrajS23PmI",
     logo: "assets/logo-corsa.png",
+    photo: "assets/biz-corsa.jpg",
     featured: true,
     info: "Full-service auto repair, collision, custom wraps, wheels, and tuning in Central Florida.",
     writeup: "Kenan is a personal friend and this shop can handle it all. From wraps to wheels. Thank you Corsa. — Patrick"
@@ -160,6 +161,7 @@ const BUSINESSES = [
     lng: -81.4158,
     googleUrl: "https://share.google/eU14WzpeRPme1HfgP",
     logo: "assets/logo-lunafit.png",
+    photo: "assets/biz-lunafit.jpg",
     featured: true,
     info: "Full-service gym — personal training, group classes, fresh meals, and supplements.",
     writeup: "The best gym environment in Orlando! Great people, meals, supplements. Everything you need. — Patrick"
@@ -171,6 +173,7 @@ const BUSINESSES = [
     lat: 28.6470,
     lng: -81.4150,
     googleUrl: "https://share.google/Ok9mOLtrUeKAwuSHe",
+    logo: "assets/img/bcmg-logo.png",
     info: "Video, marketing, and lead generation built for contractors and home-service companies.",
     writeup: "The #1 media company for contractors in the country. — Patrick"
   }

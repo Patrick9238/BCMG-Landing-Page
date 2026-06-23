@@ -5,7 +5,9 @@
    ============================================================= */
 
 function buildPopup(b) {
-  const img = (b.images && b.images[0]) ? `<img src="${b.images[0]}" alt="${b.name}">` : "";
+  let media = "";
+  if (b.photo) media = `<img class="pimg" src="${b.photo}" alt="${b.name}">`;
+  else if (b.logo) media = `<img class="pimg logo-tile" src="${b.logo}" alt="${b.name} logo">`;
   const gmap = b.googleUrl
     ? `<a class="gmap-link" href="${b.googleUrl}" target="_blank" rel="noopener">
          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
@@ -13,12 +15,14 @@ function buildPopup(b) {
     : "";
   return `
     <div class="biz-popup">
-      ${img}
-      <h4>${b.name}</h4>
-      <div class="cat">${b.category} · ${b.city}</div>
-      ${b.info ? `<p>${b.info}</p>` : ""}
-      ${gmap}
-      ${b.writeup ? `<div class="quote">${b.writeup}</div>` : ""}
+      ${media}
+      <div class="pbody">
+        <h4>${b.name}</h4>
+        <div class="cat">${b.category} · ${b.city}</div>
+        ${b.info ? `<p>${b.info}</p>` : ""}
+        ${gmap}
+        ${b.writeup ? `<div class="quote">${b.writeup}</div>` : ""}
+      </div>
     </div>`;
 }
 
@@ -29,7 +33,7 @@ function initBusinesses() {
   // Centered on Florida
   const map = L.map("map", { scrollWheelZoom: false }).setView([28.0, -81.7], 7);
 
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
     attribution: '&copy; OpenStreetMap &copy; CARTO',
     subdomains: "abcd",
     maxZoom: 19
