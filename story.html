@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You — The Patrick Carr Show</title>
-  <meta name="description" content="Thank you for backing The Patrick Carr Show. Your payment was received.">
-  <meta name="robots" content="noindex">
+  <title>Send Us A Story — The Patrick Carr Show</title>
+  <meta name="description" content="Have a story the Show should cover? Send it straight to Producer Anthony and the team.">
   <link rel="icon" href="assets/img/logo-neon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    .ty-badge { width: 84px; height: 84px; margin: 0 auto 22px; border-radius: 50%;
-      display: grid; place-items: center; background: rgba(46, 204, 113, .14);
-      border: 2px solid #2ecc71; color: #2ecc71; }
-    .ty-actions { justify-content: center; margin-top: 30px; }
+    .story-form { max-width: 640px; margin: 0 auto; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    form input[type="file"] { padding: 12px; background: var(--surface-2); cursor: pointer; }
+    .file-hint { color: var(--muted); font-size: .82rem; margin-top: 6px; }
+    @media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -41,28 +41,55 @@
 
   <section class="page-hero">
     <div class="container">
-      <div class="ty-badge">
-        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-      </div>
-      <h1>You're <span class="accent">In!</span></h1>
-      <p>Your payment went through — thank you for backing The Patrick Carr Show. A receipt is on its way to your email.</p>
+      <h1>Do You Have A Story We Should <span class="accent">Cover?</span></h1>
+      <p>If you see something interesting or have a story you think we should cover, fill out the form below.
+         This goes directly to Producer Anthony and our team will take a look.</p>
     </div>
   </section>
 
   <section class="block">
     <div class="container">
-      <div class="cta-band">
-        <h2>What happens next</h2>
-        <p>
-          Joined a membership tier? We'll reach out shortly with your welcome details and next steps.
-          Ordered a hat? It'll be on its way soon. Either way — welcome to the movement.
-        </p>
-        <div class="hero-actions ty-actions">
-          <a class="btn btn-gold" href="https://www.youtube.com/@ThePatrickCarr" target="_blank" rel="noopener">Watch the Latest Episode</a>
-          <a class="btn btn-blue" href="index.html">Back to Home</a>
-          <a class="btn btn-blue" href="merch.html">Shop Merch</a>
+      <form class="story-form" id="story-form" method="POST"
+            action="https://formsubmit.co/anthony@bluecollarmediagroup.com" enctype="multipart/form-data">
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_subject" value="New story submission — The Patrick Carr Show">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://thepatrickcarrshow.com/story-thanks.html">
+        <!-- honeypot: bots fill this, humans don't -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="Phone" placeholder="(000) 000-0000">
+          </div>
         </div>
-      </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email" required placeholder="you@email.com">
+        </div>
+
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" name="Story" required
+            placeholder="Tell us about the story. You can drop a link here for us to look at, too."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="attachment">Attachments (optional)</label>
+          <input type="file" id="attachment" name="attachment" multiple
+                 accept="image/*,.pdf,.doc,.docx,.txt,.heic">
+          <div class="file-hint">Attach photos or documents that help tell the story.</div>
+        </div>
+
+        <button class="btn btn-gold btn-lg btn-block" type="submit">Send My Story</button>
+        <p class="form-note">A CAPTCHA will confirm you're human before your story is sent to Producer Anthony.</p>
+      </form>
     </div>
   </section>
 
@@ -109,5 +136,14 @@
   <script src="js/data.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
+  <script>
+    // Keep the form destination in sync with CONFIG.notifyEmail (one source of truth).
+    document.addEventListener("DOMContentLoaded", () => {
+      const f = document.getElementById("story-form");
+      if (f && window.CONFIG && CONFIG.notifyEmail) {
+        f.action = "https://formsubmit.co/" + CONFIG.notifyEmail;
+      }
+    });
+  </script>
 </body>
 </html>

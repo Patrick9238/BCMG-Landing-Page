@@ -3,13 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Merch — The Patrick Carr Show</title>
-  <meta name="description" content="Official Patrick Carr Show merch. Grab a Fix Orlando or Welcome To The Show hat and rep the movement.">
+  <title>Thank You — The Patrick Carr Show</title>
+  <meta name="description" content="Thanks for sending your story to The Patrick Carr Show.">
+  <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/logo-neon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .ty-badge { width: 84px; height: 84px; margin: 0 auto 22px; border-radius: 50%;
+      display: grid; place-items: center; background: rgba(46, 204, 113, .14);
+      border: 2px solid #2ecc71; color: #2ecc71; }
+    .ty-actions { justify-content: center; margin-top: 30px; }
+  </style>
 </head>
 <body>
 
@@ -24,23 +31,36 @@
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="index.html#tiers">Get Involved</a>
-        <a href="merch.html" class="active">Merch</a>
+        <a href="merch.html">Merch</a>
         <a href="businesses.html">Approved Businesses</a>
         <a href="contact.html">Contact</a>
-        <a class="btn btn-gold nav-cta" href="index.html#tiers">Join The Show</a>      </nav>
+        <a class="btn btn-gold nav-cta" href="index.html#tiers">Join The Show</a>
+      </nav>
     </div>
   </header>
 
   <section class="page-hero">
     <div class="container">
-      <h1>Show <span class="accent">Merch</span></h1>
-      <p>Rep the movement. Every hat supports the Show and the people we put on it. More drops coming soon.</p>
+      <div class="ty-badge">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h1>Story <span class="accent">Received</span></h1>
+      <p>Thank you for your submission. A member of our production team will review your story and if we have
+         questions we will reach out.</p>
     </div>
   </section>
 
   <section class="block">
     <div class="container">
-      <div class="products" id="products"><!-- products render here --></div>
+      <div class="cta-band">
+        <h2>While You're Here</h2>
+        <p>Catch the latest episode, grab some merch, or get involved with the Show.</p>
+        <div class="hero-actions ty-actions">
+          <a class="btn btn-gold" href="https://www.youtube.com/@ThePatrickCarr" target="_blank" rel="noopener">Watch the Latest Episode</a>
+          <a class="btn btn-blue" href="index.html">Back to Home</a>
+          <a class="btn btn-blue" href="index.html#tiers">Get Involved</a>
+        </div>
+      </div>
     </div>
   </section>
 

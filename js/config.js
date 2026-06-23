@@ -14,7 +14,7 @@ const CONFIG = {
 
   /* The single email that all purchase / contact notifications go to.
      Change this to whatever inbox you want everything routed to. */
-  notifyEmail: "patrick@bluecollarmediagroup.com",
+  notifyEmail: "anthony@bluecollarmediagroup.com",
 
   /* ---- YouTube "latest video" ----
      EASIEST WAY TO ALWAYS SHOW YOUR NEWEST VIDEO:
