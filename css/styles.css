@@ -330,7 +330,7 @@ form textarea { min-height: 130px; resize: vertical; }
   .tier.featured { grid-column: span 2; }
 }
 @media (max-width: 920px) {
-  .hero-figure { flex-basis: 44%; width: 44%; max-width: 200px; margin-bottom: -26px; }
+  .hero-figure { flex-basis: 54%; width: 54%; max-width: 245px; margin-bottom: -32px; }
   .about-grid { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .host-grid { grid-template-columns: 1fr; gap: 28px; }
