@@ -101,13 +101,15 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Hero ---------- */
 .views-bar { padding: 18px 0 0; }
-.views-box { display: flex; flex-direction: column; align-items: center; gap: 10px;
+.views-box { display: flex; flex-direction: column; align-items: center; gap: 8px;
   border: 1px solid rgba(255,181,36,.42); border-radius: 14px; padding: 14px 18px;
   background: linear-gradient(180deg, rgba(255,181,36,.10), rgba(255,181,36,.02));
   box-shadow: 0 0 24px rgba(255,181,36,.14); }
 .views-num { font-family: "Oswald", sans-serif; font-weight: 700; font-size: clamp(2rem, 9vw, 3.1rem);
   color: var(--gold); letter-spacing: 1px; font-variant-numeric: tabular-nums; line-height: 1;
   text-shadow: 0 0 18px rgba(255,181,36,.4); }
+.views-on { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 3px;
+  font-size: .8rem; color: var(--text); font-weight: 600; }
 .views-icons { display: flex; gap: 20px; align-items: center; justify-content: center; }
 .views-icons .vi { display: grid; place-items: center; transition: transform .2s ease; }
 .views-icons .vi:hover { transform: translateY(-2px) scale(1.12); }
