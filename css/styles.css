@@ -136,6 +136,7 @@ section.block { padding: 78px 0; }
 .section-head p { color: var(--muted); font-size: 1.08rem; }
 .kicker { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 3px;
   color: var(--blue); font-size: .82rem; margin-bottom: 12px; font-weight: 600; }
+.kicker-lg { font-size: 1.07rem; }
 
 .alt { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
