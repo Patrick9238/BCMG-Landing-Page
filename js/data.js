@@ -96,14 +96,15 @@ const TIERS = [
 /* ---------------------------------------------------------------
    MERCHANDISE  (shown on the Merch page)
    - "id" must be unique; the cart uses it
-   - "image" points at a file in /assets
+   - "images" is an array of photos shown as a looping carousel
+     (first photo is the product shot; add model photos after it)
    --------------------------------------------------------------- */
 const PRODUCTS = [
   {
     id: "hat-fix-orlando",
     name: "Fix Orlando Hat",
     price: 29.99,
-    image: "assets/hat-fix-orlando.jpg",
+    images: ["assets/hat-fix-orlando.jpg"],
     description: "Structured embroidered hat. Wear the mission — Fix Orlando.",
     linkKey: "hatFixOrlando"
   },
@@ -111,7 +112,7 @@ const PRODUCTS = [
     id: "hat-welcome-to-the-show",
     name: "Welcome To The Show Hat",
     price: 29.99,
-    image: "assets/hat-welcome-show.jpg",
+    images: ["assets/hat-welcome-show.jpg"],
     description: "Our signature lid. Welcome To The Show — now rep it everywhere.",
     linkKey: "hatWelcomeShow"
   }
