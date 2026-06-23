@@ -141,7 +141,14 @@ section.block { padding: 78px 0; }
 
 /* About strip */
 .about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 10px; }
-.about-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
+.about-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease; }
+.about-card:hover { transform: translateY(-6px); border-color: var(--gold); background: var(--surface-2);
+  box-shadow: 0 16px 34px rgba(0,0,0,.45), 0 0 0 1px rgba(255,181,36,.3); }
+.about-card .ic { transition: background .25s ease, color .25s ease, transform .25s ease; }
+.about-card:hover .ic { background: rgba(255,181,36,.16); color: var(--gold); transform: scale(1.08); }
+.about-card h3 { transition: color .2s ease; }
+.about-card:hover h3 { color: var(--gold); }
 .about-card .ic { width: 46px; height: 46px; border-radius: 12px; background: rgba(47,123,240,.14);
   display: grid; place-items: center; margin-bottom: 14px; color: var(--blue); }
 .about-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
