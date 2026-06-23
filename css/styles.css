@@ -100,6 +100,19 @@ img { max-width: 100%; display: block; }
 .nav-toggle { display: none; background: none; border: none; color: #fff; cursor: pointer; padding: 8px; }
 
 /* ---------- Hero ---------- */
+.views-bar { background: linear-gradient(180deg, rgba(255,181,36,.12), rgba(255,181,36,.03));
+  border-bottom: 1px solid rgba(255,181,36,.22); }
+.views-inner { display: flex; align-items: center; justify-content: center; gap: 8px 16px;
+  padding: 12px 16px; flex-wrap: wrap; text-align: center; }
+.views-live { display: inline-flex; align-items: center; gap: 7px; color: var(--gold);
+  font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 1.5px; font-size: .78rem; font-weight: 600; }
+.live-dot { width: 9px; height: 9px; border-radius: 50%; background: #2ecc71;
+  box-shadow: 0 0 0 0 rgba(46,204,113,.55); animation: livePulse 1.6s infinite; }
+@keyframes livePulse { 0% { box-shadow: 0 0 0 0 rgba(46,204,113,.55); }
+  70% { box-shadow: 0 0 0 9px rgba(46,204,113,0); } 100% { box-shadow: 0 0 0 0 rgba(46,204,113,0); } }
+.views-num { font-family: "Oswald", sans-serif; font-weight: 700; font-size: clamp(1.5rem, 6vw, 2.3rem);
+  color: var(--gold); letter-spacing: .5px; font-variant-numeric: tabular-nums; }
+.views-label { color: var(--muted); font-size: .9rem; }
 .hero { position: relative; overflow: hidden; padding: 70px 0 60px;
   background:
     radial-gradient(1100px 500px at 80% -10%, rgba(47,123,240,.16), transparent 60%),

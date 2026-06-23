@@ -118,9 +118,48 @@ function initFooter() {
   }
 }
 
+/* ---------- Live views counter (home top bar) ----------
+   Climbs from CONFIG.viewsCounter.baseline at an average of perDay views/day,
+   with the rate ramping smoothly up and down (swingPerDay over periodHours).
+   The total is a deterministic function of wall-clock time, so it never jumps
+   or goes backwards and every visitor sees the same number. */
+function initViewsCounter() {
+  const el = document.getElementById("views-num");
+  if (!el || !window.CONFIG || !CONFIG.viewsCounter || !CONFIG.viewsCounter.enabled) return;
+  const c = CONFIG.viewsCounter;
+
+  const labelEl = document.getElementById("views-label");
+  if (labelEl && c.label) labelEl.textContent = c.label;
+
+  const anchor = new Date(c.anchorISO).getTime();
+  const avgPerSec = (c.perDay || 0) / 86400;
+  const swingPerSec = (c.swingPerDay || 0) / 86400;
+  const periodSec = (c.periodHours || 6) * 3600;
+  const w = (2 * Math.PI) / periodSec;
+
+  // Average linear growth + the integral of a gentle sine rate-wave (stays monotonic).
+  const total = () => {
+    const s = Math.max(0, (Date.now() - anchor) / 1000);
+    return c.baseline + avgPerSec * s + (swingPerSec / w) * (1 - Math.cos(w * s));
+  };
+
+  const fmt = n => n.toLocaleString("en-US");
+  let shown = Math.floor(total());
+  el.textContent = fmt(shown);
+  setInterval(() => {
+    const target = Math.floor(total());
+    if (target > shown) {
+      shown += Math.max(1, Math.ceil((target - shown) / 3));
+      if (shown > target) shown = target;
+      el.textContent = fmt(shown);
+    }
+  }, 1000);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initYouTube();
   renderTiers();
   initFooter();
+  initViewsCounter();
 });

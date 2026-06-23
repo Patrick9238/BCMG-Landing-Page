@@ -49,6 +49,20 @@ const CONFIG = {
     hatWelcomeShow: "https://buy.stripe.com/bJe14oa3L9P7ddvdHh7Vm06"
   },
 
+  /* ---- Live views counter (home-page top bar) ----
+     Shows a combined "views across our content" number that starts at
+     `baseline` and ticks up over time at `perDay` views/day. To reset it,
+     set `baseline` to the new total and `anchorISO` to the current time. */
+  viewsCounter: {
+    enabled: true,
+    baseline: 4500000,                  // starting total shown
+    anchorISO: "2026-06-23T20:45:00Z",  // when the baseline was set
+    perDay: 120000,                     // AVERAGE new views/day (bump this up over time)
+    swingPerDay: 33000,                 // rate ramps up/down by this (~87k–153k/day)
+    periodHours: 6,                     // length of one ramp-up/ramp-down cycle
+    label: "views across YouTube, Instagram, Facebook & TikTok"
+  },
+
   /* Social / external links (footer). Leave blank to hide. */
   social: {
     youtube:   "https://www.youtube.com/@ThePatrickCarr",
