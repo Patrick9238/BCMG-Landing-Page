@@ -104,16 +104,16 @@ const PRODUCTS = [
     id: "hat-fix-orlando",
     name: "Fix Orlando Hat",
     price: 29.99,
-    images: ["assets/hat-fix-orlando.jpg"],
-    description: "Structured embroidered hat. Wear the mission — Fix Orlando.",
+    images: ["assets/hat-fix-orlando.jpg", "assets/hat-fix-orlando-2.jpg", "assets/hat-fix-orlando-3.jpg"],
+    description: "The hat that makes a statement. You don't settle. You want more.",
     linkKey: "hatFixOrlando"
   },
   {
     id: "hat-welcome-to-the-show",
-    name: "Welcome To The Show Hat",
+    name: "Welcome To The Show",
     price: 29.99,
-    images: ["assets/hat-welcome-show.jpg"],
-    description: "Our signature lid. Welcome To The Show — now rep it everywhere.",
+    images: ["assets/hat-welcome-show.jpg", "assets/hat-welcome-2.jpg", "assets/hat-welcome-3.jpg"],
+    description: "You're a part of a movement. A group of leaders who want change.",
     linkKey: "hatWelcomeShow"
   }
 ];
