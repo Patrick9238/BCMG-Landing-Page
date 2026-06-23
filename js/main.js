@@ -77,7 +77,7 @@ function renderTiers() {
       : `href="#" data-tier="${tier.name}"`;
 
     return `
-      <div class="tier ${tier.featured ? "featured" : ""}">
+      <div class="tier ${tier.featured ? "featured" : ""}" id="tier-${tier.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}">
         ${ribbon}
         <h3>${tier.name}</h3>
         <div class="price">${tier.price}<span class="cad">${tier.cadence}</span></div>
