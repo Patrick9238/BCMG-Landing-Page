@@ -190,8 +190,9 @@ section.block { padding: 78px 0; }
 
 /* ---------- Meet the host ---------- */
 .host-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 46px; align-items: center; }
-.host-photo { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border);
-  background: radial-gradient(120% 120% at 50% 0%, rgba(47,123,240,.25), #0a0d12 70%); box-shadow: var(--shadow); }
+.host-photo { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(47,123,240,.35);
+  background: radial-gradient(120% 120% at 50% 0%, rgba(47,123,240,.25), #0a0d12 70%);
+  box-shadow: 0 0 30px 4px rgba(47,123,240,.40), 0 0 66px 10px rgba(47,123,240,.22), var(--shadow); }
 .host-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .host-copy h2 { font-size: clamp(2rem, 3.6vw, 3rem); margin-bottom: 8px; }
 .host-copy .role { color: var(--gold); font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 2px; font-size: .9rem; margin-bottom: 16px; }
