@@ -122,29 +122,21 @@ const PRODUCTS = [
    APPROVED BUSINESSES  (shown on the Businesses map)
    - lat/lng place the pin on the Florida map
    - look up coordinates at https://www.latlong.net if you need them
-   - "images" can hold one or more photo paths
+   - "googleUrl" links the pin to the business's Google profile
+     (paste the share link or full Google Maps/Business URL)
+   - "images" can hold one or more photo paths (optional)
    - "writeup" is your personal note about the business
    --------------------------------------------------------------- */
 const BUSINESSES = [
   {
-    name: "Example Auto & Tire",
+    name: "Corsa Automotive",
     category: "Automotive",
     city: "Orlando, FL",
-    lat: 28.5383,
-    lng: -81.3792,
-    images: ["assets/business-placeholder.svg"],
-    info: "Family-owned full-service auto and tire shop serving Central Florida.",
-    writeup: "These folks treated my truck like it was their own. Honest pricing, real craftsmanship — exactly the kind of business the Show stands behind. — Patrick"
-  },
-  {
-    name: "Example Diner",
-    category: "Food & Drink",
-    city: "Winter Park, FL",
-    lat: 28.6000,
-    lng: -81.3392,
-    images: ["assets/business-placeholder.svg"],
-    info: "Local diner with from-scratch breakfast and the friendliest counter in town.",
-    writeup: "Best cup of coffee and a handshake to go with it. Add your write-up here. — Patrick"
+    lat: 28.5509,
+    lng: -81.4595,
+    googleUrl: "https://share.google/JeihpsKtrajS23PmI",
+    info: "Full-service auto repair, collision, custom wraps, wheels, and tuning in Central Florida.",
+    writeup: "Kenan is a personal friend and this shop can handle it all. From wraps to wheels. Thank you Corsa. — Patrick"
   }
-  /* Add more businesses by copying a block above. */
+  /* Add more businesses by copying the block above. */
 ];

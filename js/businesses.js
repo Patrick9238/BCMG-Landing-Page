@@ -6,12 +6,18 @@
 
 function buildPopup(b) {
   const img = (b.images && b.images[0]) ? `<img src="${b.images[0]}" alt="${b.name}">` : "";
+  const gmap = b.googleUrl
+    ? `<a class="gmap-link" href="${b.googleUrl}" target="_blank" rel="noopener">
+         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+         View on Google</a>`
+    : "";
   return `
     <div class="biz-popup">
       ${img}
       <h4>${b.name}</h4>
       <div class="cat">${b.category} · ${b.city}</div>
-      <p>${b.info}</p>
+      ${b.info ? `<p>${b.info}</p>` : ""}
+      ${gmap}
       ${b.writeup ? `<div class="quote">${b.writeup}</div>` : ""}
     </div>`;
 }
