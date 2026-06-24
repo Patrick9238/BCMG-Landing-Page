@@ -136,11 +136,15 @@ function initViewsCounter() {
   const swingPerSec = (c.swingPerDay || 0) / 86400;
   const periodSec = (c.periodHours || 6) * 3600;
   const w = (2 * Math.PI) / periodSec;
+  const loadEpoch = Date.now();
 
-  // Average linear growth + the integral of a gentle sine rate-wave (stays monotonic).
+  // Always-climbing total. Uses real elapsed time since the anchor; if a device
+  // clock is set before the anchor, it still climbs from page load so it never freezes.
   const total = () => {
-    const s = Math.max(0, (Date.now() - anchor) / 1000);
-    return c.baseline + avgPerSec * s + (swingPerSec / w) * (1 - Math.cos(w * s));
+    const sAbs = (Date.now() - anchor) / 1000;
+    if (sAbs > 0) return c.baseline + avgPerSec * sAbs + (swingPerSec / w) * (1 - Math.cos(w * sAbs));
+    const sLoad = Math.max(0, (Date.now() - loadEpoch) / 1000);
+    return c.baseline + avgPerSec * sLoad;
   };
 
   const fmt = n => n.toLocaleString("en-US");
@@ -153,7 +157,7 @@ function initViewsCounter() {
       if (shown > target) shown = target;
       el.textContent = fmt(shown);
     }
-  }, 400);
+  }, 300);
 }
 
 document.addEventListener("DOMContentLoaded", () => {

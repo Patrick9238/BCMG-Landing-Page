@@ -56,9 +56,9 @@ const CONFIG = {
   viewsCounter: {
     enabled: true,
     baseline: 4500000,                  // starting total shown
-    anchorISO: "2026-06-23T12:00:00Z",  // when the baseline was set (keep in the past so it's always climbing)
-    perDay: 200000,                     // AVERAGE new views/day (bump this up over time)
-    swingPerDay: 33000,                 // rate ramps up/down by this (~87k–153k/day)
+    anchorISO: "2026-06-24T12:00:00Z",  // when the baseline was set (keep in the past so it's always climbing)
+    perDay: 120000,                     // AVERAGE new views/day (bump this up over time)
+    swingPerDay: 20000,                 // rate ramps up/down by this (~100k–140k/day)
     periodHours: 6,                     // length of one ramp-up/ramp-down cycle
     label: "views across YouTube, Instagram, Facebook & TikTok"
   },
