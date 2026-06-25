@@ -140,7 +140,7 @@
     // Keep the form destination in sync with CONFIG.notifyEmail (one source of truth).
     document.addEventListener("DOMContentLoaded", () => {
       const f = document.getElementById("story-form");
-      if (f && window.CONFIG && CONFIG.notifyEmail) {
+      if (f && typeof CONFIG !== "undefined" && CONFIG.notifyEmail) {
         f.action = "https://formsubmit.co/" + CONFIG.notifyEmail;
       }
     });

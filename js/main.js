@@ -125,7 +125,7 @@ function initFooter() {
    or goes backwards and every visitor sees the same number. */
 function initViewsCounter() {
   const el = document.getElementById("views-num");
-  if (!el || !window.CONFIG || !CONFIG.viewsCounter || !CONFIG.viewsCounter.enabled) return;
+  if (!el || typeof CONFIG === "undefined" || !CONFIG.viewsCounter || !CONFIG.viewsCounter.enabled) return;
   const c = CONFIG.viewsCounter;
 
   const labelEl = document.getElementById("views-label");
