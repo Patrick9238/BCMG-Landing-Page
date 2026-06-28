@@ -160,10 +160,29 @@ function initViewsCounter() {
   }, 300);
 }
 
+/* ---------- Email the team when someone lands on a membership thank-you page ----------
+   A page opts in via <body data-notify-tier="Partner">. Sends a notification to
+   Patrick + Anthony via FormSubmit. Guarded so a page refresh won't re-send. */
+function initJoinNotify() {
+  var tier = document.body ? document.body.getAttribute("data-notify-tier") : null;
+  if (!tier) return;
+  var key = "joined:" + tier;
+  try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch (e) {}
+  var fd = new FormData();
+  fd.append("_subject", "New " + tier + " member — The Patrick Carr Show");
+  fd.append("_cc", "anthony@bluecollarmediagroup.com");
+  fd.append("_template", "table");
+  fd.append("Tier joined", tier);
+  fd.append("Note", "Someone just completed checkout for the " + tier + " tier on thepatrickcarrshow.com. Their name, email and payment details are in Stripe.");
+  fetch("https://formsubmit.co/ajax/patrick@bluecollarmediagroup.com", { method: "POST", body: fd })
+    .catch(function () {});
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initYouTube();
   renderTiers();
   initFooter();
   initViewsCounter();
+  initJoinNotify();
 });
