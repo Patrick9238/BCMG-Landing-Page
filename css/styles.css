@@ -265,6 +265,8 @@ section.block { padding: 78px 0; }
 .product .body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .product h3 { font-size: 1.3rem; }
 .product .desc { color: var(--muted); font-size: .95rem; flex: 1; }
+.product .ship { display: flex; align-items: center; gap: 7px; color: var(--gold); font-weight: 600; font-size: .82rem; margin-top: 2px; }
+.product .ship svg { flex: none; }
 .product .row { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 8px; }
 .product .pp { font-family: "Oswald", sans-serif; font-size: 1.7rem; font-weight: 700; }
 
