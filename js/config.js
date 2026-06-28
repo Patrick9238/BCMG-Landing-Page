@@ -26,8 +26,8 @@ const CONFIG = {
      and put the video's ID in videoId instead.
      (A YouTube URL like https://youtu.be/AbC123  -> videoId is "AbC123") */
   youtube: {
-    channelId: "UCQVALUBg3MEO2b__twd1KRQ",   // @ThePatrickCarr — newest upload auto-plays
-    videoId: "",                              // optional: pin one specific video instead
+    channelId: "",                            // leave empty to pin one specific video below
+    videoId: "phok2qKjXNY",                   // pinned latest episode (not a Short)
     channelUrl: "https://www.youtube.com/@ThePatrickCarr"
   },
 
