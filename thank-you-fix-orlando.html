@@ -5,18 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Meta Pixel -->
   <script src="js/pixel.js?v=2"></script>
-  <title>Approved Businesses — The Patrick Carr Show</title>
-  <meta name="description" content="Businesses The Patrick Carr Show stands behind. Explore the map, find a Show-approved business near you in Florida.">
+  <title>Order Confirmed — The Patrick Carr Show</title>
+  <meta name="description" content="Thanks for grabbing the Fix Orlando hat.">
+  <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/logo-neon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Leaflet (open-source map, no API key) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .ty-badge { width: 84px; height: 84px; margin: 0 auto 22px; border-radius: 50%;
+      display: grid; place-items: center; background: rgba(46, 204, 113, .14);
+      border: 2px solid #2ecc71; color: #2ecc71; }
+    .ty-actions { justify-content: center; margin-top: 30px; }
+  </style>
 </head>
-<body>
+<body data-fb-purchase="Fix Orlando Hat" data-fb-value="29.99">
 
   <header class="site-header">
     <div class="container nav">
@@ -30,39 +34,32 @@
         <a href="index.html">Home</a>
         <a href="index.html#tiers">Get Involved</a>
         <a href="merch.html">Merch</a>
-        <a href="businesses.html" class="active">Approved Businesses</a>
+        <a href="businesses.html">Approved Businesses</a>
         <a href="contact.html">Contact</a>
-        <a class="btn btn-gold nav-cta" href="index.html#tiers">Join The Show</a>      </nav>
+        <a class="btn btn-gold nav-cta" href="index.html#tiers">Join The Show</a>
+      </nav>
     </div>
   </header>
 
   <section class="page-hero">
     <div class="container">
-      <h1>Businesses We <span class="accent">Support</span></h1>
-      <p>These are the businesses the Show stands behind. Explore the map, zoom into your area, and tap a pin
-         to see photos, details, and a personal word from Patrick. Florida first — more on the way.</p>
+      <div class="ty-badge">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h1>Order <span class="accent">Confirmed!</span></h1>
+      <p>Thanks for grabbing the <strong>Fix Orlando</strong> hat — it's on its way. A receipt and order details are headed to your email.</p>
     </div>
   </section>
 
   <section class="block">
     <div class="container">
-      <div class="map-layout">
-        <div id="map"></div>
-      </div>
-      <p class="biz-hint">Tap a pin on the map, or pick a business below to fly straight to it.</p>
-      <h2 class="feat-title">This Week's Featured Businesses</h2>
-      <div class="biz-list" id="biz-list"><!-- featured business cards render here --></div>
-    </div>
-  </section>
-
-  <section class="block alt">
-    <div class="container">
       <div class="cta-band">
-        <h2>Ready To Become An Approved Business?</h2>
-        <p>Becoming an approved business is NOT easy. Patrick personally verifies each company and approves only the best. Become a Partner to see if you qualify.</p>
-        <div class="hero-actions" style="justify-content:center">
-          <a class="btn btn-gold btn-lg" href="index.html#tier-partner">Become A Partner</a>
-          <a class="btn btn-ghost btn-lg" href="index.html#tiers">See All Tiers</a>
+        <h2>While You're Here</h2>
+        <p>Catch the latest episode, grab another hat, or get involved with the Show.</p>
+        <div class="hero-actions ty-actions">
+          <a class="btn btn-gold" href="https://www.youtube.com/@ThePatrickCarr" target="_blank" rel="noopener">Watch the Latest Episode</a>
+          <a class="btn btn-blue" href="merch.html">Shop More Merch</a>
+          <a class="btn btn-blue" href="index.html">Back to Home</a>
         </div>
       </div>
     </div>
@@ -107,12 +104,9 @@
     </div>
   </footer>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/config.js"></script>
   <script src="js/data.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/businesses.js"></script>
 </body>
 </html>

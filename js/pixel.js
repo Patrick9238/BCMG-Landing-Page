@@ -73,13 +73,15 @@
 
   // --- Page-specific events ---
   document.addEventListener("DOMContentLoaded", function () {
-    var path = (location.pathname || "").toLowerCase();
     if (document.getElementById("products")) {
       fbq("track", "ViewContent", { content_type: "product_group", content_name: "Show Merch" });
     }
-    if (/thank-you(\.html)?$/.test(path)) {
-      // Reached only via Stripe's post-payment redirect.
-      fbq("track", "Purchase", { currency: "USD", value: 0 });
+    // A page opts into a Purchase event via <body data-fb-purchase="..." data-fb-value="..">.
+    // Used by the thank-you pages reached only after a completed Stripe checkout.
+    var pp = document.body ? document.body.getAttribute("data-fb-purchase") : null;
+    if (pp) {
+      var pv = parseFloat(document.body.getAttribute("data-fb-value") || "0") || 0;
+      fbq("track", "Purchase", { content_name: pp, currency: "USD", value: pv });
     }
   });
 })();
