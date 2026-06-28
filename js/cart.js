@@ -44,7 +44,6 @@ function renderProducts() {
       <div class="body">
         <h3>${p.name}</h3>
         <p class="desc">${p.description}</p>
-        ${p.shipping ? `<p class="ship"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>${p.shipping}</p>` : ""}
         <div class="row">
           <span class="pp">$${p.price.toFixed(2)}</span>
           <a class="btn btn-gold" ${btnAttrs}>${BUY_ICON} Buy Now</a>
