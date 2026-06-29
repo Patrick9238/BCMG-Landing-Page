@@ -207,7 +207,9 @@ section.block { padding: 78px 0; }
 }
 .tier ul li.more { font-weight: 700; color: #fff; }
 .tier ul li.more::before { background-image: none; background: var(--blue); }
-.tier .tier-cta { margin-top: auto; }
+.tier .tier-cta { margin-top: auto; flex-direction: column; gap: 2px; line-height: 1.1; padding-top: 12px; padding-bottom: 12px; }
+.tier .tier-cta .cta-pre { font-size: .72rem; font-weight: 600; letter-spacing: 1px; opacity: .85; }
+.tier .tier-cta .cta-name { font-size: 1.12rem; font-weight: 700; letter-spacing: .6px; }
 
 .tiers-note { text-align: center; color: var(--muted); margin-top: 26px; font-size: .95rem; }
 

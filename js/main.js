@@ -83,8 +83,9 @@ function renderTiers() {
         <div class="price">${tier.price}<span class="cad">${tier.cadence}</span></div>
         <p class="blurb">${tier.blurb}</p>
         <ul>${perks}</ul>
-        <a class="btn ${tier.featured || tier.badge ? "btn-gold" : "btn-blue"} btn-block tier-cta" ${btnAttrs}>
-          Join ${tier.name}
+        <a class="btn ${tier.featured ? "btn-gold" : "btn-blue"} btn-block tier-cta" ${btnAttrs}>
+          <span class="cta-pre">Become A</span>
+          <span class="cta-name">${tier.name}</span>
         </a>
       </div>`;
   }).join("");
