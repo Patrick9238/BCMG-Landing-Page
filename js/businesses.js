@@ -8,10 +8,12 @@ function buildPopup(b) {
   let media = "";
   if (b.photo) media = `<img class="pimg" src="${b.photo}" alt="${b.name}">`;
   else if (b.logo) media = `<img class="pimg logo-tile" src="${b.logo}" alt="${b.name} logo">`;
+  const isGoogle = b.googleUrl && /google\./i.test(b.googleUrl);
+  const linkLabel = isGoogle ? "View on Google" : "Visit Website";
   const gmap = b.googleUrl
     ? `<a class="gmap-link" href="${b.googleUrl}" target="_blank" rel="noopener">
          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
-         View on Google</a>`
+         ${linkLabel}</a>`
     : "";
   return `
     <div class="biz-popup">

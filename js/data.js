@@ -167,6 +167,42 @@ const BUSINESSES = [
     writeup: "The best gym environment in Orlando! Great people, meals, supplements. Everything you need. — Patrick"
   },
   {
+    name: "Lazy Moon Pizza",
+    category: "Pizza & Eats",
+    city: "Orlando, FL",
+    lat: 28.5532,
+    lng: -81.3660,
+    googleUrl: "https://www.lazymoonpizza.com/",
+    logo: "assets/logo-lazymoon.svg",
+    featured: true,
+    info: "Giant New York-style slices, craft beer, and a Mills 50 institution. Come hungry.",
+    writeup: "The best pizza in Orlando, come with an appetite because the slices are bigger than your head. — Patrick"
+  },
+  {
+    name: "Colonial Photo & Hobby",
+    category: "Photo & Hobby",
+    city: "Orlando, FL",
+    lat: 28.5524,
+    lng: -81.3645,
+    googleUrl: "https://cphfun.com/",
+    logo: "assets/logo-cph.png",
+    featured: true,
+    info: "Orlando's home for cameras, photo gear, hobbies, and expert advice — since 1956.",
+    writeup: "This is where Blue Collar Media Group buys all of our gear, you won't find friendlier and more knowledgeable people. — Patrick"
+  },
+  {
+    name: "Mechanical One",
+    category: "HVAC & Plumbing",
+    city: "Altamonte Springs, FL",
+    lat: 28.6654,
+    lng: -81.3935,
+    googleUrl: "https://mechanicalone.com/",
+    logo: "assets/logo-mechanicalone.svg",
+    featured: true,
+    info: "HVAC, plumbing, and home comfort experts serving Central Florida — 1,200+ five-star reviews.",
+    writeup: "With over 1,200 five-star reviews it's no surprise they are the team I turn to when I've got an HVAC or plumbing issue. — Patrick"
+  },
+  {
     name: "Blue Collar Media Group",
     category: "Media & Marketing",
     city: "Altamonte Springs, FL",
