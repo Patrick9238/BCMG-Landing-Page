@@ -304,6 +304,22 @@ section.block { padding: 78px 0; }
   box-shadow: 0 0 0 1px rgba(47,123,240,.35), 0 0 34px rgba(47,123,240,.5), 0 0 80px rgba(47,123,240,.3); }
 .biz-hint { color: var(--muted); text-align: center; margin-top: 16px; font-size: .95rem; }
 
+/* Market cluster badge: light-blue circle with a business count */
+.biz-cluster { background: transparent; }
+.biz-cluster-inner {
+  width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: radial-gradient(circle at 35% 30%, #7db8ff, #2f7bf0);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 4px rgba(47,123,240,.30), 0 6px 16px rgba(0,0,0,.45);
+  color: #fff; font-family: "Oswald", sans-serif; font-weight: 700; font-size: 1.15rem;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.biz-cluster:hover .biz-cluster-inner {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 6px rgba(47,123,240,.40), 0 8px 22px rgba(0,0,0,.5);
+}
+
 /* Light, Google-style popups */
 .leaflet-popup-content-wrapper { background: #fff; color: #1a1d23; border-radius: 14px; padding: 0; overflow: hidden;
   box-shadow: 0 14px 36px rgba(0,0,0,.45); }

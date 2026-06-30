@@ -52,12 +52,33 @@ function initBusinesses() {
     popupAnchor: [0, -38]
   });
 
+  // Cluster nearby pins into one light-blue "market" badge with a count.
+  // Clicking a badge zooms into that market; overlapping pins fan out.
+  const cluster = (typeof L.markerClusterGroup === "function")
+    ? L.markerClusterGroup({
+        maxClusterRadius: 60,           // px: how close pins must be to group
+        spiderfyOnMaxZoom: true,        // fan out pins stacked at the same spot
+        showCoverageOnHover: false,
+        zoomToBoundsOnClick: true,
+        iconCreateFunction: c => {
+          const n = c.getChildCount();
+          return L.divIcon({
+            className: "biz-cluster",
+            html: `<div class="biz-cluster-inner"><span>${n}</span></div>`,
+            iconSize: [46, 46]
+          });
+        }
+      })
+    : null;
+
   const markers = {};
   BUSINESSES.forEach((b, i) => {
-    const m = L.marker([b.lat, b.lng], { icon: goldIcon }).addTo(map);
+    const m = L.marker([b.lat, b.lng], { icon: goldIcon });
     m.bindPopup(buildPopup(b), { maxWidth: 260 });
     markers[i] = m;
+    if (cluster) cluster.addLayer(m); else m.addTo(map);
   });
+  if (cluster) map.addLayer(cluster);
 
   // Re-enable scroll zoom only after a click (better page scrolling UX)
   map.on("click", () => map.scrollWheelZoom.enable());
@@ -78,9 +99,14 @@ function initBusinesses() {
       card.addEventListener("click", () => {
         const i = card.dataset.biz;
         const b = BUSINESSES[i];
-        map.flyTo([b.lat, b.lng], 13, { duration: 0.8 });
-        markers[i].openPopup();
         document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "center" });
+        // If this pin is inside a cluster, expand it first, then open the popup
+        if (cluster && typeof cluster.zoomToShowLayer === "function") {
+          cluster.zoomToShowLayer(markers[i], () => markers[i].openPopup());
+        } else {
+          map.flyTo([b.lat, b.lng], 13, { duration: 0.8 });
+          markers[i].openPopup();
+        }
       });
     });
   }
