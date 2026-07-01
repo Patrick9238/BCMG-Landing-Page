@@ -129,6 +129,18 @@ const PRODUCTS = [
    --------------------------------------------------------------- */
 const BUSINESSES = [
   {
+    name: "Valortec",
+    category: "Firearms Training",
+    city: "St. Petersburg, FL",
+    lat: 27.8440,
+    lng: -82.6387,
+    googleUrl: "https://valortec.com/",
+    logo: "assets/logo-valortec.svg",
+    featured: true,
+    info: "Florida's top concealed-carry classes and tactical firearms training — hands-on skills for real-world safety.",
+    writeup: "Proud to welcome Valortec to the Show. Real training from real professionals. — Patrick"
+  },
+  {
     name: "Corsa Automotive",
     category: "Automotive",
     city: "Orlando, FL",
