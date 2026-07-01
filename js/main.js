@@ -167,13 +167,26 @@ function initViewsCounter() {
 function initJoinNotify() {
   var tier = document.body ? document.body.getAttribute("data-notify-tier") : null;
   if (!tier) return;
+
+  // Only notify on a GENUINE Stripe checkout redirect — not test visits or
+  // someone landing on the page directly. A real payment redirect either
+  // carries a Stripe session_id in the URL or comes from a stripe.com referrer.
+  var search = location.search || "";
+  var ref = document.referrer || "";
+  var sid = (search.match(/[?&](session_id|checkout_session_id)=([^&]+)/) || [])[2] || "";
+  var fromStripe = !!sid || /(^|\.)stripe\.com/i.test(ref) || /[?&]paid=1\b/.test(search);
+  if (!fromStripe) return;
+
+  // Don't double-send on a page refresh within the same session.
   var key = "joined:" + tier;
   try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch (e) {}
+
   var fd = new FormData();
   fd.append("_subject", "New " + tier + " member — The Patrick Carr Show");
   fd.append("_cc", "anthony@bluecollarmediagroup.com");
   fd.append("_template", "table");
   fd.append("Tier joined", tier);
+  if (sid) fd.append("Stripe session", sid);
   fd.append("Note", "Someone just completed checkout for the " + tier + " tier on thepatrickcarrshow.com. Their name, email and payment details are in Stripe.");
   fetch("https://formsubmit.co/ajax/patrick@bluecollarmediagroup.com", { method: "POST", body: fd })
     .catch(function () {});
