@@ -90,6 +90,12 @@ img { max-width: 100%; display: block; }
 /* Gold "Get Involved" nav button with dark-blue text so it pops */
 .nav-links a.nav-cta { color: #0e2a63; font-weight: 700; }
 .nav-links a.nav-cta:hover { color: #0e2a63; background: var(--gold-dark); }
+/* "Patrick's Business" nav button — outlined pill with a gold briefcase icon */
+.nav-links a.nav-biz { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px;
+  border: 1.5px solid var(--border); border-radius: 8px; color: var(--text); font-weight: 600; }
+.nav-links a.nav-biz svg { width: 16px; height: 16px; color: var(--gold); flex: 0 0 auto; }
+.nav-links a.nav-biz:hover, .nav-links a.nav-biz.active {
+  color: #fff; background: rgba(255,181,36,.10); border-color: var(--gold); }
 
 .cart-btn { position: relative; background: var(--surface-2); border: 1px solid var(--border); color: #fff;
   width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; cursor: pointer; }
