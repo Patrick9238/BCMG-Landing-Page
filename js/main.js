@@ -183,12 +183,12 @@ function initJoinNotify() {
 
   var fd = new FormData();
   fd.append("_subject", "New " + tier + " member — The Patrick Carr Show");
-  fd.append("_cc", "anthony@bluecollarmediagroup.com");
+  fd.append("_cc", "anthony@thepatrickcarrshow.com");
   fd.append("_template", "table");
   fd.append("Tier joined", tier);
   if (sid) fd.append("Stripe session", sid);
   fd.append("Note", "Someone just completed checkout for the " + tier + " tier on thepatrickcarrshow.com. Their name, email and payment details are in Stripe.");
-  fetch("https://formsubmit.co/ajax/patrick@bluecollarmediagroup.com", { method: "POST", body: fd })
+  fetch("https://formsubmit.co/ajax/patrick@thepatrickcarrshow.com", { method: "POST", body: fd })
     .catch(function () {});
 }
 
