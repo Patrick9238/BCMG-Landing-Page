@@ -353,6 +353,10 @@ section.block { padding: 78px 0; }
 .biz-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 34px; }
 /* Center a lone trailing card (odd counts like 4, 7, 10) so it looks intentional */
 .biz-list > .biz-card:last-child:nth-child(3n+1) { grid-column: 2; }
+/* "See More Businesses" expander */
+.biz-more-wrap { text-align: center; margin-top: 30px; }
+#biz-list-more { margin-top: 22px; }
+#biz-list-more[hidden] { display: none; }
 .biz-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; cursor: pointer; text-align: center;
   transition: border-color .2s, transform .2s, box-shadow .2s; }
 .biz-card:hover { border-color: var(--gold); transform: translateY(-5px);

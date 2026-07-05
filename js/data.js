@@ -127,6 +127,9 @@ const PRODUCTS = [
    - "images" can hold one or more photo paths (optional)
    - "writeup" is your personal note about the business
    --------------------------------------------------------------- */
+/* "topPartner: true" = one of the exclusive featured partners shown up top.
+   "featured: true" (without topPartner) = an approved business shown under
+   the "See More Businesses" expander. No flag = map pin only. */
 const BUSINESSES = [
   {
     name: "Valortec",
@@ -137,8 +140,22 @@ const BUSINESSES = [
     googleUrl: "https://valortec.com/",
     logo: "assets/logo-valortec.svg",
     featured: true,
+    topPartner: true,
     info: "Florida's top concealed-carry classes and tactical firearms training — hands-on skills for real-world safety.",
     writeup: "Proud to welcome Valortec to the Show. Real training from real professionals. — Patrick"
+  },
+  {
+    name: "Logos Promote",
+    category: "Apparel & Print",
+    city: "Orlando, FL",
+    lat: 28.5042,
+    lng: -81.4175,
+    googleUrl: "https://share.google/eQmwA3m3Y4tnfxGg6",
+    logo: "assets/logo-logos-promote.png",
+    featured: true,
+    topPartner: true,
+    info: "Custom screen printing, embroidery, promotional products, signage, and wraps in Orlando.",
+    writeup: "Every shirt and hat for the show goes through Logos Promote… we wouldn't use anyone else. — Patrick"
   },
   {
     name: "Corsa Automotive",
@@ -150,20 +167,9 @@ const BUSINESSES = [
     logo: "assets/logo-corsa.png",
     photo: "assets/biz-corsa.jpg",
     featured: true,
+    topPartner: true,
     info: "Full-service auto repair, collision, custom wraps, wheels, and tuning in Central Florida.",
     writeup: "Kenan is a personal friend and this shop can handle it all. From wraps to wheels. Thank you Corsa. — Patrick"
-  },
-  {
-    name: "Logos Promote",
-    category: "Apparel & Print",
-    city: "Orlando, FL",
-    lat: 28.5042,
-    lng: -81.4175,
-    googleUrl: "https://share.google/eQmwA3m3Y4tnfxGg6",
-    logo: "assets/logo-logos-promote.png",
-    featured: true,
-    info: "Custom screen printing, embroidery, promotional products, signage, and wraps in Orlando.",
-    writeup: "Every shirt and hat for the show goes through Logos Promote… we wouldn't use anyone else. — Patrick"
   },
   {
     name: "LunaFit",
@@ -213,6 +219,18 @@ const BUSINESSES = [
     featured: true,
     info: "HVAC, plumbing, and home comfort experts serving Central Florida — 1,200+ five-star reviews.",
     writeup: "With over 1,200 five-star reviews it's no surprise they are the team I turn to when I've got an HVAC or plumbing issue. — Patrick"
+  },
+  {
+    name: "Secrets Hideaway Resort & Spa",
+    category: "Resort & Spa",
+    city: "Kissimmee, FL",
+    lat: 28.2885,
+    lng: -81.3569,
+    googleUrl: "https://www.secretsfl.com/",
+    logo: "assets/logo-secrets.png",
+    featured: true,
+    info: "A private resort, spa, and events destination in Kissimmee built around fun, freedom, and a welcoming community.",
+    writeup: "The leadership team at this resort care about your experience and making sure people have a fun and safe place to express themself! — Patrick"
   },
   {
     name: "Blue Collar Media Group",

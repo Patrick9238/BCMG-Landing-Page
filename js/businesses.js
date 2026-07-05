@@ -83,32 +83,55 @@ function initBusinesses() {
   // Re-enable scroll zoom only after a click (better page scrolling UX)
   map.on("click", () => map.scrollWheelZoom.enable());
 
-  // Build the featured cards below the map and link them to pins
+  // Card markup for one business
+  const cardHtml = (b, i) => `
+    <div class="biz-card featured" data-biz="${i}">
+      ${b.logo ? `<div class="biz-logo"><img src="${b.logo}" alt="${b.name} logo" loading="lazy"></div>` : ""}
+      <div class="cat">${b.category}</div>
+      <h3>${b.name}</h3>
+      <div class="city">${b.city}</div>
+    </div>`;
+
+  // Clicking a card flies the map to that business (expanding its cluster first)
+  const wireCards = scope => scope.querySelectorAll("[data-biz]").forEach(card => {
+    card.addEventListener("click", () => {
+      const i = card.dataset.biz;
+      const b = BUSINESSES[i];
+      document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "center" });
+      if (cluster && typeof cluster.zoomToShowLayer === "function") {
+        cluster.zoomToShowLayer(markers[i], () => markers[i].openPopup());
+      } else {
+        map.flyTo([b.lat, b.lng], 13, { duration: 0.8 });
+        markers[i].openPopup();
+      }
+    });
+  });
+
+  const indexed = BUSINESSES.map((b, i) => ({ b, i }));
+
+  // Exclusive top partners (shown up top)
   const list = document.getElementById("biz-list");
   if (list) {
-    const featured = BUSINESSES.map((b, i) => ({ b, i })).filter(x => x.b.featured);
-    list.innerHTML = featured.map(({ b, i }) => `
-      <div class="biz-card featured" data-biz="${i}">
-        ${b.logo ? `<div class="biz-logo"><img src="${b.logo}" alt="${b.name} logo" loading="lazy"></div>` : ""}
-        <div class="cat">${b.category}</div>
-        <h3>${b.name}</h3>
-        <div class="city">${b.city}</div>
-      </div>`).join("");
+    list.innerHTML = indexed.filter(x => x.b.topPartner).map(({ b, i }) => cardHtml(b, i)).join("");
+    wireCards(list);
+  }
 
-    list.querySelectorAll("[data-biz]").forEach(card => {
-      card.addEventListener("click", () => {
-        const i = card.dataset.biz;
-        const b = BUSINESSES[i];
-        document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "center" });
-        // If this pin is inside a cluster, expand it first, then open the popup
-        if (cluster && typeof cluster.zoomToShowLayer === "function") {
-          cluster.zoomToShowLayer(markers[i], () => markers[i].openPopup());
-        } else {
-          map.flyTo([b.lat, b.lng], 13, { duration: 0.8 });
-          markers[i].openPopup();
-        }
+  // The rest of the approved businesses (revealed by "See More Businesses")
+  const more = document.getElementById("biz-list-more");
+  const moreBtn = document.getElementById("biz-more-btn");
+  if (more && moreBtn) {
+    const rest = indexed.filter(x => x.b.featured && !x.b.topPartner);
+    if (rest.length) {
+      more.innerHTML = rest.map(({ b, i }) => cardHtml(b, i)).join("");
+      wireCards(more);
+      moreBtn.addEventListener("click", () => {
+        const open = more.hasAttribute("hidden") ? false : true;
+        if (open) { more.setAttribute("hidden", ""); moreBtn.textContent = "See More Businesses"; }
+        else { more.removeAttribute("hidden"); moreBtn.textContent = "Show Less"; }
       });
-    });
+    } else {
+      moreBtn.setAttribute("hidden", "");
+    }
   }
 }
 
