@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Meta Pixel -->
+  <script src="js/pixel.js?v=2"></script>
+  <title>Blue Collar Media Group — Video Production & Marketing | The Patrick Carr Show</title>
+  <meta name="description" content="Blue Collar Media Group is Patrick Carr's video production and marketing company. Work directly with the owner — full accountability, a team that treats your business right.">
+  <meta property="og:title" content="Blue Collar Media Group — Owned by Patrick Carr">
+  <meta property="og:description" content="Video production, marketing, and consulting for business owners. Run and operated by Patrick Carr.">
+  <meta property="og:image" content="assets/img/logo-neon-black.png">
+  <link rel="icon" href="assets/img/logo-neon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=5">
+  <style>
+    /* ---- BCMG page-specific styling ---- */
+    .bcmg-lead { max-width: 760px; }
+    .bcmg-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 999px;
+      background: rgba(47,123,240,.12); border: 1px solid rgba(47,123,240,.4); color: #cfe0ff;
+      font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+    .bcmg-badge b { color: #fff; }
+
+    /* Accountability strip */
+    .acct-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+    .acct-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .acct-card .ic { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
+      background: rgba(255,181,36,.14); color: var(--gold); margin-bottom: 14px; }
+    .acct-card h3 { font-size: 1.08rem; margin-bottom: 6px; }
+    .acct-card p { color: var(--muted); font-size: .95rem; }
+
+    /* Placeholders */
+    .ph { display: grid; place-items: center; text-align: center; background: var(--surface);
+      border: 2px dashed var(--border); border-radius: var(--radius); color: var(--muted); padding: 18px; }
+    .ph .pic { opacity: .55; margin-bottom: 10px; }
+    .ph .plabel { font-weight: 700; color: #c3ccd8; letter-spacing: .4px; }
+    .ph .psub { font-size: .82rem; margin-top: 4px; }
+    .ph-video { aspect-ratio: 16 / 9; }
+    .ph-photo { aspect-ratio: 4 / 3; }
+
+    /* Prominent "What is BCMG" video */
+    .video-hero { max-width: 900px; margin: 0 auto; }
+    .video-hero .ph-video { border-color: rgba(255,181,36,.5);
+      box-shadow: 0 0 0 1px rgba(255,181,36,.25), 0 0 44px rgba(255,181,36,.18); }
+    .video-hero .play { width: 70px; height: 70px; border-radius: 50%; background: var(--gold); color: #1a1205;
+      display: grid; place-items: center; margin: 0 auto 14px; box-shadow: 0 8px 26px rgba(255,181,36,.4); }
+
+    .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+    .work-grid  { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+
+    /* Services chips */
+    .svc-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px; }
+    .svc-chip { background: var(--surface-2); border: 1px solid var(--border); border-radius: 999px;
+      padding: 9px 18px; font-weight: 600; font-size: .92rem; }
+    .svc-chip b { color: var(--gold); }
+
+    /* Google review cards */
+    .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+    .greview { background: #fff; color: #1a1d23; border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+    .greview .top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .greview .avatar { width: 44px; height: 44px; border-radius: 50%; background: #2f7bf0; color: #fff;
+      display: grid; place-items: center; font-family: "Oswald", sans-serif; font-size: 1.2rem; font-weight: 700; }
+    .greview .who { flex: 1; }
+    .greview .who .name { font-weight: 700; font-size: .98rem; color: #14171c; }
+    .greview .who .date { font-size: .78rem; color: #667085; }
+    .greview .stars { color: #fbbc05; letter-spacing: 2px; font-size: 1.05rem; margin-bottom: 8px; }
+    .greview .body { color: #3a4150; font-size: .92rem; line-height: 1.55; }
+    .greview .gmark { margin-left: auto; }
+
+    /* Lead form */
+    .bcmg-form { max-width: 660px; margin: 0 auto; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .bcmg-form select { width: 100%; }
+
+    @media (max-width: 860px) {
+      .acct-grid, .media-grid, .work-grid, .reviews { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="The Patrick Carr Show — home">
+        <img class="logo" src="assets/img/logo-neon.png" alt="The Patrick Carr Show">
+      </a>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="merch.html">Merch</a>
+        <a href="businesses.html">Approved Businesses</a>
+        <a href="blue-collar-media-group.html" class="active">Blue Collar Media Group</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-gold nav-cta" href="index.html#tiers">Get Involved</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="bcmg-badge">● Owned &amp; Operated by <b>Patrick Carr</b></span>
+      <h1>Blue Collar Media <span class="accent">Group</span></h1>
+      <p class="bcmg-lead">You watch the Show — this is the company behind it. I'm Patrick Carr, and I own
+        Blue Collar Media Group: the video production and marketing team that helps business owners get seen,
+        get trusted, and book more work. If you've ever watched an episode and thought
+        <strong>"man, I need everything this guy does for my business"</strong> — you're in the right place.</p>
+      <div class="hero-actions" style="margin-top:26px">
+        <a class="btn btn-gold btn-lg" href="#lets-talk">Work With My Team</a>
+        <a class="btn btn-ghost btn-lg" href="#what-is-bcmg">What Is BCMG?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACCOUNTABILITY ===== -->
+  <section class="block">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Why Work With Us</div>
+        <h2>Work Directly With The Owner</h2>
+        <p>When you hire Blue Collar Media Group, you're not handed off to a call center or a junior rep.
+          This is my company — run and operated by me — which means full accountability and a crew that
+          treats your business like it's our own.</p>
+      </div>
+      <div class="acct-grid">
+        <div class="acct-card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h3>Full Accountability</h3>
+          <p>My name is on it. You deal with the owner, not a middleman — and I stand behind every project we deliver.</p>
+        </div>
+        <div class="acct-card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>People Who Treat You Right</h3>
+          <p>Work with people you already know and like. We handle your brand with the same care we handle the Show.</p>
+        </div>
+        <div class="acct-card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+          <h3>Built To Get Results</h3>
+          <p>We don't make videos that collect dust. We build marketing systems designed to get you seen and book jobs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT IS BCMG (prominent video) ===== -->
+  <section class="block alt" id="what-is-bcmg">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Start Here</div>
+        <h2>What Is Blue Collar Media Group?</h2>
+        <p>The 2-minute rundown on who we are, what we do, and how we help business owners like you.</p>
+      </div>
+      <div class="video-hero">
+        <!-- KEY VIDEO — replace this placeholder with the "What Is BCMG" video, e.g.:
+             <iframe class="ph-video" style="width:100%;border:0;border-radius:var(--radius)"
+               src="https://www.youtube.com/embed/VIDEO_ID" title="What Is Blue Collar Media Group"
+               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <div class="ph ph-video">
+          <div>
+            <div class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="plabel">“What Is BCMG?” Video</div>
+            <div class="psub">Placeholder — your key explainer video goes here</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT WE DO ===== -->
+  <section class="block">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">What We Do</div>
+        <h2>Video Production &amp; Marketing That Works</h2>
+        <p>From the first idea to the finished campaign, we run the whole system — strategy, scripting,
+          production, editing, and deployment — for business owners and contractors across Florida.
+          Three ways we help:</p>
+      </div>
+      <div class="acct-grid">
+        <div class="acct-card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+          <h3>Video Production</h3>
+          <p>Testimonials, brand videos, social content, and commercials — filmed and edited to make you look like the pro you are.</p>
+        </div>
+        <div class="acct-card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+          <h3>Marketing</h3>
+          <p>Getting your content in front of the right people — ads, deployment, and a system that turns views into customers.</p>
+        </div>
+        <div class="acct-card">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <h3>Marketing Consulting</h3>
+          <p>Not sure where to start? Sit down with our team and get a clear plan for how to grow your business with content.</p>
+        </div>
+      </div>
+      <div class="svc-row">
+        <span class="svc-chip"><b>Our system:</b> Strategy</span>
+        <span class="svc-chip">Scripting</span>
+        <span class="svc-chip">Production</span>
+        <span class="svc-chip">Editing</span>
+        <span class="svc-chip">Deployment</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE TEAM IN ACTION (photo placeholders) ===== -->
+  <section class="block alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Behind The Scenes</div>
+        <h2>The Team In Action</h2>
+        <p>Real shoots, real crews, real work. (Photos coming soon — placeholders below.)</p>
+      </div>
+      <div class="media-grid">
+        <!-- INSERT PHOTO 1 — replace this div with <img src="assets/img/bcmg-crew-1.jpg" alt="BCMG crew on a shoot"> -->
+        <div class="ph ph-photo"><div><div class="pic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="plabel">Crew Photo</div><div class="psub">Placeholder 1</div></div></div>
+        <!-- INSERT PHOTO 2 -->
+        <div class="ph ph-photo"><div><div class="pic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="plabel">Crew Photo</div><div class="psub">Placeholder 2</div></div></div>
+        <!-- INSERT PHOTO 3 -->
+        <div class="ph ph-photo"><div><div class="pic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="plabel">Crew Photo</div><div class="psub">Placeholder 3</div></div></div>
+        <!-- INSERT PHOTO 4 -->
+        <div class="ph ph-photo"><div><div class="pic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="plabel">Crew Photo</div><div class="psub">Placeholder 4</div></div></div>
+        <!-- INSERT PHOTO 5 -->
+        <div class="ph ph-photo"><div><div class="pic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="plabel">Crew Photo</div><div class="psub">Placeholder 5</div></div></div>
+        <!-- INSERT PHOTO 6 -->
+        <div class="ph ph-photo"><div><div class="pic"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div class="plabel">Crew Photo</div><div class="psub">Placeholder 6</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR WORK (3 video placeholders) ===== -->
+  <section class="block">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Our Work</div>
+        <h2>See What We Produce</h2>
+        <p>A few recent projects. (Videos coming soon — swap each placeholder for a YouTube/Vimeo embed.)</p>
+      </div>
+      <div class="work-grid">
+        <!-- INSERT WORK VIDEO 1 — replace with an <iframe class="ph-video" ... src="https://www.youtube.com/embed/VIDEO_ID"></iframe> -->
+        <div class="ph ph-video"><div><div class="pic"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="plabel">Work Sample 1</div><div class="psub">Video placeholder</div></div></div>
+        <!-- INSERT WORK VIDEO 2 -->
+        <div class="ph ph-video"><div><div class="pic"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="plabel">Work Sample 2</div><div class="psub">Video placeholder</div></div></div>
+        <!-- INSERT WORK VIDEO 3 -->
+        <div class="ph ph-video"><div><div class="pic"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div><div class="plabel">Work Sample 3</div><div class="psub">Video placeholder</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GOOGLE REVIEWS ===== -->
+  <section class="block alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Real Clients</div>
+        <h2>Recent Google Reviews</h2>
+        <p>What business owners are saying — pulled from our most recent Google reviews.</p>
+      </div>
+      <div class="reviews">
+        <!-- REVIEW 1 — replace name/date/text with a real recent Google review -->
+        <div class="greview">
+          <div class="top">
+            <div class="avatar">A</div>
+            <div class="who"><div class="name">Reviewer Name</div><div class="date">Within the last 3 months</div></div>
+            <span class="gmark">
+              <svg viewBox="0 0 48 48" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            </span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="body">“Placeholder for a recent 5-star Google review about the BCMG team. Paste the real review text here.”</div>
+        </div>
+        <!-- REVIEW 2 -->
+        <div class="greview">
+          <div class="top">
+            <div class="avatar">B</div>
+            <div class="who"><div class="name">Reviewer Name</div><div class="date">Within the last 3 months</div></div>
+            <span class="gmark">
+              <svg viewBox="0 0 48 48" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            </span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="body">“Placeholder for a recent 5-star Google review about the BCMG team. Paste the real review text here.”</div>
+        </div>
+        <!-- REVIEW 3 -->
+        <div class="greview">
+          <div class="top">
+            <div class="avatar">C</div>
+            <div class="who"><div class="name">Reviewer Name</div><div class="date">Within the last 3 months</div></div>
+            <span class="gmark">
+              <svg viewBox="0 0 48 48" width="22" height="22"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            </span>
+          </div>
+          <div class="stars">★★★★★</div>
+          <div class="body">“Placeholder for a recent 5-star Google review about the BCMG team. Paste the real review text here.”</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEAD FORM ===== -->
+  <section class="block" id="lets-talk">
+    <div class="container">
+      <div class="section-head">
+        <div class="kicker">Let's Talk</div>
+        <h2>Work With My Team</h2>
+        <p>Tell me about your business and what you need. This goes straight to me and the BCMG team —
+          we'll reach out to talk about how we can help.</p>
+      </div>
+      <form class="bcmg-form" id="bcmg-form" method="POST"
+            action="https://formsubmit.co/patrick@bluecollarmediagroup.com">
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_subject" value="New BCMG inquiry — Blue Collar Media Group">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_cc" value="anthony@bluecollarmediagroup.com">
+        <input type="hidden" name="_next" value="https://thepatrickcarrshow.com/bcmg-thanks.html">
+        <input type="hidden" name="_captcha" value="true">
+        <!-- honeypot: bots fill this, humans don't -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="Name" required placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="Company" required placeholder="Your business">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" required placeholder="you@email.com">
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="Phone" required placeholder="(000) 000-0000">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="interest">What are you interested in?</label>
+          <select id="interest" name="Interested In" required>
+            <option value="" disabled selected>Choose one…</option>
+            <option>Video Production</option>
+            <option>Marketing</option>
+            <option>Marketing Consulting</option>
+            <option>A little of everything</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="details">Tell us a little about your business &amp; what you need</label>
+          <textarea id="details" name="Details" placeholder="A sentence or two about your business and what you're looking for."></textarea>
+        </div>
+
+        <button class="btn btn-gold btn-lg btn-block" type="submit">Send My Information</button>
+        <p class="form-note">A CAPTCHA will confirm you're human before your information is sent to the BCMG team.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html" style="margin-bottom:14px" aria-label="The Patrick Carr Show — home">
+            <img class="logo" src="assets/img/logo-neon.png" alt="The Patrick Carr Show">
+          </a>
+          <p>Real conversations, real businesses, real results.</p>
+          <a class="powered-by" href="https://bluecollarmediagroup.com" target="_blank" rel="noopener">
+            <img src="assets/img/bcmg-logo.png" alt="Blue Collar Media Group">
+            <span>Powered by<b>Blue Collar Media Group</b></span>
+          </a>
+          <div class="socials" id="socials"></div>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#tiers">Get Involved</a>
+            <a href="merch.html">Merchandise</a>
+            <a href="businesses.html">Approved Businesses</a>
+            <a href="blue-collar-media-group.html">Blue Collar Media Group</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </div>
+        <div>
+          <h4>Get In Touch</h4>
+          <div class="footer-links">
+            <a id="footer-email" href="#">Email Us</a>
+            <a href="story.html">Send Us A Story</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year></span> The Patrick Carr Show · Blue Collar Media Group. All rights reserved.</span>
+        <span>thepatrickcarrshow.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Fire a Meta "Lead" event when the BCMG form is submitted (pixel base is already loaded).
+    document.addEventListener("submit", function (e) {
+      if (e.target && e.target.id === "bcmg-form" && window.fbq) {
+        fbq("track", "Lead", { content_name: "BCMG Inquiry" });
+      }
+    }, true);
+  </script>
+</body>
+</html>
