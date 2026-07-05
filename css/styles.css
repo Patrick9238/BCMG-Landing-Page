@@ -87,6 +87,9 @@ img { max-width: 100%; display: block; }
 }
 .nav-links a:hover, .nav-links a.active { color: #fff; background: var(--surface-2); }
 .nav-cta { margin-left: 8px; }
+/* Gold "Get Involved" nav button with dark-blue text so it pops */
+.nav-links a.nav-cta { color: #0e2a63; font-weight: 700; }
+.nav-links a.nav-cta:hover { color: #0e2a63; background: var(--gold-dark); }
 
 .cart-btn { position: relative; background: var(--surface-2); border: 1px solid var(--border); color: #fff;
   width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; cursor: pointer; }
