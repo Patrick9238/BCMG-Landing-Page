@@ -74,6 +74,32 @@
       padding: 9px 18px; font-weight: 600; font-size: .92rem; }
     .svc-chip b { color: var(--gold); }
 
+    /* Two ways to work: Video Production vs Video Marketing */
+    .work-two { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 34px; }
+    .work-card { position: relative; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 28px 30px; display: flex; flex-direction: column; }
+    .work-card.accent-border { border-color: rgba(47,123,240,.6);
+      box-shadow: 0 0 0 1px rgba(47,123,240,.28), 0 0 30px rgba(47,123,240,.12); }
+    .work-eyebrow { color: var(--blue); font-weight: 700; font-size: .78rem; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 10px; }
+    .work-card h3 { font-size: 1.55rem; margin-bottom: 16px; line-height: 1.12; }
+    .work-list { list-style: none; margin: 0 0 26px; padding: 0; }
+    .work-list li { position: relative; padding-left: 20px; margin-bottom: 11px; }
+    .work-list li::before { content: "•"; color: var(--blue); position: absolute; left: 2px; top: -1px;
+      font-size: 1.3rem; line-height: 1; }
+    .work-link { margin-top: auto; color: var(--blue); font-weight: 700; text-transform: uppercase;
+      letter-spacing: .5px; font-size: .95rem; }
+    .work-link:hover { color: #fff; }
+    .work-badge { position: absolute; right: 14px; bottom: 16px; background: var(--gold); color: #1a1205;
+      font-family: "Oswald", sans-serif; font-weight: 700; font-size: .82rem; text-transform: uppercase;
+      text-align: center; padding: 8px 13px; border-radius: 6px; transform: rotate(-6deg);
+      box-shadow: 0 8px 20px rgba(0,0,0,.45); line-height: 1.15; }
+    .work-both { text-align: center; color: var(--muted); margin-top: 22px; }
+    @media (max-width: 760px) {
+      .work-two { grid-template-columns: 1fr; }
+      .work-badge { position: static; display: inline-block; transform: none; margin-top: 12px; }
+    }
+
     /* Google review cards */
     .reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
     .greview { background: #fff; color: #1a1d23; border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
@@ -138,7 +164,7 @@
       <div class="bcmg-hero-form" id="lead-form">
         <div class="bcmg-form-head">
           <h2>Let's Talk</h2>
-          <p>Tell me about your business — this goes straight to me and the BCMG team.</p>
+          <p>Tell us about your business and a member of the BCMG team will reach out directly.</p>
         </div>
         <form class="bcmg-form" id="bcmg-form" method="POST"
               action="https://formsubmit.co/patrick@thepatrickcarrshow.com">
@@ -253,34 +279,32 @@
       <div class="section-head">
         <div class="kicker">What We Do</div>
         <h2>Video Production &amp; Marketing That Works</h2>
-        <p>From the first idea to the finished campaign, we run the whole system — strategy, scripting,
-          production, editing, and deployment — for business owners and contractors across Florida.
-          Three ways we help:</p>
+        <p>There are two ways to work with us: Video Production or Video Marketing. What is best for your business:</p>
       </div>
-      <div class="acct-grid">
-        <div class="acct-card">
-          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
-          <h3>Video Production</h3>
-          <p>Testimonials, brand videos, social content, and commercials — filmed and edited to make you look like the pro you are.</p>
+      <div class="work-two">
+        <div class="work-card">
+          <div class="work-eyebrow">Companies With Established Content Marketing</div>
+          <h3>Video Production Only</h3>
+          <ul class="work-list">
+            <li>Marketing Team Already In Place</li>
+            <li>Content For Streaming Services or Television</li>
+            <li>Website or In-Home Presentations</li>
+          </ul>
+          <a class="work-link" href="#lead-form">See How It Works →</a>
         </div>
-        <div class="acct-card">
-          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-          <h3>Marketing</h3>
-          <p>Getting your content in front of the right people — ads, deployment, and a system that turns views into customers.</p>
-        </div>
-        <div class="acct-card">
-          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-          <h3>Marketing Consulting</h3>
-          <p>Not sure where to start? Sit down with our team and get a clear plan for how to grow your business with content.</p>
+        <div class="work-card accent-border">
+          <div class="work-eyebrow">Companies Without A Video Marketing Strategy</div>
+          <h3>Lead Generation &amp; Brand Authority</h3>
+          <ul class="work-list">
+            <li>Using Social Media To Drive Business</li>
+            <li>Using Content Across Social Media</li>
+            <li>Custom Integrations And Automations</li>
+          </ul>
+          <a class="work-link" href="#lead-form">See How It Works →</a>
+          <div class="work-badge">85% Of Our Clients<br>Start Here</div>
         </div>
       </div>
-      <div class="svc-row">
-        <span class="svc-chip"><b>Our system:</b> Strategy</span>
-        <span class="svc-chip">Scripting</span>
-        <span class="svc-chip">Production</span>
-        <span class="svc-chip">Editing</span>
-        <span class="svc-chip">Deployment</span>
-      </div>
+      <p class="work-both">Want both? Ask us about our mixed packages.</p>
     </div>
   </section>
 
@@ -337,7 +361,7 @@
       <div class="section-head">
         <div class="kicker">Real Clients</div>
         <h2>Recent Google Reviews</h2>
-        <p>What business owners are saying — pulled from our most recent Google reviews.</p>
+        <p>What business owners are saying, straight from our most recent Google reviews.</p>
       </div>
       <div class="reviews">
         <!-- REVIEW 1 — replace name/date/text with a real recent Google review -->
