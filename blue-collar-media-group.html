@@ -18,6 +18,24 @@
   <style>
     /* ---- BCMG page-specific styling ---- */
     .bcmg-lead { max-width: 760px; }
+
+    /* Two-column hero: intro copy + lead form (form visible up top) */
+    .bcmg-hero { text-align: left; padding-top: 34px; padding-bottom: 42px; }
+    .bcmg-hero-grid { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 40px; align-items: center; }
+    .bcmg-hero-copy .bcmg-lead { margin-bottom: 0; }
+    .bcmg-hero-form { background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+    .bcmg-hero-form .bcmg-form { max-width: none; margin: 0; }
+    .bcmg-hero-form .bcmg-form-head { margin-bottom: 14px; }
+    .bcmg-hero-form .bcmg-form-head h2 { font-size: 1.5rem; }
+    .bcmg-hero-form .bcmg-form-head p { color: var(--muted); font-size: .92rem; margin-top: 4px; }
+    .bcmg-hero-form textarea { min-height: 64px; }
+    @media (max-width: 900px) {
+      .bcmg-hero { text-align: center; }
+      .bcmg-hero-grid { grid-template-columns: 1fr; gap: 24px; }
+      .bcmg-hero .hero-actions { justify-content: center; }
+      .bcmg-hero-form { text-align: left; }
+    }
     .bcmg-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 999px;
       background: rgba(47,123,240,.12); border: 1px solid rgba(47,123,240,.4); color: #cfe0ff;
       font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
@@ -101,18 +119,80 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="page-hero">
-    <div class="container">
-      <span class="bcmg-badge">● Owned &amp; Operated by <b>Patrick Carr</b></span>
-      <h1>Blue Collar Media <span class="accent">Group</span></h1>
-      <p class="bcmg-lead">You watch the Show — this is the company behind it. I'm Patrick Carr, and I own
-        Blue Collar Media Group: the video production and marketing team that helps business owners get seen,
-        get trusted, and book more work. If you've ever watched an episode and thought
-        <strong>"man, I need everything this guy does for my business"</strong> — you're in the right place.</p>
-      <div class="hero-actions" style="margin-top:26px;justify-content:center">
-        <a class="btn btn-gold btn-lg" href="#lets-talk">Work With My Team</a>
-        <a class="btn btn-ghost btn-lg" href="#what-is-bcmg">What Is BCMG?</a>
+  <!-- ===== HERO + LEAD FORM ===== -->
+  <section class="page-hero bcmg-hero" id="lets-talk">
+    <div class="container bcmg-hero-grid">
+      <div class="bcmg-hero-copy">
+        <span class="bcmg-badge">● Owned &amp; Operated by <b>Patrick Carr</b></span>
+        <h1>Blue Collar Media <span class="accent">Group</span></h1>
+        <p class="bcmg-lead">You watch the Show — this is the company behind it. I'm Patrick Carr, and I own
+          Blue Collar Media Group: the team that helps business owners get seen, get trusted, and book more work.
+          If you've ever thought <strong>"man, I need everything this guy does for my business"</strong> —
+          you're in the right place.</p>
+        <div class="hero-actions" style="margin-top:22px">
+          <a class="btn btn-gold btn-lg" href="#lead-form">Work With My Team</a>
+          <a class="btn btn-ghost btn-lg" href="#what-is-bcmg">What Is BCMG?</a>
+        </div>
+      </div>
+
+      <div class="bcmg-hero-form" id="lead-form">
+        <div class="bcmg-form-head">
+          <h2>Let's Talk</h2>
+          <p>Tell me about your business — this goes straight to me and the BCMG team.</p>
+        </div>
+        <form class="bcmg-form" id="bcmg-form" method="POST"
+              action="https://formsubmit.co/patrick@thepatrickcarrshow.com">
+          <!-- FormSubmit settings -->
+          <input type="hidden" name="_subject" value="New BCMG inquiry — Blue Collar Media Group">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_cc" value="anthony@thepatrickcarrshow.com">
+          <input type="hidden" name="_next" value="https://thepatrickcarrshow.com/bcmg-thanks.html">
+          <input type="hidden" name="_captcha" value="true">
+          <!-- honeypot: bots fill this, humans don't -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="Name" required placeholder="Your name">
+            </div>
+            <div class="field">
+              <label for="company">Company Name</label>
+              <input type="text" id="company" name="Company" required placeholder="Your business">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="Email" required placeholder="you@email.com">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="Phone" required placeholder="(000) 000-0000">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="interest">What are you interested in?</label>
+            <select id="interest" name="Interested In" required>
+              <option value="" disabled selected>Choose one…</option>
+              <option>Video Production</option>
+              <option>Marketing</option>
+              <option>Marketing Consulting</option>
+              <option>A little of everything</option>
+              <option>Not sure yet — let's talk</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="details">Tell us a little about your business &amp; what you need</label>
+            <textarea id="details" name="Details" rows="2" placeholder="A sentence or two about your business and what you're looking for."></textarea>
+          </div>
+
+          <button class="btn btn-gold btn-lg btn-block" type="submit">Send My Information</button>
+          <p class="form-note">A CAPTCHA will confirm you're human before your information is sent to the BCMG team.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -293,71 +373,6 @@
           <div class="body">“I hired Pat to help with marketing for my company, and the whole process has been top notch. He's professional, easy to work with, and has a really solid team around him. Pat's the real deal. For our first shoot, Brett flew in, and he was awesome. You can tell he really cares about the work. He took the time to get the right shots, made everyone feel comfortable on camera, and just brought great energy the whole day. The Guy works his butt off. 10/10. Really happy with the experience so far and excited to see where it goes.”</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== LEAD FORM ===== -->
-  <section class="block" id="lets-talk">
-    <div class="container">
-      <div class="section-head">
-        <div class="kicker">Let's Talk</div>
-        <h2>Work With My Team</h2>
-        <p>Tell me about your business and what you need. This goes straight to me and the BCMG team —
-          we'll reach out to talk about how we can help.</p>
-      </div>
-      <form class="bcmg-form" id="bcmg-form" method="POST"
-            action="https://formsubmit.co/patrick@thepatrickcarrshow.com">
-        <!-- FormSubmit settings -->
-        <input type="hidden" name="_subject" value="New BCMG inquiry — Blue Collar Media Group">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_cc" value="anthony@thepatrickcarrshow.com">
-        <input type="hidden" name="_next" value="https://thepatrickcarrshow.com/bcmg-thanks.html">
-        <input type="hidden" name="_captcha" value="true">
-        <!-- honeypot: bots fill this, humans don't -->
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-        <div class="field-row">
-          <div class="field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="Name" required placeholder="Your name">
-          </div>
-          <div class="field">
-            <label for="company">Company Name</label>
-            <input type="text" id="company" name="Company" required placeholder="Your business">
-          </div>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="Email" required placeholder="you@email.com">
-          </div>
-          <div class="field">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="Phone" required placeholder="(000) 000-0000">
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="interest">What are you interested in?</label>
-          <select id="interest" name="Interested In" required>
-            <option value="" disabled selected>Choose one…</option>
-            <option>Video Production</option>
-            <option>Marketing</option>
-            <option>Marketing Consulting</option>
-            <option>A little of everything</option>
-            <option>Not sure yet — let's talk</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="details">Tell us a little about your business &amp; what you need</label>
-          <textarea id="details" name="Details" placeholder="A sentence or two about your business and what you're looking for."></textarea>
-        </div>
-
-        <button class="btn btn-gold btn-lg btn-block" type="submit">Send My Information</button>
-        <p class="form-note">A CAPTCHA will confirm you're human before your information is sent to the BCMG team.</p>
-      </form>
     </div>
   </section>
 
