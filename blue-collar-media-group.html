@@ -490,20 +490,25 @@
       // Build a clean payload for GoHighLevel.
       try {
         var name = (form.querySelector('[name="Name"]') || {}).value || "";
-        var payload = {
-          full_name: name,
-          name: name,
-          company: (form.querySelector('[name="Company"]') || {}).value || "",
-          email: (form.querySelector('[name="Email"]') || {}).value || "",
-          phone: (form.querySelector('[name="Phone"]') || {}).value || "",
-          interest: (form.querySelector('[name="Interested In"]') || {}).value || "",
-          details: (form.querySelector('[name="Details"]') || {}).value || "",
-          source: "Blue Collar Media Group landing page"
-        };
+        // NOTE: cross-origin browser calls run in no-cors mode, which strips a
+        // "Content-Type: application/json" header — GoHighLevel then rejects the
+        // body as invalid. application/x-www-form-urlencoded is a safelisted
+        // content type that survives no-cors AND is parsed by GHL, so we send
+        // the fields form-encoded.
+        var params = new URLSearchParams();
+        params.set("full_name", name);
+        params.set("name", name);
+        params.set("company", (form.querySelector('[name="Company"]') || {}).value || "");
+        params.set("email", (form.querySelector('[name="Email"]') || {}).value || "");
+        params.set("phone", (form.querySelector('[name="Phone"]') || {}).value || "");
+        params.set("interest", (form.querySelector('[name="Interested In"]') || {}).value || "");
+        params.set("details", (form.querySelector('[name="Details"]') || {}).value || "");
+        params.set("source", "Blue Collar Media Group landing page");
+
         fetch(GHL_WEBHOOK_URL, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
+          headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+          body: params.toString(),
           keepalive: true,
           mode: "no-cors"
         }).then(proceed, proceed);
