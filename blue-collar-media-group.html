@@ -63,6 +63,50 @@
     .acct-card h3 { font-size: 1.08rem; margin-bottom: 6px; }
     .acct-card p { color: var(--muted); font-size: .95rem; }
 
+    /* ---- Packages / pricing ---- */
+    .pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; align-items: stretch; }
+    .pkg-card { position: relative; display: flex; flex-direction: column; background: var(--surface);
+      border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 24px; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+    .pkg-card:hover { transform: translateY(-4px); border-color: rgba(47,123,240,.55); }
+    .pkg-card.featured { border-color: var(--gold); box-shadow: 0 12px 34px rgba(255,181,36,.12); }
+    .pkg-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+      background: var(--gold); color: #1a1205; font-family: "Oswald", sans-serif; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; font-size: .72rem; padding: 6px 15px; border-radius: 999px; white-space: nowrap; }
+    .pkg-name { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .5px;
+      font-size: 1.25rem; color: #fff; margin-bottom: 10px; }
+    .pkg-price { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 2.2rem; color: var(--gold); line-height: 1; }
+    .pkg-price span { font-size: .95rem; color: var(--muted); font-weight: 600; }
+    .pkg-desc { color: var(--muted); font-size: .92rem; margin: 14px 0 18px; }
+    .pkg-features { list-style: none; margin: 0 0 24px; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+    .pkg-features li { display: flex; gap: 10px; align-items: flex-start; color: var(--text); font-size: .94rem; }
+    .pkg-features li svg { flex: 0 0 auto; width: 18px; height: 18px; color: var(--blue); margin-top: 1px; }
+    .pkg-card .btn { margin-top: auto; }
+
+    /* ---- Fractional CMO price anchor ---- */
+    .cmo-anchor { position: relative; margin-top: 22px;
+      background: linear-gradient(135deg, rgba(255,181,36,.12), rgba(47,123,240,.10));
+      border: 1.5px solid rgba(255,181,36,.55); border-radius: var(--radius); padding: 34px;
+      display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; align-items: center; }
+    .cmo-eyebrow { color: var(--gold); font-family: "Oswald", sans-serif; text-transform: uppercase;
+      letter-spacing: 2px; font-size: .8rem; font-weight: 700; margin-bottom: 10px; }
+    .cmo-anchor h3 { font-size: 1.7rem; color: #fff; margin-bottom: 12px; line-height: 1.15; }
+    .cmo-anchor > div > p { color: var(--muted); font-size: .97rem; margin-bottom: 18px; }
+    .cmo-features { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 9px 20px; }
+    .cmo-features li { display: flex; gap: 8px; align-items: flex-start; color: var(--text); font-size: .9rem; }
+    .cmo-features li svg { flex: 0 0 auto; width: 16px; height: 16px; color: var(--gold); margin-top: 2px; }
+    .cmo-side { text-align: center; background: rgba(0,0,0,.28); border: 1px solid rgba(255,181,36,.3);
+      border-radius: 12px; padding: 26px 22px; }
+    .cmo-price { font-family: "Oswald", sans-serif; font-weight: 700; font-size: 2.7rem; color: var(--gold); line-height: 1; }
+    .cmo-price span { display: block; font-size: .9rem; color: var(--muted); font-weight: 600; margin-top: 4px; }
+    .cmo-spots { margin: 16px 0 18px; font-weight: 700; color: #fff; font-size: .95rem; }
+    .cmo-spots b { color: var(--gold); }
+
+    @media (max-width: 860px) {
+      .pkg-grid { grid-template-columns: 1fr; }
+      .cmo-anchor { grid-template-columns: 1fr; }
+      .cmo-features { grid-template-columns: 1fr; }
+    }
+
     /* Placeholders */
     .ph { display: grid; place-items: center; text-align: center; background: var(--surface);
       border: 2px dashed var(--border); border-radius: var(--radius); color: var(--muted); padding: 18px; }
@@ -241,33 +285,80 @@
     </div>
   </section>
 
-  <!-- ===== ACCOUNTABILITY ===== -->
-  <section class="block">
+  <!-- ===== PACKAGES / PRICING ===== -->
+  <section class="block" id="packages">
     <div class="container">
       <div class="section-head">
-        <div class="kicker">Why Work With Us</div>
-        <h2>Work With Patrick... Here's Why</h2>
-        <p>When you hire Blue Collar Media Group, you're not handed off to a call center or some junior rep.
-          This company is ran and operated by Patrick. Unlike others who settle for monthly updates or weekly
-          emails we believe in full accountability. That means meeting with you regularly and working alongside
-          your team. From the beginning you will only work with in-house employees who are committed to
-          delivering an exceptional experience.</p>
+        <div class="kicker">Packages &amp; Pricing</div>
+        <h2>Packages Built To Grow Your Business</h2>
+        <p>Our packages are built for small businesses at every stage. You don't need a million-dollar marketing
+          budget to work with us — you just need the desire to invest in yourself and change the way you approach
+          marketing. Start where you are, and scale up as you grow.</p>
       </div>
-      <div class="acct-grid">
-        <div class="acct-card">
-          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
-          <h3>A Proven Record</h3>
-          <p>Blue Collar Media Group works with 34 of the Inc. 5000 and 19 of the Top 100 Contractors in the country.</p>
+
+      <div class="pkg-grid">
+        <!-- Starter -->
+        <div class="pkg-card">
+          <div class="pkg-name">Starter</div>
+          <div class="pkg-price">$1,000<span>/month</span></div>
+          <p class="pkg-desc">Designed to kickstart your business and start bringing in leads.</p>
+          <ul class="pkg-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> AI-generated content</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Lead generation</li>
+          </ul>
+          <a class="btn btn-lg btn-outline-blue btn-block" href="#lead-form">Get Started</a>
         </div>
-        <div class="acct-card">
-          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
-          <h3>Everything In One Place</h3>
-          <p>From websites to content to the targeted marketing your business needs, we have you covered.</p>
+
+        <!-- Growth (featured) -->
+        <div class="pkg-card featured">
+          <span class="pkg-badge">Most Popular</span>
+          <div class="pkg-name">Growth</div>
+          <div class="pkg-price">$2,500<span>/month</span></div>
+          <p class="pkg-desc">Designed for scaling businesses ready to grow faster.</p>
+          <ul class="pkg-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Custom content</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Lead generation</li>
+          </ul>
+          <a class="btn btn-lg btn-gold btn-block" href="#lead-form">Get Started</a>
         </div>
-        <div class="acct-card">
-          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-          <h3>Undeniable Results</h3>
-          <p>We've created over 13,000 videos for small businesses, generating over $250 million for our clients.</p>
+
+        <!-- Enterprise -->
+        <div class="pkg-card">
+          <div class="pkg-name">Enterprise</div>
+          <div class="pkg-price">$4,500<span>/month</span></div>
+          <p class="pkg-desc">Designed for established companies ready to own their market.</p>
+          <ul class="pkg-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Custom content</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Lead generation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Full branding</li>
+          </ul>
+          <a class="btn btn-lg btn-outline-blue btn-block" href="#lead-form">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Fractional CMO — high-price anchor -->
+      <div class="cmo-anchor">
+        <div>
+          <div class="cmo-eyebrow">The Ultimate Partnership</div>
+          <h3>Fractional CMO — Patrick &amp; His Team As Your Marketing Department</h3>
+          <p>The highest level of partnership we offer. Patrick steps in as your Fractional CMO and his team
+            becomes your full marketing back office — completely integrated with your business and accountable
+            for driving real results.</p>
+          <ul class="cmo-features">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Marketing strategy &amp; roadmap</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Custom content &amp; production</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Full branding</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Search &amp; SEO</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Paid ads &amp; lead generation</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Weekly strategy meetings</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> On-site visits</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reporting &amp; analytics</li>
+          </ul>
+        </div>
+        <div class="cmo-side">
+          <div class="cmo-price">$10,500<span>/month</span></div>
+          <div class="cmo-spots">Only <b>3 of 5 spots</b> remaining</div>
+          <a class="btn btn-lg btn-gold btn-block" href="#lead-form">Apply For A Spot</a>
         </div>
       </div>
     </div>
@@ -292,7 +383,7 @@
   </section>
 
   <!-- ===== WHAT WE DO ===== -->
-  <section class="block" id="packages">
+  <section class="block">
     <div class="container">
       <div class="section-head">
         <div class="kicker">What We Do</div>
