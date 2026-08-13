@@ -19,6 +19,20 @@
     /* ---- BCMG page-specific styling ---- */
     .bcmg-lead { max-width: 760px; }
 
+    /* Hero action buttons: blue outline by default, filled/highlighted on hover.
+       Blue matches the site --blue used throughout the page. */
+    .btn-outline-blue {
+      background: transparent;
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .btn-outline-blue:hover {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+      box-shadow: 0 8px 24px rgba(47,123,240,.35);
+    }
+
     /* Two-column hero: intro copy + lead form (form visible up top) */
     .bcmg-hero { text-align: left; padding-top: 34px; padding-bottom: 42px; }
     .bcmg-hero-grid { display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 40px; align-items: center; }
@@ -156,14 +170,12 @@
   <section class="page-hero bcmg-hero" id="lets-talk">
     <div class="container bcmg-hero-grid">
       <div class="bcmg-hero-copy">
-        <span class="bcmg-badge">● Owned &amp; Operated by <b>Patrick Carr</b></span>
-        <h1>Blue Collar Media <span class="accent">Group</span></h1>
-        <p class="bcmg-lead">Does your business need content customers will actually pay attention to? Do you
-          need marketing that will produce results? Then you need to work with us. Patrick has built the nation's
-          premier video marketing system for small businesses. Check it out.</p>
+        <h1>Small Business Marketing That Works</h1>
+        <p class="bcmg-lead">Blue Collar Media Group transforms small businesses with professional content and
+          targeted marketing turning attention into revenue.</p>
         <div class="hero-actions" style="margin-top:22px">
-          <a class="btn btn-gold btn-lg" href="#lead-form">Work With My Team</a>
-          <a class="btn btn-ghost btn-lg" href="#what-is-bcmg">What Is BCMG?</a>
+          <a class="btn btn-lg btn-outline-blue" href="#lead-form">Speak With Patrick</a>
+          <a class="btn btn-lg btn-outline-blue" href="#what-is-bcmg">What Is BCMG?</a>
         </div>
       </div>
 
