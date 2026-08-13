@@ -448,11 +448,45 @@
   <script src="js/cart.js"></script>
   <script src="js/main.js?v=10"></script>
   <script>
-    // Fire a Meta "Lead" event when the BCMG form is submitted (pixel base is already loaded).
+    // GoHighLevel (LeadConnector) inbound webhook — receives the lead in parallel
+    // with the FormSubmit email so it lands in the CRM automatically.
+    var GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/yesAsOL6imL8O7yZL8AJ/webhook-trigger/35b3e627-d006-4a64-8d5e-9d15f64a1822";
+
     document.addEventListener("submit", function (e) {
-      if (e.target && e.target.id === "bcmg-form" && window.fbq) {
+      var form = e.target;
+      if (!form || form.id !== "bcmg-form") return;
+
+      // Skip bots: if the honeypot field is filled, don't send anything.
+      var honey = form.querySelector('input[name="_honey"]');
+      if (honey && honey.value) return;
+
+      // Fire a Meta "Lead" event (pixel base is already loaded).
+      if (window.fbq) {
         fbq("track", "Lead", { content_name: "BCMG Inquiry" });
       }
+
+      // Build a clean payload for GoHighLevel and post it via keepalive so the
+      // request survives the page navigating to the thank-you page.
+      try {
+        var name = (form.querySelector('[name="Name"]') || {}).value || "";
+        var payload = {
+          full_name: name,
+          name: name,
+          company: (form.querySelector('[name="Company"]') || {}).value || "",
+          email: (form.querySelector('[name="Email"]') || {}).value || "",
+          phone: (form.querySelector('[name="Phone"]') || {}).value || "",
+          interest: (form.querySelector('[name="Interested In"]') || {}).value || "",
+          details: (form.querySelector('[name="Details"]') || {}).value || "",
+          source: "Blue Collar Media Group landing page"
+        };
+        fetch(GHL_WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          keepalive: true,
+          mode: "no-cors"
+        });
+      } catch (err) { /* never block the normal email submission */ }
     }, true);
   </script>
 </body>
