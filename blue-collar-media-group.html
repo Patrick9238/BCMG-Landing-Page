@@ -117,6 +117,13 @@
     .bcmg-form { max-width: 660px; margin: 0 auto; }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .bcmg-form select { width: 100%; }
+    /* Highlight each field once it has been filled in (matches the focus state) */
+    #bcmg-form input:not(:placeholder-shown),
+    #bcmg-form textarea:not(:placeholder-shown),
+    #bcmg-form select:valid {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 2px rgba(47,123,240,.25);
+    }
 
     @media (max-width: 860px) {
       .acct-grid, .media-grid, .work-grid, .reviews { grid-template-columns: 1fr; }
@@ -456,6 +463,9 @@
       var form = e.target;
       if (!form || form.id !== "bcmg-form") return;
 
+      // Once we've fired the webhook we re-submit the form for real; let that pass through.
+      if (form.dataset.ghlSent === "1") return;
+
       // Skip bots: if the honeypot field is filled, don't send anything.
       var honey = form.querySelector('input[name="_honey"]');
       if (honey && honey.value) return;
@@ -465,8 +475,19 @@
         fbq("track", "Lead", { content_name: "BCMG Inquiry" });
       }
 
-      // Build a clean payload for GoHighLevel and post it via keepalive so the
-      // request survives the page navigating to the thank-you page.
+      // Hold the FormSubmit redirect until the GoHighLevel webhook has actually
+      // been dispatched, so the navigation can't interrupt/drop the request.
+      e.preventDefault();
+
+      var proceeded = false;
+      function proceed() {
+        if (proceeded) return;
+        proceeded = true;
+        form.dataset.ghlSent = "1";
+        form.submit(); // real submit -> emails the team + redirects to thank-you page
+      }
+
+      // Build a clean payload for GoHighLevel.
       try {
         var name = (form.querySelector('[name="Name"]') || {}).value || "";
         var payload = {
@@ -485,8 +506,13 @@
           body: JSON.stringify(payload),
           keepalive: true,
           mode: "no-cors"
-        });
-      } catch (err) { /* never block the normal email submission */ }
+        }).then(proceed, proceed);
+      } catch (err) {
+        proceed();
+      }
+
+      // Safety net: never let a slow/blocked request stop the user from submitting.
+      setTimeout(proceed, 1500);
     }, true);
   </script>
 </body>
