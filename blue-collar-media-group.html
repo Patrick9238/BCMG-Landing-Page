@@ -44,11 +44,20 @@
     .bcmg-hero-form .bcmg-form-head h2 { font-size: 1.5rem; }
     .bcmg-hero-form .bcmg-form-head p { color: var(--muted); font-size: .92rem; margin-top: 4px; }
     .bcmg-hero-form textarea { min-height: 64px; }
+    /* Hero photo (arms-crossed cutout, right side) */
+    .bcmg-hero-photo { display: flex; align-items: flex-end; justify-content: center; align-self: stretch; }
+    .bcmg-hero-photo img { width: 100%; max-width: 440px; height: auto; display: block;
+      filter: drop-shadow(0 24px 42px rgba(0,0,0,.55)); }
+    /* Lead form, now its own band below the hero */
+    #lead-form-section .bcmg-hero-form { max-width: 680px; margin: 0 auto; }
+    #lead-form-section .bcmg-form-head { text-align: center; }
     @media (max-width: 900px) {
       .bcmg-hero { text-align: center; }
       .bcmg-hero-grid { grid-template-columns: 1fr; gap: 24px; }
       .bcmg-hero .hero-actions { justify-content: center; }
       .bcmg-hero-form { text-align: left; }
+      .bcmg-hero-photo img { max-width: 300px; }
+      #lead-form-section .bcmg-form-head { text-align: left; }
     }
     .bcmg-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; border-radius: 999px;
       background: rgba(47,123,240,.12); border: 1px solid rgba(47,123,240,.4); color: #cfe0ff;
@@ -218,16 +227,24 @@
       <div class="bcmg-hero-copy">
         <div class="kicker">For Small Business Owners</div>
         <h1>Tired Of Marketing That Doesn't Work?</h1>
-        <p class="bcmg-lead">You've poured money into ads and agencies that overpromise and underdeliver, while
-          your competitors soak up all the attention. It's not you, it's the marketing. Blue Collar Media Group
-          builds the content and targeted marketing that make your business impossible to ignore and turn
-          attention into real customers.</p>
+        <p class="bcmg-lead">It's because no one is paying attention to your business. It's not you, it's your
+          content. Blue Collar Media Group builds the content and targeted marketing that makes your business
+          impossible to ignore. Then we turn that attention into revenue.</p>
         <div class="hero-actions" style="margin-top:22px">
           <a class="btn btn-lg btn-outline-blue" href="#packages">See Our Packages</a>
           <a class="btn btn-lg btn-outline-blue" href="#our-work">See Our Work</a>
         </div>
       </div>
 
+      <div class="bcmg-hero-photo">
+        <img src="assets/img/patrick-arms-crossed.png" alt="Patrick Carr, founder of Blue Collar Media Group">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEAD FORM ===== -->
+  <section class="block" id="lead-form-section">
+    <div class="container">
       <div class="bcmg-hero-form" id="lead-form">
         <div class="bcmg-form-head">
           <h2>Let's Talk</h2>
