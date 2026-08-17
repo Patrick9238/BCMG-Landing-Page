@@ -220,61 +220,12 @@
       <div class="bcmg-hero-form" id="lead-form">
         <div class="bcmg-form-head">
           <h2>Ready To Speak With Patrick?</h2>
-          <p>Tell us about your business and a team member will reach out shortly.</p>
+          <p>Pick a time that works for you and let's talk about your business.</p>
         </div>
-        <form class="bcmg-form" id="bcmg-form" method="POST"
-              action="https://formsubmit.co/patrick@thepatrickcarrshow.com">
-          <!-- FormSubmit settings -->
-          <input type="hidden" name="_subject" value="New BCMG inquiry - Blue Collar Media Group">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_cc" value="anthony@thepatrickcarrshow.com">
-          <input type="hidden" name="_next" value="https://thepatrickcarrshow.com/bcmg-thanks.html">
-          <input type="hidden" name="_captcha" value="true">
-          <!-- honeypot: bots fill this, humans don't -->
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-          <div class="field-row">
-            <div class="field">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="Name" required placeholder="Your name">
-            </div>
-            <div class="field">
-              <label for="company">Company Name</label>
-              <input type="text" id="company" name="Company" required placeholder="Your business">
-            </div>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="Email" required placeholder="you@email.com">
-            </div>
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="Phone" required placeholder="(000) 000-0000">
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="interest">What are you interested in?</label>
-            <select id="interest" name="Interested In" required>
-              <option value="" disabled selected>Choose one…</option>
-              <option>Video Production</option>
-              <option>Marketing</option>
-              <option>Marketing Consulting</option>
-              <option>A little of everything</option>
-              <option>Not sure yet, let's talk</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="details">Tell us a little about your business &amp; what you need</label>
-            <textarea id="details" name="Details" rows="2" required placeholder="A sentence or two about your business and what you're looking for."></textarea>
-          </div>
-
-          <button class="btn btn-gold btn-lg btn-block" type="submit">Send It</button>
-          <p class="form-note">A CAPTCHA will confirm you're human before your information is sent to the BCMG team.</p>
-        </form>
+        <!-- GoHighLevel booking calendar -->
+        <iframe src="https://api.leadconnectorhq.com/widget/booking/HYJ0OuN4vdnduGY6sy3K"
+          allow="payment" scrolling="no" id="HYJ0OuN4vdnduGY6sy3K_1786999277251"
+          style="width:100%;border:none;overflow:hidden;min-height:640px;display:block"></iframe>
       </div>
     </div>
   </section>
@@ -556,71 +507,7 @@
   <script src="js/data.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js?v=10"></script>
-  <script>
-    // GoHighLevel (LeadConnector) inbound webhook - receives the lead in parallel
-    // with the FormSubmit email so it lands in the CRM automatically.
-    var GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/h4YbAiXB6A5emuPy44rM/webhook-trigger/9618fc3a-7296-4fa1-9e17-f18c5dced60a";
-
-    document.addEventListener("submit", function (e) {
-      var form = e.target;
-      if (!form || form.id !== "bcmg-form") return;
-
-      // Once we've fired the webhook we re-submit the form for real; let that pass through.
-      if (form.dataset.ghlSent === "1") return;
-
-      // Skip bots: if the honeypot field is filled, don't send anything.
-      var honey = form.querySelector('input[name="_honey"]');
-      if (honey && honey.value) return;
-
-      // Fire a Meta "Lead" event (pixel base is already loaded).
-      if (window.fbq) {
-        fbq("track", "Lead", { content_name: "BCMG Inquiry" });
-      }
-
-      // Hold the FormSubmit redirect until the GoHighLevel webhook has actually
-      // been dispatched, so the navigation can't interrupt/drop the request.
-      e.preventDefault();
-
-      var proceeded = false;
-      function proceed() {
-        if (proceeded) return;
-        proceeded = true;
-        form.dataset.ghlSent = "1";
-        form.submit(); // real submit -> emails the team + redirects to thank-you page
-      }
-
-      // Build a clean payload for GoHighLevel.
-      try {
-        var name = (form.querySelector('[name="Name"]') || {}).value || "";
-        // NOTE: cross-origin browser calls run in no-cors mode, which strips a
-        // "Content-Type: application/json" header - GoHighLevel then rejects the
-        // body as invalid. application/x-www-form-urlencoded is a safelisted
-        // content type that survives no-cors AND is parsed by GHL, so we send
-        // the fields form-encoded.
-        var params = new URLSearchParams();
-        params.set("full_name", name);
-        params.set("name", name);
-        params.set("company", (form.querySelector('[name="Company"]') || {}).value || "");
-        params.set("email", (form.querySelector('[name="Email"]') || {}).value || "");
-        params.set("phone", (form.querySelector('[name="Phone"]') || {}).value || "");
-        params.set("interest", (form.querySelector('[name="Interested In"]') || {}).value || "");
-        params.set("details", (form.querySelector('[name="Details"]') || {}).value || "");
-        params.set("source", "Blue Collar Media Group landing page");
-
-        fetch(GHL_WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-          body: params.toString(),
-          keepalive: true,
-          mode: "no-cors"
-        }).then(proceed, proceed);
-      } catch (err) {
-        proceed();
-      }
-
-      // Safety net: never let a slow/blocked request stop the user from submitting.
-      setTimeout(proceed, 1500);
-    }, true);
-  </script>
+  <!-- GoHighLevel booking-calendar embed script (auto-resizes the iframe) -->
+  <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
 </body>
 </html>
