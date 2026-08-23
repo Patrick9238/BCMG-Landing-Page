@@ -1,6 +1,7 @@
-# Orange County, Florida — Precinct Map
+# Orange County Mayor — Precinct Strategy Map
 
-Standalone interactive map of all 263 Orange County voting precincts.
+Standalone interactive map of all 263 Orange County voting precincts, carrying the
+August 18, 2026 County Mayor results and a strategic classification of every precinct.
 **Not part of The Patrick Carr Show / BCMG site** — it shares this repo but is
 otherwise unrelated to it, and nothing on the site links to it.
 
@@ -35,10 +36,39 @@ Geometry is reprojected to WGS84 and coordinates rounded to 5 decimal places
 (~1 m) to keep the file small. Rounding is applied uniformly, so boundaries
 shared between neighboring precincts stay welded — no slivers or gaps.
 
-## Next: election results
+## Election data (Step 2)
 
-The map is built to take a results layer. Precincts are keyed by the SOE
-precinct number as a string (`"101"`, `"214"`, `"812"`), which is the join key
-for any results data. `styleFor()` in the page script is the single place that
-decides a precinct's appearance, and `window.OCMap` exposes the map, the
-precinct records, and the label redraw for that layer to hook into.
+Source: Orange County SOE 2nd unofficial results, 2026 primary, County Mayor.
+All 263 precincts join to a polygon by precinct number; a polygon with no data
+match renders hatched in red and logs to the console.
+
+**Five map modes**
+
+| Mode | Shows |
+|------|-------|
+| Strategy *(default)* | Each precinct's bucket: harvest / battleground / fortress / write-off |
+| Winner | Who carried the precinct, color intensity scaled to margin |
+| Vulnerability | Moore Russell's vote share — pale is where she is weakest |
+| Harvest | Raw Murphy + Uribe votes available, in five classes |
+| Mail Gap | `vbm_deficit` — red where Messina trails on mail, green where he leads |
+
+Write-off precincts carrying `surge_warning` get a red diagonal hatch in Strategy
+mode: low August turnout in a Moore Russell base that will surge in November.
+
+**Redacted vote types.** Florida Statute 98.0981 withholds any election-day /
+early / mail cell of 1–29 votes, so those cells arrive as zero while the
+candidate total stays exact. The detail table never shows those as zeros — it
+prints `—` and carries the remainder in a separate `Redact.` column, so every row
+still sums to its total.
+
+**Scoreboard** (right panel, collapsible): countywide four-way result, per-bucket
+precinct/ballot/harvest totals, a district-by-district table, and the ten highest
+harvest-vote targets — click any one to fly to it.
+
+Countywide check figures: 174,966 ballots; harvest 104 precincts / 33,166 votes;
+battleground 71; fortress 41; write-off 47.
+
+## Step 3 (not built)
+
+Republican registration overlay and GOTV upside per fortress precinct, plus the
+November turnout projection. Needs the SOE Book Closing Party-by-Precinct file.
