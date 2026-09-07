@@ -63,6 +63,9 @@ function renderTiers() {
   const wrap = document.getElementById("tiers-grid");
   if (!wrap) return;
 
+  // One tier = a single centered card instead of a row of columns
+  wrap.classList.toggle("tiers--single", TIERS.length === 1);
+
   wrap.innerHTML = TIERS.map(tier => {
     const link = getCheckoutLink(tier.linkKey);
     const ribbon = tier.badge ? `<span class="ribbon">${tier.badge}</span>`
@@ -84,8 +87,8 @@ function renderTiers() {
         <p class="blurb">${tier.blurb}</p>
         <ul>${perks}</ul>
         <a class="btn ${tier.featured ? "btn-gold" : "btn-blue"} btn-block tier-cta" ${btnAttrs}>
-          <span class="cta-pre">Become A</span>
-          <span class="cta-name">${tier.name}</span>
+          <span class="cta-pre">${tier.ctaPre || "Become A"}</span>
+          <span class="cta-name">${tier.ctaName || tier.name}</span>
         </a>
       </div>`;
   }).join("");

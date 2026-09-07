@@ -38,12 +38,12 @@ const CONFIG = {
 
      Each tier and product below references one of these keys. */
   checkoutLinks: {
-    // Subscription tiers (recurring)
-    supporter:   "https://buy.stripe.com/7sY28s8ZH0ex0qJ7iT7Vm00",
-    contributor: "https://buy.stripe.com/3cI7sM6Rzgdv1uN32D7Vm01",
-    partner:     "https://buy.stripe.com/28E5kEa3Lf9rgpHcDd7Vm02",
-    founder:     "https://buy.stripe.com/28E8wQ0tb2mF6P75aL7Vm03",
-    showSponsor: "https://buy.stripe.com/dRm14o6Rzgdvddv8mX7Vm04",
+    /* ---- THE ONE MEMBERSHIP (recurring, $4.99/month) ----
+       !! ACTION NEEDED !! The URL below is the OLD $2.99 Supporter link.
+       Create a new $4.99/month recurring Payment Link in Stripe, set its
+       success page to https://thepatrickcarrshow.com/thank-you-supporter.html,
+       then paste that new URL here. Until you do, buyers are charged $2.99. */
+    member: "https://buy.stripe.com/7sY28s8ZH0ex0qJ7iT7Vm00",
     // Merch (one-time Stripe Payment Links) — each hat has its own Buy button
     hatFixOrlando:  "https://buy.stripe.com/7sY00k5Nv0ex8Xfbz97Vm05",
     hatWelcomeShow: "https://buy.stripe.com/bJe14oa3L9P7ddvdHh7Vm06"

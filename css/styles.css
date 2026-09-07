@@ -220,6 +220,19 @@ section.block { padding: 78px 0; }
 .tier .tier-cta .cta-pre { font-size: .72rem; font-weight: 600; letter-spacing: 1px; opacity: .85; }
 .tier .tier-cta .cta-name { font-size: 1.12rem; font-weight: 700; letter-spacing: .6px; white-space: nowrap; }
 
+/* One membership = a single, bigger, centered card */
+.tiers.tiers--single { grid-template-columns: minmax(0, 480px); justify-content: center; }
+.tiers--single .tier { padding: 38px 34px; }
+.tiers--single .tier h3 { font-size: 1.6rem; }
+.tiers--single .tier .price { font-size: 3.2rem; }
+.tiers--single .tier .price .cad { font-size: 1.05rem; }
+.tiers--single .tier .blurb { min-height: 0; font-size: 1rem; margin: 12px 0 20px; }
+.tiers--single .tier ul { gap: 13px; margin-bottom: 28px; }
+.tiers--single .tier ul li { font-size: 1rem; padding-left: 30px; }
+.tiers--single .tier ul li::before { top: 4px; width: 19px; height: 19px; }
+.tiers--single .tier .tier-cta { padding-top: 16px; padding-bottom: 16px; }
+.tiers--single .tier .tier-cta .cta-name { font-size: 1.25rem; }
+
 .tiers-note { text-align: center; color: var(--muted); margin-top: 26px; font-size: .95rem; }
 
 /* ---------- Meet the host ---------- */
