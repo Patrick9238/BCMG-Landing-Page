@@ -39,13 +39,14 @@ const CONFIG = {
      Each tier and product below references one of these keys. */
   checkoutLinks: {
     /* ---- THE ONE MEMBERSHIP (recurring, $4.99/month) ----
-       This is the only tier on the site and the only link to update.
-       !! ACTION NEEDED !! The URL below is still the OLD $2.99 Supporter
-       link, so buyers are currently charged $2.99, not $4.99.
-       Create a new $4.99/month recurring Payment Link in Stripe, set its
-       success page to https://thepatrickcarrshow.com/thank-you-supporter.html,
-       then paste that new URL here in place of the one below. */
-    member: "https://buy.stripe.com/7sY28s8ZH0ex0qJ7iT7Vm00",
+       The only tier on the site and the only link to keep current.
+       Its Stripe "after payment" redirect points at
+       https://thepatrickcarrshow.com/thank-you-member.html?paid=1
+       which is what fires the new-member email and the Meta pixel
+       Purchase event. If you ever swap this link, set that redirect on
+       the new one too, and bump config.js?v= in the HTML files so
+       returning visitors are not served the old link from cache. */
+    member: "https://buy.stripe.com/eVq7sMdfX0ex4GZ0Uv7Vm07",
 
     /* ---- ARCHIVED TIER LINKS (kept for reference — NOT shown on the site) ----
        These are the old five tiers. They are no longer displayed anywhere:
