@@ -83,10 +83,10 @@ const CONFIG = {
        joinUrl      the STANDING Zoom / Meet link (same link every week) */
   weeklyCall: {
     day: "Wed",
-    time: "19:00",
+    time: "16:00",
     durationMins: 60,
     timeZone: "America/New_York",
-    joinUrl: "",
+    joinUrl: "https://streamyard.com/hswqtpprvu",
     title: "The Patrick Carr Show — Members-Only Call",
     details: "Your weekly members-only group call with Patrick and Producer Anthony."
   },

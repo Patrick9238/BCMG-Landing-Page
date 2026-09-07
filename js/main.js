@@ -246,6 +246,34 @@ function nextCallStart(cfg) {
   };
 }
 
+/* "Every Wednesday, 4:00 - 5:00 PM EDT" - built from the same config the
+   invite uses, so the text on the page can never drift from the event. */
+var DAY_NAMES = { sun: "Sunday", mon: "Monday", tue: "Tuesday", wed: "Wednesday",
+                  thu: "Thursday", fri: "Friday", sat: "Saturday" };
+
+function clockLabel(mins) {
+  var h = Math.floor(mins / 60) % 24, m = mins % 60;
+  var ampm = h >= 12 ? "PM" : "AM";
+  var h12 = h % 12; if (h12 === 0) h12 = 12;
+  return h12 + ":" + String(m).padStart(2, "0") + " " + ampm;
+}
+
+function scheduleLabel(cfg) {
+  var hm = String(cfg.time).split(":");
+  var start = (+hm[0]) * 60 + (+hm[1] || 0);
+  var zone = cfg.timeZone;
+  try {
+    // Gives the correct EST/EDT for the time of year, not a hardcoded guess.
+    new Intl.DateTimeFormat("en-US", { timeZone: cfg.timeZone, timeZoneName: "short" })
+      .formatToParts(new Date()).forEach(function (p) {
+        if (p.type === "timeZoneName") zone = p.value;
+      });
+  } catch (e) {}
+  return "Every " + (DAY_NAMES[String(cfg.day).slice(0, 3).toLowerCase()] || cfg.day) +
+         ", " + clockLabel(start) + " to " + clockLabel(start + (cfg.durationMins || 60)) +
+         " " + zone;
+}
+
 function initWeeklyCall() {
   var wrap = document.getElementById("weekly-call");
   if (!wrap) return;
@@ -288,6 +316,7 @@ function initWeeklyCall() {
   var icsUrl = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
 
   wrap.innerHTML =
+    '<p class="call-when">' + scheduleLabel(cfg) + '</p>' +
     '<div class="call-actions">' +
       '<a class="btn btn-gold" target="_blank" rel="noopener" href="' + gcal + '">Add To Google Calendar</a>' +
       '<a class="btn btn-blue" download="patrick-carr-show-members-call.ics" href="' + icsUrl + '">Apple / Outlook</a>' +
