@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Meta Pixel -->
   <script src="js/pixel.js?v=2"></script>
-  <title>Order Confirmed — The Patrick Carr Show</title>
-  <meta name="description" content="Thanks for grabbing the Welcome To The Show hat.">
+  <title>You're In — The Patrick Carr Show</title>
+  <meta name="description" content="You are officially a member of The Patrick Carr Show.">
   <meta name="robots" content="noindex">
   <link rel="icon" href="assets/img/logo-neon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,9 +18,26 @@
       display: grid; place-items: center; background: rgba(46, 204, 113, .14);
       border: 2px solid #2ecc71; color: #2ecc71; }
     .ty-actions { justify-content: center; margin-top: 30px; }
+    .welcome-steps { display: grid; gap: 18px; max-width: 720px; margin: 0 auto; }
+    .step { display: grid; grid-template-columns: 44px 1fr; gap: 18px; align-items: start;
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .step-n { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: rgba(255,181,36,.14); border: 2px solid var(--gold); color: var(--gold);
+      font-family: "Oswald", sans-serif; font-weight: 700; font-size: 1.15rem; }
+    .step h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .step p { color: var(--muted); font-size: .96rem; }
+    .call-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .call-note, .call-fallback { color: var(--muted); font-size: .9rem; margin-top: 12px; }
+    .perk-recap { list-style: none; display: grid; gap: 10px; margin: 16px 0 0; }
+    .perk-recap li { position: relative; padding-left: 26px; color: #d7dde6; font-size: .96rem; }
+    .perk-recap li::before { content: ""; position: absolute; left: 0; top: 5px; width: 16px; height: 16px;
+      background: rgba(43,182,115,.16); border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232bb673' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center; }
+    @media (max-width: 640px) { .step { grid-template-columns: 1fr; gap: 12px; } }
   </style>
 </head>
-<body data-fb-purchase="Welcome To The Show Hat" data-fb-value="29.99">
+<body data-fb-purchase="Member" data-fb-value="4.99" data-notify-tier="Member">
 
   <header class="site-header">
     <div class="container nav">
@@ -46,20 +63,57 @@
       <div class="ty-badge">
         <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
       </div>
-      <h1>Order <span class="accent">Confirmed!</span></h1>
-      <p>Thanks for grabbing the <strong>Welcome To The Show</strong> hat — expect it to arrive in <strong>no more than 3 weeks</strong>. A receipt and order details are headed to your email.</p>
+      <h1>You're In. <span class="accent">Welcome To The Show.</span></h1>
+      <p>You're officially a member. Your first job takes ten seconds: put the weekly call on your calendar
+         so you never miss one.</p>
     </div>
   </section>
 
   <section class="block">
     <div class="container">
-      <div class="cta-band">
+      <div class="welcome-steps">
+
+        <div class="step">
+          <div class="step-n">1</div>
+          <div>
+            <h3>Add the weekly members-only call to your calendar</h3>
+            <p>This is the room. Every week with Patrick and Producer Anthony. Add it once and it repeats
+               automatically, so it is on your calendar before you have to think about it.</p>
+            <div id="weekly-call"><!-- calendar buttons render here --></div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-n">2</div>
+          <div>
+            <h3>Watch for your welcome email</h3>
+            <p>Anthony sends your 10% merch discount code and walks you through how the weekly giveaway
+               works. It lands within 24 hours. If you do not see it, check your spam folder and add us to
+               your contacts.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-n">3</div>
+          <div>
+            <h3>Here is everything you now get</h3>
+            <ul class="perk-recap">
+              <li>Weekly members-only call with Patrick</li>
+              <li>Weekly free merch giveaway</li>
+              <li>Your questions answered first on every LIVE stream</li>
+              <li>10% off all merchandise</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cta-band" style="margin-top:40px">
         <h2>While You're Here</h2>
-        <p>Catch the latest episode, grab another hat, or get involved with the Show.</p>
+        <p>Catch the latest episode, or grab a hat with your new member discount.</p>
         <div class="hero-actions ty-actions">
-          <a class="btn btn-gold" href="https://www.youtube.com/@ThePatrickCarr" target="_blank" rel="noopener">Watch the Latest Episode</a>
-          <a class="btn btn-blue" href="merch.html">Shop More Merch</a>
-          <a class="btn btn-blue" href="index.html">Back to Home</a>
+          <a class="btn btn-gold" href="https://www.youtube.com/@ThePatrickCarr" target="_blank" rel="noopener">Watch The Latest Episode</a>
+          <a class="btn btn-blue" href="merch.html">Shop Merch</a>
         </div>
       </div>
     </div>

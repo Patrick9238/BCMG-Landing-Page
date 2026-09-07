@@ -195,6 +195,107 @@ function initJoinNotify() {
     .catch(function () {});
 }
 
+/* ---------- Weekly members-only call: "add to calendar" ----------
+   Builds a RECURRING weekly event, so the member clicks once and the call
+   lands on their calendar every week. Works off CONFIG.weeklyCall.
+   If joinUrl is empty the whole block is hidden and the fallback copy
+   shows instead, so nobody ever sees a dead button. */
+var DAY_CODES = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
+var ICS_DAYS  = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
+
+/* What is the date/time RIGHT NOW in the call's own time zone?
+   Read via Intl so it does not matter where the member's computer is. */
+function nowInZone(tz) {
+  var f = new Intl.DateTimeFormat("en-CA", {
+    timeZone: tz, year: "numeric", month: "2-digit", day: "2-digit",
+    hour: "2-digit", minute: "2-digit", weekday: "short", hour12: false
+  });
+  var out = {};
+  f.formatToParts(new Date()).forEach(function (p) { out[p.type] = p.value; });
+  return {
+    y: +out.year, m: +out.month, d: +out.day,
+    hour: +out.hour % 24, minute: +out.minute,
+    dow: DAY_CODES[String(out.weekday).slice(0, 3).toLowerCase()]
+  };
+}
+
+/* The next time the call actually happens, as YYYYMMDD + HHMMSS. */
+function nextCallStart(cfg) {
+  var target = DAY_CODES[String(cfg.day).slice(0, 3).toLowerCase()];
+  if (target === undefined) return null;
+  var hm = String(cfg.time).split(":");
+  var hh = +hm[0], mm = +hm[1] || 0;
+  if (isNaN(hh)) return null;
+
+  var now = nowInZone(cfg.timeZone);
+  var ahead = (target - now.dow + 7) % 7;
+  // Call day is today but the start time already passed -> go to next week.
+  if (ahead === 0 && (now.hour > hh || (now.hour === hh && now.minute >= mm))) ahead = 7;
+
+  var dt = new Date(Date.UTC(now.y, now.m - 1, now.d));
+  dt.setUTCDate(dt.getUTCDate() + ahead);
+  var pad = function (n) { return String(n).padStart(2, "0"); };
+  return {
+    date: "" + dt.getUTCFullYear() + pad(dt.getUTCMonth() + 1) + pad(dt.getUTCDate()),
+    start: pad(hh) + pad(mm) + "00",
+    end: (function () {
+      var t = hh * 60 + mm + (cfg.durationMins || 60);
+      return pad(Math.floor(t / 60) % 24) + pad(t % 60) + "00";
+    })(),
+    byday: ICS_DAYS[target]
+  };
+}
+
+function initWeeklyCall() {
+  var wrap = document.getElementById("weekly-call");
+  if (!wrap) return;
+
+  var cfg = (typeof CONFIG !== "undefined" && CONFIG.weeklyCall) || null;
+  var when = cfg && cfg.joinUrl && cfg.joinUrl.trim() ? nextCallStart(cfg) : null;
+
+  // Not configured yet: keep the promise, drop the buttons.
+  if (!when) {
+    wrap.innerHTML = '<p class="call-fallback">Anthony is sending your call link and invite by email within 24 hours. ' +
+      'Keep an eye on your inbox.</p>';
+    return;
+  }
+
+  var recur  = "RRULE:FREQ=WEEKLY;BYDAY=" + when.byday;
+  var detail = (cfg.details || "") + "\n\nJoin here: " + cfg.joinUrl;
+
+  var gcal = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+    + "&text="     + encodeURIComponent(cfg.title)
+    + "&dates="    + when.date + "T" + when.start + "/" + when.date + "T" + when.end
+    + "&ctz="      + encodeURIComponent(cfg.timeZone)
+    + "&details="  + encodeURIComponent(detail)
+    + "&location=" + encodeURIComponent(cfg.joinUrl)
+    + "&recur="    + encodeURIComponent(recur);
+
+  var ics = [
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//The Patrick Carr Show//Members Call//EN",
+    "CALSCALE:GREGORIAN", "METHOD:PUBLISH", "BEGIN:VEVENT",
+    "UID:members-call-" + when.date + "@thepatrickcarrshow.com",
+    "DTSTAMP:" + when.date + "T" + when.start + "Z",
+    "DTSTART;TZID=" + cfg.timeZone + ":" + when.date + "T" + when.start,
+    "DTEND;TZID="   + cfg.timeZone + ":" + when.date + "T" + when.end,
+    recur,
+    "SUMMARY:" + cfg.title,
+    "DESCRIPTION:" + detail.replace(/\n/g, "\\n"),
+    "LOCATION:" + cfg.joinUrl,
+    "END:VEVENT", "END:VCALENDAR"
+  ].join("\r\n");
+
+  var icsUrl = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+
+  wrap.innerHTML =
+    '<div class="call-actions">' +
+      '<a class="btn btn-gold" target="_blank" rel="noopener" href="' + gcal + '">Add To Google Calendar</a>' +
+      '<a class="btn btn-blue" download="patrick-carr-show-members-call.ics" href="' + icsUrl + '">Apple / Outlook</a>' +
+    '</div>' +
+    '<p class="call-note">Adds the call to your calendar every week automatically. ' +
+      'The join link is in the invite.</p>';
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initYouTube();
@@ -202,4 +303,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initFooter();
   initViewsCounter();
   initJoinNotify();
+  initWeeklyCall();
 });

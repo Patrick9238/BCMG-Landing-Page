@@ -70,6 +70,27 @@ const CONFIG = {
     hatWelcomeShow: "https://buy.stripe.com/bJe14oa3L9P7ddvdHh7Vm06"
   },
 
+  /* ---- Weekly members-only call ----
+     Powers the "Add to calendar" buttons on thank-you-member.html.
+     Fill these in and the buttons appear automatically. Leave joinUrl
+     empty and the page falls back to "Anthony will send you the link",
+     so a new member never sees a broken button.
+
+       day          Mon | Tue | Wed | Thu | Fri | Sat | Sun
+       time         24-hour local start time, e.g. "19:00" is 7:00 PM
+       durationMins how long the call runs
+       timeZone     IANA zone. Orlando is "America/New_York"
+       joinUrl      the STANDING Zoom / Meet link (same link every week) */
+  weeklyCall: {
+    day: "Wed",
+    time: "19:00",
+    durationMins: 60,
+    timeZone: "America/New_York",
+    joinUrl: "",
+    title: "The Patrick Carr Show — Members-Only Call",
+    details: "Your weekly members-only group call with Patrick and Producer Anthony."
+  },
+
   /* ---- Live views counter (home-page top bar) ----
      Shows a combined "views across our content" number that starts at
      `baseline` and ticks up over time at `perDay` views/day. To reset it,
