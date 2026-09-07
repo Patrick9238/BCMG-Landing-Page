@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Patrick Carr Show//Members Call//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:members-call-weekly@thepatrickcarrshow.com
+DTSTAMP:20260907T120000Z
+DTSTART;TZID=America/New_York:20260909T160000
+DTEND;TZID=America/New_York:20260909T170000
+RRULE:FREQ=WEEKLY;BYDAY=WE
+SUMMARY:The Patrick Carr Show - Members-Only Call
+DESCRIPTION:Your weekly members-only group call with Patrick and Producer Anthony.\n\nJoin here: https://streamyard.com/hswqtpprvu
+LOCATION:https://streamyard.com/hswqtpprvu
+END:VEVENT
+END:VCALENDAR
