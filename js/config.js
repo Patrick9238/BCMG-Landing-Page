@@ -71,6 +71,17 @@ const CONFIG = {
     hatWelcomeShow: "https://buy.stripe.com/bJe14oa3L9P7ddvdHh7Vm06"
   },
 
+  /* ---- Member merch discount ----
+     Shown on thank-you-member.html so a new member gets it instantly.
+     IMPORTANT: this code must also exist in Stripe as a promotion code,
+     and "Allow promotion codes" must be ON for each merch payment link,
+     or the code will not work at checkout. Leave code empty to hide the
+     whole block. */
+  memberDiscount: {
+    code: "MEM10",
+    percent: 10
+  },
+
   /* ---- Weekly members-only call ----
      Powers the "Add to calendar" buttons on thank-you-member.html.
      Fill these in and the buttons appear automatically. Leave joinUrl

@@ -325,6 +325,48 @@ function initWeeklyCall() {
       'The join link is in the invite.</p>';
 }
 
+/* ---------- Member merch discount code ----------
+   Puts the code on the page so a new member has it instantly, with a
+   one-tap copy button. Hidden entirely if no code is configured. */
+function initMemberCode() {
+  var wrap = document.getElementById("member-code");
+  if (!wrap) return;
+
+  var d = (typeof CONFIG !== "undefined" && CONFIG.memberDiscount) || null;
+  var code = d && d.code ? String(d.code).trim() : "";
+  if (!code) { wrap.remove(); return; }
+
+  wrap.innerHTML =
+    '<div class="code-row">' +
+      '<code class="code-chip">' + code + '</code>' +
+      '<button type="button" class="btn btn-blue code-copy">Copy Code</button>' +
+    '</div>' +
+    '<p class="code-note">Enter it at checkout on any merch order. It is yours for as long ' +
+      'as you are a member.</p>';
+
+  var btn = wrap.querySelector(".code-copy");
+  btn.addEventListener("click", function () {
+    var done = function () {
+      btn.textContent = "Copied";
+      showToast(code + " copied. Use it at merch checkout.");
+      setTimeout(function () { btn.textContent = "Copy Code"; }, 2200);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, function () { fallback(); });
+    } else { fallback(); }
+
+    // Older browsers / non-secure contexts.
+    function fallback() {
+      var t = document.createElement("textarea");
+      t.value = code; t.setAttribute("readonly", "");
+      t.style.position = "absolute"; t.style.left = "-9999px";
+      document.body.appendChild(t); t.select();
+      try { document.execCommand("copy"); done(); } catch (e) {}
+      document.body.removeChild(t);
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initYouTube();
@@ -333,4 +375,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initViewsCounter();
   initJoinNotify();
   initWeeklyCall();
+  initMemberCode();
 });

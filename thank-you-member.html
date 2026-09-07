@@ -28,6 +28,12 @@
     .step p { color: var(--muted); font-size: .96rem; }
     .call-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
     .call-note, .call-fallback { color: var(--muted); font-size: .9rem; margin-top: 12px; }
+    .code-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    .code-chip { font-family: "Oswald", sans-serif; font-size: 1.9rem; font-weight: 700; letter-spacing: 4px;
+      color: var(--gold); background: rgba(255,181,36,.10); border: 2px dashed var(--gold);
+      border-radius: 12px; padding: 12px 24px; line-height: 1; }
+    .step .code-note { color: var(--muted); font-size: .9rem; margin-top: 12px; }
+    @media (max-width: 480px) { .code-chip { font-size: 1.5rem; letter-spacing: 3px; padding: 12px 18px; } }
     .step .call-when { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 1.2px;
       color: var(--gold); font-weight: 600; font-size: .95rem; margin-top: 16px; }
     .perk-recap { list-style: none; display: grid; gap: 10px; margin: 16px 0 0; }
@@ -66,8 +72,8 @@
         <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
       </div>
       <h1>You're In. <span class="accent">Welcome To The Show.</span></h1>
-      <p>You're officially a member. Your first job takes ten seconds: put the weekly call on your calendar
-         so you never miss one.</p>
+      <p>You're officially a member. Everything you get is right here on this page. Nothing to wait for,
+         nothing to request.</p>
     </div>
   </section>
 
@@ -88,10 +94,10 @@
         <div class="step">
           <div class="step-n">2</div>
           <div>
-            <h3>Watch for your welcome email</h3>
-            <p>Anthony sends your 10% merch discount code and walks you through how the weekly giveaway
-               works. It lands within 24 hours. If you do not see it, check your spam folder and add us to
-               your contacts.</p>
+            <h3>Your 10% member discount code</h3>
+            <p>Use this on any merch order, as many times as you want, for as long as you are a member.
+               No waiting on an email. It is yours right now.</p>
+            <div id="member-code"><!-- discount code renders here --></div>
           </div>
         </div>
 
@@ -160,9 +166,9 @@
     </div>
   </footer>
 
-  <script src="js/config.js?v=12"></script>
+  <script src="js/config.js?v=13"></script>
   <script src="js/data.js"></script>
   <script src="js/cart.js"></script>
-  <script src="js/main.js?v=13"></script>
+  <script src="js/main.js?v=14"></script>
 </body>
 </html>
