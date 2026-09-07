@@ -143,12 +143,24 @@ img { max-width: 100%; display: block; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
 /* Video frame */
-.hero-cta-row { position: relative; display: flex; align-items: flex-end; gap: 14px; margin-top: 24px; }
+.hero-cta-row { position: relative; display: flex; align-items: flex-start; gap: 14px; margin-top: 24px; }
 .hero-cta-row .hero-actions { flex: 1 1 auto; flex-direction: column; align-items: stretch; gap: 14px; }
 .hero-cta-row .hero-actions .btn { width: 100%; font-size: 1.18rem; padding: 16px 16px; line-height: 1.14;
   transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease; }
 .hero-cta-row .hero-actions .btn:hover { transform: scale(1.045); }
 .hero-cta-row .hero-actions .btn-gold:hover { box-shadow: 0 10px 26px rgba(255,181,36,.45); }
+.hero-cta-row .hero-actions .btn:has(.btn-sub) { flex-direction: column; gap: 0; }
+.hero-cta-row .hero-actions .btn .btn-main { display: block; }
+.hero-cta-row .hero-actions .btn .btn-sub { display: block; font-size: .82rem; font-weight: 600;
+  letter-spacing: .4px; opacity: .82; margin-top: 4px; text-transform: none; }
+.hero-perks { list-style: none; margin: 2px 0 4px; display: grid; gap: 7px; }
+.hero-perks li { position: relative; padding-left: 25px; font-size: .95rem; color: #d7dde6; }
+.hero-perks li::before {
+  content: ""; position: absolute; left: 0; top: 4px; width: 16px; height: 16px;
+  background: rgba(43,182,115,.16); border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232bb673' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: center;
+}
 .hero-figure { flex: 0 0 50%; width: 50%; max-width: 416px; align-self: flex-end; margin-bottom: -36px;
   position: relative; z-index: 0; pointer-events: none; }
 .video-wrap { position: relative; z-index: 1; margin-top: 8px; background: var(--surface);
@@ -469,6 +481,16 @@ form textarea { min-height: 130px; resize: vertical; }
   .nav-cta { margin: 8px 0 0; }
 }
 @media (max-width: 640px) {
+  /* Keep the "Become A Member" button inside the first screen on phones:
+     tighten the space above it and stack the photo below the buttons
+     instead of letting it steal half the width. */
+  .hero { padding-top: 16px; }
+  .eyebrow { margin-bottom: 14px; }
+  .hero h1 { margin-bottom: 12px; }
+  .hero p.lead { font-size: 1.02rem; margin-bottom: 18px; }
+  .hero-cta-row { flex-direction: column; align-items: stretch; gap: 16px; margin-top: 16px; }
+  .hero-cta-row .hero-actions .btn { font-size: 1.12rem; }
+  .hero-figure { flex: 0 0 auto; width: 74%; max-width: 250px; align-self: center; margin-bottom: -36px; }
   .tiers { grid-template-columns: 1fr; }
   .tier.featured { grid-column: span 1; }
   .products { grid-template-columns: 1fr; }

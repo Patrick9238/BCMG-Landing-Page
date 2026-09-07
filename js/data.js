@@ -27,7 +27,7 @@ const TIERS = [
     perks: [
       "Weekly members-only group call",
       "Weekly free merchandise giveaway",
-      "Priority on every LIVE stream — your questions get answered first",
+      "Your questions answered first on every LIVE stream",
       "10% off all merchandise"
     ]
   }
