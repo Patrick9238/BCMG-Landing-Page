@@ -39,11 +39,32 @@ const CONFIG = {
      Each tier and product below references one of these keys. */
   checkoutLinks: {
     /* ---- THE ONE MEMBERSHIP (recurring, $4.99/month) ----
-       !! ACTION NEEDED !! The URL below is the OLD $2.99 Supporter link.
+       This is the only tier on the site and the only link to update.
+       !! ACTION NEEDED !! The URL below is still the OLD $2.99 Supporter
+       link, so buyers are currently charged $2.99, not $4.99.
        Create a new $4.99/month recurring Payment Link in Stripe, set its
        success page to https://thepatrickcarrshow.com/thank-you-supporter.html,
-       then paste that new URL here. Until you do, buyers are charged $2.99. */
+       then paste that new URL here in place of the one below. */
     member: "https://buy.stripe.com/7sY28s8ZH0ex0qJ7iT7Vm00",
+
+    /* ---- ARCHIVED TIER LINKS (kept for reference — NOT shown on the site) ----
+       These are the old five tiers. They are no longer displayed anywhere:
+       nothing in data.js points at these keys, so no button uses them.
+
+       IMPORTANT: they are kept here only as a record. Existing subscribers
+       are billed by STRIPE, not by this file — deleting or keeping a line
+       here does not start, stop, or change anyone's subscription. To see or
+       manage current members, go to Stripe, not this file.
+
+       If you ever want one of these back on the site, add a tier block to
+       js/data.js with a matching "linkKey". */
+    _archived: {
+      supporter:   "https://buy.stripe.com/7sY28s8ZH0ex0qJ7iT7Vm00",  // $2.99/mo
+      contributor: "https://buy.stripe.com/3cI7sM6Rzgdv1uN32D7Vm01",  // $19.99/mo
+      partner:     "https://buy.stripe.com/28E5kEa3Lf9rgpHcDd7Vm02",  // $199.99/mo
+      founder:     "https://buy.stripe.com/28E8wQ0tb2mF6P75aL7Vm03",  // $3,500/mo
+      showSponsor: "https://buy.stripe.com/dRm14o6Rzgdvddv8mX7Vm04"   // $10,000/mo
+    },
     // Merch (one-time Stripe Payment Links) — each hat has its own Buy button
     hatFixOrlando:  "https://buy.stripe.com/7sY00k5Nv0ex8Xfbz97Vm05",
     hatWelcomeShow: "https://buy.stripe.com/bJe14oa3L9P7ddvdHh7Vm06"
