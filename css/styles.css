@@ -110,13 +110,14 @@ img { max-width: 100%; display: block; }
 
 /* ---------- Hero ---------- */
 .views-bar { padding: 18px 0 0; }
+/* Deliberately NOT gold. Gold is reserved for the one thing we want clicked,
+   so the counter reads as proof rather than as a second button. Put
+   var(--gold) back on .views-num if you ever want the old look. */
 .views-box { display: flex; flex-direction: column; align-items: center; gap: 8px;
-  border: 1px solid rgba(255,181,36,.42); border-radius: 14px; padding: 14px 18px;
-  background: linear-gradient(180deg, rgba(255,181,36,.10), rgba(255,181,36,.02));
-  box-shadow: 0 0 24px rgba(255,181,36,.14); }
-.views-num { font-family: "Oswald", sans-serif; font-weight: 700; font-size: clamp(2rem, 9vw, 3.1rem);
-  color: var(--gold); letter-spacing: 1px; font-variant-numeric: tabular-nums; line-height: 1;
-  text-shadow: 0 0 18px rgba(255,181,36,.4); }
+  border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 12px 18px;
+  background: rgba(255,255,255,.035); }
+.views-num { font-family: "Oswald", sans-serif; font-weight: 700; font-size: clamp(1.6rem, 6vw, 2.4rem);
+  color: #fff; letter-spacing: 1px; font-variant-numeric: tabular-nums; line-height: 1; }
 .views-on { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 3px;
   font-size: .8rem; color: var(--text); font-weight: 600; }
 .views-icons { display: flex; gap: 20px; align-items: center; justify-content: center; }
@@ -148,9 +149,24 @@ img { max-width: 100%; display: block; }
 .hero-cta-row .hero-actions .btn { width: 100%; font-size: 1.18rem; padding: 16px 16px; line-height: 1.14;
   transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease; }
 .hero-cta-row .hero-actions .btn:hover { transform: scale(1.045); }
-.hero-cta-row .hero-actions .btn-gold:hover { box-shadow: 0 10px 26px rgba(255,181,36,.45); }
+.hero-cta-row .hero-actions .btn-gold {
+  box-shadow: 0 10px 30px rgba(255,181,36,.34);
+  border-color: rgba(255,255,255,.28);
+}
+.hero-cta-row .hero-actions .btn-gold:hover { box-shadow: 0 12px 34px rgba(255,181,36,.55); }
+
+/* A slow breathing glow. Draws the eye without moving anything on the page.
+   Respects prefers-reduced-motion below. */
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 10px 30px rgba(255,181,36,.30); }
+  50%      { box-shadow: 0 10px 40px rgba(255,181,36,.60); }
+}
+.hero-cta-row .hero-actions .btn-gold { animation: ctaGlow 2.8s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta-row .hero-actions .btn-gold { animation: none; }
+}
 .hero-cta-row .hero-actions .btn:has(.btn-sub) { flex-direction: column; gap: 0; }
-.hero-cta-row .hero-actions .btn .btn-main { display: block; }
+.hero-cta-row .hero-actions .btn .btn-main { display: block; font-size: 1.35rem; letter-spacing: .8px; }
 .hero-cta-row .hero-actions .btn .btn-sub { display: block; font-size: .82rem; font-weight: 600;
   letter-spacing: .4px; opacity: .82; margin-top: 4px; text-transform: none; }
 .hero-perks { list-style: none; margin: 2px 0 4px; display: grid; gap: 7px; }
@@ -481,6 +497,23 @@ form textarea { min-height: 130px; resize: vertical; }
   .nav-cta { margin: 8px 0 0; }
 }
 @media (max-width: 640px) {
+  /* The views counter is social proof, not the call to action. On a phone its
+     big gold number outshouted the button, so here it becomes one compact
+     white line. Gold is reserved for the thing you want tapped. */
+  .views-bar { padding: 10px 0 0; }
+  .views-box { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 4px 10px; padding: 9px 12px; border-radius: 10px;
+    border-color: rgba(255,255,255,.10); background: rgba(255,255,255,.03); box-shadow: none; }
+  .views-num { font-size: 1.15rem; color: #fff; text-shadow: none; letter-spacing: .5px; }
+  .views-on { font-size: .6rem; letter-spacing: 2px; color: var(--muted); }
+  .views-icons { gap: 11px; }
+  .views-icons svg { width: 16px; height: 16px; }
+
+  /* And make the button unmistakable */
+  .hero-cta-row .hero-actions .btn-gold { padding-top: 20px; padding-bottom: 20px; }
+  .hero-cta-row .hero-actions .btn .btn-main { font-size: 1.45rem; }
+  .hero-cta-row .hero-actions .btn .btn-sub { font-size: .9rem; opacity: .9; }
+
   /* Keep the "Become A Member" button inside the first screen on phones:
      tighten the space above it and stack the photo below the buttons
      instead of letting it steal half the width. */
