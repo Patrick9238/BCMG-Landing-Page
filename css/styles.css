@@ -169,6 +169,24 @@ img { max-width: 100%; display: block; }
 .hero-cta-row .hero-actions .btn .btn-main { display: block; font-size: 1.35rem; letter-spacing: .8px; }
 .hero-cta-row .hero-actions .btn .btn-sub { display: block; font-size: .82rem; font-weight: 600;
   letter-spacing: .4px; opacity: .82; margin-top: 4px; text-transform: none; }
+/* Secondary CTA. Deliberately quieter than the gold membership button:
+   outline, no fill, no glow. Present and one tap away, but it never
+   competes to be the thing you notice first. */
+.btn-donate {
+  flex-direction: column; gap: 2px; line-height: 1.15;
+  background: transparent; color: var(--gold);
+  border: 2px solid rgba(255,181,36,.45);
+  padding: 12px 18px; width: 100%;
+}
+.btn-donate:hover { border-color: var(--gold); background: rgba(255,181,36,.08); }
+.btn-donate .donate-main { display: block; font-size: 1rem; letter-spacing: .5px; }
+.btn-donate .donate-sub {
+  display: block; font-size: .74rem; font-weight: 600; letter-spacing: .3px;
+  text-transform: none; color: var(--muted);
+}
+
+.perks-label { font-family: "Oswald", sans-serif; text-transform: uppercase; letter-spacing: 2px;
+  font-size: .72rem; color: var(--muted); margin: 8px 0 2px; }
 .hero-perks { list-style: none; margin: 2px 0 4px; display: grid; gap: 7px; }
 .hero-perks li { position: relative; padding-left: 25px; font-size: .95rem; color: #d7dde6; }
 .hero-perks li::before {
@@ -511,6 +529,15 @@ form textarea { min-height: 130px; resize: vertical; }
 
   /* And make the button unmistakable */
   .hero-cta-row .hero-actions .btn-gold { padding-top: 20px; padding-bottom: 20px; }
+  /* Tighten the hero stack so the secondary donate button still lands in
+     the first screen on small phones. */
+  .hero-cta-row .hero-actions { gap: 11px; }
+  .hero-perks { gap: 5px; margin: 0; }
+  .hero-perks li { font-size: .9rem; padding-left: 23px; }
+  .hero-perks li::before { top: 3px; width: 15px; height: 15px; }
+  .btn-donate { padding-top: 13px; padding-bottom: 13px; }
+  .btn-donate .donate-main { font-size: 1.02rem; }
+  .btn-donate .donate-sub { font-size: .76rem; }
   .hero-cta-row .hero-actions .btn .btn-main { font-size: 1.45rem; }
   .hero-cta-row .hero-actions .btn .btn-sub { font-size: .9rem; opacity: .9; }
 

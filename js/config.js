@@ -66,6 +66,22 @@ const CONFIG = {
       founder:     "https://buy.stripe.com/28E8wQ0tb2mF6P75aL7Vm03",  // $3,500/mo
       showSponsor: "https://buy.stripe.com/dRm14o6Rzgdvddv8mX7Vm04"   // $10,000/mo
     },
+    /* ---- ONE-TIME DONATION (optional) ----
+       Leave this empty and the donate button simply does not appear on the
+       site. Nothing breaks.
+
+       To turn it on, in Stripe:
+         1. Product catalog -> Add product -> name it "Support The Show"
+         2. Pricing: One-off. Then under "More pricing options" choose
+            "Customers choose what to pay". Set a suggested amount ($25) and
+            a minimum ($5).
+         3. Payment links -> New -> pick that product
+         4. After payment -> redirect to:
+            https://thepatrickcarrshow.com/thank-you-donation.html?paid=1
+         5. Paste the buy.stripe.com URL here, then bump config.js?v= in the
+            HTML files so returning visitors are not served a cached copy. */
+    donation: "",
+
     // Merch (one-time Stripe Payment Links) — each hat has its own Buy button
     hatFixOrlando:  "https://buy.stripe.com/7sY00k5Nv0ex8Xfbz97Vm05",
     hatWelcomeShow: "https://buy.stripe.com/bJe14oa3L9P7ddvdHh7Vm06"

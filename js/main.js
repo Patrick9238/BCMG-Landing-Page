@@ -367,6 +367,20 @@ function initMemberCode() {
   });
 }
 
+/* ---------- One-time donation button ----------
+   Stays hidden until CONFIG.checkoutLinks.donation holds a real Stripe
+   link, so the hero never shows a button that goes nowhere. */
+function initDonateCta() {
+  var el = document.getElementById("donate-cta");
+  if (!el) return;
+
+  var link = getCheckoutLink("donation");
+  if (!link) { el.remove(); return; }
+
+  el.href = link;
+  el.hidden = false;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initNav();
   initYouTube();
@@ -376,4 +390,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initJoinNotify();
   initWeeklyCall();
   initMemberCode();
+  initDonateCta();
 });
