@@ -4,10 +4,13 @@
    Loaded in the <head> of every page. Fires:
      • PageView          — every page
      • ViewContent       — merch catalog page
-     • InitiateCheckout  — clicking a tier "Join" or merch "Buy Now"
-                           (tagged with the tier/product name + price)
+     • InitiateCheckout  — clicking the membership button, the donate
+                           button, or a merch "Buy Now". Tagged with a
+                           content_name and content_category so the funnels
+                           can be split apart in Meta with Custom Conversions.
      • Lead              — story / contact form submit
-     • Purchase          — the thank-you page (after Stripe checkout)
+     • Purchase          — membership / merch thank-you pages, with a real value
+     • Donate            — donation thank-you page, no value (amount unknown)
    To change the Pixel ID, edit PIXEL_ID below.
    ============================================================= */
 (function () {
@@ -37,6 +40,18 @@
   //     works for buttons rendered later by JS) ---
   document.addEventListener("click", function (e) {
     if (!e.target.closest) return;
+
+    // The one-time donation button. No value: the donor has not picked an
+    // amount yet, and sending a fake number would poison value optimization.
+    var donate = e.target.closest("#donate-cta");
+    if (donate && isStripe(donate.getAttribute("href"))) {
+      fbq("track", "InitiateCheckout", {
+        content_name: "One-Time Donation",
+        content_category: "Donation",
+        currency: "USD"
+      });
+      return;
+    }
 
     var tier = e.target.closest(".tier-cta");
     if (tier && isStripe(tier.getAttribute("href"))) {
@@ -71,6 +86,17 @@
     else if (f.id === "contact-form") fbq("track", "Lead", { content_name: "Contact Form" });
   }, true);
 
+  /* A conversion should be counted once, on the visit that actually followed
+     the payment. Without this, a refresh of a thank-you page reports another
+     Purchase and inflates the conversion count Meta optimizes against. */
+  function countOnce(key) {
+    try {
+      if (sessionStorage.getItem(key)) return false;
+      sessionStorage.setItem(key, "1");
+    } catch (e) {}
+    return true;
+  }
+
   // --- Page-specific events ---
   document.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById("products")) {
@@ -79,9 +105,22 @@
     // A page opts into a Purchase event via <body data-fb-purchase="..." data-fb-value="..">.
     // Used by the thank-you pages reached only after a completed Stripe checkout.
     var pp = document.body ? document.body.getAttribute("data-fb-purchase") : null;
-    if (pp) {
+    if (pp && countOnce("fbq:purchase:" + pp)) {
       var pv = parseFloat(document.body.getAttribute("data-fb-value") || "0") || 0;
       fbq("track", "Purchase", { content_name: pp, currency: "USD", value: pv });
+    }
+
+    /* Donations fire Meta's standard Donate event, NOT Purchase, and carry no
+       value. Two reasons this matters:
+         - Donation amounts range from a few dollars to hundreds. Mixed into
+           Purchase they would wreck value optimization and ROAS reporting for
+           the $4.99 membership, which is the number that has to stay clean.
+         - The amount is not knowable on this page. Stripe's redirect does not
+           carry it, and reading it would need a server with a secret key.
+       A page opts in via <body data-fb-donate="..."> */
+    var dn = document.body ? document.body.getAttribute("data-fb-donate") : null;
+    if (dn && countOnce("fbq:donate:" + dn)) {
+      fbq("track", "Donate", { content_name: dn, currency: "USD" });
     }
   });
 })();
