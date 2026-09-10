@@ -80,7 +80,7 @@ const CONFIG = {
             https://thepatrickcarrshow.com/thank-you-donation.html?paid=1
          5. Paste the buy.stripe.com URL here, then bump config.js?v= in the
             HTML files so returning visitors are not served a cached copy. */
-    donation: "",
+    donation: "https://buy.stripe.com/6oU28sek19P72yRav57Vm08",
 
     // Merch (one-time Stripe Payment Links) — each hat has its own Buy button
     hatFixOrlando:  "https://buy.stripe.com/7sY00k5Nv0ex8Xfbz97Vm05",
