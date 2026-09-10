@@ -5,12 +5,20 @@
      • PageView          — every page
      • ViewContent       — merch catalog page
      • InitiateCheckout  — clicking the membership button, the donate
-                           button, or a merch "Buy Now". Tagged with a
-                           content_name and content_category so the funnels
-                           can be split apart in Meta with Custom Conversions.
+                           button, or a merch "Buy Now"
      • Lead              — story / contact form submit
-     • Purchase          — membership / merch thank-you pages, with a real value
-     • Donate            — donation thank-you page, no value (amount unknown)
+     • Purchase          — a thank-you page reached after a completed checkout
+
+   ONE CONVERSION FOR MONEY IN THE DOOR
+   A membership and a one-time donation both fire Purchase with
+   content_category "Support", so a single Custom Conversion in Meta counts
+   either as the same conversion. content_name stays distinct ("Member" vs
+   "One-Time Donation") so the two can still be told apart in reporting.
+   Merch uses content_category "Merch" so it can be excluded.
+   Pages opt in with:
+     data-fb-purchase   the content_name           (required)
+     data-fb-category   Support | Merch            (optional)
+     data-fb-value      dollar amount, omit if unknown (optional)
    To change the Pixel ID, edit PIXEL_ID below.
    ============================================================= */
 (function () {
@@ -47,8 +55,7 @@
     if (donate && isStripe(donate.getAttribute("href"))) {
       fbq("track", "InitiateCheckout", {
         content_name: "One-Time Donation",
-        content_category: "Donation",
-        currency: "USD"
+        content_category: "Support"
       });
       return;
     }
@@ -59,7 +66,7 @@
       var tname = tc && tc.querySelector("h3") ? tc.querySelector("h3").textContent.trim() : "Membership";
       var tval = tc && tc.querySelector(".price") ? val(tc.querySelector(".price").textContent) : 0;
       fbq("track", "InitiateCheckout", {
-        content_name: tname, content_category: "Membership Tier",
+        content_name: tname, content_category: "Support",
         value: tval, currency: "USD"
       });
       return;
@@ -106,21 +113,19 @@
     // Used by the thank-you pages reached only after a completed Stripe checkout.
     var pp = document.body ? document.body.getAttribute("data-fb-purchase") : null;
     if (pp && countOnce("fbq:purchase:" + pp)) {
-      var pv = parseFloat(document.body.getAttribute("data-fb-value") || "0") || 0;
-      fbq("track", "Purchase", { content_name: pp, currency: "USD", value: pv });
+      var params = { content_name: pp };
+      var cat = document.body.getAttribute("data-fb-category");
+      if (cat) params.content_category = cat;
+      /* Only send value when the page actually knows one. A donation amount is
+         not knowable here, and sending value: 0 would tell Meta the conversion
+         was worth nothing, which is worse for optimization than sending none. */
+      var raw = document.body.getAttribute("data-fb-value");
+      if (raw !== null && raw !== "") {
+        var pv = parseFloat(raw);
+        if (!isNaN(pv)) { params.value = pv; params.currency = "USD"; }
+      }
+      fbq("track", "Purchase", params);
     }
 
-    /* Donations fire Meta's standard Donate event, NOT Purchase, and carry no
-       value. Two reasons this matters:
-         - Donation amounts range from a few dollars to hundreds. Mixed into
-           Purchase they would wreck value optimization and ROAS reporting for
-           the $4.99 membership, which is the number that has to stay clean.
-         - The amount is not knowable on this page. Stripe's redirect does not
-           carry it, and reading it would need a server with a secret key.
-       A page opts in via <body data-fb-donate="..."> */
-    var dn = document.body ? document.body.getAttribute("data-fb-donate") : null;
-    if (dn && countOnce("fbq:donate:" + dn)) {
-      fbq("track", "Donate", { content_name: dn, currency: "USD" });
-    }
   });
 })();
