@@ -49,13 +49,17 @@
   document.addEventListener("click", function (e) {
     if (!e.target.closest) return;
 
-    // The one-time donation button. No value: the donor has not picked an
-    // amount yet, and sending a fake number would poison value optimization.
+    /* The one-time donation button. Carries the same value as the membership
+       on purpose: a donor and a member are worth the same for optimization,
+       so Meta should weigh them identically. The real donation amount is not
+       knowable client-side, and reported revenue is not what this campaign
+       optimizes against. */
     var donate = e.target.closest("#donate-cta");
     if (donate && isStripe(donate.getAttribute("href"))) {
       fbq("track", "InitiateCheckout", {
         content_name: "One-Time Donation",
-        content_category: "Support"
+        content_category: "Support",
+        value: 4.99, currency: "USD"
       });
       return;
     }
