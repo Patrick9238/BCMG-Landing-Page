@@ -53,16 +53,31 @@
     .lp-body p:last-child { margin-bottom:0; }
     .lp-emph { color:var(--text); font-weight:600; }
 
-    /* Hero */
-    .lp-hero { padding:46px 0 54px; }
-    .lp-hero-grid { display:grid; grid-template-columns:1fr; gap:28px; align-items:center; }
-    .lp-hero h1 { font-size:clamp(2.1rem,7vw,3.7rem); margin-bottom:18px; }
-    .lp-hero .sub { color:var(--muted); font-size:1.12rem; margin-bottom:26px; }
-    .lp-hero-photo img { width:100%; max-width:280px; height:auto; margin:4px auto 0; }
-    @media (min-width:880px) {
-      .lp-hero { padding:62px 0 70px; }
-      .lp-hero-grid { grid-template-columns:1.25fr .75fr; gap:44px; }
-      .lp-hero-photo img { max-width:430px; margin:0 auto; }
+    /* Hero (copy + application form at the top) */
+    .lp-hero { padding:26px 0 38px; }
+    .lp-hero-grid { display:grid; grid-template-columns:1fr; gap:18px; }
+    .lp-hero h1 { font-size:clamp(1.8rem,6vw,3rem); margin-bottom:0; }
+    .lp-hero .sub { color:var(--muted); font-size:1.05rem; margin:0; }
+    .lp-form-head { font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:.5px;
+      font-weight:700; font-size:1.18rem; color:#fff; text-align:center; margin-bottom:12px; }
+    @media (min-width:980px) {
+      .lp-hero { padding:44px 0 56px; }
+      .lp-hero-grid { grid-template-columns:1fr 1fr; grid-template-rows:min-content 1fr;
+        grid-template-areas:"intro form" "sub form"; column-gap:42px; row-gap:16px; align-items:start; }
+      .lp-hero-intro { grid-area:intro; }
+      .lp-hero-sub { grid-area:sub; }
+      .lp-hero-form { grid-area:form; }
+      .lp-hero h1 { font-size:clamp(2.1rem,3.3vw,3rem); }
+    }
+
+    /* Hook with photo */
+    .hook-grid { display:grid; grid-template-columns:1fr; gap:24px; align-items:center; }
+    .hook-photo img { width:100%; max-width:270px; height:auto; margin:0 auto; }
+    .hook-copy h2 { font-size:clamp(1.8rem,4.4vw,2.6rem); margin-bottom:16px; }
+    .hook-copy p { color:var(--muted); font-size:1.08rem; margin-bottom:16px; }
+    .hook-copy p:last-child { margin-bottom:0; }
+    @media (min-width:860px) {
+      .hook-grid { grid-template-columns:.78fr 1.22fr; gap:40px; }
     }
 
     /* Problem bullets */
@@ -205,27 +220,51 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section class="lp-hero">
+  <!-- ===== HERO (copy + application form at the top) ===== -->
+  <section class="lp-hero" id="apply">
     <div class="container lp-hero-grid">
-      <div class="lp-hero-copy">
+      <div class="lp-hero-intro">
         <div class="lp-eyebrow">For Florida Business Owners Doing $2M+</div>
         <h1>The 90-Day Marketing Turnaround</h1>
+      </div>
+      <div class="lp-hero-form">
+        <div class="lp-form-head">Apply for One of 5 Spots</div>
+        <!-- GoHighLevel application form (90-Day Turnaround Application). form_embed.js auto-resizes it. -->
+        <div class="apply-embed">
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/form/HDSAqkLvkXz8264EnhD4"
+            id="inline-HDSAqkLvkXz8264EnhD4"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="90-Day Turnaround Application"
+            data-height="650"
+            data-layout-iframe-id="inline-HDSAqkLvkXz8264EnhD4"
+            data-form-id="HDSAqkLvkXz8264EnhD4"
+            title="90-Day Turnaround Application"
+            style="width:100%;border:none;min-height:650px;display:block;">
+          </iframe>
+        </div>
+      </div>
+      <div class="lp-hero-sub">
         <p class="sub">For 90 days, I personally step into your business. Weekly strategy calls, monthly
           on-site sessions, and a roadmap your team executes. Only 5 businesses.</p>
-        <a class="btn btn-gold btn-lg" href="#apply">Apply for One of 5 Spots</a>
-      </div>
-      <div class="lp-hero-photo">
-        <img src="assets/img/patrick-arms-crossed.png" alt="Patrick Carr">
       </div>
     </div>
   </section>
 
   <!-- ===== THE HOOK ===== -->
   <section class="block lp-alt">
-    <div class="container">
-      <div class="lp-head"><h2>You keep seeing me. That's not an accident.</h2></div>
-      <div class="lp-narrow lp-body">
+    <div class="container hook-grid">
+      <div class="hook-photo">
+        <img src="assets/img/patrick-arms-crossed.png" alt="Patrick Carr">
+      </div>
+      <div class="hook-copy">
+        <h2>You keep seeing me. That's not an accident.</h2>
         <p>In the last 90 days, my content has been viewed more than <span class="lp-emph">25 million times</span>
           across every platform. You've seen me in your feed whether you were looking for me or not.</p>
         <p>That's what marketing done right looks like. Now I want to do it for your business.</p>
@@ -472,33 +511,13 @@
     </div>
   </section>
 
-  <!-- ===== FINAL CTA / APPLICATION ===== -->
-  <section class="block" id="apply">
+  <!-- ===== FINAL CTA ===== -->
+  <section class="block">
     <div class="container">
       <div class="apply-head">
         <h2>5 businesses. 90 days. Let's turn it around.</h2>
-        <p>Fill out the application below. If it's a fit, you'll pick a time to talk with me directly.</p>
-      </div>
-      <!-- GoHighLevel application form (90-Day Turnaround Application).
-           form_embed.js (loaded at the bottom of the page) auto-resizes it. -->
-      <div class="apply-embed">
-        <iframe
-          src="https://api.leadconnectorhq.com/widget/form/HDSAqkLvkXz8264EnhD4"
-          id="inline-HDSAqkLvkXz8264EnhD4"
-          data-layout="{'id':'INLINE'}"
-          data-trigger-type="alwaysShow"
-          data-trigger-value=""
-          data-activation-type="alwaysActivated"
-          data-activation-value=""
-          data-deactivation-type="neverDeactivate"
-          data-deactivation-value=""
-          data-form-name="90-Day Turnaround Application"
-          data-height="650"
-          data-layout-iframe-id="inline-HDSAqkLvkXz8264EnhD4"
-          data-form-id="HDSAqkLvkXz8264EnhD4"
-          title="90-Day Turnaround Application"
-          style="width:100%;border:none;min-height:650px;display:block;">
-        </iframe>
+        <p>Fill out the application at the top of the page. If it's a fit, you'll pick a time to talk with me directly.</p>
+        <div style="margin-top:26px"><a class="btn btn-gold btn-lg" href="#apply">Apply for One of 5 Spots</a></div>
       </div>
     </div>
   </section>
