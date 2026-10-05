@@ -53,21 +53,26 @@
     .lp-body p:last-child { margin-bottom:0; }
     .lp-emph { color:var(--text); font-weight:600; }
 
-    /* Hero (copy + application form at the top) */
-    .lp-hero { padding:26px 0 38px; }
-    .lp-hero-grid { display:grid; grid-template-columns:1fr; gap:18px; }
-    .lp-hero h1 { font-size:clamp(1.8rem,6vw,3rem); margin-bottom:0; }
-    .lp-hero .sub { color:var(--muted); font-size:1.05rem; margin:0; }
+    /* Hero (copy + photo + application form at the top) */
+    .lp-hero { padding:24px 0 36px; }
+    .lp-hero-grid { display:grid; grid-template-columns:1fr; gap:16px; }
+    .lp-hero h1 { font-size:clamp(1.8rem,6vw,3rem); margin-bottom:12px; }
+    .lp-hero .sub { color:var(--muted); font-size:1.04rem; margin:0; }
+    .lp-hero-photo img { width:100%; max-width:150px; height:auto; margin:12px auto 0; }
     .lp-form-head { font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:.5px;
       font-weight:700; font-size:1.18rem; color:#fff; text-align:center; margin-bottom:12px; }
+    .lp-hero-feat .featured { margin-top:0; }
     @media (min-width:980px) {
-      .lp-hero { padding:44px 0 56px; }
+      .lp-hero { padding:40px 0 54px; }
       .lp-hero-grid { grid-template-columns:1fr 1fr; grid-template-rows:min-content 1fr;
-        grid-template-areas:"intro form" "sub form"; column-gap:42px; row-gap:16px; align-items:start; }
+        grid-template-areas:"intro form" "feat form"; column-gap:42px; row-gap:22px; align-items:start; }
       .lp-hero-intro { grid-area:intro; }
-      .lp-hero-sub { grid-area:sub; }
+      .lp-hero-feat { grid-area:feat; }
       .lp-hero-form { grid-area:form; }
       .lp-hero h1 { font-size:clamp(2.1rem,3.3vw,3rem); }
+      .lp-hero-photo img { max-width:280px; margin:20px 0 0; }
+      .lp-hero-feat .featured { text-align:left; }
+      .lp-hero-feat .featured-logos { justify-content:flex-start; }
     }
 
     /* Hook with photo */
@@ -226,6 +231,11 @@
       <div class="lp-hero-intro">
         <div class="lp-eyebrow">For Florida Business Owners Doing $2M+</div>
         <h1>The 90-Day Marketing Turnaround</h1>
+        <p class="sub">This is for business owners who want Patrick working directly in their business to find
+          the marketing problems holding them back and fix them.</p>
+        <div class="lp-hero-photo">
+          <img src="assets/img/patrick-arms-crossed.png" alt="Patrick Carr">
+        </div>
       </div>
       <div class="lp-hero-form">
         <div class="lp-form-head">Apply for One of 5 Spots</div>
@@ -250,21 +260,27 @@
           </iframe>
         </div>
       </div>
-      <div class="lp-hero-sub">
-        <p class="sub">For 90 days, I personally step into your business. Weekly strategy calls, monthly
-          on-site sessions, and a roadmap your team executes. Only 5 businesses.</p>
+      <div class="lp-hero-feat">
+        <!-- ASSETS MISSING: Fox News / NBC / MarketWatch / Yahoo Finance logos are not in /assets.
+             Showing outlet names as text. Send the logo files (white/monochrome PNG or SVG) to swap in. -->
+        <div class="featured">
+          <div class="ftitle">Patrick Carr Has Been Featured On</div>
+          <div class="featured-logos">
+            <span>Fox News</span>
+            <span>NBC</span>
+            <span>MarketWatch</span>
+            <span>Yahoo Finance</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===== THE HOOK ===== -->
   <section class="block lp-alt">
-    <div class="container hook-grid">
-      <div class="hook-photo">
-        <img src="assets/img/patrick-arms-crossed.png" alt="Patrick Carr">
-      </div>
-      <div class="hook-copy">
-        <h2>You keep seeing me. That's not an accident.</h2>
+    <div class="container">
+      <div class="lp-head"><h2>You keep seeing me. That's not an accident.</h2></div>
+      <div class="lp-narrow lp-body">
         <p>In the last 90 days, my content has been viewed more than <span class="lp-emph">25 million times</span>
           across every platform. You've seen me in your feed whether you were looking for me or not.</p>
         <p>That's what marketing done right looks like. Now I want to do it for your business.</p>
@@ -399,18 +415,6 @@
           </div>
           <div class="stars">★★★★★</div>
           <div class="body">"I hired Pat to help with marketing for my company, and the whole process has been top notch. He's professional, easy to work with... Pat's the real deal."</div>
-        </div>
-      </div>
-
-      <div class="featured">
-        <div class="ftitle">As Featured On</div>
-        <!-- ASSETS MISSING: Fox News, NBC, MarketWatch, Yahoo Finance logos are not in /assets.
-             Showing outlet names as text. Add white/monochrome PNG or SVG logos to swap in. -->
-        <div class="featured-logos">
-          <span>Fox News</span>
-          <span>NBC</span>
-          <span>MarketWatch</span>
-          <span>Yahoo Finance</span>
         </div>
       </div>
     </div>
