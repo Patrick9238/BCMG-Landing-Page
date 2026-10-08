@@ -99,3 +99,16 @@ python3 -m http.server 8000
 
 Upload these files to your host and point the domain at it. On Netlify/Vercel you can drag-and-drop
 the folder or connect this Git repo, then add the custom domain `thepatrickcarrshow.com`.
+
+## Custom BCMG marketing survey
+
+The five-step survey on `blue-collar-media-group.html` posts JSON directly to the BCMG OG GHL
+inbound webhook. GHL saves the mapped answers and sends Patrick's internal notification. A
+successful submission opens the inquiry calendar when the declared monthly budget is at least
+$3,000; lower and unsure budgets are saved for review.
+
+Business website is optional and accepts addresses with or without a scheme. Both SMS consent
+choices are separate and optional. A failed or uncertain webhook response never automatically
+resends the answers. Live settings are in `js/bcmg-survey-config.js`; no separate server or
+database is needed. Local pages use the same live connection. Automated submission tests use
+mock requests and can be run with `node --test verification/bcmg-survey-behavior.test.cjs`.
