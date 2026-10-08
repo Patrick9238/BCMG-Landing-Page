@@ -1,0 +1,44 @@
+/* Marketing fit survey; colors and typography inherit the Patrick Carr Show theme. */
+.bcmg-survey { margin-top:22px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); }
+.bcmg-survey [hidden] { display:none !important; }
+.bcmg-survey .survey-progress-copy { color:var(--muted); font-size:.85rem; margin-bottom:9px; }
+.bcmg-survey progress { display:block; width:100%; height:5px; margin-bottom:22px; border:none; border-radius:20px; background:var(--border); accent-color:var(--blue); }
+.bcmg-survey progress::-webkit-progress-bar { background:var(--border); border-radius:20px; }
+.bcmg-survey progress::-webkit-progress-value { background:var(--blue); border-radius:20px; }
+.bcmg-survey progress::-moz-progress-bar { background:var(--blue); border-radius:20px; }
+.bcmg-survey fieldset { border:0; min-width:0; }
+.bcmg-survey legend { font-family:"Oswald",sans-serif; font-size:1.55rem; font-weight:600; line-height:1.2; margin-bottom:18px; }
+.bcmg-survey .survey-field { display:grid; gap:6px; margin-bottom:18px; }
+.bcmg-survey .survey-field label, .bcmg-survey .survey-choice-title { font-weight:600; font-size:.94rem; }
+.bcmg-survey .survey-optional, .bcmg-survey .survey-help { color:var(--muted); font-size:.82rem; font-weight:400; }
+.bcmg-survey input:not([type="checkbox"]):not([type="radio"]), .bcmg-survey select, .bcmg-survey textarea { width:100%; min-height:48px; padding:11px 12px; background:var(--bg); color:var(--text); border:1px solid var(--border); border-radius:8px; font:inherit; font-size:.95rem; }
+.bcmg-survey textarea { min-height:130px; resize:vertical; }
+.bcmg-survey input::placeholder, .bcmg-survey textarea::placeholder { color:var(--muted); opacity:1; }
+.bcmg-survey :focus-visible { outline:3px solid var(--blue); outline-offset:3px; }
+.bcmg-survey [aria-invalid="true"] { border-color:var(--red) !important; }
+.bcmg-survey .survey-field-error { color:#ff9b9b; font-size:.85rem; }
+.bcmg-survey .survey-error { margin-bottom:18px; padding:12px 14px; border-left:3px solid var(--red); background:var(--bg); color:#ffb8b8; font-size:.93rem; }
+.bcmg-survey .survey-error a { font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+.bcmg-survey .survey-choice-group { margin-bottom:18px; }
+.bcmg-survey .survey-choice-title { margin-bottom:8px; }
+.bcmg-survey .survey-choices { display:grid; gap:9px; }
+.bcmg-survey .survey-choice { display:flex; gap:10px; align-items:flex-start; padding:12px; background:var(--bg); border:1px solid var(--border); border-radius:8px; cursor:pointer; font-size:.93rem; }
+.bcmg-survey .survey-choice:has(input:checked) { border-color:var(--blue); background:var(--surface-2); }
+.bcmg-survey input[type="radio"], .bcmg-survey input[type="checkbox"] { width:18px; height:18px; flex:0 0 18px; margin-top:4px; accent-color:var(--blue); }
+.bcmg-survey .survey-consent { display:flex; align-items:flex-start; gap:10px; margin:16px 0; color:var(--muted); font-size:.78rem; line-height:1.65; cursor:pointer; }
+.bcmg-survey .survey-policies { color:var(--muted); font-size:.8rem; margin:12px 0 20px; }
+.bcmg-survey .survey-policies a { color:var(--text); text-decoration:underline; text-underline-offset:3px; }
+.bcmg-survey .survey-review { margin:18px 0; padding:16px; border:1px solid var(--border); border-radius:8px; background:var(--bg); }
+.bcmg-survey .survey-review h3 { font-size:1.02rem; margin-bottom:12px; }
+.bcmg-survey .survey-review dl { display:grid; gap:12px; }
+.bcmg-survey .survey-review dt { color:var(--muted); font-size:.76rem; }
+.bcmg-survey .survey-review dd { font-size:.88rem; overflow-wrap:anywhere; white-space:pre-wrap; }
+.bcmg-survey .survey-actions { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:22px; }
+.bcmg-survey .survey-actions .btn { padding:12px 20px; }
+.bcmg-survey .survey-actions [data-survey-next], .bcmg-survey .survey-actions [type="submit"] { margin-left:auto; }
+.bcmg-survey button:disabled { cursor:wait; opacity:.65; }
+.bcmg-survey .survey-status { color:var(--muted); font-size:.87rem; margin-top:14px; }
+.bcmg-survey .survey-result h3 { font-size:1.5rem; margin-bottom:12px; }
+.bcmg-survey .survey-result p { color:var(--muted); margin-bottom:16px; }
+.bcmg-survey .survey-trap { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+@media (max-width:480px) { .bcmg-survey { padding:18px; } .bcmg-survey .survey-actions .btn { padding:12px 16px; font-size:.88rem; } }
