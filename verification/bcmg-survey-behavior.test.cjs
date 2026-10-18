@@ -158,9 +158,29 @@ test('opaque or oversized acknowledgements remain unconfirmed',async()=>{
  await assert.rejects(survey.sendSubmission(config,payload,environment(async()=>({ok:true,type:'cors',body:new ReadableStream({start(controller){controller.enqueue(bytes);controller.close();}})}))));
 });
 
-test('honeypot, oversized answers and unsafe target fail before fetch',async()=>{
+test('autofilled legacy fax and immediate submissions are accepted',async()=>{
+ for(const duration of [0,1,100]){
+  const immediateState={...state,submittedAt:new Date(Date.parse(state.startedAt)+duration).toISOString()};
+  const immediate=survey.buildPayload({...answers,company_fax:'(407) 555-0100'},immediateState,config);
+  assert.equal(immediate.time_to_complete_ms,duration);
+  const requests=[];
+  const outcome=await survey.sendSubmission(config,immediate,environment(async(url,options)=>{requests.push({url,options});return reply(liveAck());}));
+  assert.equal(requests.length,1);
+  assert.equal(JSON.parse(requests[0].options.body).first_name,answers.first_name);
+  assert.equal(outcome.submission_id,state.submissionId);
+  assert.equal(outcome.booking_url,BOOKING);
+ }
+});
+
+test('form permits autofill without a hidden spam field',()=>{
+ const html=fs.readFileSync(path.join(__dirname,'../blue-collar-media-group.html'),'utf8');
+ const form=html.match(/<form\b[^>]*id="bcmg-survey-form"[^>]*>/)[0];
+ assert.match(form,/\bautocomplete="on"/);
+ assert.doesNotMatch(html,/company_fax|bcmg-fax|survey-trap/);
+});
+
+test('oversized answers and unsafe target fail before fetch',async()=>{
  let requests=0; const transport=environment(async()=>{requests++;return reply(liveAck());});
- await assert.rejects(survey.sendSubmission(config,{...payload,company_fax:'spam'},transport));
  await assert.rejects(survey.sendSubmission(config,{...payload,marketing_challenge:'x'.repeat(18000)},transport));
  await assert.rejects(survey.sendSubmission({...config,webhookUrl:'http://example.invalid'},payload,transport));
  assert.equal(requests,0);
