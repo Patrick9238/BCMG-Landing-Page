@@ -185,7 +185,6 @@
   }
 
   async function sendSubmission(config, payload, environment) {
-    if (payload.company_fax) throw submissionFailure("validation", payload.submission_id);
     var body = JSON.stringify(payload);
     if (new TextEncoder().encode(body).byteLength > 16384) throw submissionFailure("size", payload.submission_id);
     if (config.liveSubmissionsEnabled !== true) throw submissionFailure("submissions_disabled", payload.submission_id);
@@ -291,7 +290,7 @@
       Array.prototype.forEach.call(steps[index].querySelectorAll("input, select, textarea"), function (field) {
         if (field.type === "radio" && seen[field.name]) return;
         seen[field.name] = true;
-        if (field.type === "hidden" || field.type === "checkbox" || field.name === "company_fax") return;
+        if (field.type === "hidden" || field.type === "checkbox") return;
         if (!validateField(field)) {
           if (!invalid) invalid = field;
           field.setAttribute("aria-invalid", "true");
@@ -432,7 +431,6 @@
         if (!valid) { showStep(i, false); validateStep(i, true); return; }
       }
       var answers = collectAnswers(form);
-      if (answers.company_fax) { error.textContent = "We couldn’t send your answers. Please try again."; error.hidden = false; return; }
       prepareAttempt(state, answers, win.crypto);
       form.querySelector("[name=submission_id]").value = state.submissionId;
       var payload = buildPayload(answers, state, config);
