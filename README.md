@@ -108,7 +108,8 @@ successful submission opens the inquiry calendar when the declared monthly budge
 $3,000; lower and unsure budgets are saved for review.
 
 Business website is optional and accepts addresses with or without a scheme. Both SMS consent
-choices are separate and optional. A failed or uncertain webhook response never automatically
-resends the answers. Live settings are in `js/bcmg-survey-config.js`; no separate server or
+choices are separate and optional. Browser autofill and immediate submissions are accepted;
+the survey has no hidden spam field or minimum completion time. A failed or uncertain webhook
+response never automatically resends the answers. Live settings are in `js/bcmg-survey-config.js`; no separate server or
 database is needed. Local pages use the same live connection. Automated submission tests use
 mock requests and can be run with `node --test verification/bcmg-survey-behavior.test.cjs`.

@@ -244,7 +244,7 @@
           <p>Answer a few quick questions so I can see what’s working, what isn’t, and where you need help.</p>
         </div>
         <div class="bcmg-survey">
-          <form id="bcmg-survey-form" method="post" action="#" novalidate aria-label="Tell Patrick about your business">
+          <form id="bcmg-survey-form" method="post" action="#" autocomplete="on" novalidate aria-label="Tell Patrick about your business">
             <p class="survey-progress-copy" data-survey-progress aria-live="polite">Step 1 of 5</p>
             <progress value="1" max="5" aria-label="Survey progress"></progress>
             <div class="survey-error" data-survey-error role="alert" tabindex="-1" hidden></div>
@@ -377,10 +377,6 @@
               </div>
             </fieldset>
 
-            <div class="survey-trap" aria-hidden="true">
-              <label for="bcmg-fax">Leave this field empty</label>
-              <input id="bcmg-fax" name="company_fax" type="text" tabindex="-1" autocomplete="off" data-survey-answer>
-            </div>
             <input type="hidden" name="submission_id">
             <input type="hidden" name="started_at">
             <input type="hidden" name="survey_answers">
@@ -709,7 +705,7 @@
   <script src="js/config.js?v=15"></script>
   <script src="js/main.js?v=15"></script>
   <script src="js/bcmg-survey-config.js?v=1"></script>
-  <script src="js/bcmg-survey.js?v=1"></script>
+  <script src="js/bcmg-survey.js?v=2"></script>
   <script>
     // Fire Meta "ViewContent" when the survey section scrolls into view.
     (function () {
