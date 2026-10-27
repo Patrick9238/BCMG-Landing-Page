@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central Florida Early Vote</title>
+<style>
+  :root {
+    --bg: #070b14;
+    --panel: #0f1626;
+    --panel-2: #141d31;
+    --line: #23304a;
+    --ink: #f4f6fb;
+    --ink-2: #aab4c8;
+    --ink-3: #6f7b93;
+    --accent: #f5c542;
+    --rep: #e5484d;
+    --dem: #3e7bfa;
+    --npa: #9aa3b5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; background: #000; overflow: hidden; }
+  body {
+    font-family: "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  #stage {
+    position: absolute; left: 50%; top: 50%;
+    width: 1920px; height: 1080px;
+    transform-origin: 0 0;
+    background:
+      radial-gradient(900px 700px at 35% 55%, rgba(62, 123, 250, .14), transparent 70%),
+      radial-gradient(700px 500px at 90% 10%, rgba(229, 72, 77, .08), transparent 70%),
+      var(--bg);
+    overflow: hidden;
+  }
+
+  /* Header */
+  header {
+    position: absolute; left: 60px; right: 60px; top: 40px; height: 110px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 2px solid var(--line);
+  }
+  .kicker {
+    font-size: 22px; letter-spacing: .22em; color: var(--accent); font-weight: 700;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  h1 { font-size: 60px; font-weight: 800; letter-spacing: .02em; line-height: 1; }
+  .date {
+    text-align: right; font-size: 22px; color: var(--ink-2); letter-spacing: .12em; text-transform: uppercase;
+  }
+  .date b { display: block; font-size: 40px; color: var(--ink); letter-spacing: .04em; }
+
+  /* Map */
+  #mapwrap { position: absolute; left: 60px; top: 170px; width: 1180px; height: 820px; }
+  #map { position: absolute; left: 0; top: 0; }
+  .c { stroke: var(--bg); stroke-width: 3; cursor: pointer; transition: opacity .15s; }
+  .c.hot { stroke: var(--accent); }
+  #map.hovering .c:not(.hot) { opacity: .6; }
+  .plate { fill: rgba(7, 11, 20, .86); stroke: rgba(255, 255, 255, .18); stroke-width: 1; }
+  .lab { pointer-events: none; }
+  .lab text { text-anchor: middle; }
+  .ln { font-size: 19px; font-weight: 700; letter-spacing: .12em; fill: var(--ink-2); }
+  .lt { font-size: 32px; font-weight: 800; fill: var(--ink); }
+  .lm { font-size: 18px; font-weight: 800; letter-spacing: .06em; fill: #fff; }
+  .chip.d { fill: var(--dem); }
+  .chip.r { fill: var(--rep); }
+  .chip.tie { fill: #6f7686; }
+  .cl { fill: none; stroke: var(--accent); stroke-width: 2; }
+  .cdot { fill: var(--accent); }
+  .cl.ext { stroke: var(--ink-2); }
+  .edot { fill: var(--ink); stroke: var(--bg); stroke-width: 2; }
+
+  .maptitle { position: absolute; left: 0; top: 4px; }
+  .lbl { font-size: 21px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); font-weight: 700; }
+  .maptitle .lbl { color: var(--ink); font-size: 22px; }
+  .legend { display: flex; margin-top: 12px; }
+  .legend span { width: 34px; height: 16px; }
+  .legend span.tie {
+    background: repeating-linear-gradient(45deg, #9aa1b0 0 6px, #b9bfcb 6px 10px);
+  }
+  .legend-keys { display: flex; justify-content: space-between; width: 306px; margin-top: 6px; font-size: 15px; color: var(--ink-2); letter-spacing: .06em; }
+  .legend-note { font-size: 15px; color: var(--ink-3); margin-top: 6px; width: 306px; }
+
+  .callout {
+    position: absolute; left: 910px; width: 290px; top: 384px;
+    background: var(--panel-2); border: 2px solid var(--accent); border-radius: 10px;
+    padding: 16px 20px;
+  }
+  .callout .k { font-size: 17px; letter-spacing: .16em; color: var(--accent); font-weight: 800; text-transform: uppercase; }
+  .callout .big { font-size: 26px; font-weight: 800; margin-top: 8px; line-height: 1.2; }
+  .callout .big b { color: #6c9bff; font-size: 34px; }
+  .callout .sm { font-size: 24px; font-weight: 700; color: var(--ink-2); margin-top: 6px; line-height: 1.3; }
+  .callout .em { font-size: 26px; font-weight: 800; color: var(--accent); margin-top: 10px; line-height: 1.15; }
+
+  /* Side panel */
+  #side {
+    position: absolute; left: 1290px; top: 180px; width: 570px; height: 810px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .tile {
+    background: linear-gradient(180deg, var(--panel-2), var(--panel));
+    border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px 26px;
+  }
+  .total { border-left: 8px solid var(--accent); }
+  .total .num { font-size: 104px; font-weight: 800; line-height: 1; margin-top: 8px; }
+  .total .sub { font-size: 18px; color: var(--ink-3); margin-top: 8px; letter-spacing: .04em; }
+  .party .bar { display: flex; height: 30px; border-radius: 6px; overflow: hidden; margin: 14px 0 10px; }
+  .party .bar div { height: 100%; }
+  .prow { display: grid; grid-template-columns: 18px 1fr auto 120px; align-items: baseline; gap: 12px; padding: 5px 0; }
+  .prow + .prow { border-top: 1px solid var(--line); }
+  .sw { width: 16px; height: 16px; border-radius: 4px; align-self: center; }
+  .pname { font-size: 23px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+  .pvotes { font-size: 28px; font-weight: 700; }
+  .ppct { font-size: 38px; font-weight: 800; text-align: right; }
+
+  .highlight { background: var(--accent); color: #0b0f1a; border-radius: 10px; padding: 20px 26px; }
+  .highlight .r { display: flex; justify-content: space-between; align-items: baseline; font-size: 30px; font-weight: 800; }
+  .highlight .r + .r { border-top: 2px solid rgba(11, 15, 26, .2); margin-top: 8px; padding-top: 8px; }
+  .highlight .r span { font-size: 22px; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
+  .highlight .r b { font-size: 44px; }
+  .highlight .kick { font-size: 32px; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; margin-top: 12px; line-height: 1.1; }
+
+  #tip {
+    position: absolute; pointer-events: none; z-index: 10; display: none;
+    background: rgba(7, 11, 20, .96); border: 1px solid var(--accent); border-radius: 8px;
+    padding: 12px 16px; min-width: 230px;
+  }
+  #tip .t1 { font-size: 22px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+  #tip .t2 { font-size: 18px; color: var(--ink-2); margin-top: 6px; display: grid; grid-template-columns: auto auto; gap: 2px 16px; }
+  #tip .t2 b { color: var(--ink); text-align: right; }
+
+  footer {
+    position: absolute; left: 60px; right: 60px; bottom: 26px;
+    font-size: 17px; color: var(--ink-3); letter-spacing: .02em;
+    border-top: 1px solid var(--line); padding-top: 14px;
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+  <header>
+    <div>
+      <div class="kicker">Central Florida &middot; 2026 Early Vote Update</div>
+      <h1>THE STATE IS TIED. CENTRAL FLORIDA ISN&rsquo;T.</h1>
+    </div>
+    <div class="date">As of<b>Oct 27, 2026</b></div>
+  </header>
+
+  <section id="mapwrap">
+    <div class="maptitle">
+      <div class="lbl">Early vote lead by county</div>
+      <div class="legend"><span style="background:#c42a2f"></span><span style="background:#d66063"></span><span style="background:#e89596"></span><span style="background:#f9c9c9"></span><span class="tie"></span><span style="background:#c9d8fc"></span><span style="background:#91abee"></span><span style="background:#597ee0"></span><span style="background:#1f4fd1"></span></div>
+      <div class="legend-keys"><span>R LEAD</span><span>TIE</span><span>D LEAD</span></div>
+      <div class="legend-note">Darker = wider margin</div>
+    </div>
+    <svg id="map" viewBox="0 0 1180 820" width="1180" height="820">
+<defs><pattern id="tie" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<rect width="10" height="10" fill="#9aa1b0"/><rect width="4" height="10" fill="#b9bfcb"/></pattern></defs>
+<path class="c" d="M472.3,401.9L472.0,345.3L484.9,300.2L497.1,300.2L565.6,300.6L548.2,362.0L548.3,363.8L548.9,363.8L584.5,363.8L587.3,364.3L597.6,364.2L598.5,364.3L598.8,376.5L599.2,376.9L729.6,375.8L770.5,423.6L777.4,491.8L605.9,491.6L527.4,491.9L520.5,491.9L472.4,492.0L472.3,401.9Z" fill="#2a58d4" data-n="Orange" data-d="90632" data-r="48426" data-o="41231" data-t="180289" data-m="D +42,206"/><path class="c" d="M777.4,491.8L777.4,491.8L777.4,491.9L775.1,721.2L773.4,800.0L670.1,799.6L674.2,796.9L644.8,721.8L608.8,703.9L606.2,677.8L579.3,638.5L580.6,606.5L549.9,606.4L549.8,581.2L523.4,581.3L523.5,555.8L513.0,534.8L472.4,530.4L472.4,492.0L520.5,491.9L527.4,491.9L605.9,491.6L777.4,491.8Z" fill="#577cdf" data-n="Osceola" data-d="22760" data-r="14471" data-o="12292" data-t="49523" data-m="D +8,289"/><path class="c" d="M643.9,293.0L649.8,297.4L654.4,295.1L656.0,302.0L684.1,281.6L729.6,375.8L599.2,376.9L598.8,376.5L598.5,364.3L597.6,364.2L587.3,364.3L584.5,363.8L548.9,363.8L548.3,363.8L548.2,362.0L565.6,300.6L580.7,266.4L580.4,265.2L581.3,263.3L581.9,263.9L582.8,263.2L583.2,262.2L583.9,262.0L584.1,261.4L583.9,260.6L583.8,259.8L583.8,259.4L628.7,279.6L636.5,279.8L637.9,279.8L639.2,282.3L638.5,284.4L641.8,287.7L641.7,290.4L643.9,293.0Z" fill="#acc0f5" data-n="Seminole" data-d="30323" data-r="27132" data-o="16934" data-t="74389" data-m="D +3,191"/><path class="c" d="M656.0,302.0L654.4,295.1L649.8,297.4L643.9,293.0L641.7,290.4L641.8,287.7L638.5,284.4L639.2,282.3L637.9,279.8L636.5,279.8L628.7,279.6L583.8,259.4L588.6,213.5L532.0,163.9L520.7,129.4L489.6,117.9L478.3,85.7L475.8,79.8L473.0,75.6L468.3,74.9L465.4,70.9L463.3,64.9L509.3,52.9L517.1,50.8L524.4,48.3L525.8,48.5L529.7,47.3L551.6,41.2L558.1,32.5L564.5,92.5L667.1,90.4L664.9,27.0L685.6,20.0L706.8,72.1L726.5,116.6L737.7,142.0L746.1,158.2L760.3,178.6L765.5,190.8L771.5,202.0L806.5,261.1L827.5,297.9L737.0,298.3L738.4,375.8L729.6,375.8L684.1,281.6L656.0,302.0Z" fill="#e89799" data-n="Volusia" data-d="33435" data-r="40772" data-o="20014" data-t="94221" data-m="R +7,337"/><path class="c" d="M472.4,492.0L410.3,485.6L357.0,492.8L358.6,284.9L358.4,224.1L401.0,224.2L401.4,223.7L471.8,224.0L479.3,179.2L478.8,149.1L478.3,85.7L489.6,117.9L520.7,129.4L532.0,163.9L588.6,213.5L583.8,259.4L583.8,259.8L583.9,260.6L584.1,261.4L583.9,262.0L583.2,262.2L582.8,263.2L581.9,263.9L581.3,263.3L580.4,265.2L580.7,266.4L565.6,300.6L497.1,300.2L484.9,300.2L472.0,345.3L472.3,401.9L472.4,492.0Z" fill="#e38789" data-n="Lake" data-d="21528" data-r="28042" data-o="13003" data-t="62573" data-m="R +6,514"/><path class="c" d="M410.3,485.6L472.4,492.0L472.4,530.4L513.0,534.8L523.5,555.8L523.4,581.3L549.8,581.2L549.9,606.4L580.6,606.5L579.3,638.5L606.2,677.8L608.8,703.9L644.8,721.8L674.2,796.9L670.1,799.6L508.4,798.1L319.9,798.2L320.0,708.9L319.1,608.5L319.2,568.7L300.1,568.7L300.0,530.4L319.3,507.0L357.0,492.8L410.3,485.6Z" fill="url(#tie)" data-n="Polk" data-d="34931" data-r="34975" data-o="16259" data-t="86165" data-m="TIE (R +44)"/><g class="callout"><polyline points="680.5,433.8 732.5,433.8 1000,433.8" class="cl"/>
+<circle cx="680.5" cy="433.8" r="5" class="cdot"/></g><g class="lab" data-n="Orange" transform="translate(484.5,381.8)">
+<rect width="196" height="104" rx="8" class="plate"/>
+<text x="98.0" y="30" class="ln">ORANGE</text>
+<text x="98.0" y="62" class="lt">180,289</text>
+<rect x="32.0" y="72" width="132" height="24" rx="4" class="chip d"/>
+<text x="98.0" y="90" class="lm">D +42,206</text></g><g class="lab" data-n="Osceola" transform="translate(560.0,524.7)">
+<rect width="196" height="104" rx="8" class="plate"/>
+<text x="98.0" y="30" class="ln">OSCEOLA</text>
+<text x="98.0" y="62" class="lt">49,523</text>
+<rect x="32.0" y="72" width="132" height="24" rx="4" class="chip d"/>
+<text x="98.0" y="90" class="lm">D +8,289</text></g><polyline points="633.0,329.9 860.0,236.0 914.0,236.0" class="cl ext"/><circle cx="633.0" cy="329.9" r="5" class="edot"/><g class="lab" data-n="Seminole" transform="translate(914.0,184.0)">
+<rect width="172" height="104" rx="8" class="plate"/>
+<text x="86.0" y="30" class="ln">SEMINOLE</text>
+<text x="86.0" y="62" class="lt">74,389</text>
+<rect x="20.0" y="72" width="132" height="24" rx="4" class="chip d"/>
+<text x="86.0" y="90" class="lm">D +3,191</text></g><g class="lab" data-n="Volusia" transform="translate(575.1,119.7)">
+<rect width="196" height="104" rx="8" class="plate"/>
+<text x="98.0" y="30" class="ln">VOLUSIA</text>
+<text x="98.0" y="62" class="lt">94,221</text>
+<rect x="32.0" y="72" width="132" height="24" rx="4" class="chip r"/>
+<text x="98.0" y="90" class="lm">R +7,337</text></g><g class="lab" data-n="Lake" transform="translate(347.5,223.3)">
+<rect width="196" height="104" rx="8" class="plate"/>
+<text x="98.0" y="30" class="ln">LAKE</text>
+<text x="98.0" y="62" class="lt">62,573</text>
+<rect x="32.0" y="72" width="132" height="24" rx="4" class="chip r"/>
+<text x="98.0" y="90" class="lm">R +6,514</text></g><g class="lab" data-n="Polk" transform="translate(358.4,602.7)">
+<rect width="196" height="104" rx="8" class="plate"/>
+<text x="98.0" y="30" class="ln">POLK</text>
+<text x="98.0" y="62" class="lt">86,165</text>
+<rect x="32.0" y="72" width="132" height="24" rx="4" class="chip tie"/>
+<text x="98.0" y="90" class="lm">TIE</text></g></svg>
+    <div class="callout">
+      <div class="k">Orange County</div>
+      <div class="big">Dems: <b>50.3%</b> of votes cast,</div>
+      <div class="sm">39.1% of registration.</div>
+      <div class="em">+11 points above their weight.</div>
+    </div>
+    <div id="tip"><div class="t1"></div><div class="t2"></div></div>
+  </section>
+
+  <section id="side">
+    <div class="tile total">
+      <div class="lbl">Regional early votes</div>
+      <div class="num">547,160</div>
+      <div class="sub">Orange, Seminole, Osceola, Lake, Volusia, Polk</div>
+    </div>
+
+    <div class="tile party">
+      <div class="lbl">Party split of votes cast</div>
+      <div class="bar" role="img" aria-label="Democrat 42.7 percent, Republican 35.4 percent, NPA or minor 21.9 percent">
+        <div style="width:42.7%;background:var(--dem)"></div>
+        <div style="width:35.4%;background:var(--rep);border-left:3px solid var(--bg)"></div>
+        <div style="width:21.9%;background:var(--npa);border-left:3px solid var(--bg)"></div>
+      </div>
+      <div class="prow"><span class="sw" style="background:var(--dem)"></span><span class="pname">Democrat</span><span class="pvotes">233,609</span><span class="ppct">42.7%</span></div>
+      <div class="prow"><span class="sw" style="background:var(--rep)"></span><span class="pname">Republican</span><span class="pvotes">193,818</span><span class="ppct">35.4%</span></div>
+      <div class="prow"><span class="sw" style="background:var(--npa)"></span><span class="pname">NPA / Minor</span><span class="pvotes">119,733</span><span class="ppct">21.9%</span></div>
+    </div>
+
+    <div class="highlight">
+      <div class="r"><span>Region</span><b>D +39,791.</b></div>
+      <div class="r"><span>Statewide</span><b>R +10,290.</b></div>
+      <div class="kick">Central Florida is the difference.</div>
+    </div>
+  </section>
+
+  <footer>Source: Florida Division of Elections via UF Election Lab, 10/27/2026. Party figures are voter registration of ballots cast, not counted results.</footer>
+</div>
+<script>
+  // Fit the fixed 1920x1080 stage to the window
+  var stage = document.getElementById('stage');
+  function fit() {
+    var k = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.transform = 'scale(' + k + ') translate(-50%, -50%)';
+  }
+  window.addEventListener('resize', fit); fit();
+
+  // County hover: party breakdown
+  var map = document.getElementById('map'), tip = document.getElementById('tip'), wrap = document.getElementById('mapwrap');
+  function fmt(n) { return (+n).toLocaleString('en-US'); }
+  function pct(a, t) { return (a / t * 100).toFixed(1) + '%'; }
+  map.querySelectorAll('.c').forEach(function (p) {
+    p.addEventListener('mouseenter', function () {
+      p.classList.add('hot'); map.classList.add('hovering');
+      var d = p.dataset, t = +d.t;
+      tip.querySelector('.t1').textContent = d.n + ' County · ' + d.m;
+      tip.querySelector('.t2').innerHTML =
+        'Democrat<b>' + fmt(d.d) + ' (' + pct(d.d, t) + ')</b>' +
+        'Republican<b>' + fmt(d.r) + ' (' + pct(d.r, t) + ')</b>' +
+        'NPA / Minor<b>' + fmt(d.o) + ' (' + pct(d.o, t) + ')</b>' +
+        'Total<b>' + fmt(t) + '</b>';
+      tip.style.display = 'block';
+    });
+    p.addEventListener('mousemove', function (e) {
+      var r = wrap.getBoundingClientRect(), k = r.width / 1180;
+      tip.style.left = ((e.clientX - r.left) / k + 18) + 'px';
+      tip.style.top = ((e.clientY - r.top) / k + 18) + 'px';
+    });
+    p.addEventListener('mouseleave', function () { p.classList.remove('hot'); map.classList.remove('hovering'); tip.style.display = 'none'; });
+  });
+</script>
+</body>
+</html>
