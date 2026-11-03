@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who's Left To Vote</title>
+<style>
+  :root { --bg:#070b14; --panel:#0f1626; --panel-2:#141d31; --line:#23304a; --ink:#f4f6fb; --ink-2:#aab4c8; --ink-3:#6f7b93;
+          --accent:#f5c542; --rep:#e5484d; --rep-soft:#ff8387; --dem:#3e7bfa; --dem-soft:#7fa6ff; --npa:#9aa3b5; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:100%; height:100%; background:#000; overflow:hidden; }
+  body { font-family:"Bahnschrift","DIN Alternate","Roboto Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif; color:var(--ink); font-variant-numeric:tabular-nums; }
+  #stage { position:absolute; left:50%; top:50%; width:1920px; height:1080px; transform-origin:0 0; overflow:hidden;
+           background: radial-gradient(1100px 600px at 15% 0%, rgba(62,123,250,.10), transparent 70%),
+                       radial-gradient(900px 600px at 90% 100%, rgba(229,72,77,.10), transparent 70%), var(--bg); }
+  header { position:absolute; left:60px; right:60px; top:40px; height:110px; display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--line); }
+  .kicker { font-size:22px; letter-spacing:.22em; color:var(--accent); font-weight:700; text-transform:uppercase; margin-bottom:6px; }
+  h1 { font-size:58px; font-weight:800; letter-spacing:.02em; line-height:1; }
+  .date { text-align:right; font-size:22px; color:var(--ink-2); letter-spacing:.12em; text-transform:uppercase; }
+  .date b { display:block; font-size:40px; color:var(--ink); letter-spacing:.04em; }
+  .lbl { font-size:18px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); font-weight:700; }
+  .tile { background:linear-gradient(180deg,var(--panel-2),var(--panel)); border:1px solid var(--line); border-radius:10px; }
+  .hl { background:var(--accent); color:#0b0f1a; border-radius:10px; }
+  .d { color:var(--dem-soft); } .r { color:var(--rep-soft); } .o { color:var(--npa); }
+  footer { position:absolute; left:60px; right:60px; bottom:26px; font-size:17px; color:var(--ink-3); letter-spacing:.02em; border-top:1px solid var(--line); padding-top:14px; line-height:1.35; }
+
+  #tbl { position:absolute; left:60px; right:60px; top:176px; }
+  .cols, .row { display:grid; grid-template-columns: 250px 1fr 1fr 1fr 220px; column-gap:34px; align-items:center; }
+  .cols { padding:0 26px 10px; }
+  .cols .lbl b { font-weight:800; }
+  .row { height:84px; padding:0 26px; margin-bottom:8px; background:linear-gradient(90deg,var(--panel-2),var(--panel)); border:1px solid var(--line); border-radius:10px; }
+  .row.tot { border-color:var(--accent); margin-top:14px; }
+  .cn { font-size:28px; font-weight:800; letter-spacing:.04em; }
+  .nums { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; }
+  .nums b { font-size:34px; font-weight:800; }
+  .nums span { font-size:21px; color:var(--ink-2); font-weight:700; }
+  b.dem { color:var(--dem-soft); } b.rep { color:var(--rep-soft); } b.npa { color:#c3c9d6; }
+  .bar { height:14px; background:#1c2538; border-radius:4px; overflow:hidden; }
+  .fill { height:100%; } .fill.dem { background:var(--dem); } .fill.rep { background:var(--rep); } .fill.npa { background:var(--npa); }
+  .all { text-align:right; } .all b { display:block; font-size:34px; font-weight:800; } .all span { font-size:19px; color:var(--ink-2); }
+  .hlbar { position:absolute; left:60px; right:60px; top:872px; padding:20px 30px; display:flex; justify-content:space-between; align-items:center; gap:30px; }
+  .hlbar .big { font-size:38px; font-weight:800; line-height:1.1; }
+  .hlbar .sm { font-size:24px; font-weight:800; text-align:right; text-transform:uppercase; letter-spacing:.03em; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <header>
+    <div><div class="kicker">Central Florida &middot; Share of each party already voted</div><h1>WHO&rsquo;S LEFT TO VOTE IN CENTRAL FLORIDA</h1></div>
+    <div class="date">Early vote through<b>Nov 2, 2026</b></div>
+  </header>
+  <section id="tbl">
+    <div class="cols"><span class="lbl">County</span><span class="lbl"><b class="d">Democrats</b></span><span class="lbl"><b class="r">Republicans</b></span><span class="lbl"><b class="o">NPA / Minor</b></span><span class="lbl" style="text-align:right">All voters</span></div>
+<div class="row"><div class="cn">ORANGE</div><div class="cell"><div class="nums"><b class="dem">49.2%</b><span>162,747 left</span></div>
+<div class="bar"><div class="fill dem" style="width:49.2%"></div></div></div><div class="cell"><div class="nums"><b class="rep">37.9%</b><span>141,596 left</span></div>
+<div class="bar"><div class="fill rep" style="width:37.9%"></div></div></div><div class="cell"><div class="nums"><b class="npa">29.8%</b><span>191,165 left</span></div>
+<div class="bar"><div class="fill npa" style="width:29.8%"></div></div></div>
+<div class="cell all"><b>39.6%</b><span>495,508 left</span></div></div><div class="row"><div class="cn">SEMINOLE</div><div class="cell"><div class="nums"><b class="dem">47.3%</b><span>57,263 left</span></div>
+<div class="bar"><div class="fill dem" style="width:47.3%"></div></div></div><div class="cell"><div class="nums"><b class="rep">39.3%</b><span>74,170 left</span></div>
+<div class="bar"><div class="fill rep" style="width:39.3%"></div></div></div><div class="cell"><div class="nums"><b class="npa">29.0%</b><span>79,912 left</span></div>
+<div class="bar"><div class="fill npa" style="width:29.0%"></div></div></div>
+<div class="cell all"><b>38.4%</b><span>211,345 left</span></div></div><div class="row"><div class="cn">OSCEOLA</div><div class="cell"><div class="nums"><b class="dem">47.1%</b><span>44,574 left</span></div>
+<div class="bar"><div class="fill dem" style="width:47.1%"></div></div></div><div class="cell"><div class="nums"><b class="rep">36.5%</b><span>45,579 left</span></div>
+<div class="bar"><div class="fill rep" style="width:36.5%"></div></div></div><div class="cell"><div class="nums"><b class="npa">29.8%</b><span>57,559 left</span></div>
+<div class="bar"><div class="fill npa" style="width:29.8%"></div></div></div>
+<div class="cell all"><b>38.0%</b><span>147,712 left</span></div></div><div class="row"><div class="cn">LAKE</div><div class="cell"><div class="nums"><b class="dem">48.2%</b><span>36,455 left</span></div>
+<div class="bar"><div class="fill dem" style="width:48.2%"></div></div></div><div class="cell"><div class="nums"><b class="rep">35.2%</b><span>88,018 left</span></div>
+<div class="bar"><div class="fill rep" style="width:35.2%"></div></div></div><div class="cell"><div class="nums"><b class="npa">29.3%</b><span>54,799 left</span></div>
+<div class="bar"><div class="fill npa" style="width:29.3%"></div></div></div>
+<div class="cell all"><b>36.8%</b><span>179,272 left</span></div></div><div class="row"><div class="cn">VOLUSIA</div><div class="cell"><div class="nums"><b class="dem">48.7%</b><span>54,943 left</span></div>
+<div class="bar"><div class="fill dem" style="width:48.7%"></div></div></div><div class="cell"><div class="nums"><b class="rep">39.6%</b><span>105,504 left</span></div>
+<div class="bar"><div class="fill rep" style="width:39.6%"></div></div></div><div class="cell"><div class="nums"><b class="npa">29.2%</b><span>84,833 left</span></div>
+<div class="bar"><div class="fill npa" style="width:29.2%"></div></div></div>
+<div class="cell all"><b>38.9%</b><span>245,280 left</span></div></div><div class="row"><div class="cn">POLK</div><div class="cell"><div class="nums"><b class="dem">41.1%</b><span>79,092 left</span></div>
+<div class="bar"><div class="fill dem" style="width:41.1%"></div></div></div><div class="cell"><div class="nums"><b class="rep">29.7%</b><span>136,413 left</span></div>
+<div class="bar"><div class="fill rep" style="width:29.7%"></div></div></div><div class="cell"><div class="nums"><b class="npa">21.8%</b><span>102,893 left</span></div>
+<div class="bar"><div class="fill npa" style="width:21.8%"></div></div></div>
+<div class="cell all"><b>30.8%</b><span>318,398 left</span></div></div><div class="row tot"><div class="cn">6 COUNTIES</div><div class="cell"><div class="nums"><b class="dem">47.3%</b><span>435,074 left</span></div>
+<div class="bar"><div class="fill dem" style="width:47.3%"></div></div></div><div class="cell"><div class="nums"><b class="rep">36.2%</b><span>591,280 left</span></div>
+<div class="bar"><div class="fill rep" style="width:36.2%"></div></div></div><div class="cell"><div class="nums"><b class="npa">28.2%</b><span>571,161 left</span></div>
+<div class="bar"><div class="fill npa" style="width:28.2%"></div></div></div>
+<div class="cell all"><b>37.3%</b><span>1,597,515 left</span></div></div>
+  </section>
+  <div class="hl hlbar"><div class="big">Republicans have 156,206 more voters left<br>than Democrats in these six counties.</div>
+  <div class="sm">Statewide gap: 1,411,429<br>more Republicans left</div></div>
+  <footer>Turnout = early in-person plus returned mail ballots (UF Election Lab, 11/2/2026) divided by active registered voters by party at book closing (Florida Division of Elections, 10/5/2026). Party is voter registration, not vote choice.</footer>
+</div>
+<script>
+  var stage = document.getElementById('stage');
+  function fit() { var k = Math.min(window.innerWidth / 1920, window.innerHeight / 1080); stage.style.transform = 'scale(' + k + ') translate(-50%, -50%)'; }
+  window.addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>

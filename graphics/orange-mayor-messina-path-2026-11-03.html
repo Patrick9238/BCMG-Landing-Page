@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Messina's Path</title>
+<style>
+  :root { --bg:#070b14; --panel:#0f1626; --panel-2:#141d31; --line:#23304a; --ink:#f4f6fb; --ink-2:#aab4c8; --ink-3:#6f7b93;
+          --accent:#f5c542; --rep:#e5484d; --rep-soft:#ff8387; --dem:#3e7bfa; --dem-soft:#7fa6ff; --npa:#9aa3b5; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:100%; height:100%; background:#000; overflow:hidden; }
+  body { font-family:"Bahnschrift","DIN Alternate","Roboto Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif; color:var(--ink); font-variant-numeric:tabular-nums; }
+  #stage { position:absolute; left:50%; top:50%; width:1920px; height:1080px; transform-origin:0 0; overflow:hidden;
+           background: radial-gradient(1100px 600px at 15% 0%, rgba(62,123,250,.10), transparent 70%),
+                       radial-gradient(900px 600px at 90% 100%, rgba(229,72,77,.10), transparent 70%), var(--bg); }
+  header { position:absolute; left:60px; right:60px; top:40px; height:110px; display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--line); }
+  .kicker { font-size:22px; letter-spacing:.22em; color:var(--accent); font-weight:700; text-transform:uppercase; margin-bottom:6px; }
+  h1 { font-size:58px; font-weight:800; letter-spacing:.02em; line-height:1; }
+  .date { text-align:right; font-size:22px; color:var(--ink-2); letter-spacing:.12em; text-transform:uppercase; }
+  .date b { display:block; font-size:40px; color:var(--ink); letter-spacing:.04em; }
+  .lbl { font-size:18px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); font-weight:700; }
+  .tile { background:linear-gradient(180deg,var(--panel-2),var(--panel)); border:1px solid var(--line); border-radius:10px; }
+  .hl { background:var(--accent); color:#0b0f1a; border-radius:10px; }
+  .d { color:var(--dem-soft); } .r { color:var(--rep-soft); } .o { color:var(--npa); }
+  footer { position:absolute; left:60px; right:60px; bottom:26px; font-size:17px; color:var(--ink-3); letter-spacing:.02em; border-top:1px solid var(--line); padding-top:14px; line-height:1.35; }
+
+  .colL { position:absolute; left:60px; top:176px; width:560px; display:flex; flex-direction:column; gap:16px; }
+  .colM { position:absolute; left:650px; top:176px; width:640px; }
+  .colR { position:absolute; left:1320px; top:176px; width:540px; display:flex; flex-direction:column; gap:16px; }
+  .tile { padding:20px 24px; }
+  .t2 { font-size:22px; font-weight:800; letter-spacing:.06em; text-transform:uppercase; margin-bottom:12px; }
+  .pr { display:grid; grid-template-columns: 200px 1fr 80px; align-items:center; gap:12px; margin:8px 0; }
+  .pn { font-size:24px; font-weight:700; display:flex; align-items:center; gap:8px; }
+  .pt { font-style:normal; font-size:14px; font-weight:800; padding:2px 6px; border-radius:4px; color:#fff; }
+  .pt.d { background:var(--dem); } .pt.r { background:var(--rep); }
+  .pbar { height:16px; background:#1c2538; border-radius:4px; overflow:hidden; }
+  .df { height:100%; background:var(--dem); } .rf { height:100%; background:var(--rep); }
+  .pr b { font-size:26px; text-align:right; }
+  .note { font-size:19px; color:var(--ink-2); margin-top:10px; line-height:1.3; }
+  .bigstat { font-size:64px; font-weight:800; line-height:1; }
+  .mix { display:flex; height:30px; border-radius:6px; overflow:hidden; margin:12px 0 8px; }
+  .mix div { height:100%; }
+  .mixk { display:flex; justify-content:space-between; font-size:20px; font-weight:700; }
+  .grid { display:grid; grid-template-columns: 90px repeat(5, 1fr); gap:8px; margin-top:14px; }
+  .gh { font-size:18px; color:var(--ink-2); text-align:center; font-weight:700; }
+  .glab { font-size:24px; font-weight:800; color:#c3c9d6; display:flex; align-items:center; }
+  .g { height:76px; display:flex; align-items:center; justify-content:center; font-size:30px; font-weight:800; border-radius:8px; background:rgba(62,123,250,.16); color:var(--dem-soft); }
+  .g.close { background:rgba(245,197,66,.16); color:var(--accent); }
+  .g.win { background:var(--rep); color:#fff; }
+  .axis { font-size:17px; color:var(--ink-3); letter-spacing:.1em; text-transform:uppercase; font-weight:700; }
+  .key { display:flex; gap:18px; margin-top:14px; font-size:18px; color:var(--ink-2); }
+  .key span { display:inline-flex; align-items:center; gap:8px; }
+  .key i { width:18px; height:18px; border-radius:4px; display:inline-block; }
+  ol { list-style:none; counter-reset:s; }
+  ol li { counter-increment:s; display:grid; grid-template-columns: 40px 1fr; gap:12px; margin:14px 0; font-size:22px; line-height:1.3; }
+  ol li::before { content:counter(s); width:32px; height:32px; border-radius:50%; background:var(--rep); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:18px; }
+  ol li b { color:var(--ink); }
+  .money { display:flex; gap:40px; margin-top:10px; }
+  .money b { display:block; font-size:44px; font-weight:800; line-height:1; }
+  .money span { font-size:18px; color:var(--ink-2); letter-spacing:.06em; text-transform:uppercase; font-weight:700; }
+  ol li span { color:var(--ink-2); }
+  .hlbox { padding:18px 24px; }
+  .hlbox .v1 { font-size:20px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; opacity:.75; }
+  .hlbox .v2 { font-size:36px; font-weight:800; line-height:1.1; margin-top:6px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <header>
+    <div><div class="kicker">Orange County Mayor &middot; Moore Russell vs Messina</div><h1>CAN MESSINA PULL THE UPSET?</h1></div>
+    <div class="date">Election Day<b>Nov 3, 2026</b></div>
+  </header>
+  <section class="colL">
+    <div class="tile"><div class="lbl">August primary (nonpartisan)</div><div class="pr"><span class="pn">Moore Russell<i class="pt d">D</i></span><div class="pbar"><div class="df" style="width:91.5%"></div></div><b>32.0%</b></div><div class="pr"><span class="pn">Messina<i class="pt r">R</i></span><div class="pbar"><div class="rf" style="width:77.5%"></div></div><b>27.1%</b></div><div class="pr"><span class="pn">Murphy<i class="pt d">D</i></span><div class="pbar"><div class="df" style="width:74.8%"></div></div><b>26.2%</b></div><div class="pr"><span class="pn">Uribe<i class="pt d">D</i></span><div class="pbar"><div class="df" style="width:41.9%"></div></div><b>14.7%</b></div>
+      <div class="note">Three Democrats split 72.9%. Messina, the only Republican, had the GOP vote to himself.</div></div>
+    <div class="tile"><div class="lbl">Already banked in Orange</div>
+      <div class="bigstat">70%</div>
+      <div class="note" style="margin-top:6px">of the expected final vote is in, and it is <b class="d">48.5% Democrats</b>.</div>
+      <div class="mix"><div style="width:48.5%;background:var(--dem)"></div><div style="width:26.6%;background:var(--rep)"></div><div style="width:24.9%;background:var(--npa)"></div></div>
+      <div class="mixk"><span class="d">D 48.5%</span><span class="r">R 26.6%</span><span class="o">NPA 24.9%</span></div></div>
+    <div class="tile"><div class="lbl">Working against him</div>
+      <div class="money"><div><b>$1.1M+</b><span>Moore Russell</span></div><div><b class="r">~$260K</b><span>Messina</span></div></div>
+      <div class="note">Moore Russell is endorsed by Mayor Demings, Orlando Mayor Dyer and Rep. Frost.</div></div>
+  </section>
+  <section class="colM tile" style="padding:22px 26px">
+    <div class="t2">Messina&rsquo;s share of the final vote</div>
+    <div class="note" style="margin-top:0">Assumes he wins 90% of Republicans. Rows: his share of NPA/Minor voters. Columns: share of Democrats who cross over.</div>
+    <div class="grid">
+      <div class="axis" style="align-self:end">NPA</div><div class="gh">5% of Dems</div><div class="gh">10% of Dems</div><div class="gh">15% of Dems</div><div class="gh">20% of Dems</div><div class="gh">25% of Dems</div>
+      <div class="glab">50%</div><div class="g ">41.6</div><div class="g ">43.8</div><div class="g ">46.0</div><div class="g close">48.3</div><div class="g win">50.5</div><div class="glab">55%</div><div class="g ">42.9</div><div class="g ">45.1</div><div class="g ">47.4</div><div class="g close">49.6</div><div class="g win">51.8</div><div class="glab">60%</div><div class="g ">44.2</div><div class="g ">46.4</div><div class="g close">48.7</div><div class="g win">50.9</div><div class="g win">53.1</div><div class="glab">65%</div><div class="g ">45.5</div><div class="g ">47.7</div><div class="g close">50.0</div><div class="g win">52.2</div><div class="g win">54.4</div>
+    </div>
+    <div class="key"><span><i style="background:var(--rep)"></i>Messina wins</span><span><i style="background:rgba(245,197,66,.5)"></i>Within 2 points</span><span><i style="background:rgba(62,123,250,.4)"></i>Moore Russell wins</span></div>
+    <div class="note">Benchmark: in 2022, the GOP&rsquo;s best modern year, DeSantis got <b style="color:var(--ink)">46.1%</b> in Orange. Messina has to beat that in an electorate that is bluer than 2022&rsquo;s.</div>
+  </section>
+  <section class="colR">
+    <div class="tile"><div class="t2">His only real path</div>
+      <ol>
+        <li><div><b>Max out Election Day Republicans.</b><br><span>141,596 Orange Republicans have not voted yet.</span></div></li>
+        <li><div><b>Win NPAs about 60 to 40.</b><br><span>191,165 NPA/Minor voters left, the biggest pool in the county.</span></div></li>
+        <li><div><b>Flip nearly 1 in 5 Democrats.</b><br><span>Targets: Murphy&rsquo;s moderates (26.2%) and Uribe&rsquo;s voters (14.7%); the police union backed Uribe.</span></div></li>
+      </ol></div>
+    <div class="hl hlbox"><div class="v1">Plausible?</div><div class="v2">Only if all three happen at once. A long shot, not impossible.</div></div>
+  </section>
+  <footer>Projection, not results. Final Orange electorate from the base-case Election Day model (state ends R +9): D 44.7%, R 29.3%, NPA/Minor 26.0%. Sources: UF Election Lab 11/2/2026; Florida Division of Elections book closing 10/5/2026; Orange County primary results 8/18/2026; 2022 county results; fundraising as reported in local press.</footer>
+</div>
+<script>
+  var stage = document.getElementById('stage');
+  function fit() { var k = Math.min(window.innerWidth / 1920, window.innerHeight / 1080); stage.style.transform = 'scale(' + k + ') translate(-50%, -50%)'; }
+  window.addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
