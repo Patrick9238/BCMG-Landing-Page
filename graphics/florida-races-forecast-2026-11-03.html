@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Florida Races Forecast</title>
+<style>
+  :root {
+    --bg: #070b14;
+    --panel: #0f1626;
+    --panel-2: #141d31;
+    --line: #23304a;
+    --ink: #f4f6fb;
+    --ink-2: #aab4c8;
+    --ink-3: #6f7b93;
+    --accent: #f5c542;
+    --rep: #e5484d;
+    --rep-soft: #ff8387;
+    --dem: #3e7bfa;
+    --np: #b38cff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; background: #000; overflow: hidden; }
+  body {
+    font-family: "Bahnschrift", "DIN Alternate", "Roboto Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  #stage {
+    position: absolute; left: 50%; top: 50%;
+    width: 1920px; height: 1080px;
+    transform-origin: 0 0;
+    background:
+      radial-gradient(1100px 600px at 20% 0%, rgba(229, 72, 77, .10), transparent 70%),
+      radial-gradient(900px 600px at 90% 100%, rgba(62, 123, 250, .10), transparent 70%),
+      var(--bg);
+    overflow: hidden;
+  }
+  header {
+    position: absolute; left: 60px; right: 60px; top: 40px; height: 110px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 2px solid var(--line);
+  }
+  .kicker { font-size: 22px; letter-spacing: .22em; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
+  h1 { font-size: 60px; font-weight: 800; letter-spacing: .02em; line-height: 1; }
+  .date { text-align: right; font-size: 22px; color: var(--ink-2); letter-spacing: .12em; text-transform: uppercase; }
+  .date b { display: block; font-size: 40px; color: var(--ink); letter-spacing: .04em; }
+
+  #board { position: absolute; left: 60px; right: 60px; top: 172px; }
+  .cols, .row {
+    display: grid; grid-template-columns: 240px 370px 400px 250px 1fr; column-gap: 26px; align-items: center;
+  }
+  .cols { padding: 0 22px 10px; font-size: 17px; letter-spacing: .16em; color: var(--ink-3); font-weight: 700; text-transform: uppercase; }
+  .row {
+    height: 86px; padding: 0 22px; margin-bottom: 7px;
+    background: linear-gradient(90deg, var(--panel-2), var(--panel));
+    border: 1px solid var(--line); border-radius: 10px;
+  }
+  .row.toss { border-color: var(--accent); }
+  .race { font-size: 26px; font-weight: 800; letter-spacing: .02em; text-transform: uppercase; line-height: 1.05; }
+  .match { display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 700; }
+  .vs { font-size: 18px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .1em; }
+  .cand { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .pt { font-style: normal; font-size: 16px; font-weight: 800; padding: 3px 7px; border-radius: 4px; color: #fff; }
+  .pt.r { background: var(--rep); }
+  .pt.d { background: var(--dem); }
+
+  .ohead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .fav { font-size: 22px; font-weight: 800; letter-spacing: .1em; }
+  .pct { font-size: 36px; font-weight: 800; line-height: 1; }
+  .r.fav, .pct.r { color: var(--rep-soft); }
+  .np.fav, .pct.np { color: var(--np); }
+  .toss .fav, .toss .pct { color: var(--accent); }
+  .toss .pct { font-size: 30px; }
+  .bar { position: relative; display: flex; height: 16px; border-radius: 4px; overflow: hidden; background: #1c2538; }
+  .bar .f { height: 100%; }
+  .bar .o { flex: 1; height: 100%; opacity: .55; }
+  .bar .f.r { background: var(--rep); }
+  .bar .f.np { background: var(--np); }
+  .bar .o.d { background: var(--dem); }
+  .bar .o.np2 { background: #5b6478; }
+  .bar .mid { position: absolute; left: 50%; top: -2px; bottom: -2px; width: 2px; background: var(--bg); }
+
+  .margin { font-size: 32px; font-weight: 800; line-height: 1.05; }
+  .margin.r { color: var(--rep-soft); }
+  .margin.np { color: var(--np); font-size: 26px; }
+  .margin.even { color: var(--accent); font-size: 26px; }
+
+  .src { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+  .bd { font-size: 14px; font-weight: 800; letter-spacing: .14em; padding: 4px 8px; border-radius: 4px; }
+  .bd.mk { background: var(--accent); color: #0b0f1a; }
+  .bd.es { border: 1.5px solid var(--ink-2); color: var(--ink-2); }
+  .sd { font-size: 21px; font-weight: 700; color: var(--ink); }
+  .note { flex-basis: 100%; font-size: 18px; color: var(--ink-2); line-height: 1.2; }
+
+  footer {
+    position: absolute; left: 60px; right: 60px; bottom: 26px;
+    font-size: 17px; color: var(--ink-3); letter-spacing: .02em;
+    border-top: 1px solid var(--line); padding-top: 14px;
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+  <header>
+    <div>
+      <div class="kicker">Election Day &middot; Forecast Board</div>
+      <h1>FLORIDA 2026: THE RACES TO WATCH</h1>
+    </div>
+    <div class="date">Election Day<b>Nov 3, 2026</b></div>
+  </header>
+
+  <section id="board">
+    <div class="cols"><span>Race</span><span>Matchup</span><span>Favorite &middot; chance to win</span><span>Expected margin</span><span>Basis</span></div>
+<div class="row">
+  <div class="race">Governor</div>
+  <div class="match"><span class="cand">Donalds<i class="pt r">R</i></span><span class="vs">vs</span><span class="cand">Jolly<i class="pt d">D</i></span></div>
+  <div class="odds">
+    <div class="ohead"><span class="fav r">DONALDS</span><span class="pct r">65%</span></div>
+    <div class="bar"><div class="f r" style="width:65%"></div><div class="o d"></div><span class="mid"></span></div>
+  </div>
+  <div class="margin r">R +2 to +4</div>
+  <div class="src"><b class="bd mk">MARKET</b><span class="sd">Kalshi &middot; $12.2M traded</span></div>
+</div>
+<div class="row">
+  <div class="race">U.S. Senate</div>
+  <div class="match"><span class="cand">Moody<i class="pt r">R</i></span><span class="vs">vs</span><span class="cand">Nixon<i class="pt d">D</i></span></div>
+  <div class="odds">
+    <div class="ohead"><span class="fav r">MOODY</span><span class="pct r">85%</span></div>
+    <div class="bar"><div class="f r" style="width:85%"></div><div class="o d"></div><span class="mid"></span></div>
+  </div>
+  <div class="margin r">R +5.6</div>
+  <div class="src"><b class="bd mk">MARKET</b><span class="sd">Kalshi &middot; $5.4M traded</span></div>
+</div>
+<div class="row">
+  <div class="race">District 11</div>
+  <div class="match"><span class="cand">Strada<i class="pt r">R</i></span><span class="vs">vs</span><span class="cand">Pericola<i class="pt d">D</i></span></div>
+  <div class="odds">
+    <div class="ohead"><span class="fav r">STRADA</span><span class="pct r">82%</span></div>
+    <div class="bar"><div class="f r" style="width:82%"></div><div class="o d"></div><span class="mid"></span></div>
+  </div>
+  <div class="margin r">R +8 to +14</div>
+  <div class="src"><b class="bd mk">MARKET</b><span class="sd">Kalshi &middot; $94K</span><span class="note">Margin is our estimate</span></div>
+</div>
+<div class="row">
+  <div class="race">Attorney General</div>
+  <div class="match"><span class="cand">Uthmeier<i class="pt r">R</i></span><span class="vs">vs</span><span class="cand">Rodriguez<i class="pt d">D</i></span></div>
+  <div class="odds">
+    <div class="ohead"><span class="fav r">UTHMEIER</span><span class="pct r">~80%</span></div>
+    <div class="bar"><div class="f r" style="width:80%"></div><div class="o d"></div><span class="mid"></span></div>
+  </div>
+  <div class="margin r">R +4 to +7</div>
+  <div class="src"><b class="bd es">ESTIMATE</b><span class="note">His own internal poll: down 38 to 35</span></div>
+</div>
+<div class="row">
+  <div class="race">CFO</div>
+  <div class="match"><span class="cand">Ingoglia<i class="pt r">R</i></span><span class="vs">vs</span><span class="cand">Taddeo<i class="pt d">D</i></span></div>
+  <div class="odds">
+    <div class="ohead"><span class="fav r">INGOGLIA</span><span class="pct r">~82%</span></div>
+    <div class="bar"><div class="f r" style="width:82%"></div><div class="o d"></div><span class="mid"></span></div>
+  </div>
+  <div class="margin r">R +5 to +8</div>
+  <div class="src"><b class="bd es">ESTIMATE</b><span class="note">Low-attention race; GOP registration edge</span></div>
+</div>
+<div class="row">
+  <div class="race">Ag Commissioner</div>
+  <div class="match"><span class="cand">Simpson<i class="pt r">R</i></span><span class="vs">vs</span><span class="cand">Atkins<i class="pt d">D</i></span></div>
+  <div class="odds">
+    <div class="ohead"><span class="fav r">SIMPSON</span><span class="pct r">~90%</span></div>
+    <div class="bar"><div class="f r" style="width:90%"></div><div class="o d"></div><span class="mid"></span></div>
+  </div>
+  <div class="margin r">R +8 to +12</div>
+  <div class="src"><b class="bd es">ESTIMATE</b><span class="note">Trump-endorsed incumbent vs first-timer</span></div>
+</div>
+<div class="row">
+  <div class="race">Orange Co. Mayor</div>
+  <div class="match"><span class="cand">Moore Russell</span><span class="vs">vs</span><span class="cand">Messina</span></div>
+  <div class="odds">
+    <div class="ohead"><span class="fav np">MOORE RUSSELL</span><span class="pct np">~65%</span></div>
+    <div class="bar"><div class="f np" style="width:65%"></div><div class="o np2"></div><span class="mid"></span></div>
+  </div>
+  <div class="margin np">Moore Russell +4 to +8</div>
+  <div class="src"><b class="bd es">ESTIMATE</b><span class="note">Nonpartisan; 48.5% of Orange early vote is registered Dems</span></div>
+</div>
+<div class="row toss">
+  <div class="race">District 35</div>
+  <div class="match"><span class="cand">Booth<i class="pt r">R</i></span><span class="vs">vs</span><span class="cand">Gray<i class="pt d">D</i></span></div>
+  <div class="odds">
+    <div class="ohead"><span class="fav r">TOSS-UP</span><span class="pct r">Booth ~55%</span></div>
+    <div class="bar"><div class="f r" style="width:55%"></div><div class="o d"></div><span class="mid"></span></div>
+  </div>
+  <div class="margin r even">Within 3 either way</div>
+  <div class="src"><b class="bd es">ESTIMATE</b><span class="note">Seat flipped twice in 2024</span></div>
+</div>
+  </section>
+
+  <footer>MARKET: Kalshi prediction market odds (volume traded shown), which move through the day. ESTIMATE: The Patrick Carr Show&rsquo;s estimates, not polls or results.</footer>
+</div>
+<script>
+  var stage = document.getElementById('stage');
+  function fit() {
+    var k = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.transform = 'scale(' + k + ') translate(-50%, -50%)';
+  }
+  window.addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
