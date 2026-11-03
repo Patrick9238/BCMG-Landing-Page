@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orange County Black Vote</title>
+<style>
+  :root { --bg:#070b14; --panel:#0f1626; --panel-2:#141d31; --line:#23304a; --ink:#f4f6fb; --ink-2:#aab4c8; --ink-3:#6f7b93;
+          --accent:#f5c542; --rep:#e5484d; --rep-soft:#ff8387; --dem:#3e7bfa; --dem-soft:#7fa6ff; --npa:#9aa3b5; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:100%; height:100%; background:#000; overflow:hidden; }
+  body { font-family:"Bahnschrift","DIN Alternate","Roboto Condensed","Arial Narrow","Helvetica Neue",Arial,sans-serif; color:var(--ink); font-variant-numeric:tabular-nums; }
+  #stage { position:absolute; left:50%; top:50%; width:1920px; height:1080px; transform-origin:0 0; overflow:hidden;
+           background: radial-gradient(1100px 600px at 15% 0%, rgba(62,123,250,.10), transparent 70%),
+                       radial-gradient(900px 600px at 90% 100%, rgba(229,72,77,.10), transparent 70%), var(--bg); }
+  header { position:absolute; left:60px; right:60px; top:40px; height:110px; display:flex; align-items:center; justify-content:space-between; border-bottom:2px solid var(--line); }
+  .kicker { font-size:22px; letter-spacing:.22em; color:var(--accent); font-weight:700; text-transform:uppercase; margin-bottom:6px; }
+  h1 { font-size:58px; font-weight:800; letter-spacing:.02em; line-height:1; }
+  .date { text-align:right; font-size:22px; color:var(--ink-2); letter-spacing:.12em; text-transform:uppercase; }
+  .date b { display:block; font-size:40px; color:var(--ink); letter-spacing:.04em; }
+  .lbl { font-size:18px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); font-weight:700; }
+  .tile { background:linear-gradient(180deg,var(--panel-2),var(--panel)); border:1px solid var(--line); border-radius:10px; }
+  .hl { background:var(--accent); color:#0b0f1a; border-radius:10px; }
+  .d { color:var(--dem-soft); } .r { color:var(--rep-soft); } .o { color:var(--npa); }
+  footer { position:absolute; left:60px; right:60px; bottom:26px; font-size:17px; color:var(--ink-3); letter-spacing:.02em; border-top:1px solid var(--line); padding-top:14px; line-height:1.35; }
+
+  h1 { font-size:54px; white-space:nowrap; }
+  .date b { white-space:nowrap; }
+  .colL { position:absolute; left:60px; top:176px; width:1090px; display:flex; flex-direction:column; gap:16px; }
+  .colR { position:absolute; left:1180px; top:176px; width:680px; display:flex; flex-direction:column; gap:16px; }
+  .tile { padding:20px 28px; }
+  .hero { display:flex; align-items:center; gap:40px; border-left:8px solid var(--accent); }
+  .hero .num { font-size:120px; font-weight:800; line-height:1; letter-spacing:-.01em; }
+  .hero .sub { font-size:26px; color:var(--ink-2); line-height:1.3; font-weight:700; }
+  .hero .sub b { color:var(--ink); font-size:44px; display:block; }
+  .third { display:grid; grid-template-columns: 1fr 420px; gap:30px; align-items:center; }
+  .third .k { font-size:48px; font-weight:800; line-height:1.05; text-transform:uppercase; }
+  .third .k em { font-style:normal; color:var(--accent); }
+  .third .s { font-size:22px; color:var(--ink-2); margin-top:12px; font-weight:700; }
+  .waffle { display:grid; grid-template-columns: repeat(5, 1fr); gap:12px; }
+  .waffle i { aspect-ratio:1; border-radius:10px; background:#25304a; }
+  .waffle i.on { background:var(--dem); box-shadow:0 0 0 3px var(--accent) inset; }
+  .wcap { font-size:17px; color:var(--ink-3); margin-top:10px; letter-spacing:.06em; text-align:center; }
+  .bar { display:flex; height:40px; border-radius:6px; overflow:hidden; margin:14px 0 10px; }
+  .bar div { height:100%; }
+  .bk { display:flex; justify-content:space-between; font-size:24px; font-weight:800; }
+  .bk span small { display:block; font-size:17px; color:var(--ink-2); font-weight:700; letter-spacing:.04em; }
+  .ticket { display:flex; gap:16px; margin-top:12px; }
+  .cand { flex:1; background:#1a2440; border:1px solid var(--line); border-radius:8px; padding:14px 18px; }
+  .cand b { display:block; font-size:30px; font-weight:800; line-height:1.1; }
+  .cand span { font-size:18px; color:var(--ink-2); letter-spacing:.06em; text-transform:uppercase; font-weight:700; }
+  .est .num { font-size:72px; font-weight:800; line-height:1; color:var(--dem-soft); margin-top:8px; }
+  .est .s { font-size:21px; color:var(--ink-2); margin-top:8px; line-height:1.3; }
+  .tag { font-size:13px; letter-spacing:.14em; font-weight:800; padding:3px 7px; border:1.5px solid var(--ink-2); color:var(--ink-2); border-radius:4px; margin-left:10px; vertical-align:middle; }
+  .scale { position:relative; height:46px; margin:18px 0 8px; border-radius:6px; overflow:hidden; display:flex; }
+  .scale div { height:100%; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:800; letter-spacing:.06em; }
+  .ticks { position:relative; height:26px; font-size:17px; color:var(--ink-2); font-weight:700; }
+  .ticks span { position:absolute; transform:translateX(-50%); }
+  .mark { position:absolute; top:-6px; bottom:-6px; width:3px; background:var(--ink); }
+  .zl { display:grid; grid-template-columns: 1fr 1fr 1fr; gap:10px; margin-top:6px; font-size:18px; line-height:1.25; color:var(--ink-2); }
+  .zl b { display:block; color:var(--ink); font-size:20px; }
+  .pl { font-size:17px; color:var(--ink-3); margin-top:10px; }
+  .hlbar { position:absolute; left:60px; right:60px; top:886px; padding:18px 30px; display:flex; justify-content:space-between; align-items:center; gap:30px; }
+  .hlbar .big { font-size:34px; font-weight:800; line-height:1.15; }
+  .hlbar .sm { font-size:22px; font-weight:800; text-align:right; text-transform:uppercase; letter-spacing:.03em; line-height:1.25; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <header>
+    <div><div class="kicker">Orange County &middot; Election Day</div><h1>ORANGE COUNTY: THE BLACK VOTE IS THE STORY</h1></div>
+    <div class="date">Election Day<b>Nov 3, 2026</b></div>
+  </header>
+  <section class="colL">
+    <div class="tile hero">
+      <div class="num">138,288</div>
+      <div class="sub"><b>16.9%</b>of Orange County&rsquo;s 820,504<br>registered voters are Black</div>
+    </div>
+    <div class="tile third">
+      <div>
+        <div class="k">Nearly <em>1 in 3</em><br>Orange Democrats<br>is Black</div>
+        <div class="s">95,787 of 320,375 registered Democrats (29.9%)</div>
+      </div>
+      <div><div class="waffle"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div><div class="wcap">EACH SQUARE = 10% OF ORANGE DEMOCRATS</div></div>
+    </div>
+    <div class="tile">
+      <div class="lbl">How Orange&rsquo;s Black voters are registered</div>
+      <div class="bar"><div style="width:69.3%;background:var(--dem)"></div><div style="width:25.6%;background:var(--npa);border-left:3px solid var(--bg)"></div><div style="width:5.2%;background:var(--rep);border-left:3px solid var(--bg)"></div></div>
+      <div class="bk"><span class="d">69% Democrat<small>95,787</small></span><span class="o" style="text-align:center">26% NPA / Minor<small>35,345</small></span><span class="r" style="text-align:right">5% Republican<small>7,156</small></span></div>
+    </div>
+  </section>
+  <section class="colR">
+    <div class="tile">
+      <div class="lbl">Top of the Orange County ballot</div>
+      <div class="ticket">
+        <div class="cand"><b>Tiffany Moore Russell</b><span>Orange County Mayor</span></div>
+        <div class="cand"><b>Nixon (D)</b><span>U.S. Senate</span></div>
+      </div>
+    </div>
+    <div class="tile est">
+      <div class="lbl">Black Democrats still to vote<span class="tag">ESTIMATE</span></div>
+      <div class="num">~51,000</div>
+      <div class="s">Range 46K to 55K. About a third of the 162,747 Orange Democrats who had not voted by Monday.</div>
+    </div>
+    <div class="tile">
+      <div class="lbl">The bar for Moore Russell</div>
+      <div class="scale">
+        <div style="width:25.0%;background:rgba(229,72,77,.35);color:#ffb3b5">WARNING</div>
+        <div style="width:15.0%;background:rgba(245,197,66,.35);color:var(--accent)">OK</div>
+        <div style="width:60.0%;background:rgba(62,123,250,.45);color:#cfdcff;justify-content:flex-start;padding-left:18px">STATEMENT WIN</div>
+        <span class="mark" style="left:80.0%"></span>
+      </div>
+      <div class="ticks"><span style="left:0.0%">+0</span><span style="left:25.0%">+5</span><span style="left:40.0%">+8</span><span style="left:60.0%">+12</span><span style="left:80.0%">+16</span><span style="left:100.0%;transform:translateX(-100%)">+20</span></div>
+      <div class="zl"><div><b>+3 to +5</b>A win, but a weak signal for Dems</div><div><b>+5 to +8</b>Solid, not a statement</div><div><b>+8 or more</b>The Black vote showed up</div></div>
+      <div class="pl">White line: about +16, a straight party-line vote based on Orange registration.</div>
+    </div>
+  </section>
+  <div class="hl hlbar"><div class="big">With two Black women at the top of the ticket,<br>an 8+ point Moore Russell win is the number Dems need.</div>
+  <div class="sm">Under 5 sends<br>the wrong signal</div></div>
+  <footer>Registration: Florida Division of Elections, active voters by party and race, book closing 10/5/2026. Black Democrats still to vote is an estimate: statewide race-by-party turnout gaps (Axios, 11/1/2026) applied to Orange registration and matched to Orange party totals (UF Election Lab, 11/2/2026). Margin thresholds are The Patrick Carr Show&rsquo;s analysis.</footer>
+</div>
+<script>
+  var stage = document.getElementById('stage');
+  function fit() { var k = Math.min(window.innerWidth / 1920, window.innerHeight / 1080); stage.style.transform = 'scale(' + k + ') translate(-50%, -50%)'; }
+  window.addEventListener('resize', fit); fit();
+</script>
+</body>
+</html>
