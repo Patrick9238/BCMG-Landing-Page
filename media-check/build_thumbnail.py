@@ -6,6 +6,30 @@ def uri(p, mime="image/png"):
     return f"data:{mime};base64," + base64.b64encode(open(p, "rb").read()).decode()
 IMG = "../assets/img/"
 logos = [("FOX35.png", "image/png"), ("WESH.png", "image/png"), ("WFTV.png", "image/png"), ("WKMG.jpg", "image/jpeg"), ("SPECTRUM13.svg", "image/svg+xml")]
+KNIGHT = """<svg class="armor" viewBox="0 0 150 220" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="st" x1="0" x2="1"><stop offset="0" stop-color="#6b7688"/><stop offset=".45" stop-color="#e6ecf5"/><stop offset="1" stop-color="#7d8798"/></linearGradient></defs>
+<g stroke="#05070d" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+<path d="M44 156 L62 156 L52 204 L30 204 Z" fill="url(#st)"/><path d="M90 156 L108 156 L124 204 L102 204 Z" fill="url(#st)"/>
+<rect x="22" y="200" width="34" height="12" rx="5" fill="#3a4252"/><rect x="98" y="200" width="36" height="12" rx="5" fill="#3a4252"/>
+<path d="M80 12 Q58 -16 26 0 Q50 4 60 26 Z" fill="PLUME"/>
+<path d="M52 66 L52 38 Q52 8 80 8 Q108 8 108 38 L108 66 Z" fill="url(#st)"/>
+<rect x="60" y="62" width="40" height="9" rx="3" fill="#8a94a6"/>
+<path d="M74 34 L108 34 L108 43 L74 43 Z" fill="#05070d"/><path d="M92 20 L92 62" stroke-width="3" fill="none"/>
+<path d="M172 -34 L142 54" stroke="#05070d" stroke-width="13" fill="none"/><path d="M172 -34 L142 54" stroke="#f4f8ff" stroke-width="7" fill="none"/>
+<path d="M128 47 L157 59" stroke="#f5c518" stroke-width="8" fill="none"/>
+<path d="M118 92 L140 62" stroke="#05070d" stroke-width="20" fill="none"/><path d="M118 92 L140 62" stroke="#aeb7c6" stroke-width="14" fill="none"/>
+<circle cx="141" cy="60" r="10" fill="#dfe5ef"/>
+</g></svg>"""
+SPARK = '<svg class="spark" style="left:{x}px;top:{y}px" viewBox="-50 -50 100 100"><path d="M0 -48 L9 -12 L44 -22 L16 2 L40 34 L4 16 L-14 46 L-12 12 L-46 6 L-14 -8 L-26 -40 Z" fill="#fff3b0" stroke="#f5c518" stroke-width="4"/></svg>'
+PLUMES = ["#e03131", "#2f6fed", "#f5c518", "#e03131", "#2f6fed"]
+#           x, faces left?, lean
+POSE = [(0, False, 4), (142, True, -4), (302, False, 4), (444, True, -4), (602, True, -7)]
+knights = ""
+for (f, m), (x, left, lean), plume in zip(logos, POSE, PLUMES):
+    flip = "transform:scaleX(-1)" if left else ""
+    knights += (f'<div class="kn" style="left:{x}px;transform:rotate({lean}deg)"><img src="{uri("logos/" + f, m)}">'
+                f'<div style="position:absolute;inset:0;{flip}">{KNIGHT.replace("PLUME", plume)}</div></div>')
+knights += SPARK.format(x=109, y=-26) + SPARK.format(x=411, y=-26)
 row = "".join(f'<img src="{uri("logos/" + f, m)}">' for f, m in logos)
 CROWN = """<svg class="crown" viewBox="0 0 120 84" xmlns="http://www.w3.org/2000/svg"><path d="M8 72 L2 20 L32 44 L60 4 L88 44 L118 20 L112 72 Z" fill="#f5c518" stroke="#0b0f1a" stroke-width="5" stroke-linejoin="round"/><rect x="8" y="70" width="104" height="12" rx="3" fill="#f5c518" stroke="#0b0f1a" stroke-width="4"/><circle cx="60" cy="50" r="7" fill="#e03131"/><circle cx="32" cy="58" r="5" fill="#2f6fed"/><circle cx="88" cy="58" r="5" fill="#2f6fed"/></svg>"""
 html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Media Check thumbnail</title><style>
@@ -28,8 +52,12 @@ body{{position:relative;background:#05070d;color:#fff;font-family:"Arial Narrow"
     filter:drop-shadow(0 7px 0 #000) drop-shadow(0 0 34px rgba(245,197,24,.45))}}
 .k i{{font-style:normal;-webkit-text-fill-color:#e03131}}
 .crown{{position:absolute;left:-14px;top:-52px;width:120px;transform:rotate(-14deg);filter:drop-shadow(0 4px 0 #000)}}
-.row{{position:absolute;left:40px;top:504px;display:flex;gap:16px;-webkit-box-reflect:below 6px linear-gradient(transparent 58%,rgba(255,255,255,.28))}}
-.row img{{width:134px;height:134px;border-radius:18px;object-fit:cover;box-shadow:0 0 0 4px #fff,0 0 34px rgba(245,197,24,.55),0 14px 30px rgba(0,0,0,.9)}}
+.battle{{position:absolute;left:26px;top:474px;width:760px;height:230px}}
+.kn{{position:absolute;top:0;width:150px;height:220px;transform-origin:50% 100%;filter:drop-shadow(0 10px 10px rgba(0,0,0,.85))}}
+.kn img{{position:absolute;left:23px;top:60px;width:104px;height:104px;border-radius:14px;object-fit:cover;box-shadow:0 0 0 4px #e6ecf5,0 0 0 7px #05070d,0 0 26px rgba(245,197,24,.5)}}
+.armor{{position:absolute;inset:0;width:150px;height:220px;overflow:visible}}
+.spark{{position:absolute;width:74px;height:74px;filter:drop-shadow(0 0 14px #f5c518) drop-shadow(0 0 30px rgba(245,197,24,.8))}}
+.dust{{position:absolute;left:0;top:640px;width:800px;height:90px;background:radial-gradient(ellipse at 45% 60%,rgba(245,197,24,.22),rgba(245,197,24,0) 70%);filter:blur(6px)}}
 </style></head><body>
 <div class="key"></div><div class="beam"></div>
 <img class="pat" src="{uri(IMG + 'patrick-pointing.png')}" alt="Patrick Carr">
@@ -39,7 +67,7 @@ body{{position:relative;background:#05070d;color:#fff;font-family:"Arial Narrow"
 <div class="tag">ORLANDO NEWS</div>
 <div class="h">WHO'S THE</div>
 <div class="k">{CROWN}KING<i>?</i></div>
-<div class="row">{row}</div>
+<div class="dust"></div><div class="battle">{knights}</div>
 </body></html>"""
 assert "\u2014" not in html
 open("thumbnail/thumbnail.html", "w").write(html)
