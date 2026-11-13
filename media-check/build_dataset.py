@@ -5,14 +5,16 @@ import csv, json, statistics as st, datetime as dt
 
 COLS = ["station", "platform", "followers", "posts_7d", "total_views", "avg_views", "median_views",
         "top_post_views", "top_post_share", "viral_flag", "notes"]
-STATIONS = ["FOX35", "WFTV", "WESH", "WKMG", "SPECTRUM13"]
+STATIONS = ["FOX35", "WFTV", "WESH", "WKMG", "SPECTRUM13"]  # the five ranked stations
+ALL = STATIONS + ["CARR"]  # The Patrick Carr Show: in the dataset, compared separately
 raw = json.load(open("youtube_raw.json"))
 pulled = dt.datetime.fromisoformat(raw["pulled_at_utc"])
 vids = raw["videos"]
 for v in vids:
     v["views"] = v["view_count"] or 0
+    vp = dt.datetime.fromisoformat(v["pulled_at_utc"]) if v.get("pulled_at_utc") else pulled
     if v.get("timestamp"):
-        v["age_hours"] = round((pulled.timestamp() - v["timestamp"]) / 3600, 1)
+        v["age_hours"] = round((vp.timestamp() - v["timestamp"]) / 3600, 1)
     else:  # no exact time: treat pull-day uploads as fresh
         v["age_hours"] = 0.0 if v["upload_date"] == pulled.strftime("%Y%m%d") else 999.0
     v["fresh"] = v["age_hours"] < 24
@@ -22,6 +24,7 @@ missing_tabs = {(l["station"], l["tab"]) for l in raw["log"] if l.get("status") 
 EXTRA = {
     "FOX35": "handle @FOX35Orlando is a dead channel (last upload 2010); used @fox35",
     "WFTV": "handle @WFTV9 is a dead channel (last upload 2009); used @WFTV",
+    "CARR": "handle @ThePatrickCarrShow does not exist; used @ThePatrickCarr",
     "SPECTRUM13": "@MyNews13 does not exist; used @spectrumlocalnews, the NATIONAL Spectrum News channel linked from mynews13.com (not Orlando only)",
 }
 
@@ -57,7 +60,7 @@ def row(station, label, items, tab=None):
     return r
 
 yt_rows = []
-for s in STATIONS:
+for s in ALL:
     sv = [v for v in vids if v["station"] == s]
     yt_rows.append(row(s, "YouTube Shorts", [v for v in sv if v["tab"] == "shorts"], "shorts"))
     yt_rows.append(row(s, "YouTube Long-form", [v for v in sv if v["tab"] == "videos"], "videos"))
@@ -74,7 +77,7 @@ write("youtube_videos.csv", sorted(vids, key=lambda v: (v["station"], v["tab"], 
 
 manual = list(csv.DictReader(open("manual_week.csv")))
 master = manual + yt_rows
-order = {s: i for i, s in enumerate(STATIONS)}
+order = {s: i for i, s in enumerate(ALL)}
 master.sort(key=lambda r: order[r["station"]])
 write("master_dataset.csv", master)
 
@@ -88,9 +91,9 @@ RANK_PLATFORMS = ["Facebook", "Instagram", "TikTok", "YouTube"]
 WEIGHTS = [4, 3, 2, 1]
 KEYS = ["median_avg", "views_ex_top", "posts", "views_per_follower"]
 
-def components(platforms):
+def components(platforms, stations=STATIONS):
     comp = {}
-    for s in STATIONS:
+    for s in stations:
         rows = [r for r in master if r["station"] == s and r["platform"] in platforms and num(r["total_views"]) is not None
                 and (s, r["platform"]) not in NOT_LOCAL]
         meds = [num(r["median_views"]) for r in rows if num(r["median_views"]) is not None]
@@ -102,13 +105,14 @@ def components(platforms):
                        views_ex_top=round(total - top), posts=round(sum(num(r["posts_7d"]) for r in rows)),
                        followers=round(fol), views_per_follower=round(total / fol, 2),
                        platforms_counted=len(rows))
+    n_st = len(stations)
     for k, w in zip(KEYS, WEIGHTS):
-        for pos, s in enumerate(sorted(STATIONS, key=lambda s: -comp[s][k])):
+        for pos, s in enumerate(sorted(stations, key=lambda s: -comp[s][k])):
             comp[s][k + "_rank"] = pos + 1
-            comp[s][k + "_pts"] = (5 - pos) * w
-    for s in STATIONS:
+            comp[s][k + "_pts"] = (n_st - pos) * w
+    for s in stations:
         comp[s]["score"] = sum(comp[s][k + "_pts"] for k in KEYS)
-    final = sorted(STATIONS, key=lambda s: (-comp[s]["score"], comp[s]["median_avg_rank"]))
+    final = sorted(stations, key=lambda s: (-comp[s]["score"], comp[s]["median_avg_rank"]))
     for i, s in enumerate(final):
         comp[s]["final_rank"] = i + 1
     return comp, final
@@ -133,3 +137,23 @@ for name, (c, f) in {"WITH YouTube": (comp, final), "WITHOUT YouTube (manual dat
 print()
 for r in yt_rows:
     print(",".join(str(r[c]) for c in COLS)[:230])
+
+# ---------- The Patrick Carr Show vs the five stations (same formula, six-way) ----------
+comp6, final6 = components(RANK_PLATFORMS, ALL)
+rows6 = []
+for s in final6:
+    x = comp6[s]
+    rows6.append(dict(station=s, rank_of_6=x["final_rank"], score_of_60=x["score"],
+                      five_station_rank=comp[s]["final_rank"] if s in comp else "",
+                      median_avg=x["median_avg"], median_avg_rank=x["median_avg_rank"],
+                      views_ex_top=x["views_ex_top"], views_ex_top_rank=x["views_ex_top_rank"],
+                      posts=x["posts"], posts_rank=x["posts_rank"],
+                      views_per_follower=x["views_per_follower"], views_per_follower_rank=x["views_per_follower_rank"],
+                      total_views=x["total_views"], biggest_post=x["biggest_post"], followers=x["followers"]))
+write("carr_vs_stations.csv", rows6, list(rows6[0].keys()))
+json.dump(rows6, open("carr_vs_stations.json", "w"), indent=1)
+print("\nCARR INSERTED INTO THE FIVE-STATION TABLE (ranks are out of 6; points 6 down to 1, weights 4/3/2/1)")
+print(f"{'#':<2}{'station':<11}{'score':>5} | {'median avg':>10} {'r':>2} | {'views ex-top':>12} {'r':>2} | {'posts':>5} {'r':>2} | {'views/fol':>9} {'r':>2} | {'followers':>10}")
+for r in rows6:
+    print(f"{r['rank_of_6']:<2}{r['station']:<11}{r['score_of_60']:>5} | {r['median_avg']:>10,} {r['median_avg_rank']:>2} | {r['views_ex_top']:>12,} "
+          f"{r['views_ex_top_rank']:>2} | {r['posts']:>5} {r['posts_rank']:>2} | {r['views_per_follower']:>9} {r['views_per_follower_rank']:>2} | {r['followers']:>10,}")

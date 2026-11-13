@@ -4,8 +4,9 @@ Reads master_dataset.csv, power_ranking.json and logos/. Run shoot.js afterwards
 import base64, csv, json, os, html
 
 STATIONS = ["FOX35", "WFTV", "WESH", "WKMG", "SPECTRUM13"]
-NAME = {"FOX35": "FOX 35", "WFTV": "WFTV 9", "WESH": "WESH 2", "WKMG": "WKMG News 6", "SPECTRUM13": "Spectrum News 13"}
-LOGO_FILE = {"FOX35": "FOX35.png", "WFTV": "WFTV.png", "WESH": "WESH.png", "WKMG": "WKMG.jpg", "SPECTRUM13": "SPECTRUM13.svg"}
+NAME = {"FOX35": "FOX 35", "WFTV": "WFTV 9", "WESH": "WESH 2", "WKMG": "WKMG News 6", "SPECTRUM13": "Spectrum News 13",
+        "CARR": "The Patrick Carr Show"}
+LOGO_FILE = {"FOX35": "FOX35.png", "WFTV": "WFTV.png", "WESH": "WESH.png", "WKMG": "WKMG.jpg", "SPECTRUM13": "SPECTRUM13.svg", "CARR": "CARR.png"}
 MIME = {"png": "image/png", "jpg": "image/jpeg", "svg": "image/svg+xml"}
 VERDICT = {
     "WESH": ("THE VOLUME MACHINE", "Posts the most. Gets steady views all week."),
@@ -14,7 +15,7 @@ VERDICT = {
     "WFTV": ("THE HOLLOW GIANT", "Big follower count. Small crowd per post."),
     "SPECTRUM13": ("LIGHTNING IN A BOTTLE", "One reel made the week. The rest was small."),
 }
-TOTAL = 9
+TOTAL = 10
 
 rows = list(csv.DictReader(open("master_dataset.csv")))
 D = {(r["station"], r["platform"]): r for r in rows}
@@ -304,6 +305,53 @@ slides[9] = page(9, f"""<h1>How we <em>did this</em></h1>
 .b{display:flex;align-items:center;gap:36px;height:126px;margin-bottom:12px;padding:0 36px}
 .bn{font-size:96px;color:#f5c518;width:70px;text-align:center;line-height:1}
 .bt{font-size:46px;text-transform:uppercase;line-height:1.05}.bd{font-size:27px;color:#c3c9d6;margin-top:6px}
+""")
+
+# ---------- 10 the sixth station ----------
+def fol_all(s):  # FB + IG + TikTok + X + YouTube (Spectrum's national YouTube channel left out, as on slide 2)
+    return sum(n(D[(s, p)]["followers"]) or 0 for p in PLATS + ["X"] if (s, p) in D and (s, p) not in SKIP)
+c_fol = fol_all("CARR")
+small = min(STATIONS, key=fol_all)
+ig_c, ig_w = n(D[("CARR", "Instagram")]["median_views"]), n(D[("WESH", "Instagram")]["median_views"])
+fb_c, fb_w = D[("CARR", "Facebook")], D[("WFTV", "Facebook")]
+bud = {p: n(D[("CARR", p)]["top_post_views"]) for p in ("Instagram", "Facebook", "TikTok")}
+bud_total = sum(bud.values())
+wftv_ig = n(D[("WFTV", "Instagram")]["total_views"])
+assert RK["ranking"][0]["station"] == "WESH" and bud_total > wftv_ig
+def duel(label, s1, v1, sub1, s2, v2, sub2, verdict):
+    return f"""<div class="du panel"><div class="dl"><div class="lab">{label}</div><div class="narrow dv">{verdict}</div></div>
+<div class="side">{logo(s1, 132)}<div><div class="narrow big gold">{v1}</div><div class="who">{sub1}</div></div></div>
+<div class="vs narrow">VS</div>
+<div class="side">{logo(s2, 96)}<div><div class="narrow big">{v2}</div><div class="who">{sub2}</div></div></div></div>"""
+duels = duel("Combined followers", "CARR", fmt(c_fol), "The Patrick Carr Show", small, fmt(fol_all(small)),
+             f"{NAME[small]}, the smallest station", f"{fol_all(small) / c_fol:.0f}x smaller than the smallest station")
+duels += duel("Instagram median views per post", "CARR", fmt(ig_c), "The Patrick Carr Show", "WESH", fmt(ig_w),
+              "WESH 2, the #1 ranked station", f"{ig_c / ig_w:.0f}x the #1 ranked newsroom in the market, per post")
+duels += duel("Facebook views for the week", "CARR", fmt(round(n(fb_c["total_views"]), -3)), f"on {fmt(fb_c['followers'])} followers", "WFTV",
+              fmt(round(n(fb_w["total_views"]), -3)), f"WFTV 9, on {fmt(fb_w['followers'])} followers",
+              f"Same views. {n(fb_w['followers']) / n(fb_c['followers']):.0f}x fewer followers.")
+slides[10] = page(10, f"""<h1>The sixth <em>station</em></h1>
+<div class="sub">Same week. Same math. One guy with a microphone.</div>
+<div class="duels">{duels}</div>
+<div class="goldp panel"><div class="lab" style="color:#f5c518">One budget video</div>
+<div class="narrow gbig">{fmt(round(bud_total, -3))}</div><div class="narrow gt">views from one video</div>
+<div class="chips"><div><b class="narrow">{fmt(bud['Instagram'])}</b>Instagram</div><div><b class="narrow">{fmt(bud['Facebook'])}</b>Facebook</div><div><b class="narrow">{fmt(bud['TikTok'])}</b>TikTok</div></div>
+<p>My Amendment 3 budget breakdown was my top post on <b>all three platforms</b>.</p>
+<p>That one video beat WFTV's <b>whole Instagram week</b> ({fmt(round(wftv_ig, -3))} views).</p></div>
+<div class="foot" style="width:1590px;font-size:18px">Measured identically to the five stations: public view counts, Nov 6-13, 2026, medians over averages, viral flags at one third. My own flags are shown too: my top video exceeded one third of my week on Facebook and TikTok. The show has no X account. The stations' X numbers were follower footnotes only, so nothing changes in the comparison. FOX 35 had a higher Instagram median (32K) on only 6 reels.</div>""",
+""".duels{position:absolute;left:72px;top:276px;width:1180px}
+.du{display:grid;grid-template-columns:310px 1.08fr 60px 1fr;align-items:center;height:204px;margin-bottom:14px;padding:0 28px;column-gap:18px}
+.dl .lab{font-size:17px;line-height:1.3}.dv{font-size:31px;line-height:1.08;color:#f5c518;margin-top:12px;text-transform:uppercase}
+.side{display:flex;align-items:center;gap:18px}
+.big{font-size:92px;line-height:1}.who{font-size:20px;color:#c3c9d6;margin-top:4px;line-height:1.2}
+.vs{font-size:30px;color:#8b93a7;text-align:center}
+.goldp{position:absolute;left:1276px;top:276px;width:572px;height:640px;padding:34px 36px;border-top:8px solid #f5c518}
+.gbig{font-size:170px;line-height:.95;color:#f5c518;margin-top:14px}
+.gt{font-size:44px;text-transform:uppercase;line-height:1}
+.chips{display:flex;gap:12px;margin:24px 0 6px}
+.chips div{flex:1;background:#0b0f1a;border-radius:10px;padding:12px 14px;font-size:18px;color:#c3c9d6}
+.chips b{display:block;font-size:44px;color:#fff;line-height:1}
+.goldp p{font-size:27px;line-height:1.3;color:#dfe3ec;margin-top:16px}.goldp p b{color:#fff}
 """)
 
 NOTES = json.load(open("slide_notes.json")) if os.path.exists("slide_notes.json") else {}

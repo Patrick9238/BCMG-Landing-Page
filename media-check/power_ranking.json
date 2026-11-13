@@ -350,6 +350,32 @@
    "fetched": 18,
    "in_window": 0,
    "errors": 0
+  },
+  {
+   "station": "CARR",
+   "tab": "videos",
+   "url": "https://www.youtube.com/@ThePatrickCarr/videos",
+   "handle_given": "@ThePatrickCarrShow",
+   "handle_used": "@ThePatrickCarr",
+   "status": "OK",
+   "listed": 145,
+   "candidates": 10,
+   "fetched": 10,
+   "in_window": 5,
+   "errors": 0
+  },
+  {
+   "station": "CARR",
+   "tab": "shorts",
+   "url": "https://www.youtube.com/@ThePatrickCarr/shorts",
+   "handle_given": "@ThePatrickCarrShow",
+   "handle_used": "@ThePatrickCarr",
+   "status": "OK",
+   "listed": 600,
+   "candidates": 600,
+   "fetched": 36,
+   "in_window": 12,
+   "errors": 0
   }
  ]
 }

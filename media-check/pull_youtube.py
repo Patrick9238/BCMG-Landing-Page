@@ -14,7 +14,13 @@ CHANNELS = {
     "WFTV":       ("@WFTV9", "@WFTV"),
     "WKMG":       ("@News6WKMG", "@News6WKMG"),
     "SPECTRUM13": ("@MyNews13", "@spectrumlocalnews"),
+    "CARR":       ("@ThePatrickCarrShow", "@ThePatrickCarr"),
 }
+# optional args: station keys to pull (e.g. `pull_youtube.py CARR`); results are merged into youtube_raw.json
+ONLY = sys.argv[1:]
+if ONLY:
+    CHANNELS = {k: v for k, v in CHANNELS.items() if k in ONLY}
+NOW = dt.datetime.now(dt.timezone.utc).isoformat()
 QUIET = {"quiet": True, "no_warnings": True, "skip_download": True}
 FLAT = yt_dlp.YoutubeDL({**QUIET, "extract_flat": True, "playlistend": 600,
                          "extractor_args": {"youtubetab": {"approximate_date": [""]}}})
@@ -78,7 +84,7 @@ for station, (given, used) in CHANNELS.items():
                 errors += len(recs) - len(dated)
                 for r in dated:
                     if WINDOW_START <= r["upload_date"] <= WINDOW_END:
-                        out.append({**r, "station": station, "tab": tab}); kept += 1
+                        out.append({**r, "station": station, "tab": tab, "pulled_at_utc": NOW}); kept += 1
                 # listings are newest first: stop once a whole batch is older than the window
                 if dated and all(r["upload_date"] < WINDOW_START for r in dated):
                     break
@@ -89,6 +95,12 @@ for station, (given, used) in CHANNELS.items():
                     "status": "OK", "listed": listed, "candidates": len(ids), "fetched": fetched, "in_window": kept, "errors": errors})
         print(log[-1], flush=True)
 
-json.dump({"pulled_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "window": [WINDOW_START, WINDOW_END],
-           "log": log, "videos": out}, open("youtube_raw.json", "w"), indent=1)
+if ONLY and os.path.exists("youtube_raw.json"):
+    prev = json.load(open("youtube_raw.json"))
+    prev["videos"] = [v for v in prev["videos"] if v["station"] not in ONLY] + out
+    prev["log"] = [l for l in prev["log"] if l.get("station") not in ONLY] + log
+    json.dump(prev, open("youtube_raw.json", "w"), indent=1)
+else:
+    json.dump({"pulled_at_utc": NOW, "window": [WINDOW_START, WINDOW_END], "log": log, "videos": out},
+              open("youtube_raw.json", "w"), indent=1)
 print("saved", len(out), "videos")
