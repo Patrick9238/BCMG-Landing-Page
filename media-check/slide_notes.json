@@ -1,0 +1,6 @@
+{
+ "YT_SUB": "WESH and WKMG each posted more than 160 videos in the week. FOX 35 posted 14.",
+ "YT_FOOT": "Pulled with yt-dlp on Nov 13, 2026. Videos less than 24 hours old count as posts but are left out of the median. VIRAL = one video made more than a third of the channel's week. *Spectrum News 13 has no Orlando YouTube channel. This row is the national Spectrum News channel. It is shown for reference and is not ranked.",
+ "PR_FOOT": "How to read it: on each measure, first place gets 5 points and last place gets 1. Measure 1 counts 4 times, measure 2 counts 3 times, measure 3 counts 2 times, measure 4 counts once. Platforms: Facebook, Instagram, TikTok, YouTube. Spectrum News 13 has no Orlando YouTube channel, so YouTube counts as zero for them.",
+ "METHOD_FOOT": "YouTube numbers were pulled with yt-dlp on Nov 13, 2026. YouTube videos less than 24 hours old were left out of averages and medians because views were still coming in. X is follower counts only."
+}

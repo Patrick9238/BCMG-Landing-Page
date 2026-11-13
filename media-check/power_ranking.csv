@@ -1,0 +1,6 @@
+final_rank,station,score,median_avg,median_avg_rank,median_avg_pts,views_ex_top,views_ex_top_rank,views_ex_top_pts,posts,posts_rank,posts_pts,views_per_follower,views_per_follower_rank,views_per_follower_pts,total_views,biggest_post,followers,platforms_counted
+1,WESH,45,5567,2,16,5275410,1,15,351,1,10,3.19,2,4,5579410,304000,1747600,4
+2,FOX35,36,11404,1,20,3177656,2,12,50,5,2,1.64,4,2,4877656,1700000,2972800,4
+3,WKMG,32,4766,3,12,2137769,3,9,282,2,8,1.69,3,3,2342787,205018,1385400,4
+4,SPECTRUM13,23,2568,4,8,826176,4,6,92,4,4,8.51,1,5,4226176,3400000,496595,3
+5,WFTV,14,1690,5,4,631815,5,3,179,3,6,0.64,5,1,862715,230900,1339543,4

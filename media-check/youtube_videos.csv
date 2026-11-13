@@ -1,0 +1,447 @@
+station,tab,id,upload_date,age_hours,fresh,duration,views,title
+FOX35,videos,7HcEgaSm4J8,20261112,17.5,True,905,24203,Rockstar and Vice City take over Miami for GTA 6
+FOX35,videos,AJzzt4chsL8,20261106,161.6,False,965,16888,Stephen Miller replaces Susie Wiles as Trump's WH chief
+FOX35,videos,YOTSsUM745c,20261112,15.6,True,313,7686,Orlando Weather Forecast: Colder air coming
+FOX35,videos,7J9eqw-_wKA,20261107,144.5,False,223,4711,Orlando AM Weather Forecast: Cold front brings more refreshing changes
+FOX35,videos,P75U3tDutnY,20261112,21.6,True,508,3900,8 dead in Brooklyn collapse as rescue efforts continue
+FOX35,videos,A8v5n_xjW_I,20261110,65.0,False,646,3509,Pete Hegseth's chance to survive impeachment probe
+FOX35,videos,Vfu0buSKrw8,20261112,21.2,True,479,2510,"NVIDIA CEO resigns, stock price plummets; what's next"
+FOX35,videos,1SqgBqDNNsY,20261112,23.9,True,139,2213,Orlando Weather Forecast - January in November: Cold Blast Ahead
+FOX35,videos,-Lu5jd0OFc4,20261108,120.5,False,202,2090,"Orlando AM Weather Forecast: Beautiful end to the weekend, tracking late week cold front"
+FOX35,videos,yJgSAQjw4EU,20261112,14.8,True,166,759,Man accused of sexually battering 18-year-old woman with disability
+FOX35,videos,K16jMm5uEjo,20261112,14.8,True,195,659,Medical examiner reviews death of Dale Smith Jr.'s ex-wife
+FOX35,videos,YQ7-rxwbZqc,20261110,63.5,False,740,584,States ask Supreme Court to take on prediction markets
+FOX35,videos,3oX8txhStvk,20261106,162.1,False,536,499,"Nep Interview: Back in Florida for DIY backyard concerts, new music on the way"
+FOX35,videos,j8oNh8hVswk,20261112,17.3,True,374,385,UF researchers test novel drug to slow Type 1 diabetes
+SPECTRUM13,videos,6kF-qn4d06U,20261106,181.8,False,720,1269,Ashley Herrmann on flipping State House District 69 | Political Connections
+SPECTRUM13,videos,3-knZV9MRhg,20261112,38.2,False,301,981,Decisions ahead for Democrats and Congressional leadership | Political Connections
+SPECTRUM13,videos,RuMefeDZUeg,20261106,162.1,False,174,855,Is Andy Beshear building a 2028 campaign on recent Democratic wins?
+SPECTRUM13,videos,3sYNgSCAudc,20261106,162.1,False,118,643,How Texas Republicans' gerrymandering backfired this election
+SPECTRUM13,videos,ykZbaWt_U64,20261107,157.8,False,588,624,Analysis of the Hispanic Vote in the 2026 Midterm Elections | Political Connections
+SPECTRUM13,videos,wgxXDlU-hU0,20261107,156.5,False,1277,605,"Democratic 'blue wave' flips Congress, voter trends, historic firsts | The Big Deal"
+SPECTRUM13,videos,RBDRbYkg8Do,20261112,17.7,True,479,489,Meet the first Palestinian American elected in New York
+SPECTRUM13,videos,Hpo09dyPdZk,20261108,118.1,False,1203,416,What the midterm elections mean for Florida politics | In Focus
+SPECTRUM13,videos,9XKXIl3Cdu0,20261110,86.2,False,810,335,What comes next now that Amendment 3 has passed | Political Connections
+SPECTRUM13,videos,E_lQsbvFGTs,20261111,40.7,False,154,315,Can the six new Democratic Socialists move congress?
+SPECTRUM13,videos,bOOCFRlX030,20261110,86.1,False,446,310,Lowndes looks ahead after State Senate seat flip | Political Connections
+SPECTRUM13,videos,y-f-wuoV_LY,20261109,88.8,False,118,308,Why the first latina elected to kentucky's general assembly ran for office
+SPECTRUM13,videos,hEyrNXo5hBQ,20261111,61.8,False,319,255,Florida GOP Chair says Election Day was huge success; looks to future wins | Political Connections
+SPECTRUM13,videos,80L7PfLtU9w,20261108,121.6,False,1441,215,"In Focus Missouri, The Future of Agriculture"
+SPECTRUM13,videos,sXaARmb1sso,20261108,121.6,False,1429,165,"In Focus Massachusetts, The Red Cross"
+WESH,shorts,lLCRbOJs1j8,20261106,165.8,False,80,55714,Flood recovery efforts continue in Brevard County
+WESH,shorts,Mqt-_mio44U,20261109,96.7,False,31,26898,Florida flooding: Street lined with debris after historic rainfall in Brevard County
+WESH,shorts,I2qEsZi_GJk,20261111,59.3,False,40,18769,Security camera captures man vandalizing car in family's Viera driveway
+WESH,shorts,F7gyIXcVSzw,20261106,159.9,False,39,15138,Trump to visit Florida's Space Coast on Friday
+WESH,shorts,wktUnhu_spo,20261106,158.8,False,44,13255,Jared Issacman presents Trump with plaque to be installed at KSC
+WESH,shorts,MI53hweuZAk,20261108,129.9,False,22,12522,Small plane makes emergency landing on South Florida road
+WESH,shorts,NnvtG_Q8Bp0,20261112,36.4,False,43,10683,Frankie Muniz released from hospital after incident at Daytona International Speedway
+WESH,shorts,CJsHzF4GJls,20261106,177.7,False,48,10643,"Suspect in car burglary shot by Lake County deputy during foot chase, sheriff's office says"
+WESH,shorts,HgHZWc9E5yU,20261106,159.2,False,39,10194,WATCH LIVE: Trump speaking at event at Kennedy Space Center
+WESH,shorts,0sgJ2UAta6o,20261111,40.2,False,33,8718,"Frankie Muniz taken to medical facility following incident, racing team says"
+WESH,shorts,BsTMd61cibM,20261112,24.5,False,30,8365,Death toll rises to 8 in Brooklyn building collapse
+WESH,shorts,hTbnjMl5Le4,20261109,88.3,False,155,8057,Judge denies bond for 2 teens accused in Tiger Bay State Forest beating
+WESH,shorts,fAtGNHFA6D4,20261109,92.6,False,28,6979,Man accused of killing 2 brothers in Casselberry high-speed crash faces possible life sentence
+WESH,shorts,ZJXhTiZ1i_w,20261111,49.5,False,82,5613,Former Volusia school guardian arrested again
+WESH,shorts,bs5TIv8uNVU,20261108,111.7,False,61,4970,Sweater weather is on its way to Central Florida
+WESH,shorts,s1AgYDUnAcM,20261106,162.9,False,58,4925,WESH 2 the Rescue: Tank from Seminole County Animal Services is ready for adoption
+WESH,shorts,tgwVpX7S0f8,20261109,91.8,False,97,4728,Winter Garden man pleads guilty to second-degree murder in ATV shooting
+WESH,shorts,BVeAdlllQP8,20261109,98.9,False,66,4664,Coldest air of the season coming to Central Florida
+WESH,shorts,E20w-CGqNWk,20261111,58.8,False,119,4090,Future 'Wild Kingdom' episode looks at turtle populations in Central Florida
+WESH,shorts,VvS6Df4oONc,20261106,164.2,False,64,3888,Father of Meghan Markle arrested on child sexual abuse material charges in Florida
+WESH,shorts,KHrcJBaGlB4,20261110,85.7,False,57,3776,Coldest air of the season coming to Central Florida this week
+WESH,shorts,B00sk75S6qc,20261110,75.5,False,77,3488,Coldest air of season this weekend for Central Florida
+WESH,shorts,OL5iElTfuCU,20261108,132.0,False,44,3373,Carbon monoxide toxicity killed Amazon driver found unresponsive in delivery van
+WESH,shorts,VO36broB_Hs,20261112,17.0,True,109,3142,Orlando mother charged with murder after 3-year-old's statement leads police to body
+WESH,shorts,YQ_-EOhSQ40,20261111,44.4,False,127,2777,"Woman arrested after her boyfriend was found dead near Orlando apartment's dumpsters, police say"
+WESH,shorts,Oj2lhkIfU3E,20261109,106.3,False,69,2699,Downtown Orlando businesses push back against after-midnight alcohol sales fees
+WESH,shorts,Fy7j44EBcco,20261112,25.1,False,110,2418,Cold front approaching Central Florida
+WESH,shorts,gwERRjk67oY,20261109,110.0,False,59,2328,Will this week's rain impact the St. Johns River levels?
+WESH,shorts,O_ybaFR6ZF8,20261111,41.0,False,104,2291,"Worker killed, another injured after water main rupture at construction site in The Villages"
+WESH,shorts,L8ZxbgRGBvg,20261111,48.1,False,86,2111,Cold front to bring cooler air to Central Florida
+WESH,shorts,IAMR7I7-rpg,20261111,43.5,False,108,1763,Orange County schools discuss alternative education models as enrollment drops
+WESH,shorts,dwN64JnmT2k,20261112,20.8,True,94,1735,Oviedo Mall redevelopment begins with demolition of former Macy’s
+WESH,shorts,OGj3U2wPWfI,20261109,91.3,False,131,1721,Charges dropped against man accused of downtown Orlando stabbing
+WESH,shorts,QdQ_8NTD9bk,20261112,34.2,False,153,1717,Man faces vehicular homicide charge in Lake County crash that killed mother
+WESH,shorts,ofZyeyvXMes,20261113,12.0,True,43,1652,"Men accused of hot-wiring, stealing golf carts in The Villages, sheriff says"
+WESH,shorts,K5jeaeUdCSA,20261112,16.4,True,70,1604,Central Florida theme park performers detained by ICE in Arizona
+WESH,shorts,YBBCrDtM0PU,20261109,94.6,False,138,1414,Downtown Orlando businesses push back against after-midnight alcohol sales fees
+WESH,shorts,k_w6eDQhw04,20261111,45.2,False,179,1197,Intellectual Impairments Division debuts for OUC Orlando Half Marathon
+WESH,shorts,sSMaRoPHBpI,20261111,46.7,False,44,938,Inflation ran hotter than expected last month. Use our calculator to check grocery prices
+WESH,shorts,MZDRT6TowY8,20261106,160.8,False,132,751,Orlando’s official Christmas music station flips the switch at SeaWorld
+WESH,shorts,OCUqXPIU5Wo,20261113,1.1,True,60,112,Strong front coming to Central Florida
+WESH,shorts,hrE4qBt1bXg,20261113,0.3,True,29,14,Microsoft outage disrupts services
+WESH,videos,ZEO0lVTAc9E,20261112,34.2,False,167,186663,Frankie Muniz released from hospital after crash at Daytona International Speedway
+WESH,videos,ysCLwFdh0LQ,20261107,145.3,False,95,98160,"8 teens hurt in hit-and-run crash near UCF, FHP says"
+WESH,videos,Pdz7DWlCt04,20261109,88.4,False,175,64091,Men accused of attacking teen with disabilities in Volusia County denied bond
+WESH,videos,Vtb0gegVWr4,20261110,64.4,False,1238,50847,Officials give details on 'Operation Fall Harvest' in Volusia County
+WESH,videos,CtPdWR3Q75w,20261106,178.3,False,195,40677,"Citibank shooting suspect is from Orlando, authorities reveal"
+WESH,videos,0UN5vVgE_vU,20261108,110.8,False,240,37036,Rain for mid-week then the coldest air of the season arrives next weekend. 11.8.2026
+WESH,videos,Q4L4GofAX4w,20261106,159.0,False,247,35607,Two fronts next week with the coldest air of season arriving next weekend! 11.06.2026
+WESH,videos,YoTvneWxIm8,20261110,85.7,False,168,33397,New resources available for flood victims in Palm Bay
+WESH,videos,8FP03jmJ87M,20261107,158.1,False,243,31848,President Trump speaks at Kennedy Space Center
+WESH,videos,ttjw05yu414,20261111,45.2,False,127,25054,"Woman arrested after her boyfriend was found dead near Orlando apartment's dumpsters, police say"
+WESH,videos,6qaqKg8nLiU,20261109,87.3,False,136,21619,"Driver fleeing Umatilla police crashes into Jeep, kills woman, FHP says"
+WESH,videos,SmWSaVa3XR8,20261111,38.7,False,207,18647,Strong cold front arrives Friday and will usher in the coldest air of the season. 11.11.2026
+WESH,videos,cvnzX-LT8qA,20261110,63.8,False,162,17776,Families looking for help after catastrophic flooding in Brevard County
+WESH,videos,Qa1VpvltmKI,20261110,69.2,False,163,16332,"Man sentenced to life in prison after shooting, killing ATV rider in Winter Garden"
+WESH,videos,0HmRDr5JTXw,20261110,86.2,False,250,14946,Your bank account may be for sale | WESH 2 Investigates
+WESH,videos,eiv-QsVrFhM,20261107,155.1,False,63,14705,"7 children among 8 hurt in hit-and-run crash near UCF, authorities say"
+WESH,videos,5HL6xqgOrgc,20261112,38.5,False,83,14617,"Frankie Muniz taken to medical facility following incident at Daytona International Speedway, rac..."
+WESH,videos,PR7xehxdlT4,20261112,15.1,True,155,14481,"Starship Flight 15 aims to catch both the booster, upper stage in historic launch"
+WESH,videos,7deTlmcmcnM,20261111,59.3,False,166,9911,Security camera captures man vandalizing car in family's Viera driveway
+WESH,videos,-Hdrrho0G20,20261107,135.3,False,110,9394,Apopka neighbor calls 911 after fall festival shooting critically injures 21-year-old
+WESH,videos,gom_NyiqUns,20261110,64.4,False,109,9096,"120 arrested in 'Operation Fall Harvest,' Volusia sheriff says"
+WESH,videos,j8pnmi6qQyc,20261109,89.0,False,71,9067,Person found dead in Orlando
+WESH,videos,g0nsDl7j_-o,20261106,165.2,False,101,9012,"Citibank gunman angry over debt executed woman, fired 15 times before being killed: HCSO"
+WESH,videos,7hWHDqNYCMQ,20261112,15.0,True,218,8248,Coldest air of the season arrives Saturday morning across Central #florida. 11.12.2026
+WESH,videos,3BWMSfglabM,20261111,39.9,False,33,8075,"Frankie Muniz taken to medical facility following incident at Daytona International Speedway, rac..."
+WESH,videos,heGLH1hoSb4,20261111,58.2,False,161,7733,"Former Volusia school guardian arrested again, accused of possessing suspected child porn"
+WESH,videos,yW78pHHMg5E,20261109,99.5,False,175,7566,Coldest air of the season coming to Central Florida this week | November 9 forecast
+WESH,videos,nPMvJt_HkPQ,20261108,111.3,False,147,7520,"Rising St. Johns River floods Brevard County therapeutic horse farm, cancels riding sessions"
+WESH,videos,uVETDpC0srk,20261110,65.1,False,203,7432,When Central Florida will see its coldest temps amid cooldown
+WESH,videos,i7h7WRhI5rk,20261106,165.3,False,34,7306,"Thomas Markle, Meghan Markle's dad, arrested in Florida"
+WESH,videos,Sr_Cs542_gk,20261111,41.3,False,125,7187,"Worker killed, another injured after water main rupture at construction site in The Villages"
+WESH,videos,HzAtaTl0STk,20261106,168.5,False,33,7060,"EDC Orlando 2026: What to know about road closures, parking and traffic this weekend"
+WESH,videos,yMPmo0vU7cA,20261109,88.9,False,141,6897,Big cooldown heading for Florida
+WESH,videos,eJLXW0HVZ_Q,20261109,98.3,False,182,6855,NASA's Jared Isaacman: 'the old NASA is coming back to life' | Exclusive
+WESH,videos,Yn5YSAven_M,20261112,15.1,True,340,6766,"Far from alone, Florida family now reliant on food pantries after losing SNAP benefits"
+WESH,videos,q_nFBEo6XuI,20261106,160.7,False,175,6428,Volusia County monitors rising St. Johns River
+WESH,videos,AydQqzI96AQ,20261111,49.6,False,58,6356,Major crash shuts down part of I-4 eastbound near Deltona
+WESH,videos,hMM8TPqM0NU,20261108,130.3,False,124,6131,"Teens hurt in hit-and-run crash near UCF were high schoolers in town for debate tournament, princ..."
+WESH,videos,ypyiqmH4jU0,20261106,159.0,False,89,6008,Flood concerns along St. Johns River in Cocoa
+WESH,videos,U73AC89zAw8,20261111,44.4,False,178,5942,Strong front to bring Central Florida's coldest temperatures of the season
+WESH,videos,qFrUUgzUA54,20261109,91.6,False,124,5787,Florida seeks death penalty for quadruple murder in Brevard County
+WESH,videos,Y2bauoWAwTA,20261112,20.7,True,126,5778,'Mama cut Papa': Orlando mother charged with murder after 3-year-old's chilling statement to baby...
+WESH,videos,XJms6npbZCA,20261111,62.3,False,199,5576,"Marion County child murder followed by abuse investigation, arrests"
+WESH,videos,W84pOzRNTOA,20261106,165.0,False,148,5457,Florida man accused of choking teen after confrontation over fishing on private property
+WESH,videos,c2DsFYI29Kk,20261106,164.9,False,119,4805,Trump to visit Florida's Space Coast on Friday
+WESH,videos,EpW1-EYaZtM,20261107,158.1,False,104,4764,Estranged father of Meghan Markle arrested in Florida
+WESH,videos,g3Rb4p7nDH0,20261106,160.9,False,188,4764,"Father of Meghan Markle arrested on charges related to child sexual abuse material, AP sources say"
+WESH,videos,GV2TiglOxqc,20261108,130.1,False,22,4628,Small plane makes emergency landing on South Florida road
+WESH,videos,XNKKmp0cAkI,20261107,155.0,False,156,4616,"Father of Meghan Markle arrested on charges related to child sexual abuse material, AP sources say"
+WESH,videos,wiRhvUVEtoU,20261111,41.3,False,176,4462,Man faces vehicular homicide charge in Lake County crash that killed mother
+WESH,videos,IGVOCNheX6g,20261110,75.6,False,170,4254,Warm temperatures Tuesday before coldest air of the season arrives in Central Florida
+WESH,videos,Qw_4EESBSKQ,20261112,27.6,False,171,4190,Cold front brings cooler temperatures to the region | November 12 forecast
+WESH,videos,rVnl1bdzwuM,20261109,98.4,False,158,4126,Downtown Orlando businesses push back against after-midnight alcohol sales fees
+WESH,videos,9umIwRFEzk8,20261109,99.1,False,132,4052,Brevard County launches flood cleanup efforts one week after devastating flooding
+WESH,videos,7ZN6hD4JcjU,20261108,129.9,False,130,4010,'Uncharted waters’: St. Cloud anticipates service cuts after Florida voters approve Amendment 3
+WESH,videos,SJsdMrH44cs,20261110,64.2,False,108,3915,Geneva experiencing flooded streets and rising water levels as St. Johns River swells
+WESH,videos,o0qt8vBnqok,20261110,67.3,False,132,3872,Chilly Temps Return To Central FL | November 11th Forecast
+WESH,videos,UwayB3_Z8Ic,20261106,171.6,False,154,3853,Temperatures gradually cool as dry weather settles in Central Florida | November 6 forecast
+WESH,videos,I0U4Wja4dDQ,20261111,51.1,False,171,3799,Veterans Day stays warm before cold front brings cooler air | November 11 forecast
+WESH,videos,KoFyI_hZiAg,20261106,179.4,False,173,3627,Palm Bay holds first city council meeting since historic flooding
+WESH,videos,kbyWIr-bsa8,20261111,40.3,False,110,3492,Police share new video in search for driver in deadly Daytona Beach hit-and-run
+WESH,videos,mXDBjQ7K5HA,20261111,40.8,False,128,3395,Woman arrested after her boyfriend was found dead near Orlando apartment's dumpsters
+WESH,videos,jaaYKA4w2LI,20261107,135.3,False,26,3318,"Carbon monoxide toxicity killed Amazon driver found unresponsive in delivery van, Lake County dep..."
+WESH,videos,RLURDR5vpCg,20261109,86.8,False,40,3258,Vehicle fire on I-4 eastbound causes lane closures near Lake Buena Vista
+WESH,videos,D-1Igpa-CXk,20261107,154.5,False,95,3247,"7 children among 8 hurt in hit-and-run crash near UCF, authorities say"
+WESH,videos,SKxkO_m42ZA,20261112,14.9,True,75,3005,"Gunman in fatal Washington, DC, shooting was in Orlando days earlier"
+WESH,videos,OCC7QVhETGM,20261111,40.0,False,148,2907,Seminole County considers bans on cat declawing and rabbit sales in proposed animal control rules
+WESH,videos,-L_ZiyQyZMc,20261107,135.3,False,52,2883,Brevard County orders recounts in 2 election races
+WESH,videos,vxp0DgRh0vM,20261109,92.8,False,114,2839,Winter Garden man pleads guilty to second-degree murder in ATV shooting
+WESH,videos,z0ZhSOfXMkY,20261110,83.2,False,165,2598,Oviedo family warns neighbors of coyote after they say it killed their cat
+WESH,videos,ezGqJqEtSRk,20261106,161.7,False,83,2589,Trump walks from MarineOne across tarmac to AF1 for trip to Kennedy Space Center in Florida
+WESH,videos,x1GD04lrsJQ,20261107,155.0,False,114,2501,Seminole County keeping an eye on rising St. Johns River water levels
+WESH,videos,_CAekXal3WM,20261106,161.4,False,236,2403,Trump to speak at Kennedy Space Center in Florida on Friday night just after Stephen Miller annou...
+WESH,videos,bS9jEhqhNp8,20261106,160.0,False,99,2378,Orlando’s official Christmas music station flips the switch at  SeaWorld
+WESH,videos,qNoJ0aO0x4Q,20261108,111.1,False,125,2361,Charline Santos elected Seminole County’s first Democrat commissioner in 30 years
+WESH,videos,SUyn5NQDR0Y,20261112,21.2,True,109,2193,Oviedo Mall redevelopment begins with demolition of former Macy’s
+WESH,videos,EChLk5IgGaQ,20261110,68.9,False,33,2105,"Woman dies after hit-and-run crash in Daytona Beach, police say"
+WESH,videos,6u1Wha7RlSk,20261113,10.3,True,165,2091,"Men accused of hot-wiring, stealing golf carts in The Villages, sheriff says"
+WESH,videos,L0Yhqz9jvqo,20261111,61.9,False,160,2089,Lake County school board files lawsuit to destroy accidentally shared student records
+WESH,videos,pJV6s-UI_og,20261112,17.1,True,120,2010,"Man arrested in connection with rape of 18-year-old in Eustis, police say"
+WESH,videos,94JmRGLdslw,20261109,95.5,False,82,2002,Casselberry crash suspect faces probation hearing that could lead to life sentence
+WESH,videos,eCIBQCHLRfI,20261112,15.9,True,103,1977,Developer sues Tomoka Oaks residents over golf course redevelopment fight
+WESH,videos,QlRZtnMPt90,20261109,87.9,False,170,1933,Attempted murder charge dropped against man accused of downtown Orlando stabbing
+WESH,videos,514urUZugK4,20261107,135.3,False,48,1912,"Man accused of breaking into home, ramming Volusia patrol car arrested, deputies say"
+WESH,videos,0Sw_I9lr1n8,20261109,88.1,False,155,1878,Brevard County begins flood cleanup efforts; new resources for flood victims
+WESH,videos,dMicEeyx_Ks,20261106,159.9,False,99,1865,"Deputies searching for man accused of home invasion, ramming patrol car in Volusia County"
+WESH,videos,VJ-uY7fAoho,20261106,159.8,False,157,1858,Palm Bay hosts recovery information sessions for residents impacted by historic flooding
+WESH,videos,9oKm48ysvHE,20261110,63.8,False,178,1848,"Florida health officials warn of mosquitoes, bacteria after floodwaters recede"
+WESH,videos,NKVHvntu334,20261106,182.3,False,28,1762,CAIR suspends operations in Florida after federal judge rejects emergency request
+WESH,videos,ltwOMDN031g,20261109,93.3,False,171,1746,Charges dropped against man accused of downtown Orlando stabbing
+WESH,videos,G5nF-zUYZQ0,20261108,134.1,False,109,1689,'It's been a nightmare': Family of teen shot in Orange County still calling for answers months later
+WESH,videos,K2L3JOYZvYg,20261110,65.5,False,23,1671,SWAT clears Ocala hotel after report of armed suspect
+WESH,videos,7YDn53h7kaY,20261106,178.3,False,128,1581,Final unofficial numbers tallied in Florida’s 7th District race
+WESH,videos,9yO2vepc0qM,20261113,10.2,True,77,1579,90 Melbourne households displaced after historic flooding on Florida coast
+WESH,videos,Pg7r_28m61k,20261106,179.0,False,23,1486,Trump to visit Florida's Space Coast on Friday
+WESH,videos,tVcbTl6UdVk,20261112,17.0,True,70,1480,Central Florida theme park performers detained by ICE in Arizona
+WESH,videos,-9sBaMzRVto,20261107,137.8,False,128,1478,'I'm super invigorated': Altamonte Springs mayor-elect discusses goals for future
+WESH,videos,P9kciQibu5I,20261111,41.2,False,115,1353,Seminole County nonprofits face uncertainty over funding cuts after passage of Amendment 3
+WESH,videos,-6eGzetz3zU,20261109,109.7,False,127,1339,'Our team is ready': WESH 2 speaks with Artemis III team at NASA air show
+WESH,videos,K6DS6LYzYwY,20261106,164.8,False,144,1330,Orange County approves tourism projects despite industry concerns
+WESH,videos,3h0ndz5-9Ek,20261110,82.8,False,148,1294,Charges dropped against man accused in downtown Orlando stabbing
+WESH,videos,FqT1qtmDyYg,20261112,35.2,False,157,1290,12-year-old boy dies after being struck by car in Ocoee
+WESH,videos,I-F8pgvfR2o,20261111,39.6,False,130,1281,Consumer Reports tests kids' vitamins
+WESH,videos,3DM8CZuKM8w,20261110,85.3,False,255,1273,Political science professor breaks down midterm election results on WESH 2
+WESH,videos,E2aGplBNQ6A,20261113,3.6,True,166,1268,Chilly weekend ahead for Central Florida as strongest cold front of the season moves in | Novembe...
+WESH,videos,BhW4mteu9js,20261111,58.7,False,128,1210,Church providing meals to Brevard flood victims
+WESH,videos,6cDcvOwSSVA,20261110,67.5,False,66,1128,Lake County school board files lawsuit to destroy accidentally shared student records
+WESH,videos,X3AEHkR693E,20261110,67.4,False,134,1118,Brevard County School District approves superintendent's departure
+WESH,videos,SFX7Nx5GnxQ,20261113,14.5,True,92,1111,Case reopened in death of Dale Smith Jr.’s former wife as he’s accused of murdering ex-fiancée
+WESH,videos,PuU0RuhVobI,20261111,62.0,False,229,1094,Fewer kids are now getting vaccinated in Florida
+WESH,videos,VzuuFNPe8Bg,20261106,158.9,False,933,1065,Trump speaks at event at Kennedy Space Center
+WESH,videos,rp9bvt_eaAs,20261112,15.5,True,109,1061,Flood risk remains near St. Johns River in Brevard
+WESH,videos,YKCta8ruwNc,20261110,64.9,False,121,1036,'Everything is on the table:' Sheriffs weigh budget cuts as Amendment 3 takes effect
+WESH,videos,0uj71kAbs1I,20261110,64.7,False,140,1013,Orlando leaders measure potential impact of Amendment 3
+WESH,videos,G8eg-ZyZclg,20261109,89.2,False,174,989,Judge rules Marquavious Wheaton violated probation in deadly Casselberry crash
+WESH,videos,J6HgYgXdrzI,20261112,16.7,True,210,969,Will live TV cost you more if you cut the cord? | Consumer Reports
+WESH,videos,RNWD9Hzr3tQ,20261112,34.8,False,153,959,Man faces vehicular homicide charge in Lake County crash that killed mother
+WESH,videos,6qgl2wr3lT0,20261110,64.9,False,146,921,Central Florida food bank faces rising costs and increased demand ahead of Thanksgiving
+WESH,videos,4IHLEASl42w,20261111,58.2,False,34,913,Brevard school board picks interim superintendent as incumbent bows out early
+WESH,videos,9wC9RuuG5ek,20261112,15.2,True,102,903,Case reopened in death of Dale Smith Jr.’s former wife as he’s accused of murdering ex-fiancée
+WESH,videos,ekSimHrEDTc,20261110,82.3,False,77,876,"Veterans Day 2026 discounts, deals and local ceremonies"
+WESH,videos,FSg-JE_bUFQ,20261109,91.7,False,59,870,Deadly crash shuts down stretch of Central Avenue in Umatila
+WESH,videos,0k59E1ygiKU,20261111,39.2,False,89,843,DeLand trust plans monument for World War II-era tugboat built on Lake Beresford
+WESH,videos,KD3apOy57uo,20261112,34.2,False,169,831,Vigil for man fatally shot near Apopka festival
+WESH,videos,Bx5jvrwYn2s,20261111,59.1,False,71,829,Future 'Wild Kingdom' episode looks at turtle populations in Central Florida
+WESH,videos,BasNRF4CgNU,20261113,10.1,True,42,828,Frankie Muniz recovering from crash at Daytona International Speedway
+WESH,videos,5zxJTMkpGnQ,20261112,17.3,True,120,729,Experts: Diverse retirement accounts will weather Nvidia storm
+WESH,videos,aXYl8yIE6L0,20261111,47.1,False,19,724,"2 people seriously hurt after getting hit by car in Port Orange, police say"
+WESH,videos,Nhbx5hbZMrc,20261110,63.8,False,120,706,'I can't sleep at night': Family pleads for answers 10 years after brothers killed in Sanford
+WESH,videos,RrRXRuIKL7g,20261113,10.3,True,171,677,Case reopened in death of Dale Smith Jr.’s former wife as he’s accused of murdering ex-fiancée
+WESH,videos,AkNzqGbkeAE,20261112,16.3,True,28,642,"Cocoa Beach man gets 15-year sentence in 2022 sexual battery, false imprisonment case"
+WESH,videos,IcY72udTJ_c,20261112,20.6,True,32,632,"Man arrested in connection with rape of 18-year-old in Eustis, police say"
+WESH,videos,SxBNCv3GXNI,20261106,159.0,False,39,631,President Trump speaks at UP Summit
+WESH,videos,QsXilvgJRFw,20261106,182.3,False,20,623,"Brevard County superintendent to leave role, school board says"
+WESH,videos,46032UyKuIw,20261106,164.6,False,128,610,Dominique Douglas elected as Altamonte Springs mayor
+WESH,videos,Ryy6AZwo4J0,20261111,50.3,False,126,609,Hearing set to determine if Michelle Parker’s ex-fiancé will remain in jail
+WESH,videos,trBQTza29Nk,20261111,44.9,False,123,535,Orange County schools discusses alternative education models as enrollment drops
+WESH,videos,Vb8xYo2cjHw,20261111,58.8,False,72,531,Orange County's new clerk of courts is sworn in
+WESH,videos,pgLdU9vfEdM,20261111,45.1,False,141,510,Bond hearing set to determine if Michelle Parker’s ex-fiancé will remain in jail
+WESH,videos,_dwwnH2sBMU,20261111,45.3,False,263,285,Intellectual Impairments Division debuts for OUC Orlando Half Marathon
+WESH,videos,I3oVumpniI8,20261113,0.9,True,64,51,"Orlando police officer hurt, taken to hospital after crash on Kirkman Road"
+WFTV,shorts,kRbQ6TrfHRE,20261106,181.1,False,129,6637,Four Arrested After Brutal Attack on Disabled Victim in Tiger Bay #shorts
+WFTV,shorts,nd0ZQowCMK0,20261110,83.0,False,88,6295,Can Diet and Exercise Reverse Early-Onset Type 2 Diabetes? #shorts
+WFTV,shorts,eYVCqs07hZM,20261107,157.6,False,86,2668,NTSB Investigates Deadly South Florida Jet Crash and Young Co-Pilot #shorts
+WFTV,shorts,UQ-lxLGwgLc,20261111,45.6,False,90,1968,He Called Hertz Customer Service—and Lost $185 to a Scam #shorts
+WFTV,shorts,xGhKes7f6zg,20261112,23.5,True,86,1818,Frankie Muniz Hospitalized After Scary Daytona Crash #shorts
+WFTV,shorts,FU0La_re3uE,20261107,156.9,False,88,1817,Bodycam Reveals Teen’s Shock After Deputy Mistakes Phone for a Gun #shorts
+WFTV,shorts,eBURO3sNqPw,20261107,157.8,False,59,1737,Meghan Markle's Father Arrested on Federal Charges—Why the Palace Is Silent
+WFTV,shorts,PZVHhGwdDQA,20261112,16.9,True,42,1726,The Titanic-Sized Luxury Liner Sunk to Become a Reef #shorts
+WFTV,shorts,wIJb7TfVMUg,20261110,67.8,False,78,1307,Pete Hegseth Faces Political Storm Amid Impeachment Articles #shorts
+WFTV,shorts,mt4HG5O9BV0,20261109,94.0,False,79,1303,Apopka Fair Shooting: Will Teens Be Tried as Adults? #shorts
+WFTV,shorts,6SRE_LMnMMI,20261110,84.2,False,92,1269,Floodwaters Shut Down Harmony Farms—When Can the Horses Return? #shorts
+WFTV,shorts,JN7BmuAaHH0,20261110,84.4,False,89,1261,"Stolen-Car Suspect Runs Red Light, Killing Woman in Umatilla Crash #shorts"
+WFTV,shorts,RaV9t5ZgDYU,20261107,155.5,False,141,1136,"Why One Orlando Bar Paid $328,000 in Police Fees #shorts"
+WFTV,shorts,aWrdgaydeSE,20261110,62.6,False,80,1004,Florida Tax Break Could Cut Hundreds of County Jobs #shorts
+WFTV,shorts,BFh54blVgKI,20261110,69.9,False,92,970,Social Worker Charged After Allegedly Failing to Report Child Abuse #shorts
+WFTV,shorts,XF7ePMi6dCI,20261110,69.6,False,80,625,Sanford Considers a New Fire Fee After Property Tax Cuts #shorts
+WFTV,shorts,lVoDu1PAf2Y,20261111,40.1,False,69,481,Conflicting Accounts After Police Pursuit Ends in Fatal Crash #shorts
+WFTV,shorts,kB2kThLGtpY,20261107,158.3,False,115,447,Palm Bay Flood Victims Face Cleanup Without FEMA #shorts
+WFTV,shorts,Fos-EYuOEhM,20261111,40.2,False,85,439,Rental Car Scam: The Google Search That Cost Him $185 #shorts
+WFTV,shorts,jV0185ILQBU,20261112,16.1,True,81,431,"DoorDash Identity Theft Leaves Florida Woman Owing the IRS $19,000 #shorts"
+WFTV,shorts,06c-PBoav9U,20261111,39.5,False,74,366,Nearly 60% of Drivers Ignore This Dangerous Florida Crosswalk #shorts
+WFTV,shorts,OaIR2O5DrPM,20261110,83.6,False,88,300,Father Admits to Killing Four—Now Faces the Death Penalty #shorts
+WFTV,shorts,Szksulpp5nU,20261111,61.1,False,76,256,"Inflation Beats Expectations as Groceries, Rent, and Bills Rise #shorts"
+WFTV,shorts,WHd7LqSnYtA,20261112,15.5,True,52,249,OCPS Considers School Closures as Enrollment Falls #shorts
+WFTV,shorts,QC4dvVqVlo4,20261111,44.0,False,80,226,Grainy Traffic Camera Captures Car in Deadly Hit-and-Run #shorts
+WFTV,shorts,-u8Gk3KCEJg,20261107,156.5,False,57,183,Is AI Making Students’ Grades Worse? #shorts
+WFTV,shorts,-osSft0S9wM,20261111,45.2,False,73,154,Turn Off This Bank Setting to Avoid Overdraft Fees #shorts
+WFTV,shorts,im33x4hmnyk,20261112,23.2,True,77,149,46 Orange County Elementary Schools Are Running Below Capacity #shorts
+WFTV,shorts,qJvhsTxbjtg,20261111,43.5,False,48,144,Is AI Helping Kids Learn—or Replacing Critical Thinking? #shorts
+WFTV,shorts,77-hQi-C-fs,20261109,94.5,False,75,129,Struggling With Bills? Avoid High-Interest Debt and Get Help #shorts
+WFTV,shorts,hS-rR0ouQ6s,20261111,61.8,False,89,127,Measles Is Back: Could the U.S. Lose Its Elimination Status? #shorts
+WFTV,shorts,vVgBAZJNW-s,20261112,22.5,True,75,109,Need Extra Holiday Cash? Seasonal Jobs Are Hiring #shorts
+WFTV,shorts,oBBr9-VCGek,20261111,44.5,False,56,73,"Central Florida Honors Veterans With Performances, Free Haircuts & Awards #shorts"
+WFTV,videos,ov2fp9KR_5E,20261112,34.5,False,165,32643,Hegseth Survives Impeachment—But Democrats Aren’t Done
+WFTV,videos,e4vlQslJo3Y,20261106,180.6,False,139,14702,Tampa Bank Shooting : The Debt Dispute Investigators Are Examining
+WFTV,videos,o5p1L-cTp0s,20261109,88.2,False,111,12648,Poland Under Attack: 6 Dead in Krakow Rampage
+WFTV,videos,t6SMmogFNwM,20261107,157.0,False,181,11098,Deadly Citibank attack: How a lawsuit sparked a massacre
+WFTV,videos,TuoX2244iSk,20261108,131.5,False,163,10861,He Left for Coffee—Then Floodwaters Trapped Him in His Car
+WFTV,videos,EcMzYiLSj6A,20261112,16.6,True,118,9433,"Deadly NYC Building Collapse  Rescues, Victims, and the Search for Answers"
+WFTV,videos,DCqS1Kk4mIs,20261110,63.3,False,128,7583,FBI Raids MSC Cruise Ship: Passenger Arrested After Discovery In Room
+WFTV,videos,YH5j1uDlaPc,20261109,90.6,False,350,6741,CRUISE CHAOS: Health Violations Found On Major Cruise Lines
+WFTV,videos,1OZnm9Bgg44,20261112,18.8,True,50,2725,DC Gym Shooting Leaves One Dead and Four Injured
+WFTV,videos,U28k5wp0phQ,20261111,38.6,False,170,1314,Boyfriend Found Near Dumpster  Orlando Woman Charged With Murder
+WFTV,videos,r61HiswSzXc,20261106,162.6,False,122,1156,'Blame Yourselves' Trump Reacts To Economy After 2026 Midterms
+WFTV,videos,Ctb30oYz-Yk,20261110,68.1,False,112,886,Is Your E-Bike Battery a Hidden Fire Bomb?
+WFTV,videos,Kak4eHX2WLo,20261110,69.1,False,133,830,Inside the Case Against Pete Hegseth: Articles of Impeachment Detailed
+WFTV,videos,YlJJo10w_O0,20261112,17.3,True,57,739,OCPS Healthcare Plan May Cost Taxpayers More
+WFTV,videos,XyirDnSPFwg,20261112,16.8,True,105,691,"The DoorDash Job She Never Had Left Her Owing the IRS $19,000"
+WFTV,videos,BhHYp5Mv_g0,20261112,37.1,False,106,614,Assisted Living Worker Accused of Stealing Jewelry From Elderly Residents
+WFTV,videos,6mSiAxwJFm8,20261112,17.1,True,132,593,Family mourns Amanda Hendricksen after fatal Daytona Beach hit-and-run
+WFTV,videos,CLXJYPTC6d4,20261110,68.6,False,83,502,FDA Adds Rare Warning To Popular GLP-1 Drugs: What You Need To Know
+WFTV,videos,6fDiGDU_xeA,20261112,36.8,False,146,430,"Floodwaters Recede, but Mold Forces West Melbourne Families Out"
+WFTV,videos,DDoNdO5M9Og,20261112,18.0,True,173,409,Why OCPS Could Turn This Half Empty School Into a Pre K–8 Campus
+WFTV,videos,ze7SIcEuRG8,20261112,38.3,False,88,361,OSHA investigates fatal water main rupture during construction in The Villages
+WFTV,videos,WsM44wv8PaY,20261112,18.1,True,47,357,Eustis Man Arrested in Alleged Sexual Battery of Teen with Disability
+WFTV,videos,nOqjGML4xLA,20261109,88.5,False,112,334,The new face of Congress: Democrats flip seats and head to DC
+WFTV,videos,ElzP727HLBs,20261111,40.2,False,88,292,"Driver circled victim after fatal Daytona Beach hit-and-run, police say"
+WFTV,videos,kesXOC8ixrA,20261112,17.7,True,129,260,Police Say Girlfriend Confessed to Fatal Stabbing After Changing Her Story
+WFTV,videos,C_srhajW3jU,20261109,87.5,False,278,252,"Unlocked, loaded, within reach: 2,000-plus unintentional shootings involving children 12 and younger"
+WFTV,videos,tPwC3JE_EzE,20261112,15.7,True,177,231,Palm Bay Flood Recovery  Debris Pickup and Free Emergency Supplies
+WFTV,videos,TqZDWchJJz8,20261112,36.9,False,77,207,Help Toys for Tots Bring Christmas to Local Children
+WFTV,videos,_omLKSo3iRc,20261112,15.5,True,63,185,Step Inside Gaylord Palms’ Magical Polar Express Ice Attraction
+WFTV,videos,zayS7OgVY6Q,20261112,34.4,False,249,153,"AI in Schools  Support Student Learning, Not Shortcuts"
+WFTV,videos,1Gkokg5eqEI,20261112,16.3,True,133,143,Amendment 3 Puts Seminole County Firefighter Hiring on Hold
+WFTV,videos,M-6hEy-lSHk,20261113,13.7,True,169,110,From a Household of One to a Forever Family
+WKMG,shorts,UlMQes9fxPQ,20261107,156.1,False,57,123334,Trump announces plans for major air and space show at Kennedy Space Center
+WKMG,shorts,zE-BkE-Z3Uk,20261106,170.9,False,90,7716,"Washed-out road leaves Palm Bay Estates residents cut off, relying on food deliveries"
+WKMG,shorts,6lwEmFQJHkQ,20261110,85.6,False,50,7268,What an investigation reveals about the death of a Florida Amazon delivery driver
+WKMG,shorts,7Sg70glzxHU,20261112,26.0,False,63,6050,Palm Bay residents still displaced 9 days after devastating floods
+WKMG,shorts,ouE_-xJDL4s,20261106,160.5,False,67,4519,Rising St. Johns River has Volusia County watching Stone Island for flooding
+WKMG,shorts,zYI5UFRLamY,20261106,170.8,False,64,4281,"Orlando man kills Citibank employee in Tampa over $2,500 debt"
+WKMG,shorts,sP9bVDMrQxY,20261110,68.1,False,53,4263,Resident seeks Deltona fix for neighborhood speedsters
+WKMG,shorts,2VXEgABKjPM,20261111,49.4,False,69,4249,Melbourne council approves zoning for 811-home development despite flooding concerns
+WKMG,shorts,sSPUN9AC2jY,20261110,68.0,False,38,3596,'Help me' sign leads to rescue of children
+WKMG,shorts,uO2mjErLaDk,20261108,113.6,False,60,3553,Apopka fall festival shooting
+WKMG,shorts,6IKwHrps9GY,20261111,58.2,False,87,3502,"Lake County Schools goes to court after 47,000 student records ‘mistakenly released’ to parent"
+WKMG,shorts,1VZ3Esj90vc,20261106,170.8,False,95,3035,"Road Rangers haul 2,200 lbs. of debris off Central Florida expressways every day"
+WKMG,shorts,tV8P6xR-GGQ,20261110,68.1,False,67,2441,Rising Lake Monroe has Sanford residents calling for action
+WKMG,shorts,lAekgFDu4UU,20261107,136.8,False,58,2441,Search for hit & run driver who injured 8 teens near UCF
+WKMG,shorts,4J-9Hy68K7Q,20261108,113.1,False,33,2213,Florida sanctuary uses drones to drop food for chimpanzees
+WKMG,shorts,CzapMjAWlEk,20261107,156.7,False,62,2180,DCF contractor arrested for failing to report child abuse of Paisley Brown's siblings
+WKMG,shorts,a6PgGCpYea8,20261110,85.6,False,34,2127,When lakes along the St. Johns River are expected to crest amid historic flooding
+WKMG,shorts,ry_i2S2aNB8,20261112,36.5,False,58,2057,"Worker killed, another hospitalized after trench collapse at The Villages construction site"
+WKMG,shorts,Z0XFjfuE50Y,20261111,40.7,False,67,1928,Woman arrested after boyfriend found dead near Orlando apartment dumpster
+WKMG,shorts,vkcoCypBS2Y,20261108,114.8,False,46,1923,WATCH: Small plane clips pickup truck during emergency landing
+WKMG,shorts,NvlY7fRbns8,20261113,14.0,True,54,1921,Sumter County family faces $50K fine after code enforcement notices sent to wrong address
+WKMG,shorts,eMxhoAF57V0,20261112,36.5,False,74,1777,Orlando theme park performers detained by ICE
+WKMG,shorts,r36bl3nhLho,20261107,134.8,False,53,1756,Aretemis III astronauts at Kennedy Space Center's Max Power event
+WKMG,shorts,AP4rx7RGg-o,20261112,25.2,False,122,1721,"St. Cloud fee study shows city losing money on planning, zoning approvals"
+WKMG,shorts,ANqQRjhB1Y4,20261106,165.0,False,83,1684,Volusia County officials monitoring St. Johns River amid flood concerns
+WKMG,shorts,aqRwWTz8SRQ,20261113,14.0,True,58,1606,Husband who killed Orange County wife sentenced to life in prison
+WKMG,shorts,RVx9jj8PhIw,20261106,170.9,False,76,1558,St. Johns River rises to moderate flood risk in Seminole County
+WKMG,shorts,YUdgs7wtjVs,20261112,17.0,True,45,1384,"St. Johns River nears Hurricane Irma levels, threatening Brevard County businesses and homes"
+WKMG,shorts,EzImHEQQplU,20261112,17.6,True,78,1328,Developers sue Ormond Beach residents fighting Tomoka Reserve subdivision
+WKMG,shorts,Y5hsENiTWJg,20261111,49.6,False,43,1310,"SeaWorld Orlando's Christmas Celebration brings back 'Miracles,' adds fire pits, fireworks"
+WKMG,shorts,dlqkJh7hACM,20261110,64.6,False,63,1304,Seminole County commissioners face reality of Amendment 3 impacts on future budgets
+WKMG,shorts,R-aajyME4l8,20261109,94.1,False,81,1195,We're going from the 80s to the 40s this week! Here's the chilly timeline.
+WKMG,shorts,4bZRt-xMyGU,20261110,63.1,False,66,1192,Brevard school board approves superintendent's exit deal after heated public meeting
+WKMG,shorts,0lKedI2OQdI,20261112,36.5,False,63,1033,Two flood-impacted women deliver supplies door-to-door in Palm Bay
+WKMG,shorts,hoXIpmgNK_g,20261112,26.9,False,71,1017,Time to dust off the sweaters! Here's when temperatures will be taking a tumble.
+WKMG,shorts,TT4c3kaZgnA,20261106,165.5,False,77,969,COLD FRONT ALERT! Tracking 2 fronts in two weeks. Here’s how cold temperatures could get!
+WKMG,shorts,L3NMYEdaXq8,20261110,63.0,False,61,890,"Ocala Fire Rescue opens 1st station with engine, rescue unit in years, but Amendment 3 clouds future"
+WKMG,shorts,4qTJIdTfSI8,20261109,93.3,False,96,624,Cleanup continues one week after historic Brevard County flooding
+WKMG,shorts,PfKibNw72gE,20261106,163.2,False,59,539,OUC rolls out new electricity pricing structure for Orlando customers
+WKMG,shorts,RLSiyeWP5fI,20261109,88.7,False,83,503,The cell phone data that helped catch a Florida murder suspect after 15 years
+WKMG,shorts,wDej-DSYiI8,20261112,16.5,True,63,476,Russian hackers responsible for attack that knocked Florida county court records offline
+WKMG,shorts,qM2nx_3niKQ,20261106,180.2,False,57,445,Here's what's inside the world's largest Build-A-Bear Workshop in Orlando
+WKMG,shorts,kNfCHXVCy30,20261110,70.4,False,76,440,Wind chills in the 30s this weekend? Here’s the latest timeline.
+WKMG,shorts,p9WxLHuGMCk,20261112,17.6,True,101,269,Community organizations brace for Amendment 3 budget cuts
+WKMG,shorts,0X52BDxsLKg,20261113,14.0,True,45,128,"St. Johns River nears Hurricane Irma levels, threatening Brevard County businesses and homes"
+WKMG,videos,iyXpAOh6hUA,20261111,49.1,False,161,205018,Attorney General credits News 6 with exposing ‘unlawful’ hot tub business
+WKMG,videos,7o1V9oMzSFg,20261107,139.5,False,112,178174,"8 teens hurt in hit & run crash near Knight Library, troopers say"
+WKMG,videos,0Ehih39qbZA,20261111,40.8,False,42,90359,Crews begin sinking S.S. United States off Florida coast
+WKMG,videos,V3iQaRp4M4o,20261111,59.5,False,52,59274,"Judge jails Thomas Markle, father of Meghan, after he cut off his ankle monitor"
+WKMG,videos,dBV0SnWI51k,20261112,17.2,True,366,47442,Chances Grow For Historic El Niño. Here's What It Means For Florida
+WKMG,videos,rATnAR6dtos,20261107,156.1,False,114,26792,Trump announces plans for major air and space show at Kennedy Space Center
+WKMG,videos,Pm0RDqCzYfA,20261109,88.0,False,143,25002,Investigation reveals exhaust pipe damage in Amazon truck where driver died of CO2 poisoning
+WKMG,videos,8lmSbHiTEhE,20261106,178.5,False,148,24668,Orlando man identified in deadly Tampa Citibank shooting
+WKMG,videos,sjLDN0CfO58,20261107,155.3,False,90,22993,8 hurt in hit & run crash involving pedestrians near Knight Library
+WKMG,videos,aNSzldeHZzg,20261107,155.3,False,138,12824,"Good, bad and ugly: EDC weekend brings crowds, congestion and cash to Orlando neighbors"
+WKMG,videos,t2cypyneVVE,20261110,63.3,False,111,12339,"120 arrested in 30-day Volusia County crackdown as FBI, local agencies join forces"
+WKMG,videos,jTM9JRpPbuk,20261110,65.6,False,186,11285,"Walmart shoplifting calls strain law enforcement, cost taxpayers"
+WKMG,videos,nkCJORiLr2o,20261110,64.9,False,83,9817,Florida attorney general talks investigation involving Democratic Socialists of America
+WKMG,videos,_kmLQKyg5WY,20261106,181.5,False,1438,8000,"Orlando Man Kills Bank Employee Over $2,500 Debt, Sheriff Says"
+WKMG,videos,XbK7iTof1Ic,20261106,162.0,False,197,6794,Jay Z sending pint-sized Winter Park soccer phenom to train in Spain
+WKMG,videos,1w2Qw2soFMs,20261110,85.9,False,1382,6771,Pete Hegseth Faces Impeachment Push — Could DeSantis Replace Him?
+WKMG,videos,VkhfYY_1Vx4,20261107,154.3,False,39,6387,Mystery solved in Florida Amazon delivery driver’s death
+WKMG,videos,mVGYpmCZtG8,20261110,64.8,False,125,5589,Man gets life sentence in fatal shooting of Winter Garden ATV rider
+WKMG,videos,dEvPPEoBLHI,20261107,156.9,False,153,5584,St. Johns River flooding near Cocoa could rival Tropical Storm Fay as residents brace for flood
+WKMG,videos,F8qcVwG0OGE,20261111,39.9,False,152,4490,‘Very frightened’: Orlando theme park performers detained by ICE
+WKMG,videos,YupEA2yMOVs,20261112,18.0,True,52,4358,Microsoft Outlook outages reported nationwide
+WKMG,videos,-MBlaLXZ7zE,20261109,90.4,False,121,4245,Proposal infuses ‘1980’s vibe’ into derelict Orlando shopping plaza Colonial Promenade
+WKMG,videos,L3xmCSkaZkc,20261113,11.4,True,121,4190,Microsoft Outlook outages reported nationwide
+WKMG,videos,6c8GwziwvxM,20261111,40.5,False,97,4020,"Worker killed, another hospitalized after trench collapse at The Villages construction site"
+WKMG,videos,J0ZXIZpEdLI,20261108,132.9,False,130,3348,DeBary makes feral cat program permanent with new ordinance
+WKMG,videos,-xVsAAGCyEU,20261106,179.8,False,98,3149,Road collapse cuts off Palm Bay Estates neighbors as World Central Kitchen delivers food
+WKMG,videos,qWi1BAkWd9E,20261107,154.5,False,129,2421,News 6 responds to serious crash near Knight Library in Orange County
+WKMG,videos,irgHHDNGrZ8,20261112,16.2,True,122,2340,Developers sue Ormond Beach residents fighting Tomoka Reserve subdivision
+WKMG,videos,kMeEWaXz7uk,20261111,40.5,False,121,2301,Orange County votes to demolish ex-work release center despite shelter advocates’ push to save it
+WKMG,videos,eVmKLTKu16w,20261106,161.1,False,114,2117,"On Volusia County’s Stone Island, rising St. Johns River triggers hurricane flooding memories"
+WKMG,videos,xV1uqn4EHBk,20261110,66.3,False,105,2019,"‘Nothing is off the table’: Flagler County sheriff talks Amendment 3, potential cuts"
+WKMG,videos,idzOJW88aDM,20261108,112.8,False,60,1995,St. Johns River flooding threatens Sanford road near Lake Monroe
+WKMG,videos,ngoH2cRUnwo,20261110,71.5,False,120,1986,Lake Monroe water levels near seawall in Sanford as residents watch for flooding
+WKMG,videos,854r3wpB4ms,20261107,156.5,False,1381,1926,FBI Arrests Meghan Markle's Father at Florida Assisted Living Facility
+WKMG,videos,hB1BbKAPaHQ,20261112,22.3,True,67,1908,Frankie Muniz recovering after accident at Daytona Internaitonal Speedway
+WKMG,videos,Sj6EwLio-fg,20261113,13.1,True,64,1819,Dozens of families forced to leave after historic flooding in Central Florida
+WKMG,videos,X_YrXohsjX8,20261112,37.9,False,1295,1818,Deadly Water Main Rupture Kills Construction Worker in The Villages
+WKMG,videos,Tp3PI-hjRIQ,20261106,168.6,False,105,1794,"EDC Orlando: Road closures, parking and travel tips for festivalgoers this weekend"
+WKMG,videos,PGF8p6aSdWU,20261109,88.2,False,112,1620,South Brevard homeowners seek FEMA help 1 week after flooding
+WKMG,videos,UnQ1PFfQnYw,20261112,16.3,True,104,1597,Husband who killed Orange County wife sentenced to life in prison
+WKMG,videos,mSBHdxcBaPw,20261110,63.7,False,126,1493,"Flooding threatens horses, therapy programs at Harmony Farms in Cocoa"
+WKMG,videos,J7F0rELtysA,20261106,161.6,False,69,1475,"NASA MAX POWER 2026: Thunderbirds, Artemis III Astronauts & More at Kennedy Space Center!"
+WKMG,videos,Bx5B32pQM6c,20261109,94.2,False,127,1467,Edgewater neighbors who lost homes to flooding back proposed 27th Street drainage project
+WKMG,videos,G5Bzk6RkA9U,20261111,46.4,False,45,1444,PERP WALK: Woman arrested after boyfriend found dead near Orlando apartment dumpster
+WKMG,videos,b0e7mo0wW28,20261106,166.7,False,74,1430,Florida livestock owners fear for animals as flooding swamps farms
+WKMG,videos,A7jc_SNbnCw,20261111,39.8,False,124,1383,Woman arrested after boyfriend found dead near Orlando apartment dumpster
+WKMG,videos,EN6le6pQ8KY,20261106,163.4,False,103,1359,"Palm Bay flood victims seek answers on insurance, cleanup costs"
+WKMG,videos,H4yb6Vds1lk,20261110,85.8,False,125,1312,Apopka festival shooting: Teen now charged with murder after victim dies
+WKMG,videos,VRpWjRLUbBQ,20261112,36.7,False,100,1311,"Viera woman fears mystery man could return after car vandalized in driveway, caught on camera"
+WKMG,videos,-6GRDc8xogk,20261111,58.3,False,160,1265,"Lake County Schools goes to court after 47,000 student records ‘mistakenly released’ to parent"
+WKMG,videos,bxo57hwk3l0,20261107,157.6,False,106,1255,Bodycam shows moments Central Florida deputy shoots teen
+WKMG,videos,fHQ1yoVoqOU,20261110,64.2,False,107,1239,"Kids write 'help us' in window during Kissimmee domestic dispute, police say"
+WKMG,videos,33kUrwex-KI,20261106,161.4,False,139,1197,Bodycam shows aftermath of break-in at Central Florida home
+WKMG,videos,li-G4afp4ak,20261106,169.1,False,111,1181,President Trump set to speak at Kennedy Space Center in Florida
+WKMG,videos,IN1GkhQviWY,20261110,70.2,False,108,1176,Seminole County braces for ‘very prolonged slow flooding event’
+WKMG,videos,F_mcNA4iVlo,20261108,120.4,False,109,1176,"Two juveniles arrested in Apopka shooting, 21-year-old in serious condition, police say"
+WKMG,videos,kSuwmcnB4Hc,20261112,18.3,True,186,1168,Florida Sheriff Faces $15 MILLION Budget Hit After Amendment 3 Passes
+WKMG,videos,IPwlLm8rBZQ,20261110,71.3,False,125,1166,"Drivers speeding through Deltona neighborhood prompt complaints, city steps toward speed bumps"
+WKMG,videos,b2k7TVzLclQ,20261111,61.9,False,1360,1083,Florida IVF Mix-Up Takes Shocking Turn
+WKMG,videos,9F05y1W0pgc,20261112,16.4,True,111,1075,"St. Johns River nears Hurricane Irma levels, threatening Brevard County businesses and homes"
+WKMG,videos,CTeI4YIjjMY,20261112,34.1,False,144,1033,"Palm Bay resident starts over after flood damage, relies on help from neighbors"
+WKMG,videos,a0wkLFw2RPc,20261109,94.2,False,108,1030,"415-room hotel proposed near Universal Orlando faces wetland, sewer hurdles"
+WKMG,videos,G_5uKjw_F74,20261110,64.5,False,128,1003,Seminole County commissioners face reality of Amendment 3 impacts on future budgets
+WKMG,videos,9kixeSUMhM8,20261106,159.7,False,113,993,‘How do you know who to trust?’ Palm Bay flood victims warned about predatory contractors
+WKMG,videos,n9i16eVXuF4,20261106,165.9,False,114,954,Toxic Air on Airlines
+WKMG,videos,jZ-1AS7Joqs,20261112,16.0,True,112,945,Sumter County family faces $50K fine after code enforcement notices sent to wrong address
+WKMG,videos,lXCjSdSaZnE,20261111,58.4,False,152,941,Proposed 811-home development advances in Melbourne as neighbors worry about flooding
+WKMG,videos,uNzmSPLCGX4,20261110,85.3,False,109,941,Florida teen describes being hit by car on sidewalk near UCF
+WKMG,videos,TnMCxVVYqIs,20261108,111.4,False,111,867,Work week forecast
+WKMG,videos,AhZV1IInKfo,20261109,88.1,False,130,865,Seminole judge: Man charged in fatal Casselberry crash violated probation
+WKMG,videos,HkQHH-9NDo0,20261112,34.9,False,131,862,Orlando officials warn Amendment 3 could force difficult budget cuts
+WKMG,videos,iF-OuKw5VGk,20261112,34.6,False,139,854,Lake County man accused of shooting driver he claims was impersonating deputy
+WKMG,videos,Bx4sjLpyDLQ,20261106,178.3,False,116,854,"City considers demolition of unsafe Eustis home after fires, squatting concerns"
+WKMG,videos,hIq67eyBgFo,20261106,179.7,False,97,849,Brevard schools reopen after historic flooding as families question campus safety
+WKMG,videos,82KOhovk2e4,20261112,35.0,False,48,829,Driver faces charges while in ICU after deadly Florida crash
+WKMG,videos,1BY1RQWevKA,20261109,88.2,False,117,760,Seminole County braces for ‘very prolonged slow flooding event’
+WKMG,videos,NEkKaf4MLVc,20261111,40.2,False,103,724,Orange City moves forward with multi-million-dollar stormwater project to combat flooding
+WKMG,videos,Dcg_AiEbwUg,20261106,161.2,False,121,700,DCF contractor arrested for failing to report child abuse of Paisley Brown’s siblings
+WKMG,videos,_R6EHeowb1k,20261113,11.0,True,271,692,VIDEO: Driver apparently confused after being pinned by Florida deputies
+WKMG,videos,y0POWO_R4tM,20261110,64.7,False,122,690,"Ocala Fire Rescue opens station with engine and rescue unit, but Amendment 3 clouds budget future"
+WKMG,videos,_4WerwHxNzk,20261107,154.9,False,110,667,Orlando nightlife businesses challenge city fees for late-night police services
+WKMG,videos,UOnwU8gB3Cg,20261110,71.6,False,160,662,FSU's $50 MILLION Mistake?! What's Next for Florida State Football
+WKMG,videos,vAIumt1alG8,20261110,65.9,False,121,643,Concrete plant proposal reignites Ormond Beach land-use debate
+WKMG,videos,8KvcfrNUI9c,20261106,179.5,False,93,641,St. Johns River expected to rise near Lake Harney as flood risk increases
+WKMG,videos,e2AOg68JZ0E,20261111,40.3,False,100,611,‘You’re Not Alone’: Two flood-impacted women deliver supplies door-to-door in Palm Bay
+WKMG,videos,AbVftI-RSl4,20261111,41.1,False,30,589,Brevard Zoo giraffes will now snack on invasive plants from county parks
+WKMG,videos,eXe4okS4uAc,20261113,11.3,True,88,574,"Owner taken to jail after dog found emaciated, Florida sheriff says"
+WKMG,videos,PXq8nIG17lo,20261106,172.5,False,150,572,New OUC pricing starts in November. Here's how DemandLevel could change your bill
+WKMG,videos,B7P4XRS-6Ds,20261111,48.9,False,114,562,Daytona Beach weighs adding digital kiosks to beachside areas
+WKMG,videos,0YBgfGmeqrY,20261109,91.1,False,175,546,From cold case to arrest: How cellphone data helped crack Michelle Parker’s disappearance
+WKMG,videos,XQA6AABulOo,20261110,65.0,False,129,541,Brevard school board OKs superintedent’s exit deal after heated public meeting
+WKMG,videos,YLMiO8JeFhU,20261111,38.8,False,160,537,"After 81 years, Orlando WWII prisoner of war finally laid to rest on Veterans Day"
+WKMG,videos,ROMJRL9iqdY,20261113,14.0,True,1140,516,Michelle Parker Murder Case: New Revelations Raise More Questions
+WKMG,videos,wnTQaDZkxuw,20261110,73.1,False,126,515,Orange County Public Schools to consider $1.5M sale of former Pine Castle Elementary property
+WKMG,videos,NYynB0WVYHk,20261106,163.5,False,113,515,US House District 9: Osceola County set to submit election results for state to decide
+WKMG,videos,nsu_Xy1lBN4,20261112,20.0,True,103,488,Winter Garden receives nearly $9.6M in funding for wastewater treatment plant expansion
+WKMG,videos,kHg4UwxcU_M,20261112,22.5,True,120,484,Lake Helen considers new development proposal for land once eyed for DeLand auto mall
+WKMG,videos,gto0lsHMVc8,20261111,48.9,False,124,480,Winter Park considers adding 4 more red light camera locations
+WKMG,videos,A3FCZLa7sBQ,20261112,17.0,True,106,440,‘We can do this together’: Community organizations brace for Amendment 3 budget cuts
+WKMG,videos,A9zsDkIzanM,20261109,88.8,False,180,435,Is 14 Too Young to Babysit Overnight? Florida Mom's Arrest Sparks Debate
+WKMG,videos,dVApN7SiFHM,20261110,71.0,False,165,404,"New Smyrna Beach considers new restrictions on e-bikes, scooters in parks and business districts"
+WKMG,videos,TAwG94Qk3vg,20261112,15.0,True,146,395,Cyberattack that forced Seminole County court records shutdown linked to Russian hackers
+WKMG,videos,8KX29WdqqMg,20261112,28.6,False,107,386,Dollars & Sense: Passkeys vs. Passwords – Is it time to make the switch?
+WKMG,videos,5NiYFt8woYg,20261108,131.5,False,122,379,Sunday forecast
+WKMG,videos,0vCpHfR5TvY,20261110,71.5,False,69,370,"Downtown Orlando stabbing suspect won’t face charges, state attorney says"
+WKMG,videos,saCwKR3F7qY,20261106,161.6,False,118,354,Dollars & Sense: October jobs report beats expectations
+WKMG,videos,Spe2PGIa_yI,20261112,22.1,True,126,341,"Cultivating Kindness, One Cup at a Time: 7 Brew Opens Near UCF"
+WKMG,videos,6Fo5X-G8Mbc,20261112,18.8,True,72,313,Probe opened into death of Dale Smith’s late wife following his arrest in Michelle Parker case
+WKMG,videos,NsPKyMot5l8,20261111,39.1,False,97,308,New numbers: How Latinos reshaped the midterm elections
+WKMG,videos,n1dF-TSqHdU,20261113,10.0,True,99,282,Suspect in fatal Umatilla crash remains hospitalized
+WKMG,videos,gWkYhkTCkxc,20261112,15.4,True,164,282,Dale Smith challenges evidence in Michelle Parker murder case as he seeks bond
+WKMG,videos,cyeJGtcPrRg,20261111,43.8,False,75,275,Orlando ceremony honors Tuskegee Airmen on Veterans Day
+WKMG,videos,5TrSNPv0Zh0,20261111,43.4,False,111,273,"Sanford honors veterans with ceremony, free film screening"
+WKMG,videos,eine2OC02t4,20261113,13.9,True,123,261,Family remembers 12-year-old Rodney Jean Thomas after fatal Ocoee crash
+WKMG,videos,gWYsIILCQvE,20261111,40.1,False,195,243,SEC Championship Decision Sparks Heated Debate
+WKMG,videos,UVXVfYEWB14,20261112,20.1,True,98,227,American Cancer Society updates prostate cancer screening guidelines
+WKMG,videos,BUFjqKmaRlU,20261112,15.7,True,100,213,Probe opened into death of Dale Smith’s late wife following his arrest in Michelle Parker case
+WKMG,videos,pIcXXVz8zg0,20261111,40.1,False,140,195,"6 Things to Do in Central Florida This Weekend (Nov. 12-15) | Coffee Fest, ice!, Lanterns"
+WKMG,videos,N6Uk4WuFhHg,20261113,4.6,True,115,112,"Dollars & Sense: FSA vs. HSA – Two Very Different Accounts, Two Very Different Sets of Rules"
+WKMG,videos,wJXe9fdpTIw,20261112,18.6,True,138,103,Ya Like Jazz? Heidi’s Is Cocoa Beach’s Not-So-Hidden Gem.
+WKMG,videos,Y33rpcqj1Xg,20261113,2.5,True,65,84,This is the Polar Express: ice! rolls back into Gaylord Palms Resort
+WKMG,videos,lj97B1pI92E,20261113,2.7,True,146,25,Can’t find an OB-GYN? Florida’s doctor shortage is growing
+WKMG,videos,HfM8f6r_wa4,20261113,1.3,True,72,16,"Universal Orlando holiday 2024: What to eat, see, do across parks, hotels"
+WKMG,videos,Z7gNhfj57qQ,20261113,1.1,True,172,14,New holiday food village brings global flavors to Universal Studios Florida
