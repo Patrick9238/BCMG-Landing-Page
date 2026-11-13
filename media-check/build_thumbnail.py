@@ -11,27 +11,35 @@ CROWN = """<svg class="crown" viewBox="0 0 120 84" xmlns="http://www.w3.org/2000
 html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Media Check thumbnail</title><style>
 *{{box-sizing:border-box;margin:0;padding:0}}
 html,body{{width:1280px;height:720px;overflow:hidden}}
-body{{position:relative;background:#0b0f1a;color:#fff;font-family:"Arial Narrow","Liberation Sans Narrow",Arial,sans-serif;font-weight:700}}
-.glow{{position:absolute;right:-160px;top:-60px;width:900px;height:900px;background:radial-gradient(circle,#2f6fed 0%,rgba(47,111,237,.35) 35%,rgba(11,15,26,0) 68%)}}
-.pat{{position:absolute;right:-170px;bottom:-150px;width:880px;height:880px;filter:drop-shadow(0 0 28px rgba(0,0,0,.7))}}
-.fade{{position:absolute;left:0;top:0;width:740px;height:720px;background:linear-gradient(90deg,#0b0f1a 78%,rgba(11,15,26,0))}}
-.show{{position:absolute;left:24px;top:2px;width:176px;height:176px}}
-.tag{{position:absolute;left:212px;top:44px;background:#e03131;font-size:36px;line-height:1.05;padding:10px 18px 8px;letter-spacing:.5px;transform:rotate(-2deg);box-shadow:6px 6px 0 #000}}
-.h{{position:absolute;left:40px;top:170px;font-size:150px;line-height:.96;text-shadow:0 6px 0 #000}}
-.h .k{{color:#f5c518;font-size:262px;line-height:.82;display:inline-block;transform:rotate(-3deg);transform-origin:left bottom}}
-.h .q{{color:#e03131}}
-.row{{position:absolute;left:40px;bottom:26px;display:flex;gap:12px;align-items:flex-end}}
-.row img{{width:96px;height:96px;border-radius:12px;object-fit:cover;box-shadow:0 0 0 3px #0b0f1a}}
-.mystery{{position:relative;width:96px;height:96px;border-radius:12px;border:4px dashed #f5c518;background:#111827;color:#f5c518;font-size:80px;line-height:88px;text-align:center}}
-.crown{{position:absolute;left:14px;top:-58px;width:92px;transform:rotate(12deg);filter:drop-shadow(0 4px 0 #000)}}
+body{{position:relative;background:#05070d;color:#fff;font-family:"Arial Narrow","Liberation Sans Narrow",Arial,sans-serif;font-weight:700}}
+/* cinematic light: blue key light behind Patrick, warm gold rim low left, hard beam from top right */
+.key{{position:absolute;right:-220px;top:-140px;width:1040px;height:1040px;background:radial-gradient(circle,rgba(47,111,237,.95) 0%,rgba(47,111,237,.38) 32%,rgba(5,7,13,0) 66%)}}
+.warm{{position:absolute;left:-200px;bottom:-330px;width:1100px;height:640px;background:radial-gradient(ellipse,rgba(245,197,24,.30) 0%,rgba(245,197,24,0) 65%)}}
+.beam{{position:absolute;right:120px;top:-200px;width:340px;height:1200px;transform:rotate(24deg);background:linear-gradient(90deg,rgba(255,255,255,0),rgba(160,200,255,.16),rgba(255,255,255,0));filter:blur(18px)}}
+.pat{{position:absolute;right:-170px;bottom:-150px;width:880px;height:880px;filter:drop-shadow(-14px 0 34px rgba(47,111,237,.55)) drop-shadow(0 0 30px rgba(0,0,0,.8))}}
+.fade{{position:absolute;left:0;top:0;width:760px;height:720px;background:linear-gradient(90deg,#05070d 62%,rgba(5,7,13,0))}}
+.vig{{position:absolute;inset:0;background:radial-gradient(ellipse at 58% 46%,rgba(0,0,0,0) 46%,rgba(0,0,0,.72) 100%)}}
+.grain{{position:absolute;inset:0;opacity:.13;mix-blend-mode:overlay}}
+.show{{position:absolute;left:22px;top:0;width:160px;height:160px}}
+.tag{{position:absolute;left:196px;top:54px;background:#e03131;font-size:44px;line-height:1;padding:10px 20px 8px;letter-spacing:3px;transform:rotate(-2deg);box-shadow:6px 6px 0 #000}}
+.h{{position:absolute;left:150px;top:128px;font-size:100px;line-height:.96;letter-spacing:1px;text-shadow:0 5px 0 #000,0 0 40px rgba(0,0,0,.9)}}
+.k{{position:absolute;left:36px;top:226px;font-size:248px;line-height:1;transform:rotate(-3deg);transform-origin:left bottom;
+    background:linear-gradient(180deg,#fff3b0 0%,#f5c518 42%,#b8860b 100%);-webkit-background-clip:text;color:transparent;
+    filter:drop-shadow(0 7px 0 #000) drop-shadow(0 0 34px rgba(245,197,24,.45))}}
+.k i{{font-style:normal;-webkit-text-fill-color:#e03131}}
+.crown{{position:absolute;left:-14px;top:-52px;width:120px;transform:rotate(-14deg);filter:drop-shadow(0 4px 0 #000)}}
+.row{{position:absolute;left:40px;top:504px;display:flex;gap:16px;-webkit-box-reflect:below 6px linear-gradient(transparent 58%,rgba(255,255,255,.28))}}
+.row img{{width:134px;height:134px;border-radius:18px;object-fit:cover;box-shadow:0 0 0 4px #fff,0 0 34px rgba(245,197,24,.55),0 14px 30px rgba(0,0,0,.9)}}
 </style></head><body>
-<div class="glow"></div>
+<div class="key"></div><div class="beam"></div>
 <img class="pat" src="{uri(IMG + 'patrick-pointing.png')}" alt="Patrick Carr">
-<div class="fade"></div>
+<div class="fade"></div><div class="warm"></div><div class="vig"></div>
+<svg class="grain" width="1280" height="720"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7"/><feColorMatrix type="saturate" values="0"/></filter><rect width="1280" height="720" filter="url(#g)"/></svg>
 <img class="show" src="{uri(IMG + 'logo-neon.png')}" alt="The Patrick Carr Show">
-<div class="tag">WHERE DOES CENTRAL FLORIDA<br>REALLY GET ITS NEWS?</div>
-<div class="h">WHO'S THE<br><span class="k">KING<span class="q">?</span></span></div>
-<div class="row">{row}<div class="mystery">?{CROWN}</div></div>
+<div class="tag">ORLANDO NEWS</div>
+<div class="h">WHO'S THE</div>
+<div class="k">{CROWN}KING<i>?</i></div>
+<div class="row">{row}</div>
 </body></html>"""
 assert "\u2014" not in html
 open("thumbnail/thumbnail.html", "w").write(html)
