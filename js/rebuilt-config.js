@@ -11,6 +11,7 @@
     calOrigin: "https://cal.com",
     brandColor: "#ffb524",
     /* Offer facts, shown in the payload so GHL has them on every lead. */
+    metaPixelId: "1114565687751932",
     offerName: "Rebuilt",
     offerPrice: 2500,
     offerRegularPrice: 5000,

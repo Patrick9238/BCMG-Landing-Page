@@ -260,7 +260,20 @@
       setBusy(true);
       await sendLead(config, payload); // best effort; booking proceeds regardless
       if (typeof win.fbq === "function") {
-        try { win.fbq("track", "Lead", { content_name: "Rebuilt Offer" }, { eventID: payload.meta_event_id }); } catch (_) {}
+        try {
+          // Advanced Matching: re-init with the lead's hashed PII so Meta can
+          // attribute this Lead to the real person and the ad that drove them.
+          // fbq normalizes and SHA-256 hashes these values client-side.
+          if (config.metaPixelId) {
+            win.fbq("init", config.metaPixelId, {
+              em: payload.email,
+              ph: String(payload.phone || "").replace(/\D/g, ""),
+              fn: payload.first_name,
+              ln: payload.last_name
+            });
+          }
+          win.fbq("track", "Lead", { content_name: "Rebuilt Offer" }, { eventID: payload.meta_event_id });
+        } catch (_) {}
       }
       setBusy(false);
       finish(payload);
