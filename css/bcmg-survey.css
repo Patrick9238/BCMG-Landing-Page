@@ -38,6 +38,8 @@
 .bcmg-survey .survey-actions .btn { padding:12px 20px; }
 .bcmg-survey .survey-actions [data-survey-next], .bcmg-survey .survey-actions [type="submit"] { margin-left:auto; }
 .bcmg-survey button:disabled { cursor:wait; opacity:.65; }
+.bcmg-survey .survey-guarantee { display:flex; align-items:center; gap:8px; margin-top:14px; color:var(--green); font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:.5px; font-weight:700; font-size:.82rem; }
+.bcmg-survey .survey-guarantee svg { flex:0 0 auto; width:18px; height:18px; }
 .bcmg-survey .survey-status { color:var(--muted); font-size:.87rem; margin-top:14px; }
 .bcmg-survey .survey-result h3 { font-size:1.5rem; margin-bottom:12px; }
 .bcmg-survey .survey-result p { color:var(--muted); margin-bottom:16px; }

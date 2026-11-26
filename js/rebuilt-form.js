@@ -245,6 +245,8 @@
       state.done = true;
       steps.forEach(function (s) { s.hidden = true; s.disabled = true; });
       actions.hidden = true;
+      var guarantee = form.querySelector("[data-survey-guarantee]");
+      if (guarantee) guarantee.hidden = true;
       if (progress) progress.hidden = true;
       if (progressCopy) progressCopy.hidden = true;
       status.textContent = "";

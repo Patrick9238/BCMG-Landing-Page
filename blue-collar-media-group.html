@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css?v=11">
-  <link rel="stylesheet" href="css/bcmg-survey.css?v=2">
+  <link rel="stylesheet" href="css/bcmg-survey.css?v=3">
 
   <style>
     /* ===== Rebuilt offer page (page-specific) ===== */
@@ -305,7 +305,7 @@
                 <span id="rb-website-error" class="survey-field-error"></span>
               </div>
               <div class="survey-field">
-                <label for="rb-challenge">What is your biggest marketing challenge right now?</label>
+                <label for="rb-challenge">Your biggest marketing challenge now?</label>
                 <textarea id="rb-challenge" name="marketing_challenge" rows="5" maxlength="3000" required data-survey-answer data-error-id="rb-challenge-error" aria-describedby="rb-challenge-help rb-challenge-error" placeholder="Tell me what you have tried and what you want to fix."></textarea>
                 <span id="rb-challenge-help" class="survey-help">A few sentences are plenty.</span>
                 <span id="rb-challenge-error" class="survey-field-error"></span>
@@ -354,6 +354,10 @@
               <button class="btn btn-ghost" type="button" data-survey-back hidden>Back</button>
               <button class="btn btn-blue" type="button" data-survey-next>Continue</button>
               <button class="btn btn-gold" type="submit" hidden>Submit and pick my time</button>
+            </div>
+            <div class="survey-guarantee" data-survey-guarantee>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              <span>100% satisfied or your money back. Period.</span>
             </div>
             <p class="survey-status" data-survey-status role="status" aria-live="polite"></p>
             <noscript><p class="survey-status">Please enable JavaScript to apply.</p></noscript>
@@ -670,7 +674,7 @@
   <script src="js/config.js?v=15"></script>
   <script src="js/main.js?v=15"></script>
   <script src="js/rebuilt-config.js?v=4"></script>
-  <script src="js/rebuilt-form.js?v=3"></script>
+  <script src="js/rebuilt-form.js?v=4"></script>
   <script>
     // Fire Meta "ViewContent" when the application scrolls into view.
     (function () {
