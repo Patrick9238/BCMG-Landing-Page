@@ -9,7 +9,7 @@
 .bcmg-survey fieldset { border:0; min-width:0; }
 .bcmg-survey legend { font-family:"Oswald",sans-serif; font-size:1.5rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; line-height:1.15; margin-bottom:20px; text-shadow:0 2px 6px rgba(0,0,0,.5); }
 .bcmg-survey .survey-field { display:grid; gap:8px; margin-bottom:20px; }
-.bcmg-survey fieldset[data-survey-step] .survey-field:last-of-type { margin-bottom:10px; }
+.bcmg-survey fieldset[data-survey-step] .survey-field:last-of-type { margin-bottom:4px; }
 .bcmg-survey .survey-field label, .bcmg-survey .survey-choice-title { font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:1px; color:#fff; text-shadow:0 1px 2px rgba(0,0,0,.55); }
 .bcmg-survey .survey-optional, .bcmg-survey .survey-help { color:var(--muted); font-size:.78rem; font-weight:400; text-transform:none; letter-spacing:0; text-shadow:none; }
 .bcmg-survey input:not([type="checkbox"]):not([type="radio"]), .bcmg-survey select, .bcmg-survey textarea { width:100%; min-height:52px; padding:14px; background:var(--bg); color:var(--text); border:1px solid var(--border); border-radius:10px; font:inherit; font-size:.95rem; box-shadow:inset 0 1px 3px rgba(0,0,0,.35); transition:border-color .15s ease, box-shadow .15s ease; }
@@ -35,7 +35,7 @@
 .bcmg-survey .survey-review dl { display:grid; gap:12px; }
 .bcmg-survey .survey-review dt { color:var(--muted); font-size:.76rem; }
 .bcmg-survey .survey-review dd { font-size:.88rem; overflow-wrap:anywhere; white-space:pre-wrap; }
-.bcmg-survey .survey-actions { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:14px; }
+.bcmg-survey .survey-actions { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:8px; }
 .bcmg-survey .survey-actions .btn { padding:12px 20px; }
 .bcmg-survey .survey-actions [data-survey-next], .bcmg-survey .survey-actions [type="submit"] { margin-left:auto; }
 .bcmg-survey button:disabled { cursor:wait; opacity:.65; }

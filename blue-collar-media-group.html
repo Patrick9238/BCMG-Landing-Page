@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css?v=11">
-  <link rel="stylesheet" href="css/bcmg-survey.css?v=4">
+  <link rel="stylesheet" href="css/bcmg-survey.css?v=5">
 
   <style>
     /* ===== Rebuilt offer page (page-specific) ===== */
@@ -113,10 +113,9 @@
     .lp-form-guarantee svg { flex:0 0 auto; width:17px; height:17px; }
     .lp-form-sub { color:var(--muted); font-size:.98rem; margin:0 0 16px; }
     .hero-claim { color:#fff; font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase;
-      font-size:clamp(1.35rem,5.2vw,2.1rem); line-height:1.08; letter-spacing:.5px; margin:0;
+      font-size:clamp(1.7rem,6.8vw,2.8rem); line-height:1.06; letter-spacing:.5px; margin:0;
       text-shadow:0 2px 8px rgba(0,0,0,.5); }
-    .hero-claim .hl { color:var(--gold); }
-    .hero-claim .grt { color:var(--green); }
+    .hero-claim .grt { color:var(--gold); }
 
     /* Why our system works */
     .why { display:grid; grid-template-columns:1fr; gap:18px; }
@@ -241,9 +240,14 @@
     .price-tag { display:inline-block; background:rgba(255,181,36,.14); color:var(--gold);
       font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:1px; font-size:.78rem;
       font-weight:700; padding:5px 14px; border-radius:999px; margin-bottom:16px; }
-    .price-card .was { color:var(--muted); text-decoration:line-through; font-size:1.3rem; font-family:"Oswald",sans-serif; }
-    .price-card .now { font-family:"Oswald",sans-serif; font-weight:700; font-size:3.2rem; color:var(--gold);
+    .price-card .was { color:#c6cdd8; text-decoration:line-through; text-decoration-color:#ff4136;
+      text-decoration-thickness:3px; font-size:2.2rem; font-family:"Oswald",sans-serif; }
+    .price-card .now { font-family:"Oswald",sans-serif; font-weight:700; font-size:3.4rem; color:var(--green);
       line-height:1; margin:4px 0 2px; }
+    .price-card--green { border-color:rgba(43,182,115,.45);
+      box-shadow:0 18px 44px -16px rgba(0,0,0,.62), 0 0 50px -16px rgba(43,182,115,.3); }
+    .btn-green { background:var(--green); color:#07230f; }
+    .btn-green:hover { box-shadow:0 14px 30px -6px rgba(43,182,115,.5); }
     .price-card .now span { font-size:1rem; color:var(--muted); font-weight:600; display:block; margin-top:6px; }
     .price-card .terms { color:#fff; font-weight:600; margin:16px 0 0; }
     .price-card .fineprint { color:var(--muted); font-size:.9rem; margin-top:14px; }
@@ -307,12 +311,11 @@
           <img src="assets/img/patrick-arms-crossed.png" alt="Patrick Carr">
         </div>
         <div class="lp-hero-pitch">
-          <p class="hero-claim">I will fix your marketing in <span class="hl">48 hours</span>. <span class="grt">Guaranteed.</span></p>
+          <p class="hero-claim">I will fix your marketing in 48 hours. <span class="grt">Guaranteed.</span></p>
         </div>
       </div>
 
       <div class="lp-hero-form">
-        <div class="lp-form-head">Now <span>$2,500</span><em class="lp-form-when">(Valid To November 30th)</em></div>
         <div class="lp-form-guarantee">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
           <span>100% satisfied or your money back. Period.</span>
@@ -456,8 +459,21 @@
         </div>
         <div class="get-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <p><b>A written 90-day marketing roadmap</b> your team can run after I step out.</p>
+          <p><b>A written marketing roadmap</b> your team can run after I step out.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE OFFER / PRICE ===== -->
+  <section class="block">
+    <div class="container">
+      <div class="price-card price-card--green">
+        <div class="was">$5,000</div>
+        <div class="now">$2,500<span>One Time Offer</span></div>
+        <p class="terms">Offer ends November 30th</p>
+        <a class="btn btn-green btn-lg btn-block" href="#apply">Schedule Your Call Now</a>
+        <p class="fineprint">Offer is valid only for the first 5 businesses. Price reverts to $5,000.</p>
       </div>
     </div>
   </section>
@@ -547,7 +563,7 @@
         </div>
         <div class="result-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <p>A written 90-day roadmap everyone follows, so nothing stalls when I step out.</p>
+          <p>A written marketing roadmap everyone follows, so nothing stalls when I step out.</p>
         </div>
         <div class="result-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -555,7 +571,7 @@
         </div>
         <div class="result-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          <p>Real momentum you can feel inside 90 days.</p>
+          <p>Real momentum you can feel fast.</p>
         </div>
       </div>
     </div>
@@ -573,24 +589,6 @@
           <li>You don't know what's working or how to change it</li>
           <li>And you don't have time to wait 6 months for results</li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== THE OFFER / PRICE ===== -->
-  <section class="block">
-    <div class="container">
-      <div class="scarcity">
-        <strong>Only 5 companies. Only through November 30.</strong>
-        <p>The first 5 Central Florida businesses get Rebuilt at the founding rate. After that, it returns to $5,000.</p>
-      </div>
-      <div class="price-card">
-        <div class="price-tag">Founding 5 Rate</div>
-        <div class="was">$5,000</div>
-        <div class="now">$2,500<span>one time, not a monthly retainer</span></div>
-        <p class="terms">For the first 5 Central Florida companies, through November 30.</p>
-        <a class="btn btn-gold btn-lg btn-block" href="#apply">Apply and pick your time</a>
-        <p class="fineprint">Spots are first come, first served. Once the 5 are filled, the price goes back to $5,000.</p>
       </div>
     </div>
   </section>
@@ -640,23 +638,12 @@
         </details>
         <details>
           <summary>Why is it only $2,500?</summary>
-          <div class="ans">The first 5 Central Florida companies get the founding rate in exchange for being early. After November 30, or once all 5 spots fill, the price returns to $5,000.</div>
+          <div class="ans">This is a limited time offer for Black Friday. Offer ends November 30th. After that, the price reverts to $5,000.</div>
         </details>
         <details>
           <summary>What if I want ongoing help after?</summary>
-          <div class="ans">We can talk about that on the call. It is separate from this engagement and completely optional.</div>
+          <div class="ans">We will discuss that after we deliver your results.</div>
         </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FINAL CTA ===== -->
-  <section class="block lp-alt">
-    <div class="container">
-      <div class="apply-head">
-        <h2>5 companies. 90 days. Let us rebuild it.</h2>
-        <p>Tell me about your business, then pick a time to talk.</p>
-        <div style="margin-top:26px"><a class="btn btn-gold btn-lg" href="#apply">Apply and pick your time</a></div>
       </div>
     </div>
   </section>
