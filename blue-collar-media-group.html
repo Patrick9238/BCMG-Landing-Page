@@ -75,7 +75,9 @@
       grid-template-areas:"eyebrow eyebrow" "titles photo" "pitch pitch";
       column-gap:18px; row-gap:10px; align-items:center; }
     .lp-hero-intro > .lp-eyebrow { grid-area:eyebrow; margin-bottom:0; }
-    .lp-hero-intro > .lp-wordmark { grid-area:titles; }
+    .lp-hero-intro > .lp-hero-titles { grid-area:titles; min-width:0; }
+    .lp-overline { display:block; font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase;
+      letter-spacing:3px; color:#ff4136; font-size:clamp(1rem,4.2vw,1.7rem); line-height:1; margin:0 0 4px; }
     .lp-hero-intro > .lp-hero-photo { grid-area:photo; }
     .lp-hero-intro > .lp-hero-pitch { grid-area:pitch; margin-top:6px; }
 
@@ -98,6 +100,10 @@
     .lp-form-head { font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:.5px;
       font-weight:700; font-size:1.55rem; color:#fff; margin-bottom:4px; }
     .lp-form-head span { color:var(--gold); }
+    .lp-form-urgency { display:inline-block; font-family:"Oswald",sans-serif; text-transform:uppercase;
+      letter-spacing:1px; font-weight:700; font-size:.82rem; color:#ff4136;
+      background:rgba(255,65,54,.12); border:1px solid rgba(255,65,54,.4); border-radius:999px;
+      padding:4px 12px; margin:4px 0 12px; }
     .lp-form-sub { color:var(--muted); font-size:.98rem; margin:0 0 16px; }
 
     @media (min-width:980px) {
@@ -247,13 +253,15 @@
     <div class="container lp-hero-grid">
       <div class="lp-hero-intro">
         <div class="lp-eyebrow">For Central Florida Business Owners</div>
-        <h1 class="lp-wordmark">Rebuilt</h1>
+        <div class="lp-hero-titles">
+          <span class="lp-overline">Your Marketing</span>
+          <h1 class="lp-wordmark">Rebuilt</h1>
+        </div>
         <div class="lp-hero-photo">
           <img src="assets/img/patrick-arms-crossed.png" alt="Patrick Carr">
         </div>
         <div class="lp-hero-pitch">
-          <p class="lp-tagline">Redefining Marketing Success</p>
-          <p class="pitch-lead">Don't hire another marketing agency. It won't work. It hasn't worked.</p>
+          <p class="pitch-lead">Do not hire another marketing agency. It will not work.</p>
           <p class="pitch-with">With Rebuilt you get:</p>
           <ul class="hero-bullets">
             <li>2 days on-site training</li>
@@ -268,6 +276,7 @@
 
       <div class="lp-hero-form">
         <div class="lp-form-head">Only <span>$2,500</span></div>
+        <div class="lp-form-urgency">Only through November 30th</div>
         <p class="lp-form-sub">Limited to 5 Central Florida businesses. Claim your spot below.</p>
 
         <div class="bcmg-survey">
