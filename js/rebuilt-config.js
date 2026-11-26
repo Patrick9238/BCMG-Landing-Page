@@ -5,7 +5,7 @@
   'use strict';
   window.REBUILT_CONFIG = Object.freeze({
     /* Leads POST here. Inbound webhook in Patrick's own GHL. */
-    webhookUrl: "https://services.leadconnectorhq.com/hooks/yesAsOL6imL8O7yZL8AJ/webhook-trigger/ad69dbfd-7444-4158-9375-8eb6880e86a0",
+    webhookUrl: "https://services.leadconnectorhq.com/hooks/yesAsOL6imL8O7yZL8AJ/webhook-trigger/4f98fa9f-0bc8-4d52-8409-af7648b3af48",
     /* Cal.com booking link (synced to patrick@bluecollarmediagroup.com Google calendar). */
     calLink: "blue-collar-media-group/rebuilt-consultation-call",
     calOrigin: "https://cal.com",
