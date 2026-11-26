@@ -54,28 +54,61 @@
     .lp-body p:last-child { margin-bottom:0; }
     .lp-emph { color:var(--text); font-weight:600; }
 
+    /* Grain overlay: a touch of texture so the page reads hand-built, not generated */
+    body::after { content:""; position:fixed; inset:0; pointer-events:none; z-index:60; opacity:.035;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
     /* Hero */
-    .lp-hero { padding:24px 0 36px; }
-    .lp-hero-grid { display:grid; grid-template-columns:1fr; gap:16px; }
+    .lp-hero { position:relative; padding:28px 0 40px; overflow:hidden; }
+    /* Blueprint grid: industrial, on-theme for a business rebuilt to the studs */
+    .lp-hero::before { content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(47,123,240,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(47,123,240,.07) 1px, transparent 1px);
+      background-size:36px 36px;
+      -webkit-mask-image:radial-gradient(135% 95% at 28% 8%, #000 0%, transparent 72%);
+      mask-image:radial-gradient(135% 95% at 28% 8%, #000 0%, transparent 72%); }
+    .lp-hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:18px; }
+
+    /* Intro: on mobile the photo sits to the RIGHT of the wordmark; pitch spans below */
+    .lp-hero-intro { display:grid; grid-template-columns:1fr auto;
+      grid-template-areas:"eyebrow eyebrow" "titles photo" "pitch pitch";
+      column-gap:18px; row-gap:10px; align-items:center; }
+    .lp-hero-intro > .lp-eyebrow { grid-area:eyebrow; margin-bottom:0; }
+    .lp-hero-intro > .lp-wordmark { grid-area:titles; }
+    .lp-hero-intro > .lp-hero-photo { grid-area:photo; }
+    .lp-hero-intro > .lp-hero-pitch { grid-area:pitch; margin-top:6px; }
+
     .lp-wordmark { font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase;
-      letter-spacing:1px; line-height:.95; font-size:clamp(3rem,13vw,5.5rem); margin:0 0 6px;
-      background:linear-gradient(180deg,#fff 0%,#cfd6e0 100%); -webkit-background-clip:text;
-      background-clip:text; color:transparent; }
+      letter-spacing:1px; line-height:.86; font-size:clamp(2.7rem,13vw,5.6rem); margin:0;
+      color:#fff; text-shadow:0 3px 0 rgba(0,0,0,.3); }
+    .lp-wordmark::after { content:""; display:block; width:56px; height:5px; margin-top:12px; background:var(--gold); }
+    .lp-hero-photo img { width:100%; max-width:132px; height:auto; margin:0; display:block; }
+
     .lp-tagline { font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:2px;
-      color:var(--gold); font-weight:700; font-size:clamp(1rem,3.2vw,1.35rem); margin:0 0 14px; }
-    .lp-hero .sub { color:var(--muted); font-size:1.06rem; margin:0; max-width:46ch; }
-    .lp-hero-photo img { width:100%; max-width:160px; height:auto; margin:14px auto 0; display:block; }
+      color:var(--gold); font-weight:700; font-size:clamp(1rem,3.2vw,1.35rem); margin:0 0 16px; }
+    .pitch-lead { color:#fff; font-weight:700; font-size:1.14rem; line-height:1.4; margin:0 0 14px; }
+    .pitch-with { font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:1.5px;
+      color:var(--muted); font-size:.82rem; font-weight:600; margin:0 0 12px; }
+    .hero-bullets { list-style:none; display:grid; gap:10px; margin:0; }
+    .hero-bullets li { position:relative; padding-left:26px; color:var(--text); font-size:1.02rem; }
+    .hero-bullets li::before { content:""; position:absolute; left:2px; top:7px; width:10px; height:10px;
+      background:var(--gold); clip-path:polygon(0 0, 100% 50%, 0 100%); }
+
     .lp-form-head { font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:.5px;
-      font-weight:700; font-size:1.18rem; color:#fff; margin-bottom:6px; }
-    .lp-form-sub { color:var(--muted); font-size:.95rem; margin:0 0 16px; }
+      font-weight:700; font-size:1.55rem; color:#fff; margin-bottom:4px; }
+    .lp-form-head span { color:var(--gold); }
+    .lp-form-sub { color:var(--muted); font-size:.98rem; margin:0 0 16px; }
+
     @media (min-width:980px) {
-      .lp-hero { padding:44px 0 56px; }
+      .lp-hero { padding:48px 0 58px; }
       .lp-hero-grid { grid-template-columns:1fr 1fr; grid-template-rows:min-content 1fr;
         grid-template-areas:"intro form" "feat form"; column-gap:44px; row-gap:22px; align-items:start; }
-      .lp-hero-intro { grid-area:intro; }
+      .lp-hero-intro { grid-area:intro; grid-template-columns:1fr;
+        grid-template-areas:"eyebrow" "titles" "pitch" "photo"; row-gap:16px; align-items:start; }
       .lp-hero-feat { grid-area:feat; }
       .lp-hero-form { grid-area:form; }
-      .lp-hero-photo img { max-width:300px; margin:22px 0 0; }
+      .lp-hero-photo img { max-width:252px; margin:4px 0 0; }
       .lp-hero-feat .featured { text-align:left; }
       .lp-hero-feat .featured-logos { justify-content:flex-start; }
     }
@@ -215,17 +248,27 @@
       <div class="lp-hero-intro">
         <div class="lp-eyebrow">For Central Florida Business Owners</div>
         <h1 class="lp-wordmark">Rebuilt</h1>
-        <p class="lp-tagline">Torn Down. Built to Win.</p>
-        <p class="sub">I come into your business, tear your marketing down to the studs, and build it
-          back into something that actually works. Hands on, side by side with your team.</p>
         <div class="lp-hero-photo">
           <img src="assets/img/patrick-arms-crossed.png" alt="Patrick Carr">
+        </div>
+        <div class="lp-hero-pitch">
+          <p class="lp-tagline">Redefining Marketing Success</p>
+          <p class="pitch-lead">Don't hire another marketing agency. It won't work. It hasn't worked.</p>
+          <p class="pitch-with">With Rebuilt you get:</p>
+          <ul class="hero-bullets">
+            <li>2 days on-site training</li>
+            <li>One-on-one content coaching</li>
+            <li>Complete marketing strategy</li>
+            <li>Social media, paid and organic strategy</li>
+            <li>90-day marketing roadmap</li>
+            <li>Mastering Attention on-site training course</li>
+          </ul>
         </div>
       </div>
 
       <div class="lp-hero-form">
-        <div class="lp-form-head">Apply for one of 5 spots</div>
-        <p class="lp-form-sub">Answer a few quick questions, then pick your consultation time. Takes about two minutes.</p>
+        <div class="lp-form-head">Only <span>$2,500</span></div>
+        <p class="lp-form-sub">Limited to 5 Central Florida businesses. Claim your spot below.</p>
 
         <div class="bcmg-survey">
           <form id="rebuilt-form" method="post" action="#" autocomplete="on" novalidate aria-label="Apply for Rebuilt">
