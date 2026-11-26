@@ -136,6 +136,28 @@
           "\nPhone: " + payload.phone + "\nBiggest challenge: " + payload.marketing_challenge
       }
     });
+    // The real conversion: fire Meta "Schedule" when they actually book the call.
+    // Cal.com emits "bookingSuccessful" from the embed; we fire once, with the
+    // same Advanced Matching data so the booking maps to the person and the ad.
+    var scheduled = false;
+    Cal("on", {
+      action: "bookingSuccessful",
+      callback: function () {
+        if (scheduled || typeof win.fbq !== "function") return;
+        scheduled = true;
+        try {
+          if (config.metaPixelId) {
+            win.fbq("init", config.metaPixelId, {
+              em: payload.email,
+              ph: String(payload.phone || "").replace(/\D/g, ""),
+              fn: payload.first_name,
+              ln: payload.last_name
+            });
+          }
+          win.fbq("track", "Schedule", { content_name: "Rebuilt Consultation Booked" }, { eventID: "rebuilt-booking-" + payload.submission_id });
+        } catch (_) {}
+      }
+    });
   }
 
   function init() {
