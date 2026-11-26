@@ -106,11 +106,40 @@
     .lp-form-head { font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:.5px;
       font-weight:700; font-size:1.55rem; color:#fff; margin-bottom:4px; }
     .lp-form-head span { color:var(--gold); }
-    .lp-form-urgency { display:inline-block; font-family:"Oswald",sans-serif; text-transform:uppercase;
-      letter-spacing:1px; font-weight:700; font-size:.82rem; color:#ff4136;
-      background:rgba(255,65,54,.12); border:1px solid rgba(255,65,54,.4); border-radius:999px;
-      padding:4px 12px; margin:4px 0 12px; }
+    .lp-form-when { font-family:"Oswald",sans-serif; font-style:normal; text-transform:uppercase; letter-spacing:.5px;
+      font-size:.72rem; font-weight:700; color:#ff4136; vertical-align:middle; margin-left:8px; white-space:nowrap; }
+    .lp-form-guarantee { display:flex; align-items:center; gap:7px; margin:8px 0 10px; color:var(--green);
+      font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:.5px; font-weight:700; font-size:.8rem; }
+    .lp-form-guarantee svg { flex:0 0 auto; width:17px; height:17px; }
     .lp-form-sub { color:var(--muted); font-size:.98rem; margin:0 0 16px; }
+    .pitch-sub { color:var(--muted); font-size:1.04rem; line-height:1.5; margin:8px 0 0; }
+
+    /* Why our system works */
+    .why { display:grid; grid-template-columns:1fr; gap:18px; }
+    @media (min-width:760px) { .why { grid-template-columns:repeat(3,1fr); } }
+    .why-card { background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--blue);
+      border-radius:var(--radius); padding:26px 22px; }
+    .why-card .big { font-family:"Oswald",sans-serif; font-weight:700; color:var(--gold); font-size:2rem; line-height:1; margin-bottom:6px; }
+    .why-card h3 { font-size:1.25rem; margin-bottom:10px; }
+    .why-card p { color:var(--muted); font-size:1rem; }
+
+    /* Results you can expect */
+    .results-list { display:grid; gap:14px; max-width:820px; margin:0 auto; }
+    .result-item { display:flex; gap:14px; align-items:flex-start; background:var(--surface);
+      border:1px solid var(--border); border-radius:var(--radius); padding:18px 20px; }
+    .result-item svg { flex:0 0 auto; width:24px; height:24px; color:var(--green); margin-top:2px; }
+    .result-item p { color:var(--text); font-size:1.02rem; margin:0; }
+    .results-note { color:var(--muted); font-size:.98rem; text-align:center; max-width:640px; margin:22px auto 0; }
+
+    /* Depth pass: buttons and cards lift off the page */
+    .btn { box-shadow:0 8px 20px -6px rgba(0,0,0,.55); transition:transform .14s ease, box-shadow .14s ease; }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 14px 28px -6px rgba(0,0,0,.6); }
+    .btn-gold:hover { box-shadow:0 14px 30px -6px rgba(255,181,36,.42); }
+    .btn-blue:hover { box-shadow:0 14px 30px -6px rgba(47,123,240,.42); }
+    .get-item, .step, .whocol, .price-card, .vid-frame, .greview, .why-card, .result-item { box-shadow:0 18px 40px -16px rgba(0,0,0,.62); }
+    .get-item, .whocol, .vid-frame, .why-card { transition:transform .15s ease, box-shadow .15s ease; }
+    .get-item:hover, .whocol:hover, .why-card:hover, .vid-frame:hover { transform:translateY(-3px); box-shadow:0 24px 48px -16px rgba(0,0,0,.72); }
+    .faq details { box-shadow:0 10px 26px -14px rgba(0,0,0,.5); }
 
     @media (min-width:980px) {
       .lp-hero { padding:48px 0 58px; }
@@ -268,21 +297,16 @@
         </div>
         <div class="lp-hero-pitch">
           <p class="pitch-lead">Do not hire another marketing agency. It will not work.</p>
-          <p class="pitch-with">With Rebuilt you get:</p>
-          <ul class="hero-bullets">
-            <li>2 days on-site training</li>
-            <li>One-on-one content coaching</li>
-            <li>Complete marketing strategy</li>
-            <li>Social media, paid and organic strategy</li>
-            <li>90-day marketing roadmap</li>
-            <li>Mastering Attention on-site training course</li>
-          </ul>
+          <p class="pitch-sub">For 90 days I come into your business and rebuild your marketing with you. See exactly what is included below.</p>
         </div>
       </div>
 
       <div class="lp-hero-form">
-        <div class="lp-form-head">Only <span>$2,500</span></div>
-        <div class="lp-form-urgency">Only through November 30th</div>
+        <div class="lp-form-head">Only <span>$2,500</span><em class="lp-form-when">only through November 30th</em></div>
+        <div class="lp-form-guarantee">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          <span>100% satisfied or your money back. Period.</span>
+        </div>
         <p class="lp-form-sub">Limited to 5 Central Florida businesses. Claim your spot below.</p>
 
         <div class="bcmg-survey">
@@ -355,10 +379,6 @@
               <button class="btn btn-blue" type="button" data-survey-next>Continue</button>
               <button class="btn btn-gold" type="submit" hidden>Submit and pick my time</button>
             </div>
-            <div class="survey-guarantee" data-survey-guarantee>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-              <span>100% satisfied or your money back. Period.</span>
-            </div>
             <p class="survey-status" data-survey-status role="status" aria-live="polite"></p>
             <noscript><p class="survey-status">Please enable JavaScript to apply.</p></noscript>
           </form>
@@ -388,39 +408,10 @@
     </div>
   </section>
 
-  <!-- ===== THE HOOK ===== -->
+  <!-- ===== WHAT'S INCLUDED ===== -->
   <section class="block lp-alt">
     <div class="container">
-      <div class="lp-head"><h2>You keep seeing me. That is not an accident.</h2></div>
-      <div class="lp-narrow lp-body">
-        <p>In the last 90 days, my content has been viewed more than <span class="lp-emph">25 million times</span>
-          across every platform. You have seen me in your feed whether you were looking for me or not.</p>
-        <p>That is what marketing done right looks like. Now I want to do it inside your business.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== THE PROBLEM ===== -->
-  <section class="block">
-    <div class="container">
-      <div class="lp-head"><h2>Your business grew. Your marketing did not.</h2></div>
-      <div class="lp-narrow lp-body">
-        <p>You built a real business. But somewhere along the way, your marketing stopped working the way it used to.</p>
-        <ul class="lp-bullets">
-          <li>You are spending money and cannot tell what is actually bringing in revenue</li>
-          <li>Your team or agency is busy, but nothing is moving</li>
-          <li>Referrals carried you this far, and they will not carry you further</li>
-          <li>You know something is wrong. You just do not know what.</li>
-        </ul>
-        <p class="lp-close">You do not need more activity. You need it rebuilt.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== WHAT YOU GET ===== -->
-  <section class="block lp-alt">
-    <div class="container">
-      <div class="lp-head"><h2>We tear it down. We build it right.</h2></div>
+      <div class="lp-head"><h2>What's Included</h2></div>
       <div class="get-list">
         <div class="get-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -455,44 +446,10 @@
     </div>
   </section>
 
-  <!-- ===== HOW IT WORKS ===== -->
+  <!-- ===== WHO USES OUR SYSTEM ===== -->
   <section class="block">
     <div class="container">
-      <div class="lp-head"><h2>How Rebuilt Works</h2></div>
-      <div class="steps">
-        <div class="step">
-          <div class="mo">Step 1</div>
-          <h3>Teardown</h3>
-          <p>2 days on-site. I get inside your marketing, your numbers, and your team, and find what is actually broken.</p>
-        </div>
-        <div class="step">
-          <div class="mo">Step 2</div>
-          <h3>Rebuild</h3>
-          <p>We build the strategy, create content, launch campaigns, and set up automations. Side by side, in your business.</p>
-        </div>
-        <div class="step">
-          <div class="mo">Step 3</div>
-          <h3>Run It</h3>
-          <p>30 days of coaching plus a written 90-day roadmap, so your team keeps the engine running without me.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== WHAT THIS IS NOT ===== -->
-  <section class="block lp-alt">
-    <div class="container">
-      <div class="not-box">
-        <h2>This is not an agency retainer.</h2>
-        <p>It is a one time engagement. I do not disappear and bill you every month. I come in, we rebuild it together, and I hand you something your team can run.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PROOF ===== -->
-  <section class="block">
-    <div class="container">
-      <div class="lp-head"><h2>Real Businesses. Real Results.</h2></div>
+      <div class="lp-head"><h2>Who Uses Our System</h2></div>
 
       <div class="vids">
         <div class="vid">
@@ -538,15 +495,71 @@
     </div>
   </section>
 
-  <!-- ===== WHY NOT HIRE SOMEONE ===== -->
+  <!-- ===== WHY OUR SYSTEM WORKS ===== -->
   <section class="block lp-alt">
     <div class="container">
-      <div class="lp-head"><h2>Why Not Just Hire Someone?</h2></div>
+      <div class="lp-head"><h2>Why Our System Works</h2></div>
+      <div class="why">
+        <div class="why-card">
+          <div class="big">25M+</div>
+          <h3>You get me, not a junior</h3>
+          <p>My content has been viewed more than 25 million times in the last 90 days. I do this at scale every day, and for 90 days I do it inside your business.</p>
+        </div>
+        <div class="why-card">
+          <h3>Built in, not bolted on</h3>
+          <p>I am not an agency that disappears and bills you every month. I am on-site, side by side with your team, building a system they can actually run.</p>
+        </div>
+        <div class="why-card">
+          <h3>Faster and cheaper than hiring</h3>
+          <p>A full-time marketing director runs $90,000 to $130,000 a year. Rebuilt costs a fraction, starts now, and you get someone who has already done it at scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE RESULTS YOU CAN EXPECT ===== -->
+  <section class="block">
+    <div class="container">
+      <div class="lp-head"><h2>The Results You Can Expect</h2></div>
+      <div class="results-list">
+        <div class="result-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <p>A marketing system that actually runs, instead of a binder that sits on a shelf.</p>
+        </div>
+        <div class="result-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <p>Content and campaigns live, with your team creating and shipping on their own.</p>
+        </div>
+        <div class="result-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <p>A written 90-day roadmap everyone follows, so nothing stalls when I step out.</p>
+        </div>
+        <div class="result-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <p>Clarity on what is working, what to cut, and where every dollar goes.</p>
+        </div>
+        <div class="result-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <p>Real momentum you can feel inside 90 days.</p>
+        </div>
+      </div>
+      <p class="results-note">Want the specific numbers from businesses I have worked with? I will walk you through them on the call.</p>
+    </div>
+  </section>
+
+  <!-- ===== THE PROBLEM ===== -->
+  <section class="block lp-alt">
+    <div class="container">
+      <div class="lp-head"><h2>Your business grew. Your marketing did not.</h2></div>
       <div class="lp-narrow lp-body">
-        <p>A full-time marketing director in Central Florida costs $90,000 to $130,000 a year plus benefits.
-          You would spend months finding them, then months more training them, with no guarantee they have
-          ever built an audience.</p>
-        <p class="lp-emph">Rebuilt costs a fraction of that, starts now, and you get someone who has already done it at scale.</p>
+        <p>You built a real business. But somewhere along the way, your marketing stopped working the way it used to.</p>
+        <ul class="lp-bullets">
+          <li>You are spending money and cannot tell what is actually bringing in revenue</li>
+          <li>Your team or agency is busy, but nothing is moving</li>
+          <li>Referrals carried you this far, and they will not carry you further</li>
+          <li>You know something is wrong. You just do not know what.</li>
+        </ul>
+        <p class="lp-close">You do not need more activity. You need it rebuilt.</p>
       </div>
     </div>
   </section>
