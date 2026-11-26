@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css?v=11">
-  <link rel="stylesheet" href="css/bcmg-survey.css?v=3">
+  <link rel="stylesheet" href="css/bcmg-survey.css?v=4">
 
   <style>
     /* ===== Rebuilt offer page (page-specific) ===== */
@@ -68,13 +68,13 @@
       background-size:36px 36px;
       -webkit-mask-image:radial-gradient(135% 95% at 28% 8%, #000 0%, transparent 72%);
       mask-image:radial-gradient(135% 95% at 28% 8%, #000 0%, transparent 72%); }
-    .lp-hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:18px; }
+    .lp-hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1fr; gap:18px; min-width:0; }
+    .lp-hero-grid > *, .lp-hero-intro, .lp-hero-feat, .featured { min-width:0; max-width:100%; }
 
     /* Intro: on mobile the photo sits to the RIGHT of the wordmark; pitch spans below */
     .lp-hero-intro { display:grid; grid-template-columns:1fr auto;
-      grid-template-areas:"eyebrow eyebrow" "titles photo" "pitch pitch";
-      column-gap:18px; row-gap:10px; align-items:center; }
-    .lp-hero-intro > .lp-eyebrow { grid-area:eyebrow; margin-bottom:0; }
+      grid-template-areas:"titles photo" "pitch pitch";
+      column-gap:18px; row-gap:14px; align-items:center; }
     .lp-hero-intro > .lp-hero-titles { grid-area:titles; min-width:0; }
     .lp-overline { display:block; font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase;
       letter-spacing:3px; color:#ff4136; font-size:clamp(1rem,4.2vw,1.7rem); line-height:1; margin:0 0 4px; }
@@ -112,7 +112,11 @@
       font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:.5px; font-weight:700; font-size:.8rem; }
     .lp-form-guarantee svg { flex:0 0 auto; width:17px; height:17px; }
     .lp-form-sub { color:var(--muted); font-size:.98rem; margin:0 0 16px; }
-    .pitch-sub { color:var(--muted); font-size:1.04rem; line-height:1.5; margin:8px 0 0; }
+    .hero-claim { color:#fff; font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase;
+      font-size:clamp(1.35rem,5.2vw,2.1rem); line-height:1.08; letter-spacing:.5px; margin:0;
+      text-shadow:0 2px 8px rgba(0,0,0,.5); }
+    .hero-claim .hl { color:var(--gold); }
+    .hero-claim .grt { color:var(--green); }
 
     /* Why our system works */
     .why { display:grid; grid-template-columns:1fr; gap:18px; }
@@ -146,7 +150,7 @@
       .lp-hero-grid { grid-template-columns:1fr 1fr; grid-template-rows:min-content 1fr;
         grid-template-areas:"intro form" "feat form"; column-gap:44px; row-gap:22px; align-items:start; }
       .lp-hero-intro { grid-area:intro; grid-template-columns:1fr;
-        grid-template-areas:"eyebrow" "titles" "pitch" "photo"; row-gap:16px; align-items:start; }
+        grid-template-areas:"titles" "pitch" "photo"; row-gap:16px; align-items:start; }
       .lp-hero-feat { grid-area:feat; }
       .lp-hero-form { grid-area:form; }
       .lp-hero-photo img { max-width:252px; margin:4px 0 0; }
@@ -215,13 +219,21 @@
     .greview .body { color:#3a4150; font-size:.95rem; line-height:1.55; }
     .greview .gmark { margin-left:auto; }
 
-    /* As featured on */
-    .featured { margin-top:40px; text-align:center; }
+    /* As featured on - scrolling ticker */
+    .featured { margin-top:30px; text-align:center; }
     .featured .ftitle { font-family:"Oswald",sans-serif; text-transform:uppercase; letter-spacing:2px;
-      color:var(--muted); font-size:.78rem; margin-bottom:16px; }
-    .featured-logos { display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:14px 30px; }
-    .featured-logos span { font-family:"Oswald",sans-serif; font-weight:700; text-transform:uppercase;
-      letter-spacing:1px; color:#cfd6e0; font-size:1.05rem; opacity:.85; }
+      color:var(--muted); font-size:.78rem; margin-bottom:12px; }
+    .ticker { overflow:hidden; width:100%;
+      -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+      mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+    .ticker-track { display:flex; align-items:center; gap:14px; width:max-content; animation:ticker 20s linear infinite; }
+    .ticker:hover .ticker-track { animation-play-state:paused; }
+    .tick { flex:0 0 auto; display:flex; align-items:center; justify-content:center; height:46px; padding:0 18px;
+      background:#fff; border-radius:10px; box-shadow:0 8px 18px -8px rgba(0,0,0,.55); }
+    .tick img { height:24px; width:auto; display:block; }
+    .tick-dark { background:#15181e; box-shadow:0 8px 18px -8px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,255,255,.08); }
+    @keyframes ticker { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .ticker-track { animation:none; } }
 
     /* Price / offer card */
     .price-card { max-width:560px; margin:0 auto; background:var(--surface); border:1px solid var(--border);
@@ -287,7 +299,6 @@
   <section class="lp-hero" id="apply">
     <div class="container lp-hero-grid">
       <div class="lp-hero-intro">
-        <div class="lp-eyebrow">For Central Florida Business Owners</div>
         <div class="lp-hero-titles">
           <span class="lp-overline">Your Marketing</span>
           <h1 class="lp-wordmark">Rebuilt</h1>
@@ -296,18 +307,16 @@
           <img src="assets/img/patrick-arms-crossed.png" alt="Patrick Carr">
         </div>
         <div class="lp-hero-pitch">
-          <p class="pitch-lead">Do not hire another marketing agency. It will not work.</p>
-          <p class="pitch-sub">For 90 days I come into your business and rebuild your marketing with you. See exactly what is included below.</p>
+          <p class="hero-claim">I will fix your marketing in <span class="hl">48 hours</span>. <span class="grt">Guaranteed.</span></p>
         </div>
       </div>
 
       <div class="lp-hero-form">
-        <div class="lp-form-head">Only <span>$2,500</span><em class="lp-form-when">only through November 30th</em></div>
+        <div class="lp-form-head">Now <span>$2,500</span><em class="lp-form-when">(Valid To November 30th)</em></div>
         <div class="lp-form-guarantee">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
           <span>100% satisfied or your money back. Period.</span>
         </div>
-        <p class="lp-form-sub">Limited to 5 Central Florida businesses. Claim your spot below.</p>
 
         <div class="bcmg-survey">
           <form id="rebuilt-form" method="post" action="#" autocomplete="on" novalidate aria-label="Apply for Rebuilt">
@@ -317,7 +326,7 @@
 
             <!-- Step 1: business -->
             <fieldset data-survey-step>
-              <legend tabindex="-1">Your business</legend>
+              <legend tabindex="-1">Tell us about your business</legend>
               <div class="survey-field">
                 <label for="rb-company">Company name</label>
                 <input id="rb-company" name="company_name" type="text" maxlength="150" autocomplete="organization" required data-survey-answer data-error-id="rb-company-error" aria-describedby="rb-company-error">
@@ -393,15 +402,19 @@
       </div>
 
       <div class="lp-hero-feat">
-        <!-- ASSETS MISSING: Fox News / NBC / MarketWatch / Yahoo Finance logos are not in /assets.
-             Showing outlet names as text. Send the logo files (white/monochrome PNG or SVG) to swap in. -->
         <div class="featured">
-          <div class="ftitle">Patrick Carr Has Been Featured On</div>
-          <div class="featured-logos">
-            <span>Fox News</span>
-            <span>NBC</span>
-            <span>MarketWatch</span>
-            <span>Yahoo Finance</span>
+          <div class="ftitle">As Featured On</div>
+          <div class="ticker">
+            <div class="ticker-track">
+              <span class="tick"><img src="assets/img/featured-florida-politics.png" alt="Florida Politics"></span>
+              <span class="tick"><img src="assets/img/featured-wftv9.png" alt="WFTV 9 ABC"></span>
+              <span class="tick tick-dark"><img src="assets/img/featured-marketwatch.png" alt="MarketWatch"></span>
+              <span class="tick"><img src="assets/img/featured-yahoo-finance.png" alt="Yahoo Finance"></span>
+              <span class="tick" aria-hidden="true"><img src="assets/img/featured-florida-politics.png" alt=""></span>
+              <span class="tick" aria-hidden="true"><img src="assets/img/featured-wftv9.png" alt=""></span>
+              <span class="tick tick-dark" aria-hidden="true"><img src="assets/img/featured-marketwatch.png" alt=""></span>
+              <span class="tick" aria-hidden="true"><img src="assets/img/featured-yahoo-finance.png" alt=""></span>
+            </div>
           </div>
         </div>
       </div>
@@ -416,6 +429,10 @@
         <div class="get-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           <p><b>2 full days on-site</b> with you and your team, in your business.</p>
+        </div>
+        <div class="get-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <p><b>1-on-1 coaching.</b> On-site with your team, working directly with you, your department heads, and your vendors.</p>
         </div>
         <div class="get-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -442,14 +459,13 @@
           <p><b>A written 90-day marketing roadmap</b> your team can run after I step out.</p>
         </div>
       </div>
-      <p class="get-note">Every business is different. If you need more, or want to consolidate, we build the plan around you.</p>
     </div>
   </section>
 
-  <!-- ===== WHO USES OUR SYSTEM ===== -->
+  <!-- ===== OUR RESULTS ===== -->
   <section class="block">
     <div class="container">
-      <div class="lp-head"><h2>Who Uses Our System</h2></div>
+      <div class="lp-head"><h2>Our Results</h2></div>
 
       <div class="vids">
         <div class="vid">
@@ -501,17 +517,16 @@
       <div class="lp-head"><h2>Why Our System Works</h2></div>
       <div class="why">
         <div class="why-card">
-          <div class="big">25M+</div>
-          <h3>You get me, not a junior</h3>
-          <p>My content has been viewed more than 25 million times in the last 90 days. I do this at scale every day, and for 90 days I do it inside your business.</p>
+          <h3>Attention is the ROI</h3>
+          <p>We understand how to create content that puts eyes on your business.</p>
         </div>
         <div class="why-card">
-          <h3>Built in, not bolted on</h3>
-          <p>I am not an agency that disappears and bills you every month. I am on-site, side by side with your team, building a system they can actually run.</p>
+          <h3>Monetize that Attention</h3>
+          <p>You've seen me in your feed, and now you're learning about my business. Yes, the system works.</p>
         </div>
         <div class="why-card">
-          <h3>Faster and cheaper than hiring</h3>
-          <p>A full-time marketing director runs $90,000 to $130,000 a year. Rebuilt costs a fraction, starts now, and you get someone who has already done it at scale.</p>
+          <h3>Accountability</h3>
+          <p>Unlike agencies who promise you results without the work, I promise results with a partnership. This is not for businesses who want the easy way out.</p>
         </div>
       </div>
     </div>
@@ -543,23 +558,21 @@
           <p>Real momentum you can feel inside 90 days.</p>
         </div>
       </div>
-      <p class="results-note">Want the specific numbers from businesses I have worked with? I will walk you through them on the call.</p>
     </div>
   </section>
 
   <!-- ===== THE PROBLEM ===== -->
   <section class="block lp-alt">
     <div class="container">
-      <div class="lp-head"><h2>Your business grew. Your marketing did not.</h2></div>
+      <div class="lp-head"><h2>Why Your Marketing is Broken</h2></div>
       <div class="lp-narrow lp-body">
-        <p>You built a real business. But somewhere along the way, your marketing stopped working the way it used to.</p>
+        <p class="lp-emph">No one is paying attention to your business.</p>
         <ul class="lp-bullets">
-          <li>You are spending money and cannot tell what is actually bringing in revenue</li>
-          <li>Your team or agency is busy, but nothing is moving</li>
-          <li>Referrals carried you this far, and they will not carry you further</li>
-          <li>You know something is wrong. You just do not know what.</li>
+          <li>You're spending money on generic ads that no one watches</li>
+          <li>You have no plan to do anything different</li>
+          <li>You don't know what's working or how to change it</li>
+          <li>And you don't have time to wait 6 months for results</li>
         </ul>
-        <p class="lp-close">You do not need more activity. You need it rebuilt.</p>
       </div>
     </div>
   </section>
